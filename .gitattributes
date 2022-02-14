@@ -1,0 +1,4 @@
+
+/*.config.js linguist-vendored
+/src/bin/** linguist-vendored
+/src/lib/*/** linguist-vendored

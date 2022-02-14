@@ -1,0 +1,23 @@
+{
+	"name": "0h7z",
+	"private": true,
+	"version": "0.0.0",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build && julia docs.jl /",
+		"prev": "vite build && julia docs.jl +up && vite preview",
+		"clean": "julia docs.jl +up +rm"
+	},
+	"dependencies": {
+		"vue": "^3.2.33",
+		"vue-router": "^4.0.14"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-vue": "^2.3.1",
+		"cssnano": "^5.1.7",
+		"postcss": "^8.4.13",
+		"postcss-css-variables": "^0.18.0",
+		"postcss-nested": "^5.0.6",
+		"vite": "^2.9.6"
+	}
+}
