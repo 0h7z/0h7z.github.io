@@ -1,3 +1,18 @@
+# Copyright (C) 2022 Heptazhou <zhou@0h7z.com>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as
+# published by the Free Software Foundation, either version 3 of the
+# License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 @info "Processing..."
 
 using Match
@@ -6,37 +21,37 @@ const src = "dist"
 const dst = "docs"
 const assetdir = "_"
 const pagemain = "index.html"
-const pagelist = [
-	"400.html"
-	"401.html"
-	"402.html"
-	"403.html"
-	"404.html"
-	"405.html"
-	"406.html"
-	"407.html"
-	"408.html"
-	"409.html"
-	"410.html"
-	"411.html"
-	"412.html"
-	"413.html"
-	"414.html"
-	"415.html"
-	"416.html"
-	"417.html"
-	"418.html"
-	"421.html"
-	"422.html"
-	"423.html"
-	"424.html"
-	"425.html"
-	"426.html"
-	"428.html"
-	"429.html"
-	"431.html"
-	"451.html"
-]
+const pagelist = ["$rsc.html" for rsc in [
+	400
+	401
+	402
+	403
+	404
+	405
+	406
+	407
+	408
+	409
+	410
+	411
+	412
+	413
+	414
+	415
+	416
+	417
+	418
+	421
+	422
+	423
+	424
+	425
+	426
+	428
+	429
+	431
+	451
+]]
 const keeplist = [
 	# file
 	"_config.yml"
