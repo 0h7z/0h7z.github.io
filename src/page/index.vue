@@ -9,13 +9,16 @@
 	</div>
 	<div center italic>
 		<p>
-			Greetings. This site is still under<br />
-			very-early construction.
+			Greetings.<br /><br />
+			Pretty much nothing here yet.
 		</p>
 		<p>
-			The old site is at <a href="https://www.heptazhou.com/" target="_blank">heptazhou.com</a>, just<br />
-			take a look if you are looking for<br />
-			something other than here.
+			Check out more on GitHub.<br />
+			> <a href="https://github.com/0h7z" target="_blank">github.com/0h7z</a>
+		</p>
+		<p hidden>
+			Or maybe have a look at<br />
+			<a href="https://www.heptazhou.com/" target="_blank">heptazhou.com</a>.
 		</p>
 	</div>
 </template>

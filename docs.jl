@@ -22,35 +22,36 @@ const dst = "docs"
 const assetdir = "_"
 const pagemain = "index.html"
 const pagelist = ["$rsc.html" for rsc in [
-	400
-	401
-	402
-	403
-	404
-	405
-	406
-	407
-	408
-	409
-	410
-	411
-	412
-	413
-	414
-	415
-	416
-	417
-	418
-	421
-	422
-	423
-	424
-	425
-	426
-	428
-	429
-	431
-	451
+	# response status code
+	400 # bad request
+	401 # unauthorized
+	402 # payment required
+	403 # forbidden
+	404 # not found
+	405 # method not allowed
+	406 # not acceptable
+	407 # proxy authentication required
+	408 # request timeout
+	409 # conflict
+	410 # gone
+	411 # length required
+	412 # precondition failed
+	413 # payload too large
+	414 # URI too long
+	415 # unsupported media type
+	416 # range not satisfiable
+	417 # expectation failed
+	418 # I'm a teapot
+	421 # misdirected request
+	422 # unprocessable entity (WebDAV)
+	423 # locked (WebDAV)
+	424 # failed dependency (WebDAV)
+	425 # too early
+	426 # upgrade required
+	428 # precondition required
+	429 # too many requests
+	431 # request header fields too large
+	451 # unavailable for legal reasons
 ]]
 const keeplist = [
 	# file
