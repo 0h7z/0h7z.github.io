@@ -60,8 +60,7 @@ const keeplist = [
 ]
 
 try
-	isdir(src) || error()
-	isdir(dst) || error()
+	isdir.([src, dst]) |> all || error()
 	_up = _rm = _cp = isempty(ARGS)
 	for i in ARGS
 		@match i begin
@@ -80,12 +79,14 @@ try
 				while occursin(r"^\t*  "m, str)
 					str = replace(str, r"^\t*\K  "m => "\t")
 				end
+				str = replace(str, r"^\t+<(\w+) .*\K(?<! /)>$"m => " />")
+				str = replace(str, r"^\t+<(\w+) .*</\1\K />$"m => ">")
 				write(f, str)
 			end
 			if isdir(f) && basename(f) == assetdir
 				for ast in readdir(f, join = true)
 					isfile(ast) || continue
-					if occursin(r"^(?:index|vendor)\.[a-f\d]{8}\.js$", basename(ast))
+					if occursin(r"^(index|vendor)\.[a-f\d]{8}\.js$", basename(ast))
 						str = read(ast, String)
 						str = replace(str, r"/\*!.*?\n.*?\*/"s => "")
 						write(ast, str)
@@ -101,13 +102,11 @@ try
 	end
 	if _cp # src -> dst
 		for f in readdir(src)
-			cp(joinpath(src, f), joinpath(dst, f), force = true)
+			cp(joinpath.([src, dst], f)..., force = true)
 			f == pagemain || continue
 			@info "Main access point: /$f"
 			cd(dst) do
-				for page in pagelist
-					symlink(pagemain, page)
-				end
+				symlink.(pagemain, pagelist)
 			end
 		end
 	end
