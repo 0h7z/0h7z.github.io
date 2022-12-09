@@ -13,6 +13,9 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# [compat]
+# julia = "≥ 1.5"
+
 @info "Processing..."
 
 using Match
@@ -72,24 +75,23 @@ try
 		end
 	end
 	if _up # src
-		for f in readdir(src, join = true)
-			if isfile(f) && splitext(f)[2] == ".html"
-				str = read(f, String)
-				str = replace(str, r"\n(?:\s*\n)+"s => "\n")
-				while occursin(r"^\t*  "m, str)
-					str = replace(str, r"^\t*\K  "m => "\t")
-				end
-				str = replace(str, r"^\t+<(\w+) .*\K(?<! /)>$"m => " />")
-				str = replace(str, r"^\t+<(\w+) .*</\1\K />$"m => ">")
-				write(f, str)
-			end
-			if isdir(f) && basename(f) == assetdir
-				for ast in readdir(f, join = true)
-					isfile(ast) || continue
-					if occursin(r"^(index|vendor)\.[a-f\d]{8}\.js$", basename(ast))
-						str = read(ast, String)
+		for (prefix, ds, fs) in walkdir(src)
+			cd(prefix) do
+				for f in fs
+					if splitext(f)[2] == ".html"
+						str = read(f, String)
+						str = replace(str, r"\n(?:\s*\n)+"s => "\n")
+						while occursin(r"^\t*  "m, str)
+							str = replace(str, r"^\t*\K  "m => "\t")
+						end
+						str = replace(str, r"^\t+<(meta|link) .*\K(?<! /)>$"m => " />")
+						write(f, str)
+					end
+					# vite < v4
+					if startswith(joinpath(src, assetdir))(prefix) && occursin(r"^(index|vendor)[\.-][a-f\d]{8}\.js$", f)
+						str = read(f, String)
 						str = replace(str, r"/\*!.*?\n.*?\*/"s => "")
-						write(ast, str)
+						write(f, str)
 					end
 				end
 			end
@@ -103,9 +105,8 @@ try
 	if _cp # src -> dst
 		for f in readdir(src)
 			cp(joinpath.([src, dst], f)..., force = true)
-			f == pagemain || continue
-			@info "Main access point: /$f"
-			cd(dst) do
+			f ≠ pagemain || cd(dst) do
+				@info "Main access point: /$f"
 				symlink.(pagemain, pagelist)
 			end
 		end

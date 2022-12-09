@@ -1,17 +1,19 @@
 import { defineConfig, splitVendorChunkPlugin } from "vite"
 import { resolve } from "path"
-import postcssNano from "cssnano"
-import postcssNest from "postcss-nested"
-import postcssVars from "postcss-css-variables"
+import cssnano from "cssnano"
+import cssnest from "postcss-nested"
+import cssvars from "postcss-css-variables"
 import ssl from "@vitejs/plugin-basic-ssl"
 import vue from "@vitejs/plugin-vue"
+
+const out = "_/[name].[hash:8]"
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [vue(), ssl(), splitVendorChunkPlugin()],
 	publicDir: "static",
 	resolve: { alias: { "@": resolve(__dirname, "src") } },
-	css: { postcss: { plugins: [postcssNest(), postcssVars(), postcssNano()] } },
+	css: { postcss: { plugins: [cssnest(), cssvars(), cssnano(/* { preset: ["advanced", { autoprefixer: false }] } */)] } },
 	clearScreen: false,
 	optimizeDeps: { force: true },
 	server: {
@@ -24,9 +26,9 @@ export default defineConfig({
 		port: 3030,
 	},
 	build: {
-		assetsDir: "_",
+		// assetsDir: "_", // Default: "assets"
 		cssCodeSplit: false, // Default: true
-		// rollupOptions: { output: { indent: "\t" } },
+		rollupOptions: { output: { assetFileNames: `${out}[extname]`, chunkFileNames: `${out}.js`, entryFileNames: `${out}.js` } },
 		commonjsOptions: {
 			// dynamicRequireTargets: [], // Default: []
 			// exclude: [], // Default: null

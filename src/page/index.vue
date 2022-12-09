@@ -10,15 +10,15 @@
 	<div center italic>
 		<p>
 			Greetings.<br /><br />
-			Pretty much nothing here yet.
+			Nothing much here.
 		</p>
 		<p>
 			Check out more on GitHub.<br />
 			> <a href="https://github.com/0h7z" target="_blank">github.com/0h7z</a>
 		</p>
 		<p hidden>
-			Or maybe have a look at<br />
-			<a href="https://www.heptazhou.com/" target="_blank">heptazhou.com</a>.
+			Also have a look at<br />
+			<a href="https://www.heptazhou.com" target="_blank">heptazhou.com</a> .
 		</p>
 	</div>
 </template>

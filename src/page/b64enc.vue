@@ -5,17 +5,17 @@
 
 	const route = useRoute()
 	const data = reactive({ str: "" })
-	const dec = (msg) => {
+	const enc = (msg) => {
 		try {
-			const r = decode(msg)
-			if (r) navigator.clipboard.writeText(r)
+			const r = encode(msg).replace(/=*$/, "").replace(/\+/g, "-").replace(/\//g, "_")
+			if (r) navigator.clipboard.writeText(`${location.origin}/dec/#${r}`)
 			return `${r || "> Nothing to do."}`
 		} catch (e) {
 			console.debug(e)
-			return "> Decode failed."
+			return "> Encode failed."
 		}
 	}
-	watchEffect(() => (data.str = dec(route.hash.replace(/^#*/, ""))))
+	watchEffect(() => (data.str = enc(route.hash.replace(/^#*/, "") || prompt())))
 </script>
 
 <template>
