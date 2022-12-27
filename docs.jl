@@ -99,7 +99,7 @@ try
 	end
 	if _rm # dst
 		for f in readdir(dst)
-			replace(f, '\\' => '/') in keeplist || rm(joinpath(dst, f), recursive = true)
+			replace(f, '\\' => '/') ∈ keeplist || rm(joinpath(dst, f), recursive = true)
 		end
 	end
 	if _cp # src -> dst
@@ -116,6 +116,5 @@ catch e
 end
 
 isempty(ARGS) || exit()
-print("> ")
-readline()
+pause(up = 1)
 
