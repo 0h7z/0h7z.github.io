@@ -63,7 +63,6 @@ const keeplist = [
 ]
 
 try
-	isdir.([src, dst]) |> all || error()
 	_up = _rm = _cp = isempty(ARGS)
 	for i in ARGS
 		@match i begin

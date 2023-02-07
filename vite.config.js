@@ -4,16 +4,24 @@ import cssnano from "cssnano"
 import cssnest from "postcss-nested"
 import cssvars from "postcss-css-variables"
 import ssl from "@vitejs/plugin-basic-ssl"
+import vmd from "vite-plugin-vue-markdown"
+import vps from "vite-plugin-pages"
 import vue from "@vitejs/plugin-vue"
 
-const out = "_/[name].[hash:8]"
+const of_name = (ext = "") => `_/[name].[hash:8]${ext ? "." + ext : "[extname]"}`
+
+const cnn_opt = { preset: ["advanced", { autoprefixer: false }] }
+const out_opt = { assetFileNames: of_name(), chunkFileNames: of_name("js"), entryFileNames: of_name("js") }
+const vmd_opt = { markdownItOptions: { html: true, xhtmlOut: true, breaks: true } }
+const vps_opt = { extensions: ["vue"], importMode: "async" }
+const vue_opt = { include: /\.(vue|md)$/ }
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [vue(), ssl(), splitVendorChunkPlugin()],
+	plugins: [vue(vue_opt), vps(vps_opt), vmd(vmd_opt), ssl(), splitVendorChunkPlugin()],
 	publicDir: "static",
 	resolve: { alias: { "@": resolve(__dirname, "src") } },
-	css: { postcss: { plugins: [cssnest(), cssvars(), cssnano(/* { preset: ["advanced", { autoprefixer: false }] } */)] } },
+	css: { postcss: { plugins: [cssnest(), cssvars(), cssnano(cnn_opt)] } },
 	clearScreen: false,
 	optimizeDeps: { force: true },
 	server: {
@@ -28,7 +36,7 @@ export default defineConfig({
 	build: {
 		// assetsDir: "_", // Default: "assets"
 		cssCodeSplit: false, // Default: true
-		rollupOptions: { output: { assetFileNames: `${out}[extname]`, chunkFileNames: `${out}.js`, entryFileNames: `${out}.js` } },
+		rollupOptions: { output: out_opt },
 		commonjsOptions: {
 			// dynamicRequireTargets: [], // Default: []
 			// exclude: [], // Default: null

@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory, createWebHashHistory } from "vue-router"
+import pages from "~pages"
 
 import Idx from "@/page/index.vue"
 import Msg from "@/lib/Message.vue"
@@ -6,6 +7,7 @@ import Msg from "@/lib/Message.vue"
 const Base64dec = () => import("@/page/b64dec.vue")
 const Base64enc = () => import("@/page/b64enc.vue")
 
+for (const page of pages) page.path += "/"
 const mkpath = (to = "/", mode = "") => {
 	const hash = to.hash
 	to = to.fullPath.split("#", 1)[0].split("?")
@@ -18,7 +20,7 @@ const mkpath = (to = "/", mode = "") => {
 // https://paths.esm.dev/
 const route = [
 	// * test
-	// { path: "/:path(.*)", component: Message, props: (to) => ({ msg: to }) },
+	// { path: "/:path(.*)", component: Msg, props: (to) => ({ msg: to }) },
 	// * main
 	{ path: "/:path(/.*|.*//.*)", redirect: (to) => mkpath(to) },
 	{ path: "/", component: Idx },
@@ -26,6 +28,9 @@ const route = [
 	{ path: "/dec/", component: Base64dec },
 	{ path: "/enc", redirect: (to) => mkpath(to, "d") },
 	{ path: "/enc/", component: Base64enc },
+	// * page
+	{ path: "/snowfox", redirect: (to) => mkpath(to, "d") },
+	...pages,
 	// * client error (400:499)
 	{ path: "/400", component: Msg, props: { msg: "400 Bad Request" } },
 	{ path: "/401", component: Msg, props: { msg: "401 Unauthorized" } },
