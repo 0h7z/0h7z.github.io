@@ -6,7 +6,7 @@ import Msg from "@/lib/Message.vue"
 const Base64dec = () => import("@/page/b64dec.vue")
 const Base64enc = () => import("@/page/b64enc.vue")
 
-const mkpath = (to, mode = "") => {
+const mkpath = (to = "/", mode = "") => {
 	const hash = to.hash
 	to = to.fullPath.split("#", 1)[0].split("?")
 	to[0] = to[0].replace(/(^\/*|\/{2,})/g, "/")
