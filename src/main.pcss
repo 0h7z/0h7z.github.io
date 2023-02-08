@@ -45,7 +45,8 @@
 	--round-border-radius: calc(1rem / 3);
 	--round-border-style: solid;
 	--round-border-width: calc(1rem / 10);
-	--round-padding: 0 calc(1rem / 5);
+	--round-padding-code: 0 calc(1rem / 5);
+	--round-padding-pre-code: calc(1rem / 2) calc(2rem / 3);
 }
 
 html {
@@ -234,6 +235,11 @@ blockquote {
 	display: flex;
 }
 
+pre > code {
+	display: block;
+	padding: var(--round-padding-pre-code);
+}
+
 /* inline */
 a {
 	-moz-text-decoration-line: none;
@@ -280,7 +286,7 @@ button {
 
 code {
 	background-color: var(--color-code-back);
-	padding: var(--round-padding);
+	padding: var(--round-padding-code);
 }
 
 img {

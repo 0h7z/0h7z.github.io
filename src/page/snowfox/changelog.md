@@ -24,8 +24,9 @@
 *****
 +	Default to disable `devtools.accessibility.enabled`.
 +	Default to disable `layout.word_select.eat_space_to_next_word`.
-+	Default to disable OCSP for improved privacy and even security; CRLite is used instead so security is not compromised.
-+	Default to enable the `security.tls.ech.grease_probability` (50%) for improved security.
++	Default to enable `alerts.showFavicons`.
++	Default to enable CRLite and disable OCSP, for improved performance, privacy, and even security.
++	Default to set `security.tls.ech.grease_probability` to `50`, for slightly improved security.
 +	Reduce the delay of fullscreen transition perceivably.
 
 <br />
@@ -34,7 +35,9 @@
 *****
 +	Default to disable `general.autoScroll`.
 +	Default to enable `browser.menu.showViewImageInfo`.
++	Default to enable `browser.preferences.experimental`.
 +	Default to remove CJK from list `browser.tabs.secondaryTextUnsupportedLocales`.
++	Default to set `dom.script_loader.delazification.strategy` to `3`.
 +	Fix the style in `TopLevelImageDocument.css`.
 
 <br />
@@ -43,16 +46,26 @@
 *****
 +	Default to enable `browser.tabs.insertAfterCurrent`.
 +	Default to enable `devtools.webconsole.persistlog`.
++	Default to enable `permissions.desktop-notification.notNow.enabled`.
 +	Fix behavior of function `uint32_t RuntimeService::ClampedHardwareConcurrency`.
 +	Fix behavior of the unified extensions button.
++	Fix the document icon on Windows.
 
 <br />
 
 ##	v109.0.0-1
 *****
++	Default to disable `dom.push.connection.enabled`.
++	Default to disable `webgl.enable-renderer-query`.
++	Default to enable `browser.download.alwaysOpenPanel`.
++	Default to enable `browser.download.useDownloadDir`.
++	Default to enable `browser.urlbar.showSearchTerms.featureGate`.
 +	Default to enable WebGL for improved performance and compatibility.
++	Default to set `devtools.selfxss.count` to `5`.
++	Default to set `network.http.useragent.forceVersion` to `108`.
 +	Fix behavior of function `nsresult nsScreen::GetAvailRect`.
 +	Fix behavior of function `nsresult nsScreen::GetRect`.
++	Fix behavior of function `void nsRFPService::GetSpoofedUserAgent`.
 
 <br />
 

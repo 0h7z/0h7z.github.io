@@ -5,9 +5,12 @@ specifiers:
   '@vitejs/plugin-vue': ^4.0.0
   cssnano: ^5.1.14
   cssnano-preset-advanced: ^5.3.9
+  markdown-it-link-attributes: ^4.0.1
+  markdown-it-prism: ^2.3.0
   postcss: ^8.4.21
   postcss-css-variables: ^0.18.0
   postcss-nested: ^6.0.0
+  prism-themes: github:PrismJS/prism-themes
   vite: ^4.1.1
   vite-plugin-pages: ^0.28.0
   vite-plugin-vue-markdown: ^0.22.4
@@ -19,9 +22,12 @@ devDependencies:
   '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
   cssnano: 5.1.14_postcss@8.4.21
   cssnano-preset-advanced: 5.3.9_postcss@8.4.21
+  markdown-it-link-attributes: 4.0.1
+  markdown-it-prism: 2.3.0
   postcss: 8.4.21
   postcss-css-variables: 0.18.0_postcss@8.4.21
   postcss-nested: 6.0.0_postcss@8.4.21
+  prism-themes: github.com/PrismJS/prism-themes/447479fc7b2be2051fe27e561aceed7cc87a589f
   vite: 4.1.1
   vite-plugin-pages: 0.28.0_vite@4.1.1
   vite-plugin-vue-markdown: 0.22.4_vite@4.1.1
@@ -473,7 +479,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.21.5
-      caniuse-lite: 1.0.30001450
+      caniuse-lite: 1.0.30001451
       fraction.js: 4.2.0
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -506,8 +512,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001450
-      electron-to-chromium: 1.4.288
+      caniuse-lite: 1.0.30001451
+      electron-to-chromium: 1.4.292
       node-releases: 2.0.10
       update-browserslist-db: 1.0.10_browserslist@4.21.5
     dev: true
@@ -523,13 +529,13 @@ packages:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
       browserslist: 4.21.5
-      caniuse-lite: 1.0.30001450
+      caniuse-lite: 1.0.30001451
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: true
 
-  /caniuse-lite/1.0.30001450:
-    resolution: {integrity: sha512-qMBmvmQmFXaSxexkjjfMvD5rnDL0+m+dUMZKoDYsGG8iZN29RuYh9eRoMvKsT6uMAWlyUUGDEQGJJYjzCIO9ew==}
+  /caniuse-lite/1.0.30001451:
+    resolution: {integrity: sha512-XY7UbUpGRatZzoRft//5xOa69/1iGJRBlrieH6QYrkKLIFn3m7OVEJ81dSrKoy2BnKsdbX5cLrOispZNYo9v2w==}
     dev: true
 
   /colord/2.9.3:
@@ -733,8 +739,8 @@ packages:
       domhandler: 4.3.1
     dev: true
 
-  /electron-to-chromium/1.4.288:
-    resolution: {integrity: sha512-8s9aJf3YiokIrR+HOQzNOGmEHFXVUQzXM/JaViVvKdCkNUjS+lEa/uT7xw3nDVG/IgfxiIwUGkwJ6AR1pTpYsQ==}
+  /electron-to-chromium/1.4.292:
+    resolution: {integrity: sha512-ESWOSyJy5odDlE8wvh5NNAMORv4r6assPwIPGHEMWrWD0SONXcG/xT+9aD9CQyeRwyYDPo6dJT4Bbeg5uevVQQ==}
     dev: true
 
   /entities/2.2.0:
@@ -1141,6 +1147,17 @@ packages:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
     dependencies:
       sourcemap-codec: 1.4.8
+    dev: true
+
+  /markdown-it-link-attributes/4.0.1:
+    resolution: {integrity: sha512-pg5OK0jPLg62H4k7M9mRJLT61gUp9nvG0XveKYHMOOluASo9OEF13WlXrpAp2aj35LbedAy3QOCgQCw0tkLKAQ==}
+    dev: true
+
+  /markdown-it-prism/2.3.0:
+    resolution: {integrity: sha512-ePtHY80gZyeje4bn3R3SL0jpd1C9HFaYffJW2Ma0YD+tspqa2v9TuVwUyFwboFu4jnFNcO8oPQROgbcYJbmBvw==}
+    engines: {node: '>=6.0.0'}
+    dependencies:
+      prismjs: 1.29.0
     dev: true
 
   /markdown-it/13.0.1:
@@ -1614,6 +1631,11 @@ packages:
       source-map-js: 1.0.2
     dev: true
 
+  /prismjs/1.29.0:
+    resolution: {integrity: sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==}
+    engines: {node: '>=6'}
+    dev: true
+
   /queue-microtask/1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
@@ -1899,4 +1921,10 @@ packages:
   /yaml/2.2.1:
     resolution: {integrity: sha512-e0WHiYql7+9wr4cWMx3TVQrNwejKaEe7/rHNmQmqRjazfOP5W8PB6Jpebb5o6fIapbz9o9+2ipcaTM2ZwDI6lw==}
     engines: {node: '>= 14'}
+    dev: true
+
+  github.com/PrismJS/prism-themes/447479fc7b2be2051fe27e561aceed7cc87a589f:
+    resolution: {tarball: https://codeload.github.com/PrismJS/prism-themes/tar.gz/447479fc7b2be2051fe27e561aceed7cc87a589f}
+    name: prism-themes
+    version: 1.9.0
     dev: true

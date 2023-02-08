@@ -3,23 +3,29 @@ import { resolve } from "path"
 import cssnano from "cssnano"
 import cssnest from "postcss-nested"
 import cssvars from "postcss-css-variables"
+import mil from "markdown-it-link-attributes"
+import mip from "markdown-it-prism"
 import ssl from "@vitejs/plugin-basic-ssl"
 import vmd from "vite-plugin-vue-markdown"
 import vps from "vite-plugin-pages"
 import vue from "@vitejs/plugin-vue"
 
-const of_name = (ext = "") => `_/[name].[hash:8]${ext ? "." + ext : "[extname]"}`
+const mi_init = (markdown) => markdown.use(mil, mil_opt).use(mip, mip_opt)
+const of_name = (ext = "") => "_/[name].[hash:8]" + (ext ? `.${ext}` : "[extname]")
 
 const cnn_opt = { preset: ["advanced", { autoprefixer: false }] }
+const mdi_opt = { breaks: true, html: true, linkify: false, typographer: false }
+const mil_opt = { attrs: { target: "_blank" }, matcher: (str) => /^[a-z]+:\/+\w+/i.test(str) }
+const mip_opt = { highlightInlineCode: true }
 const out_opt = { assetFileNames: of_name(), chunkFileNames: of_name("js"), entryFileNames: of_name("js") }
-const vmd_opt = { markdownItOptions: { html: true, xhtmlOut: true, breaks: true } }
-const vps_opt = { extensions: ["vue"], importMode: "async" }
+const vmd_opt = { markdownItOptions: mdi_opt, markdownItSetup: mi_init, wrapperClasses: "md" }
+const vps_opt = { dirs: "src/page", extensions: ["vue"], importMode: "async" }
 const vue_opt = { include: /\.(vue|md)$/ }
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [vue(vue_opt), vps(vps_opt), vmd(vmd_opt), ssl(), splitVendorChunkPlugin()],
-	publicDir: "static",
+	publicDir: "static", // Default: "public"
 	resolve: { alias: { "@": resolve(__dirname, "src") } },
 	css: { postcss: { plugins: [cssnest(), cssvars(), cssnano(cnn_opt)] } },
 	clearScreen: false,
@@ -49,7 +55,7 @@ export default defineConfig({
 			// esmExternals: [], // Default: false
 			requireReturnsDefault: "auto", // Default: false
 		},
-		reportCompressedSize: false,
+		reportCompressedSize: false, // Default: true
 		// minify: "terser", // Default: esbuild
 	},
 })

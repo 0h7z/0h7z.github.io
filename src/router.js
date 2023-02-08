@@ -1,11 +1,11 @@
 import { createRouter, createWebHistory, createWebHashHistory } from "vue-router"
 import pages from "~pages"
 
-import Idx from "@/page/index.vue"
+import Idx from "@/inc/index.vue"
 import Msg from "@/lib/Message.vue"
 
-const Base64dec = () => import("@/page/b64dec.vue")
-const Base64enc = () => import("@/page/b64enc.vue")
+const Base64dec = () => import("@/inc/b64dec.vue")
+const Base64enc = () => import("@/inc/b64enc.vue")
 
 for (const page of pages) page.path += "/"
 const mkpath = (to = "/", mode = "") => {
