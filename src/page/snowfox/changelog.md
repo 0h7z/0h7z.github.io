@@ -1,4 +1,22 @@
 
+##	v110.0.0-1
+*****
++	[110.0.0 Firefox Release Notes]
++	Default to disable `devtools.performance.new-panel-onboarding`.
+
+<br />
+
+##	v109.0.1-3
+*****
++	Default to disable `devtools.screenshot.audio.enabled`.
++	Default to enable `devtools.popups.debug`.
++	Default to set `media.peerconnection.dtls.version.max` to `772` (TLS v1.3).
++	Default to set `media.videocontrols.picture-in-picture.video-toggle.has-used` to `true`.
++	Default to set `media.videocontrols.picture-in-picture.video-toggle.min-video-secs` to `60`.
++	Fix the screenshot functionality in DevTools.
+
+<br />
+
 ##	v109.0.1-2
 *****
 +	Default to disable OffscreenCanvas for improved performance and compatibility.
@@ -8,6 +26,7 @@
 
 ##	v109.0.1-1
 *****
++	[109.0.1 Firefox Release Notes]
 +	Fix the Performance API (upstream v111) for improved compatibility.
 
 <br />
@@ -55,6 +74,7 @@
 
 ##	v109.0.0-1
 *****
++	[109.0.0 Firefox Release Notes]
 +	Default to disable `dom.push.connection.enabled`.
 +	Default to disable `webgl.enable-renderer-query`.
 +	Default to enable `browser.download.alwaysOpenPanel`.
@@ -71,6 +91,9 @@
 
 ##	v108.0.2-1
 *****
++	[108.0.0 Firefox Release Notes]
++	[108.0.1 Firefox Release Notes]
++	[108.0.2 Firefox Release Notes]
 +	Default to enable `dom.security.https_first` and `dom.security.https_only_mode` for improved security.
 +	Default to enable `privacy.resistFingerprinting` for improved privacy.
 +	Default to enable the dark theme.
@@ -79,4 +102,11 @@
 +	Fix behavior of function `void nsRFPService::GetSpoofedUserAgent`.
 
 <br />
+
+[108.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/108.0/releasenotes/
+[108.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/108.0.1/releasenotes/
+[108.0.2 Firefox Release Notes]: https://www.mozilla.org/firefox/108.0.2/releasenotes/
+[109.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/109.0/releasenotes/
+[109.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/109.0.1/releasenotes/
+[110.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/110.0/releasenotes/
 

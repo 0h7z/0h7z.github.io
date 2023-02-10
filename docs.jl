@@ -24,7 +24,7 @@ const src = "dist"
 const dst = "docs"
 const assetdir = "_"
 const pagemain = "index.html"
-const pagelist = ["$rsc.html" for rsc in [
+const pagelist = ["$pfx.html" for pfx in [
 	# response status code
 	400 # bad request
 	401 # unauthorized
@@ -55,6 +55,10 @@ const pagelist = ["$rsc.html" for rsc in [
 	429 # too many requests
 	431 # request header fields too large
 	451 # unavailable for legal reasons
+	# page
+	"dec/index"
+	"enc/index"
+	"snowfox/index"
 ]]
 const keeplist = [
 	# file
@@ -105,8 +109,9 @@ try
 		for f in readdir(src)
 			cp(joinpath.([src, dst], f)..., force = true)
 			f ≠ pagemain || cd(dst) do
+				pagelist .|> dirname .|> mkpath
+				pagelist .|> p -> symlink("../"^count(==('/'), p) * f, p)
 				@info "Main access point: /$f"
-				symlink.(pagemain, pagelist)
 			end
 		end
 	end

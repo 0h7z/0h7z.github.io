@@ -46,7 +46,7 @@ id=$(docker create snowfox-arch) && docker cp $id:/pkg . && docker rm $id
 docker images
 docker system prune [-af]
 ```
-PS: After successful build, the Docker image is about 20GB.
+PS: After successful build, the Docker image is about 21GB.
 
 <br />
 

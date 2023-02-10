@@ -1,10 +1,15 @@
 <script setup>
 	import "@/css/md"
+	import BasicInfo from "./snowfox/readme.md"
 	import BldManual from "./snowfox/manual.md"
 	import ChangeLog from "./snowfox/changelog.md"
 </script>
 
 <template>
+	<div>
+		<h1 italic regular>Snowfox</h1>
+		<BasicInfo smaller />
+	</div>
 	<div>
 		<h2 center>Snowfox Changelog</h2>
 		<ChangeLog smaller />
@@ -16,11 +21,11 @@
 </template>
 
 <style scoped>
-	div {
+	#main > div {
 		margin-top: 2.72rem;
 		margin-bottom: 4rem;
-		margin-left: 10%;
-		margin-right: 10%;
+		margin-left: 15%;
+		margin-right: 15%;
 	}
 	div.md {
 		line-height: calc(3.14 / 2);
