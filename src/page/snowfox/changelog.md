@@ -1,4 +1,13 @@
 
+##	v110.0.0-2
+*****
++	Add support for AVIF (AV1 Image) animated image (upstream v111).
++	Default to enable `image.avif.sequence.animate_avif_major_branded_images`.
++	Default to enable `image.avif.sequence.enabled`.
++	Remove EME notification message shown when DRM is disabled. (about [DRM][en-wiki/DRM] / [EME][en-wiki/EME])
+
+<br />
+
 ##	v110.0.0-1
 *****
 +	[110.0.0 Firefox Release Notes]
@@ -109,4 +118,10 @@
 [109.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/109.0/releasenotes/
 [109.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/109.0.1/releasenotes/
 [110.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/110.0/releasenotes/
+
+[en-wiki/DRM]: https://en.wikipedia.org/w/index.php?curid=18938226
+<!-- 18938226  https://en.wikipedia.org/wiki/Digital_rights_management -->
+
+[en-wiki/EME]: https://en.wikipedia.org/w/index.php?curid=42965137
+<!-- 42965137  https://en.wikipedia.org/wiki/Encrypted_Media_Extensions -->
 
