@@ -4,13 +4,17 @@
 +	Platform
 	-	x86-64 GNU/Linux
 +	Hardware
-	-	4-core CPU at least
-	-	1GB+ RAM per logical core
-	-	42GB free disk space or more
+	-	some good CPU cores
+	-	15GB free RAM at least
+	-	32GB free disk space or more
 +	Software
 	-	[`7z`][7z] (7-zip)
 	-	[`docker`][dk]
 	-	[`julia`][jl]
+
+PS: If build fails due to OOM killer (SIGKILL) or freezes due to OOM, try
++	increase available memory
++	increase/enable [swap] (see also [zram])
 
 <br />
 
@@ -39,16 +43,21 @@ cd Snowfox/Arch
 ```shell
 git clone https://github.com/0h7z/Snowfox.git
 cd Snowfox/Windows
-time docker build -t snowfox-arch - < Dockerfile
-id=$(docker create snowfox-arch) && docker cp $id:/pkg . && docker rm $id
+docker build -t snowfox:win-arch -< win-arch.dockerfile
+docker build -t snowfox:win-base -< win-base.dockerfile
+docker build -t snowfox:win-make -< win-make.dockerfile
+id=$(docker create snowfox:win-make) && docker cp -q $id:pkg . && docker rm $id
 
 # optional
 docker images
 docker system prune [-af]
 ```
-PS: After successful build, the Docker image is about 21GB.
+PS: After successful build, the Docker image could be about 30GB.
 
 <br />
+
+[swap]: https://wiki.archlinux.org/title/Swap
+[zram]: https://wiki.archlinux.org/title/Zram
 
 [7z]: https://aur.archlinux.org/packages/7-zip-full
 [dk]: https://archlinux.org/packages/community/x86_64/docker/

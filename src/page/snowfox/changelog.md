@@ -1,4 +1,25 @@
 
+##	v111.0.0-2
+*****
++	Default to disable `media.eme.showBrowserMessage`.
++	Default to enable `image.avif.force-loop`.
++	Now possible to restore EME notification message shown when DRM is disabled.
+
+<br />
+
+##	v111.0.0-1
+*****
++	[111.0.0 Firefox Release Notes]
+
+<br />
+
+##	v110.0.1-1
+*****
++	[110.0.1 Firefox Release Notes]
++	Rewrite the build script for Windows.
+
+<br />
+
 ##	v110.0.0-2
 *****
 +	Add support for AVIF (AV1 Image) animated image (upstream v111).
@@ -118,6 +139,8 @@
 [109.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/109.0/releasenotes/
 [109.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/109.0.1/releasenotes/
 [110.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/110.0/releasenotes/
+[110.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/110.0.1/releasenotes/
+[111.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/111.0/releasenotes/
 
 [en-wiki/DRM]: https://en.wikipedia.org/w/index.php?curid=18938226
 <!-- 18938226  https://en.wikipedia.org/wiki/Digital_rights_management -->
