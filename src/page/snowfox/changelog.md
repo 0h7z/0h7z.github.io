@@ -1,4 +1,11 @@
 
+##	v111.0.0-3
+*****
++	Now build with `--with-app-name=snowfox` instead of `--with-app-name=firefox` for Windows.
++	Now possible to use `private_browsing.exe` on Windows.
+
+<br />
+
 ##	v111.0.0-2
 *****
 +	Default to disable `media.eme.showBrowserMessage`.
