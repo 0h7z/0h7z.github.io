@@ -1,4 +1,10 @@
 
+##	v111.0.1-1
+*****
++	[111.0.1 Firefox Release Notes]
+
+<br />
+
 ##	v111.0.0-3
 *****
 +	Now build with `--with-app-name=snowfox` instead of `--with-app-name=firefox` for Windows.
@@ -148,6 +154,7 @@
 [110.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/110.0/releasenotes/
 [110.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/110.0.1/releasenotes/
 [111.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/111.0/releasenotes/
+[111.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/111.0.1/releasenotes/
 
 [en-wiki/DRM]: https://en.wikipedia.org/w/index.php?curid=18938226
 <!-- 18938226  https://en.wikipedia.org/wiki/Digital_rights_management -->
