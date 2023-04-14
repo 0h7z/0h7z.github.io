@@ -1,4 +1,10 @@
 
+##	v112.0.0-1
+*****
++	[112.0.0 Firefox Release Notes]
+
+<br />
+
 ##	v111.0.1-1
 *****
 +	[111.0.1 Firefox Release Notes]
@@ -155,6 +161,7 @@
 [110.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/110.0.1/releasenotes/
 [111.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/111.0/releasenotes/
 [111.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/111.0.1/releasenotes/
+[112.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/112.0/releasenotes/
 
 [en-wiki/DRM]: https://en.wikipedia.org/w/index.php?curid=18938226
 <!-- 18938226  https://en.wikipedia.org/wiki/Digital_rights_management -->
