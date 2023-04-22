@@ -77,11 +77,11 @@ try
 			Any   => error("Invalid argument")
 		end
 	end
-	if _up # src
+	_up && # src
 		for (prefix, ds, fs) in walkdir(src)
 			cd(prefix) do
 				for f in fs
-					if splitext(f)[2] == ".html"
+					if endswith(".html")(f)
 						str = read(f, String)
 						str = replace(str, r"\n(?:\s*\n)+"s => "\n")
 						while occursin(r"^\t*  "m, str)
@@ -99,22 +99,19 @@ try
 				end
 			end
 		end
-	end
-	if _rm # dst
+	_rm && # dst
 		for f in readdir(dst)
 			replace(f, '\\' => '/') ∈ keeplist || rm(joinpath(dst, f), recursive = true)
 		end
-	end
-	if _cp # src -> dst
+	_cp && # src -> dst
 		for f in readdir(src)
 			cp(joinpath.([src, dst], f)..., force = true)
 			f ≠ pagemain || cd(dst) do
 				pagelist .|> dirname .|> mkpath
-				pagelist .|> p -> symlink("../"^count(==('/'), p) * f, p)
+				pagelist .|> p -> symlink("../"^count(∈("/"), p) * f, p)
 				@info "Main access point: /$f"
 			end
 		end
-	end
 catch e
 	@info e
 end

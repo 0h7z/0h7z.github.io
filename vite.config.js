@@ -3,6 +3,7 @@ import { resolve } from "path"
 import cssnano from "cssnano"
 import cssnest from "postcss-nested"
 import cssvars from "postcss-css-variables"
+import mia from "markdown-it-anchor"
 import mil from "markdown-it-link-attributes"
 import mip from "markdown-it-prism"
 import ssl from "@vitejs/plugin-basic-ssl"
@@ -10,11 +11,12 @@ import vmd from "vite-plugin-vue-markdown"
 import vps from "vite-plugin-pages"
 import vue from "@vitejs/plugin-vue"
 
-const mi_init = (markdown) => markdown.use(mil, mil_opt).use(mip, mip_opt)
+const mi_init = (markdown) => markdown.use(mia, mia_opt).use(mil, mil_opt).use(mip, mip_opt)
 const of_name = (ext = "") => "_/[name].[hash:8]" + (ext ? `.${ext}` : "[extname]")
 
 const cnn_opt = { preset: ["advanced", { autoprefixer: false }] }
 const mdi_opt = { breaks: true, html: true, linkify: false, typographer: false }
+const mia_opt = { level: [2], permalink: mia.permalink.ariaHidden({ placement: "before", symbol: "" }) }
 const mil_opt = { attrs: { target: "_blank" }, matcher: (str) => /^[a-z]+:\/+\w+/i.test(str) }
 const mip_opt = { highlightInlineCode: true }
 const out_opt = { assetFileNames: of_name(), chunkFileNames: of_name("js"), entryFileNames: of_name("js") }

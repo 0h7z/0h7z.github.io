@@ -5,12 +5,15 @@
 	-	x86-64 GNU/Linux
 +	Hardware
 	-	some good CPU cores
-	-	15GB free RAM at least
-	-	32GB free disk space or more
+	-	15GB free RAM at least (due to `gkrust`)
+	-	30GB free disk space or more
 +	Software
 	-	[`7z`][7z] (7-zip)
 	-	[`docker`][dk]
 	-	[`julia`][jl]
+
+Note: Make sure the [Docker storage driver] is `overlay2` rather than `vfs`, otherwise, you better have unlimited disk space.
+(Check it with command `docker info`. Other storage drivers like `btrfs` or `zfs` have not been tested, practicality unknown.)
 
 PS: If build fails due to OOM killer (SIGKILL) or freezes due to OOM, try
 +	increase available memory
@@ -46,15 +49,17 @@ cd Snowfox/Windows
 docker build -t snowfox:win-arch -< win-arch.dockerfile
 docker build -t snowfox:win-base -< win-base.dockerfile
 docker build -t snowfox:win-make -< win-make.dockerfile
-id=$(docker create snowfox:win-make) && docker cp -q $id:pkg . && docker rm $id
+id=$(docker create snowfox:win-make) && docker cp $id:pkg . -q && docker rm $id && julia move.jl /
 
 # optional
 docker images
 docker system prune [-af]
 ```
-PS: After successful build, the Docker image could be about 30GB.
+PS: After successful build, the Docker image could be about 27GB.
 
 <br />
+
+[Docker storage driver]: https://docs.docker.com/storage/storagedriver/select-storage-driver/
 
 [swap]: https://wiki.archlinux.org/title/Swap
 [zram]: https://wiki.archlinux.org/title/Zram

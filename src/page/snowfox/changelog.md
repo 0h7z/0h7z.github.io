@@ -1,4 +1,17 @@
 
+##	v112.0.2-2
+*****
++	Fix the broken `PDFDocumentProperties` in builtin PDF.js.
+
+<br />
+
+##	v112.0.2-1
+*****
++	[112.0.2 Firefox Release Notes]
++	Rewrite the whole build process for Windows (due to [Librewolf-Windows](https://github.com/Heptazhou/Librewolf-Windows) is dead).
+
+<br />
+
 ##	v112.0.1-1
 *****
 +	[112.0.1 Firefox Release Notes]
@@ -12,6 +25,7 @@
 ##	v112.0.0-1
 *****
 +	[112.0.0 Firefox Release Notes]
++	Default to set `network.http.useragent.forceRVOnly` to `0`.
 
 <br />
 
@@ -32,6 +46,8 @@
 *****
 +	Default to disable `media.eme.showBrowserMessage`.
 +	Default to enable `image.avif.force-loop`.
++	Fix behavior of function `nsAVIFDecoder::DecodeResult nsAVIFDecoder::Decode`.
++	Fix behavior of function `uint32_t RuntimeService::ClampedHardwareConcurrency`.
 +	Now possible to restore EME notification message shown when DRM is disabled.
 
 <br />
@@ -51,7 +67,7 @@
 
 ##	v110.0.0-2
 *****
-+	Add support for AVIF (AV1 Image) animated image (upstream v111).
++	Add support for AVIF (AV1 Image) animated image (upstream [v111][Bug 1788119]:[v113][Bug 1825580]).
 +	Default to enable `image.avif.sequence.animate_avif_major_branded_images`.
 +	Default to enable `image.avif.sequence.enabled`.
 +	Remove EME notification message shown when DRM is disabled. (about [DRM][en-wiki/DRM] / [EME][en-wiki/EME])
@@ -86,7 +102,7 @@
 ##	v109.0.1-1
 *****
 +	[109.0.1 Firefox Release Notes]
-+	Fix the Performance API (upstream v111) for improved compatibility.
++	Fix the Performance API (upstream [v111][Bug 1811567]) for improved compatibility.
 
 <br />
 
@@ -173,11 +189,15 @@
 [111.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/111.0.1/releasenotes/
 [112.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/112.0/releasenotes/
 [112.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/112.0.1/releasenotes/
+[112.0.2 Firefox Release Notes]: https://www.mozilla.org/firefox/112.0.2/releasenotes/
 
 [Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814
 [Bug 1709815]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709815
 [Bug 1709816]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709816
 [Bug 1709818]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709818
+[Bug 1788119]: https://bugzilla.mozilla.org/show_bug.cgi?id=1788119
+[Bug 1811567]: https://bugzilla.mozilla.org/show_bug.cgi?id=1811567
+[Bug 1825580]: https://bugzilla.mozilla.org/show_bug.cgi?id=1825580
 
 [en-wiki/DRM]: https://en.wikipedia.org/w/index.php?curid=18938226
 <!-- 18938226  https://en.wikipedia.org/wiki/Digital_rights_management -->
