@@ -1,4 +1,14 @@
 
+##	v112.0.1-1
+*****
++	[112.0.1 Firefox Release Notes]
++	Add support for JXL (JPEG XL) animated image (upstream [Bug 1709818]).
++	Add support of color profile for JXL (upstream [Bug 1709814]).
++	Add support of progressive decoding for JXL (upstream [Bug 1709815]).
++	Add support of transparency for JXL (upstream [Bug 1709816]).
+
+<br />
+
 ##	v112.0.0-1
 *****
 +	[112.0.0 Firefox Release Notes]
@@ -162,6 +172,12 @@
 [111.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/111.0/releasenotes/
 [111.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/111.0.1/releasenotes/
 [112.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/112.0/releasenotes/
+[112.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/112.0.1/releasenotes/
+
+[Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814
+[Bug 1709815]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709815
+[Bug 1709816]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709816
+[Bug 1709818]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709818
 
 [en-wiki/DRM]: https://en.wikipedia.org/w/index.php?curid=18938226
 <!-- 18938226  https://en.wikipedia.org/wiki/Digital_rights_management -->

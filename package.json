@@ -16,13 +16,13 @@
 		"cssnano-preset-advanced": "^6.0.0",
 		"markdown-it-link-attributes": "^4.0.1",
 		"markdown-it-prism": "^2.3.0",
-		"postcss": "^8.4.21",
+		"postcss": "^8.4.23",
 		"postcss-css-variables": "^0.19.0",
 		"postcss-nested": "^6.0.1",
 		"prism-themes": "github:PrismJS/prism-themes",
-		"vite": "^4.2.1",
+		"vite": "^4.3.1",
 		"vite-plugin-pages": "^0.29.0",
-		"vite-plugin-vue-markdown": "^0.22.5",
+		"vite-plugin-vue-markdown": "^0.22.6",
 		"vue": "^3.2.47",
 		"vue-router": "^4.1.6"
 	}
