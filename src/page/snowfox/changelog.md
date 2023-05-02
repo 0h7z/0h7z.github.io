@@ -1,7 +1,23 @@
 
+##	v113.0.0-1
+*****
++	[113.0.0 Firefox Release Notes]
++	Fix the broken useragent when `privacy.resistFingerprinting` is disabled.
+
+<br />
+
+##	v112.0.2-3
+*****
++	Fix and improve OS integration for Windows install.
++	Fix the `NativeMessagingHosts` problem on Windows.
++	Fix the installer and uninstaller for Windows.
+
+<br />
+
 ##	v112.0.2-2
 *****
 +	Fix the broken `PDFDocumentProperties` in builtin PDF.js.
++	Improve the workflow for Windows build.
 
 <br />
 
@@ -190,6 +206,7 @@
 [112.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/112.0/releasenotes/
 [112.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/112.0.1/releasenotes/
 [112.0.2 Firefox Release Notes]: https://www.mozilla.org/firefox/112.0.2/releasenotes/
+[113.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/113.0/releasenotes/
 
 [Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814
 [Bug 1709815]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709815
