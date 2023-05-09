@@ -27,7 +27,10 @@
 		margin-left: 15%;
 		margin-right: 15%;
 	}
-	div.md {
+	div >>> ul {
 		line-height: calc(3.14 / 2);
+	}
+	div >>> a.header-anchor {
+		color: unset;
 	}
 </style>
