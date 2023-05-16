@@ -1,4 +1,13 @@
 
+##	v113.0.1-1
+*****
++	[113.0.1 Firefox Release Notes]
++	Default to come with the QR code functionality.
++	Default to enable `general.useragent.compatMode.firefox`.
++	Improve the `PDFDocumentProperties` in builtin PDF.js.
+
+<br />
+
 ##	v113.0.0-1
 *****
 +	[113.0.0 Firefox Release Notes]
@@ -207,6 +216,7 @@
 [112.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/112.0.1/releasenotes/
 [112.0.2 Firefox Release Notes]: https://www.mozilla.org/firefox/112.0.2/releasenotes/
 [113.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/113.0/releasenotes/
+[113.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/113.0.1/releasenotes/
 
 [Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814
 [Bug 1709815]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709815
