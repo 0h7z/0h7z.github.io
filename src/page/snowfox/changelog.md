@@ -1,4 +1,12 @@
 
+##	v114.0.1-1
+*****
++	[113.0.2 Firefox Release Notes]
++	[114.0.0 Firefox Release Notes]
++	[114.0.1 Firefox Release Notes]
+
+<br />
+
 ##	v113.0.1-1
 *****
 +	[113.0.1 Firefox Release Notes]
@@ -217,6 +225,9 @@
 [112.0.2 Firefox Release Notes]: https://www.mozilla.org/firefox/112.0.2/releasenotes/
 [113.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/113.0/releasenotes/
 [113.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/113.0.1/releasenotes/
+[113.0.2 Firefox Release Notes]: https://www.mozilla.org/firefox/113.0.2/releasenotes/
+[114.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/114.0/releasenotes/
+[114.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/114.0.1/releasenotes/
 
 [Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814
 [Bug 1709815]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709815
