@@ -1,4 +1,14 @@
 
+##	v116.0.0-1
+*****
++	[115.0.3 Firefox Release Notes]
++	[116.0.0 Firefox Release Notes]
++	Default to enable `browser.meta_refresh_when_inactive.disabled`.
++	Remove `network.http.useragent.forceRVOnly`.
++	Restore `network.http.useragent.forceVersion` (upstream [Bug 1837343]).
+
+<br />
+
 ##	v115.0.2-1
 *****
 +	[115.0.2 Firefox Release Notes]
@@ -247,6 +257,8 @@
 [115.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/115.0/releasenotes/
 [115.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/115.0.1/releasenotes/
 [115.0.2 Firefox Release Notes]: https://www.mozilla.org/firefox/115.0.2/releasenotes/
+[115.0.3 Firefox Release Notes]: https://www.mozilla.org/firefox/115.0.3/releasenotes/
+[116.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/116.0/releasenotes/
 
 [Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814
 [Bug 1709815]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709815
@@ -255,6 +267,7 @@
 [Bug 1788119]: https://bugzilla.mozilla.org/show_bug.cgi?id=1788119
 [Bug 1811567]: https://bugzilla.mozilla.org/show_bug.cgi?id=1811567
 [Bug 1825580]: https://bugzilla.mozilla.org/show_bug.cgi?id=1825580
+[Bug 1837343]: https://bugzilla.mozilla.org/show_bug.cgi?id=1837343
 
 [en-wiki/DRM]: https://en.wikipedia.org/w/index.php?curid=18938226
 <!-- 18938226  https://en.wikipedia.org/wiki/Digital_rights_management -->
