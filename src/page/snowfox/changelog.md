@@ -1,4 +1,20 @@
 
+##	v117.0.0-1
+*****
++	[117.0.0 Firefox Release Notes]
++	Build with official Clang instead of Mozilla Clang for Windows build.
++	Improve the default CJK font list.
+
+<br />
+
+##	v116.0.3-1
+*****
++	[116.0.3 Firefox Release Notes]
++	Decrease the precision of BuildID.
++	Improve the default CJK font list.
+
+<br />
+
 ##	v116.0.2-1
 *****
 +	[116.0.1 Firefox Release Notes]
@@ -268,6 +284,8 @@
 [116.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/116.0/releasenotes/
 [116.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/116.0.1/releasenotes/
 [116.0.2 Firefox Release Notes]: https://www.mozilla.org/firefox/116.0.2/releasenotes/
+[116.0.3 Firefox Release Notes]: https://www.mozilla.org/firefox/116.0.3/releasenotes/
+[117.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/117.0/releasenotes/
 
 [Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814
 [Bug 1709815]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709815
