@@ -60,6 +60,8 @@ html {
 	touch-action: manipulation;
 	word-break: break-all;
 	word-wrap: break-word;
+	-webkit-print-color-adjust: economy;
+	print-color-adjust: economy;
 	-moz-tab-size: var(--tab-size);
 	-o-tab-size: var(--tab-size);
 	tab-size: var(--tab-size);
@@ -238,6 +240,14 @@ blockquote {
 pre > code {
 	display: block;
 	padding: var(--round-padding-pre-code);
+
+	@media print {
+		&,
+		&[class*="language-"] {
+			white-space: pre-wrap;
+			white-space: break-spaces;
+		}
+	}
 }
 
 /* inline */
@@ -319,80 +329,44 @@ input {
 } */
 
 /* zoom */
-@media (min-width: 0px) {
-	html {
+html {
+	@media (min-width: 0px) {
 		font-size: 100%;
 	}
-}
-
-@media (min-width: 320px) {
-	html {
+	@media (min-width: 320px) {
 		font-size: 105%;
 	}
-}
-
-@media (min-width: 640px) {
-	html {
+	@media (min-width: 640px) {
 		font-size: 110%;
 	}
-}
-
-@media (min-width: 960px) {
-	html {
+	@media (min-width: 960px) {
 		font-size: 115%;
 	}
-}
-
-@media (min-width: 1280px) {
-	html {
+	@media (min-width: 1280px) {
 		font-size: 120%;
 	}
-}
-
-@media (min-width: 1600px) {
-	html {
+	@media (min-width: 1600px) {
 		font-size: 125%;
 	}
-}
-
-@media (min-width: 1920px) {
-	html {
+	@media (min-width: 1920px) {
 		font-size: 130%;
 	}
-}
-
-@media (min-width: 2240px) {
-	html {
+	@media (min-width: 2240px) {
 		font-size: 135%;
 	}
-}
-
-@media (min-width: 2560px) {
-	html {
+	@media (min-width: 2560px) {
 		font-size: 140%;
 	}
-}
-
-@media (min-width: 2880px) {
-	html {
+	@media (min-width: 2880px) {
 		font-size: 145%;
 	}
-}
-
-@media (min-width: 3200px) {
-	html {
+	@media (min-width: 3200px) {
 		font-size: 150%;
 	}
-}
-
-@media (min-width: 3520px) {
-	html {
+	@media (min-width: 3520px) {
 		font-size: 155%;
 	}
-}
-
-@media (min-width: 3840px) {
-	html {
+	@media (min-width: 3840px) {
 		font-size: 160%;
 	}
 }

@@ -26,6 +26,11 @@
 		margin-bottom: 4rem;
 		margin-left: 15%;
 		margin-right: 15%;
+
+		@media print {
+			margin-left: 7%;
+			margin-right: 7%;
+		}
 	}
 	div >>> ul {
 		line-height: calc(3.14 / 2);

@@ -1,4 +1,13 @@
 
+##	v117.0.1-1
+*****
++	[117.0.1 Firefox Release Notes]
++	Default to set `media.videocontrols.picture-in-picture.video-toggle.min-video-secs` to `10`.
++	Fix metadata of generated PDF (upstream [Bug 1830086]).
+<!-- 1840838 needs to be fixed in the future (for macOS) -->
+
+<br />
+
 ##	v117.0.0-1
 *****
 +	[117.0.0 Firefox Release Notes]
@@ -286,6 +295,7 @@
 [116.0.2 Firefox Release Notes]: https://www.mozilla.org/firefox/116.0.2/releasenotes/
 [116.0.3 Firefox Release Notes]: https://www.mozilla.org/firefox/116.0.3/releasenotes/
 [117.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/117.0/releasenotes/
+[117.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/117.0.1/releasenotes/
 
 [Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814
 [Bug 1709815]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709815
@@ -294,6 +304,7 @@
 [Bug 1788119]: https://bugzilla.mozilla.org/show_bug.cgi?id=1788119
 [Bug 1811567]: https://bugzilla.mozilla.org/show_bug.cgi?id=1811567
 [Bug 1825580]: https://bugzilla.mozilla.org/show_bug.cgi?id=1825580
+[Bug 1830086]: https://bugzilla.mozilla.org/show_bug.cgi?id=1830086
 [Bug 1837343]: https://bugzilla.mozilla.org/show_bug.cgi?id=1837343
 
 [en-wiki/DRM]: https://en.wikipedia.org/w/index.php?curid=18938226
