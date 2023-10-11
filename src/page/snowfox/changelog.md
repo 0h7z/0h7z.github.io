@@ -1,4 +1,14 @@
 
+##	v118.0.2-1
+*****
++	[118.0.2 Firefox Release Notes]
++	Default to disable `browser.translations.automaticallyPopup`.
++	Default to enable `media.recorder.audio_node.enabled`.
++	Default to set `media.recorder.max_memory` to `8388608`.
++	Fix behavior of function `void MediaError::GetMessage`.
+
+<br />
+
 ##	v118.0.1-1
 *****
 +	[118.0.0 Firefox Release Notes]
@@ -305,6 +315,7 @@
 [117.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/117.0.1/releasenotes/
 [118.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/118.0/releasenotes/
 [118.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/118.0.1/releasenotes/
+[118.0.2 Firefox Release Notes]: https://www.mozilla.org/firefox/118.0.2/releasenotes/
 
 [Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814
 [Bug 1709815]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709815
