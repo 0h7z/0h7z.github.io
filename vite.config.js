@@ -2,7 +2,7 @@ import { defineConfig, splitVendorChunkPlugin } from "vite"
 import { resolve } from "path"
 import cssnano from "cssnano"
 import cssnest from "postcss-nested"
-import cssrepl from "postcss-selector-replace"
+import cssrepl from "modify-selectors"
 import cssvars from "postcss-css-variables"
 import mia from "markdown-it-anchor"
 import mil from "markdown-it-link-attributes"
@@ -12,16 +12,16 @@ import vmd from "vite-plugin-vue-markdown"
 import vps from "vite-plugin-pages"
 import vue from "@vitejs/plugin-vue"
 
-const id_func = (s) => encodeURIComponent(s.replace(/\s+/g, "-").replace(/\.0\.0\b/g, ".0"))
+const id_func = (str = "") => encodeURIComponent(str.replace(/\s+/g, "-").replace(/\.0\.0\b/g, ".0"))
 const mi_init = (markdown) => markdown.use(mia, mia_opt).use(mil, mil_opt).use(mip, mip_opt)
 const of_name = (ext = "") => "_/[name].[hash:8]" + (ext ? `.${ext}` : "[extname]")
 
 const cnn_opt = { preset: ["advanced", { autoprefixer: false }] }
-const crp_opt = { before: [">>>"], after: [":deep()"] }
+const crp_opt = { modify: [{ match: "*", with: (str = "") => str.replace(">>>", ":deep()") }] }
 const lnk_opt = { /* placement: "before", */ symbol: "" }
 const mdi_opt = { breaks: true, html: true, linkify: false, typographer: false }
 const mia_opt = { level: [2], permalink: mia.permalink.headerLink(lnk_opt), slugify: id_func }
-const mil_opt = { attrs: { target: "_blank" }, matcher: (str) => /^[a-z]+:\/+\w+/i.test(str) }
+const mil_opt = { attrs: { target: "_blank" }, matcher: (str = "") => /^[a-z]+:\/+\w+/i.test(str) }
 const mip_opt = { highlightInlineCode: true }
 const out_opt = { assetFileNames: of_name(), chunkFileNames: of_name("js"), entryFileNames: of_name("js") }
 const vmd_opt = { markdownItOptions: mdi_opt, markdownItSetup: mi_init, wrapperClasses: "md" }

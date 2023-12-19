@@ -70,11 +70,11 @@ try
 	_up = _rm = _cp = isempty(ARGS)
 	for i in ARGS
 		@match i begin
-			"/"   => (_up = _rm = _cp = true; break)
-			"+up" => (_up = true)
-			"+rm" => (_rm = true)
-			"+cp" => (_cp = true)
-			Any   => error("Invalid argument")
+			"/"  => (_up = _rm = _cp = true; break)
+			"up" => (_up = true)
+			"rm" => (_rm = true)
+			"cp" => (_cp = true)
+			Any  => error("Invalid argument")
 		end
 	end
 	_up && # src

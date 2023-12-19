@@ -1,4 +1,61 @@
 
+##	v121.0.0
+*****
++	[121.0.0 Firefox Release Notes]
+
+<br />
+
+##	v120.0.1
+*****
++	[120.0.1 Firefox Release Notes]
++	Default to disable `browser.translations.enable`.
++	Default to set `network.http.referer.XOriginPolicy` to `0` (revert [v119.0.0-1](#v119.0-1)).
++	Fix behavior of function `nsresult nsHttpHandler::Init`.
++	Fix behavior of module `RFPHelper.sys.mjs`.
++	Fix behavior of page `about:preferences`.
+
+<br />
+
+##	v120.0.0
+*****
++	[120.0.0 Firefox Release Notes]
++	Default to set `image.http.accept` to `image/avif,image/webp,*/*`.
++	Default to set `media.cubeb.force_sample_rate` to `192000`.
++	Default to set `privacy.fingerprintingProtection.overrides` to `+AllTargets,-CSSPrefersColorScheme`.
++	Fix behavior of function `void MediaError::GetMessage` (revert [v118.0.2-1](#v118.0.2-1)).
++	Fix behavior of function `void nsHttpHandler::PrefsChanged`.
++	Fix behavior of module `RFPHelper.sys.mjs`.
++	Fix behavior of page `about:firefoxview-next`.
++	Fix version number towards better consistency.
++	Migrate from `privacy.resistFingerprinting` to `privacy.fingerprintingProtection`.
++	Remove `network.http.useragent.forceVersion` (restored in [v116.0.0-1](#v116.0-1)) due to too much upstream breakage.
++	Remove `privacy.resistFingerprinting.override-color-scheme` (replaced by `-CSSPrefersColorScheme`).
+
+<br />
+
+##	v119.0.1-1
+*****
++	[119.0.1 Firefox Release Notes]
+
+<br />
+
+##	v119.0.0-1
+*****
++	[119.0.0 Firefox Release Notes]
++	Default to disable `media.recorder.audio_node.enabled` (revert [v118.0.2-1](#v118.0.2-1)).
++	Default to enable `network.http.referer.hideOnionSource`.
++	Default to set `network.http.referer.XOriginPolicy` to `1`.
++	Fix layout of page `about:policies`.
+
+<br />
+
+##	v118.0.2-2
+*****
++	Fix layout of page `about:policies`.
++	Fix support of monochrome mode for `Save to PDF` printer.
+
+<br />
+
 ##	v118.0.2-1
 *****
 +	[118.0.2 Firefox Release Notes]
@@ -78,6 +135,7 @@
 +	[113.0.2 Firefox Release Notes]
 +	[114.0.0 Firefox Release Notes]
 +	[114.0.1 Firefox Release Notes]
++	Fix layout of page `about:policies`.
 
 <br />
 
@@ -316,6 +374,11 @@
 [118.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/118.0/releasenotes/
 [118.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/118.0.1/releasenotes/
 [118.0.2 Firefox Release Notes]: https://www.mozilla.org/firefox/118.0.2/releasenotes/
+[119.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/119.0/releasenotes/
+[119.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/119.0.1/releasenotes/
+[120.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/120.0/releasenotes/
+[120.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/120.0.1/releasenotes/
+[121.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/121.0/releasenotes/
 
 [Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814
 [Bug 1709815]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709815
