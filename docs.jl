@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2023 Heptazhou <zhou@0h7z.com>
+# Copyright (C) 2022-2024 Heptazhou <zhou@0h7z.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -90,10 +90,10 @@ try
 						str = replace(str, r"^\t+<(meta|link) .*\K(?<! /)>$"m => " />")
 						write(f, str)
 					end
-					# vite < v4
-					if startswith(joinpath(src, assetdir))(prefix) && occursin(r"^(index|vendor)[\.-][a-f\d]{8}\.js$", f)
+					if startswith(joinpath(src, assetdir))(prefix) &&
+					   contains(f, r"^(index|vendor)[\.-][a-f\d]{8}\.js$"i)
 						str = read(f, String)
-						str = replace(str, r"/\*!.*?\n.*?\*/"s => "")
+						str = replace(str, r"/\*[*!]\n.*?@.*?\*/"s => "")
 						write(f, str)
 					end
 				end

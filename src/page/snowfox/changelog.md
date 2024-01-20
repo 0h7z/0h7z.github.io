@@ -1,4 +1,17 @@
 
+##	v122.0.0
+*****
++	[122.0.0 Firefox Release Notes]
+
+<br />
+
+##	v121.0.1
+*****
++	[121.0.1 Firefox Release Notes]
++	Default to set `media.default_volume` to `0.5`.
+
+<br />
+
 ##	v121.0.0
 *****
 +	[121.0.0 Firefox Release Notes]
@@ -379,6 +392,8 @@
 [120.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/120.0/releasenotes/
 [120.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/120.0.1/releasenotes/
 [121.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/121.0/releasenotes/
+[121.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/121.0.1/releasenotes/
+[122.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/122.0/releasenotes/
 
 [Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814
 [Bug 1709815]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709815
