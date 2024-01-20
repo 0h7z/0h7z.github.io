@@ -92,7 +92,7 @@ try
 					end
 					if startswith(joinpath(src, assetdir))(prefix) &&
 					   contains(f, r"^(index|vendor)[\.-][a-f\d]{8}\.js$"i)
-						str = read(f, String)
+						str = read(pipeline(f, `pnpm esbuild --minify-whitespace`), String)
 						str = replace(str, r"/\*[*!]\n.*?@.*?\*/"s => "")
 						write(f, str)
 					end
