@@ -1,7 +1,26 @@
 
+##	v123.0.0
+*****
++	[123.0.0 Firefox Release Notes]
++	Default to enable `devtools.inspector.showAllAnonymousContent`.
++	Fix behavior and layout of page `about:policies`.
++	Fix behavior of module `RFPHelper.sys.mjs`.
++	Fix behavior of module `SessionStore.sys.mjs`.
++	Fix white flashing on opaque image/background loading (upstream [Bug 1556156] & [Bug 1808149]).
+
+<br />
+
+##	v122.0.1
+*****
++	[122.0.1 Firefox Release Notes]
++	Fix color-scheme for transparent iframe(s).
+
+<br />
+
 ##	v122.0.0
 *****
 +	[122.0.0 Firefox Release Notes]
++	Fix color-scheme for empty/blank/unstyled pages.
 
 <br />
 
@@ -394,12 +413,16 @@
 [121.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/121.0/releasenotes/
 [121.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/121.0.1/releasenotes/
 [122.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/122.0/releasenotes/
+[122.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/122.0.1/releasenotes/
+[123.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/123.0/releasenotes/
 
+[Bug 1556156]: https://bugzilla.mozilla.org/show_bug.cgi?id=1556156
 [Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814
 [Bug 1709815]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709815
 [Bug 1709816]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709816
 [Bug 1709818]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709818
 [Bug 1788119]: https://bugzilla.mozilla.org/show_bug.cgi?id=1788119
+[Bug 1808149]: https://bugzilla.mozilla.org/show_bug.cgi?id=1808149
 [Bug 1811567]: https://bugzilla.mozilla.org/show_bug.cgi?id=1811567
 [Bug 1825580]: https://bugzilla.mozilla.org/show_bug.cgi?id=1825580
 [Bug 1830086]: https://bugzilla.mozilla.org/show_bug.cgi?id=1830086
