@@ -1,4 +1,41 @@
 
+##	v124.0.2
+*****
++	[124.0.2 Firefox Release Notes]
+
+<br />
+
+##	v124.0.1
+*****
++	[124.0.1 Firefox Release Notes]
+
+<br />
+
+##	v124.0.0
+*****
++	[124.0.0 Firefox Release Notes]
++	Completely disable bootstrap for Windows build.
++	Default to disable `dom.serviceWorkers.enabled`.
++	Default to set `widget.non-native-theme.scrollbar.style` to `4`.
++	Fix color-scheme for more blank/unstyled pages.
++	Fix layout of page `about:serviceworkers`.
+
+<br />
+
+##	v123.0.1
+*****
++	[123.0.1 Firefox Release Notes]
++	Default to enable `browser.engagement.ctrlTab.has-used`.
++	Default to enable `browser.engagement.downloads-button.has-used`.
++	Default to enable `browser.engagement.home-button.has-used`.
++	Default to enable `browser.engagement.library-button.has-used`.
++	Default to enable `browser.engagement.sidebar-button.has-used`.
++	Default to set `signon.firefoxRelay.feature` to `disabled`.
++	Fix behavior of module `RFPHelper.sys.mjs`.
++	Fix the style in `XMLPrettyPrint.css`.
+
+<br />
+
 ##	v123.0.0
 *****
 +	[123.0.0 Firefox Release Notes]
@@ -415,6 +452,10 @@
 [122.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/122.0/releasenotes/
 [122.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/122.0.1/releasenotes/
 [123.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/123.0/releasenotes/
+[123.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/123.0.1/releasenotes/
+[124.0.0 Firefox Release Notes]: https://www.mozilla.org/firefox/124.0/releasenotes/
+[124.0.1 Firefox Release Notes]: https://www.mozilla.org/firefox/124.0.1/releasenotes/
+[124.0.2 Firefox Release Notes]: https://www.mozilla.org/firefox/124.0.2/releasenotes/
 
 [Bug 1556156]: https://bugzilla.mozilla.org/show_bug.cgi?id=1556156
 [Bug 1709814]: https://bugzilla.mozilla.org/show_bug.cgi?id=1709814

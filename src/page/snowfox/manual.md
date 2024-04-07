@@ -55,7 +55,6 @@ id=`docker create snowfox:win-make` && docker cp $id:pkg . -q && docker rm $id &
 docker images
 docker system prune [-af]
 ```
-PS: After successful build, the Docker image could be over 23GB.
 
 <br />
 
