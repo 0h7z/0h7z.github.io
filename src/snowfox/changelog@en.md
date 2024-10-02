@@ -1,17 +1,18 @@
+#	Snowfox Changelog
 
-##	v124.0.2
+##	v124.0.2	{#v124.0.2}
 *****
 +	[124.0.2 Firefox Release Notes]
 
 <br />
 
-##	v124.0.1
+##	v124.0.1	{#v124.0.1}
 *****
 +	[124.0.1 Firefox Release Notes]
 
 <br />
 
-##	v124.0.0
+##	v124.0.0	{#v124.0}
 *****
 +	[124.0.0 Firefox Release Notes]
 +	Completely disable bootstrap for Windows build.
@@ -22,7 +23,7 @@
 
 <br />
 
-##	v123.0.1
+##	v123.0.1	{#v123.0.1}
 *****
 +	[123.0.1 Firefox Release Notes]
 +	Default to enable `browser.engagement.ctrlTab.has-used`.
@@ -36,7 +37,7 @@
 
 <br />
 
-##	v123.0.0
+##	v123.0.0	{#v123.0}
 *****
 +	[123.0.0 Firefox Release Notes]
 +	Default to enable `devtools.inspector.showAllAnonymousContent`.
@@ -47,34 +48,34 @@
 
 <br />
 
-##	v122.0.1
+##	v122.0.1	{#v122.0.1}
 *****
 +	[122.0.1 Firefox Release Notes]
 +	Fix color-scheme for transparent iframe(s).
 
 <br />
 
-##	v122.0.0
+##	v122.0.0	{#v122.0}
 *****
 +	[122.0.0 Firefox Release Notes]
 +	Fix color-scheme for empty/blank/unstyled pages.
 
 <br />
 
-##	v121.0.1
+##	v121.0.1	{#v121.0.1}
 *****
 +	[121.0.1 Firefox Release Notes]
 +	Default to set `media.default_volume` to `0.5`.
 
 <br />
 
-##	v121.0.0
+##	v121.0.0	{#v121.0}
 *****
 +	[121.0.0 Firefox Release Notes]
 
 <br />
 
-##	v120.0.1
+##	v120.0.1	{#v120.0.1}
 *****
 +	[120.0.1 Firefox Release Notes]
 +	Default to disable `browser.translations.enable`.
@@ -85,7 +86,7 @@
 
 <br />
 
-##	v120.0.0
+##	v120.0.0	{#v120.0}
 *****
 +	[120.0.0 Firefox Release Notes]
 +	Default to set `image.http.accept` to `image/avif,image/webp,*/*`.
@@ -102,13 +103,13 @@
 
 <br />
 
-##	v119.0.1-1
+##	v119.0.1-1	{#v119.0.1-1}
 *****
 +	[119.0.1 Firefox Release Notes]
 
 <br />
 
-##	v119.0.0-1
+##	v119.0.0-1	{#v119.0-1}
 *****
 +	[119.0.0 Firefox Release Notes]
 +	Default to disable `media.recorder.audio_node.enabled` (revert [v118.0.2-1](#v118.0.2-1)).
@@ -118,14 +119,14 @@
 
 <br />
 
-##	v118.0.2-2
+##	v118.0.2-2	{#v118.0.2-2}
 *****
 +	Fix layout of page `about:policies`.
 +	Fix support of monochrome mode for `Save to PDF` printer.
 
 <br />
 
-##	v118.0.2-1
+##	v118.0.2-1	{#v118.0.2-1}
 *****
 +	[118.0.2 Firefox Release Notes]
 +	Default to disable `browser.translations.automaticallyPopup`.
@@ -135,14 +136,14 @@
 
 <br />
 
-##	v118.0.1-1
+##	v118.0.1-1	{#v118.0.1-1}
 *****
 +	[118.0.0 Firefox Release Notes]
 +	[118.0.1 Firefox Release Notes]
 
 <br />
 
-##	v117.0.1-1
+##	v117.0.1-1	{#v117.0.1-1}
 *****
 +	[117.0.1 Firefox Release Notes]
 +	Default to set `media.videocontrols.picture-in-picture.video-toggle.min-video-secs` to `10`.
@@ -151,7 +152,7 @@
 
 <br />
 
-##	v117.0.0-1
+##	v117.0.0-1	{#v117.0-1}
 *****
 +	[117.0.0 Firefox Release Notes]
 +	Build with official Clang instead of Mozilla Clang for Windows build.
@@ -159,7 +160,7 @@
 
 <br />
 
-##	v116.0.3-1
+##	v116.0.3-1	{#v116.0.3-1}
 *****
 +	[116.0.3 Firefox Release Notes]
 +	Decrease the precision of BuildID.
@@ -167,14 +168,14 @@
 
 <br />
 
-##	v116.0.2-1
+##	v116.0.2-1	{#v116.0.2-1}
 *****
 +	[116.0.1 Firefox Release Notes]
 +	[116.0.2 Firefox Release Notes]
 
 <br />
 
-##	v116.0.0-1
+##	v116.0.0-1	{#v116.0-1}
 *****
 +	[115.0.3 Firefox Release Notes]
 +	[116.0.0 Firefox Release Notes]
@@ -184,13 +185,13 @@
 
 <br />
 
-##	v115.0.2-1
+##	v115.0.2-1	{#v115.0.2-1}
 *****
 +	[115.0.2 Firefox Release Notes]
 
 <br />
 
-##	v115.0.1-1
+##	v115.0.1-1	{#v115.0.1-1}
 *****
 +	[114.0.2 Firefox Release Notes]
 +	[115.0.0 Firefox Release Notes]
@@ -199,7 +200,7 @@
 
 <br />
 
-##	v114.0.1-1
+##	v114.0.1-1	{#v114.0.1-1}
 *****
 +	[113.0.2 Firefox Release Notes]
 +	[114.0.0 Firefox Release Notes]
@@ -208,7 +209,7 @@
 
 <br />
 
-##	v113.0.1-1
+##	v113.0.1-1	{#v113.0.1-1}
 *****
 +	[113.0.1 Firefox Release Notes]
 +	Default to come with the QR code functionality.
@@ -217,14 +218,14 @@
 
 <br />
 
-##	v113.0.0-1
+##	v113.0.0-1	{#v113.0-1}
 *****
 +	[113.0.0 Firefox Release Notes]
 +	Fix the broken useragent when `privacy.resistFingerprinting` is disabled.
 
 <br />
 
-##	v112.0.2-3
+##	v112.0.2-3	{#v112.0.2-3}
 *****
 +	Fix and improve OS integration for Windows install.
 +	Fix the `NativeMessagingHosts` problem on Windows.
@@ -232,21 +233,21 @@
 
 <br />
 
-##	v112.0.2-2
+##	v112.0.2-2	{#v112.0.2-2}
 *****
 +	Fix the broken `PDFDocumentProperties` in builtin PDF.js.
 +	Improve the workflow for Windows build.
 
 <br />
 
-##	v112.0.2-1
+##	v112.0.2-1	{#v112.0.2-1}
 *****
 +	[112.0.2 Firefox Release Notes]
 +	Rewrite the whole build process for Windows (due to [Librewolf-Windows](https://github.com/Heptazhou/Librewolf-Windows) is dead).
 
 <br />
 
-##	v112.0.1-1
+##	v112.0.1-1	{#v112.0.1-1}
 *****
 +	[112.0.1 Firefox Release Notes]
 +	Add support for JXL (JPEG XL) animated image (upstream [Bug 1709818]).
@@ -256,27 +257,27 @@
 
 <br />
 
-##	v112.0.0-1
+##	v112.0.0-1	{#v112.0-1}
 *****
 +	[112.0.0 Firefox Release Notes]
 +	Default to set `network.http.useragent.forceRVOnly` to `0`.
 
 <br />
 
-##	v111.0.1-1
+##	v111.0.1-1	{#v111.0.1-1}
 *****
 +	[111.0.1 Firefox Release Notes]
 
 <br />
 
-##	v111.0.0-3
+##	v111.0.0-3	{#v111.0-3}
 *****
 +	Now build with `--with-app-name=snowfox` instead of `--with-app-name=firefox` for Windows.
 +	Now possible to use `private_browsing.exe` on Windows.
 
 <br />
 
-##	v111.0.0-2
+##	v111.0.0-2	{#v111.0-2}
 *****
 +	Default to disable `media.eme.showBrowserMessage`.
 +	Default to enable `image.avif.force-loop`.
@@ -286,20 +287,20 @@
 
 <br />
 
-##	v111.0.0-1
+##	v111.0.0-1	{#v111.0-1}
 *****
 +	[111.0.0 Firefox Release Notes]
 
 <br />
 
-##	v110.0.1-1
+##	v110.0.1-1	{#v110.0.1-1}
 *****
 +	[110.0.1 Firefox Release Notes]
 +	Rewrite the build script for Windows.
 
 <br />
 
-##	v110.0.0-2
+##	v110.0.0-2	{#v110.0-2}
 *****
 +	Add support for AVIF (AV1 Image) animated image (upstream [v111][Bug 1788119]:[v113][Bug 1825580]).
 +	Default to enable `image.avif.sequence.animate_avif_major_branded_images`.
@@ -308,14 +309,14 @@
 
 <br />
 
-##	v110.0.0-1
+##	v110.0.0-1	{#v110.0-1}
 *****
 +	[110.0.0 Firefox Release Notes]
 +	Default to disable `devtools.performance.new-panel-onboarding`.
 
 <br />
 
-##	v109.0.1-3
+##	v109.0.1-3	{#v109.0.1-3}
 *****
 +	Default to disable `devtools.screenshot.audio.enabled`.
 +	Default to enable `devtools.popups.debug`.
@@ -326,21 +327,21 @@
 
 <br />
 
-##	v109.0.1-2
+##	v109.0.1-2	{#v109.0.1-2}
 *****
 +	Default to disable OffscreenCanvas for improved performance and compatibility.
 +	Fix behavior of function `static nsSize GetDeviceSize`.
 
 <br />
 
-##	v109.0.1-1
+##	v109.0.1-1	{#v109.0.1-1}
 *****
 +	[109.0.1 Firefox Release Notes]
 +	Fix the Performance API (upstream [v111][Bug 1811567]) for improved compatibility.
 
 <br />
 
-##	v109.0.0-5
+##	v109.0.0-5	{#v109.0-5}
 *****
 +	Add support for JXL (JPEG XL) still image.
 +	Fix behavior of function `static nsCString ImageAcceptHeader`.
@@ -348,7 +349,7 @@
 
 <br />
 
-##	v109.0.0-4
+##	v109.0.0-4	{#v109.0-4}
 *****
 +	Default to disable `devtools.accessibility.enabled`.
 +	Default to disable `layout.word_select.eat_space_to_next_word`.
@@ -359,7 +360,7 @@
 
 <br />
 
-##	v109.0.0-3
+##	v109.0.0-3	{#v109.0-3}
 *****
 +	Default to disable `general.autoScroll`.
 +	Default to enable `browser.menu.showViewImageInfo`.
@@ -370,7 +371,7 @@
 
 <br />
 
-##	v109.0.0-2
+##	v109.0.0-2	{#v109.0-2}
 *****
 +	Default to enable `browser.tabs.insertAfterCurrent`.
 +	Default to enable `devtools.webconsole.persistlog`.
@@ -381,7 +382,7 @@
 
 <br />
 
-##	v109.0.0-1
+##	v109.0.0-1	{#v109.0-1}
 *****
 +	[109.0.0 Firefox Release Notes]
 +	Default to disable `dom.push.connection.enabled`.
@@ -398,7 +399,7 @@
 
 <br />
 
-##	v108.0.2-1
+##	v108.0.2-1	{#v108.0.2-1}
 *****
 +	[108.0.0 Firefox Release Notes]
 +	[108.0.1 Firefox Release Notes]
