@@ -1,12 +1,16 @@
 /* begin */
+/*
 * {
 	box-sizing: border-box;
 }
+ */
 
 /* basic */
 :root {
 	color-scheme: dark only;
 	/* major */
+	--tab-size: 4;
+	/*
 	--color-body-back: transparent;
 	--color-body-input: transparent;
 	--color-html-back: #000000;
@@ -31,7 +35,9 @@
 	--font-family-serf: var(--font-family-serf-sc);
 	--font-size: 124%;
 	--tab-size: 4;
+	 */
 	/* minor */
+	/*
 	--color-a---base: #66ccff;
 	--color-a--hover: var(--color-a---base);
 	--color-a-active: #0078d7;
@@ -47,9 +53,28 @@
 	--round-border-width: calc(1rem / 10);
 	--round-padding-code: 0 calc(1rem / 5);
 	--round-padding-pre-code: calc(1rem / 2) calc(2rem / 3);
+	 */
 }
 
 html {
+	overflow-wrap: break-word;
+	text-rendering: optimizeLegibility;
+	touch-action: manipulation;
+	word-break: break-all;
+	word-wrap: break-word;
+	-webkit-print-color-adjust: economy;
+	print-color-adjust: economy;
+	-moz-tab-size: var(--tab-size);
+	-o-tab-size: var(--tab-size);
+	tab-size: var(--tab-size);
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-webkit-text-size-adjust: none;
+	text-size-adjust: none;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	font-smooth: always;
+	/*
 	background-color: var(--color-html-back);
 	color: var(--color-html-fore);
 	font-family: var(--font-family-sans);
@@ -71,8 +96,11 @@ html {
 	text-size-adjust: none;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
+	font-smooth: always;
+	 */
 }
 
+/*
 body {
 	background-color: var(--color-body-back);
 	scrollbar-color: var(--color-scroll-fore) var(--color-scroll-back);
@@ -90,8 +118,10 @@ span {
 table {
 	table-layout: fixed;
 }
+ */
 
 /* font */
+/*
 button,
 code,
 input,
@@ -182,8 +212,10 @@ textarea {
 [bold] {
 	font-weight: bold;
 }
+ */
 
 /* special */
+/*
 [center] {
 	text-align: center;
 }
@@ -235,8 +267,10 @@ summary {
 :focus {
 	outline: none;
 }
+ */
 
 /* block */
+/*
 blockquote {
 	display: flex;
 }
@@ -253,8 +287,10 @@ pre > code {
 		}
 	}
 }
+ */
 
 /* inline */
+/*
 a {
 	-moz-text-decoration-line: none;
 	-webkit-text-decoration-line: none;
@@ -327,12 +363,14 @@ img {
 input {
 	background-color: var(--color-body-input);
 }
+ */
 
 /* select, textarea {
 	background-color: -webkit-control-background;
 } */
 
 /* zoom */
+/*
 html {
 	@media (min-width: 0px) {
 		font-size: 100%;
@@ -374,5 +412,6 @@ html {
 		font-size: 160%;
 	}
 }
+ */
 
 /* end */

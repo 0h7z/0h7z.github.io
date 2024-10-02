@@ -1,3 +1,4 @@
+#	Snowfox Build Guide
 
 ##	Requirement
 *****
@@ -25,7 +26,7 @@ PS: If build fails due to OOM killer (SIGKILL) or freezes due to OOM, try to
 *****
 
 ###	Source
-```shell
+```sh
 git clone https://github.com/Heptazhou/Snowfox.git
 # OR
 git clone https://github.com/0h7z/Snowfox.git
@@ -36,14 +37,14 @@ julia make.jl all clean
 ```
 
 ###	Arch
-```shell
+```sh
 git clone https://github.com/0h7z/Snowfox.git
 cd Snowfox/Arch
 # WIP
 ```
 
 ###	Windows
-```shell
+```sh
 git clone https://github.com/0h7z/Snowfox.git
 cd Snowfox/Windows
 docker build -t snowfox:win-arch -< win-arch.dockerfile
