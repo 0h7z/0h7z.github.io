@@ -72,15 +72,21 @@ try
 					while occursin(r"^\t*  "m, str)
 						str = replace(str, r"^\t*\K  "m => "\t")
 					end
-					str = replace(str, r"^\t+<(meta|link) .*\K(?<! /)>$"m => " />")
-					str = replace(str, r"^\t+<meta name=\"(description|generator)\".+\n"m => "")
+					str = replace(str, r"^\t"m => "")
+					str = replace(str, r"^\t*<(meta|link) .*\K(?<! /)>$"m => " />")
+					str = replace(str, r"^\t*<meta name=\"(description|generator)\".+\n"m => "")
 					str = replace(str, r"^<html .*\K\bdir=\"ltr\""m => "class=\"dark\"")
 					write(f, str)
 				end
 				if endswith(".js")(f) &&
-				   startswith(joinpath(dst, assetdir, "chunks"))(prefix)
+				   startswith(joinpath(dst, assetdir, "~"))(prefix)
 					str = read(pipeline(f, `pnpm esbuild --minify-whitespace`), String)
 					str = replace(str, r"/\*[*!]\n.*?@.*?\*/"s => "")
+					write(f, str)
+				end
+				if endswith(".xml")(f)
+					str = read(f, String)
+					str = replace(str, r"\n*$"s => "\n")
 					write(f, str)
 				end
 			end

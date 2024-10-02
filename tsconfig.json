@@ -12,9 +12,7 @@
 		"noUncheckedIndexedAccess": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
-		"paths": {
-			"vitepress/types/*": ["./node_modules/vitepress/types/*.js"]
-		}
+		"paths": { "vitepress/types/*": ["./node_modules/vitepress/types/*.js"] }
 	},
 	"exclude": ["node_modules"],
 	"include": [".vitepress/*"]

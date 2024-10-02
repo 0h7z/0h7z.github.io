@@ -1,7 +1,7 @@
 import { defineClientComponent } from "vitepress"
 import { defineCustomElement, h } from "vue"
 import DefaultTheme from "vitepress/theme"
-import Hello from "./Hello.ce.vue"
+import Hello from "../component/Hello.ce.vue"
 import type { Theme } from "vitepress"
 
 if ("undefined" != typeof customElements) {
@@ -24,6 +24,7 @@ export default {
 		})
 	},
 	enhanceApp({ app, router, siteData }) {
+		// https://cn.vuejs.org/guide/components/registration#global-registration
 		app.component("Hello", Hello)
 	},
 } satisfies Theme

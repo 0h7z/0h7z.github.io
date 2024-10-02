@@ -3,6 +3,9 @@ import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
 import type { LocalSearchTranslations } from "vitepress/types/local-search"
 import type { Options } from "@vitejs/plugin-vue"
 
+// https://vitepress.dev/zh/guide/data-loading#createcontentloader
+// createContentLoader
+
 const YEAR = new Date().getUTCFullYear()
 
 const SRCH: Record<string, LocalSearchTranslations> = {
@@ -69,8 +72,8 @@ const LANG = (lang: string, label: string): LocaleConfig<DefaultTheme.Config> =>
 export default defineConfig({
 	// https://vitepress.dev/zh/guide/i18n
 	locales: {
-		...LANG("en", "English"),
-		...LANG("zh", "中文"),
+		...LANG("en", "English (en)"),
+		...LANG("zh", "中文 (zh)"),
 	},
 
 	// https://vitepress.dev/zh/guide/sitemap-generation
@@ -92,7 +95,7 @@ export default defineConfig({
 		["meta", { name: "color-scheme", content: "dark" }],
 		["meta", { name: "referrer", content: "no-referrer" }],
 		["meta", { name: "robots", content: "noindex, nofollow, noodp, noarchive, nosnippet, noimageindex, nocache" }],
-		["meta", { name: "theme-color", content: "black" }],
+		["meta", { name: "theme-color", content: "#1C1B2200" }],
 		["meta", { name: "viewport", content: "width=device-width, initial-scale=1.0" }],
 		// Icon
 		["link", { rel: "icon", href: "/favicon.ico", type: "image/x-icon" }],
@@ -103,7 +106,7 @@ export default defineConfig({
 		["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" }],
 		["meta", { name: "format-detection", content: "telephone=no" }],
 		// Style
-		["style", {}, "html { background: black }"],
+		["style", {}, "html { background: #1C1B22; background: light-dark(#FFFFFF, #1C1B22); }"],
 	],
 	lang: "und",
 	base: "/",

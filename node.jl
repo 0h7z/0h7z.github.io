@@ -43,6 +43,10 @@ try
 			s = replace(s, r"^\n\K(\.VPFooter\.has-sidebar\b)"m => s".Layout >\n\1")
 		end
 		patch("dist/node/", r"^serve-") do s
+			s = replace(s, "(\"hex\")" => "(\"base64url\")")
+			s = replace(s, "(\"sha256\")" => "(\"shake128\")")
+			s = replace(s, "\"chunks\"" => "\"~\"")
+			s = replace(s, ("/chunks/") => ("/~/"))
 			s = replace(s, s"/-vue$/" => s"/-vue(?=:|$)/")
 		end
 		patch("types/default-theme.d.ts") do s
