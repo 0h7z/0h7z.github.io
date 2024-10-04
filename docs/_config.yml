@@ -1,4 +1,4 @@
 exclude:
   - "CNAME"
 include:
-  - "_"
+  - "~"
