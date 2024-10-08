@@ -1,15 +1,48 @@
 import { createContentLoader, defineConfig } from "vitepress"
 import { language } from "./locale.json"
+import footnote from "markdown-it-footnote"
 import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
 import type { LocalSearchTranslations } from "vitepress/types/local-search"
 import type { Options } from "@vitejs/plugin-vue"
+type Language = keyof typeof language
 
 // https://vitepress.dev/zh/guide/data-loading#createcontentloader
 // createContentLoader
 
 const YEAR = new Date().getUTCFullYear()
 
-const SRCH: Record<string, LocalSearchTranslations> = {
+const LANG: Language[] = ["en", "zh"]
+
+const NAVI: Record<Language | "und", DefaultTheme.NavItem[]> = {
+	en: [
+		{ activeMatch: "^/en/blog/", link: "/en/blog/", text: "Blog" },
+		{ activeMatch: "^/en/snowfox/", link: "/en/snowfox/", text: "Snowfox" },
+	],
+	zh: [
+		{ activeMatch: "^/zh/blog/", link: "/zh/blog/", text: "博客" },
+		{ activeMatch: "^/zh/snowfox/", link: "/zh/snowfox/", text: "雪狐" },
+	],
+	und: [], // undefined
+}
+
+const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
+	"/en/blog": [{ link: "/", text: "Blog" }],
+	"/zh/blog": [{ link: "/", text: "博客" }],
+	"/en/snowfox": [
+		{
+			link: "/",
+			text: "Snowfox",
+			items: [
+				{ link: "/changelog/", text: "Changelog" },
+				{ link: "/manual/", text: "Build Guide" },
+			],
+		},
+	],
+	"/zh/snowfox": [{ link: "/", text: "雪狐" }],
+}
+
+const SRCH: Record<Language, LocalSearchTranslations> = {
+	en: {},
 	zh: {
 		button: { buttonText: "搜索", buttonAriaLabel: undefined },
 		modal: {
@@ -30,53 +63,71 @@ const SRCH: Record<string, LocalSearchTranslations> = {
 	},
 }
 
-const NAVI: Record<string, DefaultTheme.NavItem[]> = {
-	en: [
-		{ activeMatch: "^/en/blog/", link: "/en/blog/", text: "Blog" },
-		{ activeMatch: "^/en/snowfox/", link: "/en/snowfox/", text: "Snowfox" },
-	],
-	zh: [
-		{ activeMatch: "^/zh/blog/", link: "/zh/blog/", text: "博客" },
-		{ activeMatch: "^/zh/snowfox/", link: "/zh/snowfox/", text: "雪狐" },
-	],
-}
+const ROOT /* : DefaultTheme.Config */ = {
+	// https://vitepress.dev/zh/reference/default-theme-config
+	i18nRouting: true,
+	logo: "/apple-touch-icon.png",
+	siteTitle: undefined,
+	nav: NAVI.und,
+	sidebar: undefined,
+	aside: true,
+	outline: { level: "deep", label: undefined },
+	socialLinks: [{ icon: "github", link: "https://github.com/0h7z" }],
+	footer: { copyright: `Copyright &COPY; ${2022}-${Math.max(2024, YEAR)} Heptazhou. All rights reserved.` },
+	editLink: { pattern: "https://github.com/0h7z/0h7z.github.io/blob/master/src/:path" },
+	lastUpdated: { formatOptions: { forceLocale: "sv", dateStyle: "short", timeStyle: "medium" } },
+	docFooter: { prev: undefined, next: undefined },
+	darkModeSwitchLabel: undefined,
+	lightModeSwitchTitle: undefined,
+	darkModeSwitchTitle: undefined,
+	sidebarMenuLabel: undefined,
+	returnToTopLabel: undefined,
+	langMenuLabel: undefined,
+	externalLinkIcon: true,
 
-const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
-	"/en/blog": [{ link: "/", text: "Blog" }],
-	"/zh/blog": [{ link: "/", text: "博客" }],
-	"/en/snowfox": [
-		{
-			link: "/",
-			text: "Snowfox",
-			items: [
-				{ link: "/changelog/", text: "Changelog" },
-				{ link: "/manual/", text: "Build Guide" },
-			],
+	// https://vitepress.dev/zh/reference/default-theme-search
+	search: {
+		provider: "local",
+		options: {
+			locales: { zh: { translations: SRCH.zh } },
+			miniSearch: undefined,
 		},
-	],
-	"/zh/snowfox": [{ link: "/", text: "雪狐" }],
+	},
+} as const satisfies DefaultTheme.Config
+
+const I18N: Record<Language, DefaultTheme.Config> = {
+	en: {
+		outline: { level: ROOT.outline.level, label: "Contents" },
+	},
+	zh: {
+		outline: { level: ROOT.outline.level, label: "目录" },
+		editLink: { pattern: ROOT.editLink.pattern, text: "编辑此页" },
+		lastUpdated: { formatOptions: ROOT.lastUpdated.formatOptions, text: "最后更新" },
+		docFooter: { prev: "上一页", next: "下一页" },
+		darkModeSwitchLabel: "网站外观",
+		lightModeSwitchTitle: "浅色模式",
+		darkModeSwitchTitle: "深色模式",
+		sidebarMenuLabel: "菜单",
+		returnToTopLabel: "回到顶部",
+		langMenuLabel: "切换语言",
+	},
 }
 
-const LANG = (lang: keyof typeof language): LocaleConfig<DefaultTheme.Config> => {
+const locale = (lang: Language): LocaleConfig<DefaultTheme.Config> => {
 	const label = `${language[lang]} (${lang})`
 	const link = `/${lang}/`
 	const nav = NAVI[lang]
 	const sidebar: typeof SIDE = {}
-	for (const base in SIDE) {
-		if (!base.startsWith(link)) continue
-		const xs = SIDE[base]!
-		for (const x of xs) x.base = base
-		sidebar[base] = xs
+	for (const [k, v] of Object.entries(SIDE).filter(([k]) => k.startsWith(link))) {
+		for (const x of v) x.base = k
+		sidebar[k] = v
 	}
-	return { [lang]: { label, lang, link, themeConfig: { nav, sidebar } } }
+	return { [lang]: { label, lang, link, themeConfig: { ...I18N[lang], nav, sidebar } } }
 }
 
 export default defineConfig({
 	// https://vitepress.dev/zh/guide/i18n
-	locales: {
-		...LANG("en"),
-		...LANG("zh"),
-	},
+	locales: Object.assign({}, ...LANG.map(locale)),
 
 	// https://vitepress.dev/zh/guide/sitemap-generation
 	sitemap: {
@@ -142,7 +193,7 @@ export default defineConfig({
 	// https://github.com/vuejs/vitepress/blob/main/src/node/markdown/markdown.ts
 	markdown: {
 		preConfig: undefined,
-		config: undefined,
+		config: (md) => md.use(footnote),
 		cache: true,
 		externalLinks: undefined,
 		theme: undefined,
@@ -152,7 +203,7 @@ export default defineConfig({
 		defaultHighlightLang: undefined,
 		codeTransformers: undefined,
 		shikiSetup: undefined,
-		codeCopyButtonTitle: undefined,
+		codeCopyButtonTitle: "",
 		anchor: undefined,
 		attrs: undefined,
 		emoji: undefined,
@@ -183,34 +234,5 @@ export default defineConfig({
 	transformPageData: undefined,
 
 	// https://vitepress.dev/zh/reference/default-theme-config
-	themeConfig: {
-		i18nRouting: true,
-		logo: "/apple-touch-icon.png",
-		siteTitle: undefined,
-		nav: NAVI["root"],
-		sidebar: undefined,
-		aside: true,
-		outline: undefined,
-		socialLinks: [{ icon: "github", link: "https://github.com/0h7z" }],
-		footer: { copyright: `Copyright &COPY; ${2022}-${Math.max(2024, YEAR)} Heptazhou. All rights reserved.` },
-		editLink: { pattern: "https://github.com/0h7z/0h7z/blob/master/src/:path" },
-		lastUpdated: {
-			text: undefined,
-			formatOptions: { forceLocale: "sv", dateStyle: "short", timeStyle: "medium" },
-		},
-		docFooter: undefined,
-		darkModeSwitchLabel: undefined,
-		lightModeSwitchTitle: undefined,
-		darkModeSwitchTitle: undefined,
-		sidebarMenuLabel: undefined,
-		returnToTopLabel: undefined,
-		langMenuLabel: undefined,
-		externalLinkIcon: true,
-
-		// https://vitepress.dev/zh/reference/default-theme-search
-		search: {
-			provider: "local",
-			options: { locales: { zh: { translations: SRCH["zh"] } } },
-		},
-	} satisfies DefaultTheme.Config,
+	themeConfig: ROOT,
 })
