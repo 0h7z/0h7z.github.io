@@ -1,0 +1,1 @@
+import{_ as e,c as t,o}from"./chunks/framework.B-u4z9ye.js";const f=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"zh/snowfox/index.md","filePath":"snowfox/index@zh.md","lastUpdated":1727895707000}'),a={name:"zh/snowfox/index.md"};function n(s,r,d,c,i,p){return o(),t("div")}const x=e(a,[["render",n]]);export{f as __pageData,x as default};
