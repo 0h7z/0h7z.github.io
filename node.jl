@@ -42,7 +42,8 @@ try
 		patch("dist/client/theme-default/components/VPFooter.vue") do s
 			s = replace(s, r"^\n\K(\.VPFooter\.has-sidebar\b)"m => s".Layout >\n\1")
 		end
-		patch("dist/node/", r"^serve-") do s
+		patch("dist/node/", r"^serve-.+\.js$") do s
+			s = replace(s, ".codeCopyButtonTitle || " => ".codeCopyButtonTitle ?? ")
 			s = replace(s, "(\"hex\")" => "(\"base64url\")")
 			s = replace(s, "(\"sha256\")" => "(\"shake128\")")
 			s = replace(s, "\"chunks\"" => "\"~\"")

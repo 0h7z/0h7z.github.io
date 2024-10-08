@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  text: <noscript>Hello</noscript><x-hello></x-hello>
+  text: <x-hello><noscript>Hello</noscript></x-hello>
 
 features:
   - title: "English (en)"

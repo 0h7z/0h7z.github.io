@@ -1,10 +1,11 @@
 <script setup lang="ts">
 	import { greeting } from "../locale.json"
+	type Language = keyof typeof greeting
 
-	const list: (keyof typeof greeting)[] = ["en", "zh"]
+	const LANG: Language[] = ["en", "zh"]
 
 	const animation_ctime = 5 // second
-	const animation_cycle = list.length
+	const animation_cycle = LANG.length
 	const animation_delay = (id: number) => id * animation_ctime + "s"
 	const animation_duration = animation_cycle * animation_ctime + "s"
 </script>
@@ -12,7 +13,7 @@
 <template>
 	<span>
 		<span
-			v-for="(lang, id) in list"
+			v-for="(lang, id) in LANG"
 			:lang
 			:style="{
 				'animation-delay': animation_delay(id),
@@ -33,6 +34,13 @@
 		animation: fade ease-in-out infinite normal none;
 		opacity: 0;
 		position: absolute;
+
+		@media (update: none) {
+			animation-name: none;
+			&:first-child {
+				opacity: 1;
+			}
+		}
 	}
 
 	@keyframes fade {

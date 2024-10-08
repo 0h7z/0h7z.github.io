@@ -139,9 +139,9 @@
 }
 
 /**
- * Component: Algolia
+ * Component: Internationalization
  * -------------------------------------------------------------------------- */
 
-.DocSearch {
-	--docsearch-primary-color: var(--vp-c-brand-1) !important;
+:root[lang="zh"] {
+	--vp-code-copy-copied-text-content: "已复制";
 }
