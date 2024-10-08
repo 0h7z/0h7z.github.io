@@ -1,11 +1,10 @@
 <script setup lang="ts">
-	const list = {
-		en: "Hello",
-		zh: "你好",
-	}
+	import { greeting } from "../locale.json"
+
+	const list: (keyof typeof greeting)[] = ["en", "zh"]
 
 	const animation_ctime = 5 // second
-	const animation_cycle = 2 // length(list)
+	const animation_cycle = list.length
 	const animation_delay = (id: number) => id * animation_ctime + "s"
 	const animation_duration = animation_cycle * animation_ctime + "s"
 </script>
@@ -13,13 +12,13 @@
 <template>
 	<span>
 		<span
-			v-for="(v, k, i) in list"
-			:lang="k"
+			v-for="(lang, id) in list"
+			:lang
 			:style="{
-				'animation-delay': animation_delay(i),
+				'animation-delay': animation_delay(id),
 				'animation-duration': animation_duration,
 			}">
-			{{ v }}
+			{{ greeting[lang] }}
 		</span>
 		<br />
 	</span>

@@ -18,6 +18,10 @@
 @info "Processing..."
 
 using JSON5
+using XML
+using XML: AbstractXMLNode
+
+const Base.string(x::AbstractXMLNode) = XML.write(x, indentsize = 0)
 
 const mjs = raw"""
 import { resolveConfig } from "vitepress"
@@ -68,13 +72,11 @@ try
 			for f in fs
 				if endswith(".html")(f)
 					str = read(f, String)
-					str = replace(str, r"$|\n(\s*\n)+"s => "\n")
-					while occursin(r"^\t*  "m, str)
-						str = replace(str, r"^\t*\K  "m => "\t")
-					end
-					str = replace(str, r"^\t"m => "")
-					str = replace(str, r"^\t*<(meta|link) .*\K(?<! /)>$"m => " />")
-					str = replace(str, r"^\t*<meta name=\"(description|generator)\".+\n"m => "")
+					str = replace(str, r"\n\s*\n|\n*$"s => "\n")
+					str = replace(str, r"^ +"m => "\t")
+					str = replace(str, r"^\t(?=</?(head|body)>$)"m => "")
+					str = replace(str, r"^\t<(meta|link) .*\K(?<! /)>$"m => " />")
+					str = replace(str, r"^\t<meta name=\"(description|generator)\".+\n"m => "")
 					str = replace(str, r"^<html .*\K\bdir=\"ltr\""m => "class=\"dark\"")
 					write(f, str)
 				end
@@ -84,9 +86,15 @@ try
 					str = replace(str, r"/\*[*!]\n.*?@.*?\*/"s => "")
 					write(f, str)
 				end
-				if endswith(".xml")(f)
+				if endswith(".xml")(f) && f ≡ "sitemap.xml"
 					str = read(f, String)
-					str = replace(str, r"\n*$"s => "\n")
+					xml = parse(Node, str)
+					for url ∈ xml[end].children
+						sort!(url.children, by = x -> x.tag)
+					end
+					sort!(xml[end].children, by = string)
+					str = string(xml)
+					str = replace(str, r"\n(?=<(lastmod|loc)>)|</(lastmod|loc)>\K\n" => "")
 					write(f, str)
 				end
 			end

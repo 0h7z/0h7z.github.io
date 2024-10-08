@@ -1,0 +1,10 @@
+{
+	"language": {
+		"en": "English",
+		"zh": "中文"
+	},
+	"greeting": {
+		"en": "Hello",
+		"zh": "你好"
+	}
+}

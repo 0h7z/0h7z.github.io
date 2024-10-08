@@ -2,8 +2,9 @@ import { defineConfig } from "vite"
 import { resolve } from "path"
 import { resolveConfig } from "vitepress"
 import ssl from "@vitejs/plugin-basic-ssl"
+import type { DefaultTheme, SiteConfig } from "vitepress"
 
-const config = await resolveConfig()
+const config: SiteConfig<DefaultTheme.Config> = await resolveConfig()
 
 // https://cn.vitejs.dev/config/
 export default defineConfig({
