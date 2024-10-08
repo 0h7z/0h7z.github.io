@@ -3,6 +3,7 @@
 		"module": "NodeNext",
 		"target": "ESNext",
 		"strict": true,
+		"resolveJsonModule": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitAny": true,
 		"noImplicitOverride": true,

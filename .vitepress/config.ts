@@ -1,4 +1,5 @@
 import { createContentLoader, defineConfig } from "vitepress"
+import { language } from "./locale.json"
 import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
 import type { LocalSearchTranslations } from "vitepress/types/local-search"
 import type { Options } from "@vitejs/plugin-vue"
@@ -56,7 +57,8 @@ const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
 	"/zh/snowfox": [{ link: "/", text: "雪狐" }],
 }
 
-const LANG = (lang: string, label: string): LocaleConfig<DefaultTheme.Config> => {
+const LANG = (lang: keyof typeof language): LocaleConfig<DefaultTheme.Config> => {
+	const label = `${language[lang]} (${lang})`
 	const link = `/${lang}/`
 	const nav = NAVI[lang]
 	const sidebar: typeof SIDE = {}
@@ -72,8 +74,8 @@ const LANG = (lang: string, label: string): LocaleConfig<DefaultTheme.Config> =>
 export default defineConfig({
 	// https://vitepress.dev/zh/guide/i18n
 	locales: {
-		...LANG("en", "English (en)"),
-		...LANG("zh", "中文 (zh)"),
+		...LANG("en"),
+		...LANG("zh"),
 	},
 
 	// https://vitepress.dev/zh/guide/sitemap-generation

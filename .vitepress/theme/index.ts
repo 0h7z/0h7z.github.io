@@ -4,11 +4,15 @@ import DefaultTheme from "vitepress/theme"
 import Hello from "../component/Hello.ce.vue"
 import type { Theme } from "vitepress"
 
-if ("undefined" != typeof customElements) {
+if (typeof customElements != "undefined")
 	// https://cn.vuejs.org/guide/extras/web-components#sfc-as-custom-element
-	const x_hello = defineCustomElement(Hello)
-	customElements?.define("x-hello", x_hello)
-} else {
+	try {
+		const x_hello = defineCustomElement(Hello)
+		customElements?.define("x-hello", x_hello)
+	} catch (e) {
+		console.error(e)
+	}
+else {
 	// https://vitepress.dev/zh/guide/ssr-compat#defineclientcomponent
 	// defineClientComponent
 }
