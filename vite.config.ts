@@ -6,6 +6,9 @@ import type { DefaultTheme, SiteConfig } from "vitepress"
 
 const config: SiteConfig<DefaultTheme.Config> = await resolveConfig()
 
+console.log(config.dynamicRoutes.routes)
+console.log(config.rewrites.map)
+
 // https://cn.vitejs.dev/config/
 export default defineConfig({
 	plugins: [ssl()],

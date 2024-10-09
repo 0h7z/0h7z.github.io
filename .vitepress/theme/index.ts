@@ -1,7 +1,7 @@
 import { defineClientComponent } from "vitepress"
 import { defineCustomElement, h } from "vue"
-import DefaultTheme from "vitepress/theme"
 import Hello from "../component/Hello.ce.vue"
+import theme from "vitepress/theme"
 import type { Theme } from "vitepress"
 
 if (typeof customElements != "undefined")
@@ -21,9 +21,9 @@ else {
 import "./main.pcss"
 import "./style.css"
 export default {
-	extends: DefaultTheme,
+	extends: theme,
 	Layout: () => {
-		return h(DefaultTheme.Layout, null, {
+		return h(theme.Layout, null, {
 			// https://vitepress.dev/zh/guide/extending-default-theme#layout-slots
 		})
 	},

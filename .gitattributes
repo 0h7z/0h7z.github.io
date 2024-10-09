@@ -1,5 +1,0 @@
-
-/*.config.* linguist-vendored
-/src/**/**.md linguist-detectable
-/src/bin/** linguist-vendored
-/src/lib/*/** linguist-vendored

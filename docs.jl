@@ -73,11 +73,15 @@ try
 				if endswith(".html")(f)
 					str = read(f, String)
 					str = replace(str, r"\n\s*\n|\n*$"s => "\n")
-					str = replace(str, r"^ +"m => "\t")
+					str = replace(str, r"^\s+"m => "\t")
 					str = replace(str, r"^\t(?=</?(head|body)>$)"m => "")
 					str = replace(str, r"^\t<(meta|link) .*\K(?<! /)>$"m => " />")
 					str = replace(str, r"^\t<meta name=\"(description|generator)\".+\n"m => "")
 					str = replace(str, r"^<html .*\K\bdir=\"ltr\""m => "class=\"dark\"")
+					if basename(prefix) ≡ "404" && f ≡ "index.html" || f ≡ "404.html"
+						yml = "permalink: /404.html"
+						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml\n---\n")
+					end
 					write(f, str)
 				end
 				if endswith(".js")(f) &&

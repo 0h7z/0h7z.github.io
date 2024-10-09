@@ -29,6 +29,19 @@ const patch(f::Function, path::String, file::Regex) =
 try
 	cd("$(@__DIR__)/" * (d = "node_modules/vitepress/")) do
 		@info d
+		patch("dist/client/app/components/Content.js") do s
+			s = replace(s, "'404 Page Not Found'" => "''")
+		end
+		patch("dist/client/app/router.js") do s
+			p = """await loadPage("/404/"); return;"""
+			s = replace(s, r"^\s*\Kroute\.component = fallbackComponent\b.*;$"m => p)
+		end
+		patch("dist/client/shared.js") do s
+			s = replace(s, r"\b(description|title): \K'[^']+'"m => "''")
+		end
+		patch("dist/client/theme-default/components/VPContent.vue") do s
+			s = replace(s, " v-if=\"page.isNotFound\">" => " v-if=\"false\">")
+		end
 		patch("dist/client/theme-default/components/VPDoc.vue") do s
 			s = replace(s, r"^(import )(VPDocFooter)( from '\./)\2(\.vue')\n\K\n"m => s"\1VPFooter\3VPFooter\4\n\n")
 			s = replace(s, r"=\"doc-after\" />(\n *)(</div>)\K(\n *\2)"m => s"\1<VPFooter v-if=\"hasSidebar\" />\3")
@@ -42,13 +55,20 @@ try
 		patch("dist/client/theme-default/components/VPFooter.vue") do s
 			s = replace(s, r"^\n\K(\.VPFooter\.has-sidebar\b)"m => s".Layout >\n\1")
 		end
+		patch("dist/client/theme-default/components/VPHero.vue") do s
+			s = replace(s, r"^ *\.name,\n *\.text \{[^}]*?\n\K *max-width: \d+px;\n"m => "")
+		end
 		patch("dist/node/", r"^serve-.+\.js$") do s
+			while (r = r"^\t*\K {2}"m) |> occursin(s)
+				s = replace(s, r => "\t")
+			end
 			s = replace(s, ".codeCopyButtonTitle || " => ".codeCopyButtonTitle ?? ")
 			s = replace(s, "(\"hex\")" => "(\"base64url\")")
 			s = replace(s, "(\"sha256\")" => "(\"shake128\")")
 			s = replace(s, "\"chunks\"" => "\"~\"")
 			s = replace(s, ("/chunks/") => ("/~/"))
-			s = replace(s, s"/-vue$/" => s"/-vue(?=:|$)/")
+			s = replace(s, r"\b(description|title): \K\"[^\"]+\""m => "\"\"")
+			s = replace(s, r"^\t*\K(path\$1\.join\(srcDir, \S+\))"m => s"slash(\1)")
 		end
 		patch("types/default-theme.d.ts") do s
 			s = replace(s, "{ forceLocale?: boolean }" => "{ forceLocale?: string }")
