@@ -68,15 +68,15 @@ const ROOT /* : DefaultTheme.Config */ = {
 	i18nRouting: true,
 	logo: "/apple-touch-icon.png",
 	siteTitle: undefined,
-	nav: NAVI.und,
+	nav: NAVI.und.length ? NAVI.und : undefined,
 	sidebar: undefined,
 	aside: true,
-	outline: { level: "deep", label: undefined },
+	outline: { level: "deep" },
 	socialLinks: [{ icon: "github", link: "https://github.com/0h7z" }],
 	footer: { copyright: `Copyright &COPY; ${2022}-${Math.max(2024, YEAR)} Heptazhou. All rights reserved.` },
 	editLink: { pattern: "https://github.com/0h7z/0h7z.github.io/blob/master/src/:path" },
 	lastUpdated: { formatOptions: { forceLocale: "sv", dateStyle: "short", timeStyle: "medium" } },
-	docFooter: { prev: undefined, next: undefined },
+	docFooter: undefined,
 	darkModeSwitchLabel: undefined,
 	lightModeSwitchTitle: undefined,
 	darkModeSwitchTitle: undefined,
@@ -167,6 +167,8 @@ export default defineConfig({
 	// https://vitepress.dev/zh/reference/site-config#routing
 	cleanUrls: true,
 	rewrites: {
+		// /<400:499>/
+		":code(\\d{3}).md": ":code/index.md",
 		// /<lang>/[path]/
 		":path(.+?)/index@:lang([a-z]{2}).md": ":lang/:path/index.md",
 		"index@:lang([a-z]{2}).md": ":lang/index.md",
