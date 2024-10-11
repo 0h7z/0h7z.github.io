@@ -21,7 +21,6 @@
 			}">
 			{{ greeting[lang] }}
 		</span>
-		<br />
 	</span>
 </template>
 

@@ -13,7 +13,7 @@ const YEAR = new Date().getUTCFullYear()
 
 const LANG: Language[] = ["en", "zh"]
 
-const NAVI: Record<Language | "und", DefaultTheme.NavItem[]> = {
+const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
 	en: [
 		{ activeMatch: "^/en/blog/", link: "/en/blog/", text: "Blog" },
 		{ activeMatch: "^/en/snowfox/", link: "/en/snowfox/", text: "Snowfox" },
@@ -22,7 +22,6 @@ const NAVI: Record<Language | "und", DefaultTheme.NavItem[]> = {
 		{ activeMatch: "^/zh/blog/", link: "/zh/blog/", text: "博客" },
 		{ activeMatch: "^/zh/snowfox/", link: "/zh/snowfox/", text: "雪狐" },
 	],
-	und: [], // undefined
 }
 
 const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
@@ -41,7 +40,7 @@ const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
 	"/zh/snowfox": [{ link: "/", text: "雪狐" }],
 }
 
-const SRCH: Record<Language, LocalSearchTranslations> = {
+const SRCH: Partial<Record<Language, LocalSearchTranslations>> = {
 	en: {},
 	zh: {
 		button: { buttonText: "搜索", buttonAriaLabel: undefined },
@@ -68,7 +67,7 @@ const ROOT /* : DefaultTheme.Config */ = {
 	i18nRouting: true,
 	logo: "/apple-touch-icon.png",
 	siteTitle: undefined,
-	nav: NAVI.und.length ? NAVI.und : undefined,
+	nav: NAVI.und?.length ? NAVI.und : undefined,
 	sidebar: undefined,
 	aside: true,
 	outline: { level: "deep" },
@@ -95,7 +94,7 @@ const ROOT /* : DefaultTheme.Config */ = {
 	},
 } as const satisfies DefaultTheme.Config
 
-const I18N: Record<Language, DefaultTheme.Config> = {
+const I18N: Partial<Record<Language, DefaultTheme.Config>> = {
 	en: {
 		outline: { level: ROOT.outline.level, label: "Contents" },
 	},
@@ -167,7 +166,7 @@ export default defineConfig({
 	// https://vitepress.dev/zh/reference/site-config#routing
 	cleanUrls: true,
 	rewrites: {
-		// /<400:499>/
+		// /<000:999>/
 		":code(\\d{3}).md": ":code/index.md",
 		// /<lang>/[path]/
 		":path(.+?)/index@:lang([a-z]{2}).md": ":lang/:path/index.md",
