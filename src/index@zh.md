@@ -10,5 +10,8 @@ features:
     link: ./blog/
   - title: "雪狐"
     link: ./snowfox/
+
+  - title: "GitHub"
+    link: https://github.com/0h7z
 ---
 

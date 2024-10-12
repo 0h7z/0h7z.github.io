@@ -4,44 +4,58 @@ import { writeFileSync } from "fs"
 const output = resolve(__dirname, "[status].json")
 const status = Object.assign(
 	{
-		// https://datatracker.ietf.org/doc/html/rfc2295
+		// https://tools.ietf.org/html/rfc9110 - HTTP
+		306: "(Unused)", // reserved
+		418: "(Unused)", // reserved
+	},
+	{
+		// https://tools.ietf.org/html/draft-cohen-http-305-306-responses-00
+		306: "Switch Proxy",
+		506: "Redirection Failed",
+		// https://tools.ietf.org/html/rfc2295
+		// @ts-expect-error
 		506: "Variant Also Negotiates",
-		// https://datatracker.ietf.org/doc/html/rfc2518 - WebDAV
-		102: "Processing", // removed in rfc4918
-		// https://datatracker.ietf.org/doc/html/rfc2774
+		// https://tools.ietf.org/html/rfc2324 - HTCPCP
+		418: "I'm a teapot",
+		// https://tools.ietf.org/html/rfc2518 - WebDAV
+		102: "Processing", // removed (rfc4918)
+		// https://tools.ietf.org/html/rfc2774
 		510: "Not Extended",
-		// https://datatracker.ietf.org/doc/html/rfc3229
+		// https://tools.ietf.org/html/rfc3229
 		226: "IM Used",
-		// https://datatracker.ietf.org/doc/html/rfc4918 - WebDAV
+		// https://tools.ietf.org/html/rfc4918 - WebDAV
 		207: "Multi-Status",
-		412: "Precondition Failed",
 		414: "Request-URI Too Long",
 		422: "Unprocessable Entity",
 		423: "Locked",
 		424: "Failed Dependency",
 		507: "Insufficient Storage",
-		// https://datatracker.ietf.org/doc/html/rfc5842 - WebDAV
+		// https://tools.ietf.org/html/rfc5842 - WebDAV
 		208: "Already Reported",
 		508: "Loop Detected",
-		// https://datatracker.ietf.org/doc/html/rfc6585
+		// https://tools.ietf.org/html/rfc6585
 		428: "Precondition Required",
 		429: "Too Many Requests",
 		431: "Request Header Fields Too Large",
 		511: "Network Authentication Required",
-		// https://datatracker.ietf.org/doc/html/rfc7231
+		// https://tools.ietf.org/html/rfc7168 - HTCPCP
+		300: "Multiple Options",
+		// @ts-expect-error
+		418: "I'm a Teapot",
+		// https://tools.ietf.org/html/rfc7231
 		413: "Payload Too Large",
-		// https://datatracker.ietf.org/doc/html/rfc7725
+		// https://tools.ietf.org/html/rfc7725
 		451: "Unavailable For Legal Reasons",
-		// https://datatracker.ietf.org/doc/html/rfc8297
+		// https://tools.ietf.org/html/rfc8297
 		103: "Early Hints",
-		// https://datatracker.ietf.org/doc/html/rfc8470
+		// https://tools.ietf.org/html/rfc8470
 		425: "Too Early",
 	},
 	{
-		// https://datatracker.ietf.org/doc/html/rfc9110#status.1xx
+		// https://tools.ietf.org/html/rfc9110#status.1xx
 		100: "Continue",
 		101: "Switching Protocols",
-		// https://datatracker.ietf.org/doc/html/rfc9110#status.2xx
+		// https://tools.ietf.org/html/rfc9110#status.2xx
 		200: "OK",
 		201: "Created",
 		202: "Accepted",
@@ -49,17 +63,16 @@ const status = Object.assign(
 		204: "No Content",
 		205: "Reset Content",
 		206: "Partial Content",
-		// https://datatracker.ietf.org/doc/html/rfc9110#status.3xx
+		// https://tools.ietf.org/html/rfc9110#status.3xx
 		300: "Multiple Choices",
 		301: "Moved Permanently",
 		302: "Found",
 		303: "See Other",
 		304: "Not Modified",
-		305: "Use Proxy", // deprecated in rfc7231
-		306: "(Unused)", // reserved
+		305: "Use Proxy", // deprecated (rfc7231)
 		307: "Temporary Redirect",
 		308: "Permanent Redirect",
-		// https://datatracker.ietf.org/doc/html/rfc9110#status.4xx
+		// https://tools.ietf.org/html/rfc9110#status.4xx
 		400: "Bad Request",
 		401: "Unauthorized",
 		402: "Payment Required", // reserved
@@ -78,21 +91,16 @@ const status = Object.assign(
 		415: "Unsupported Media Type",
 		416: "Range Not Satisfiable",
 		417: "Expectation Failed",
-		418: "(Unused)", // reserved
 		421: "Misdirected Request",
 		422: "Unprocessable Content",
 		426: "Upgrade Required",
-		// https://datatracker.ietf.org/doc/html/rfc9110#status.5xx
+		// https://tools.ietf.org/html/rfc9110#status.5xx
 		500: "Internal Server Error",
 		501: "Not Implemented",
 		502: "Bad Gateway",
 		503: "Service Unavailable",
 		504: "Gateway Timeout",
 		505: "HTTP Version Not Supported",
-	},
-	{
-		// https://datatracker.ietf.org/doc/html/rfc2324 - HTCPCP
-		418: "I'm a teapot",
 	}
 )
 

@@ -10,5 +10,8 @@ features:
     link: ./en/
   - title: "中文 (zh)"
     link: ./zh/
+
+  - title: "GitHub"
+    link: https://github.com/0h7z
 ---
 

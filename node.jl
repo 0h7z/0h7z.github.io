@@ -58,6 +58,13 @@ try
 		patch("dist/client/theme-default/components/VPHero.vue") do s
 			s = replace(s, r"^ *\.name,\n *\.text \{[^}]*?\n\K *max-width: \d+px;\n"m => "")
 		end
+		patch("dist/client/theme-default/styles/components/vp-doc.css") do s
+			o = ":not(.no-icon)::after"
+			p = ".vp-external-link-icon"
+			q = "$p.no-icon > .box > .title"
+			s = replace(s, "$o {\n" => "$o,\n:is($q)::after {\n")
+			s = replace(s, "$p::after {\n" => "$p::after,\n$q::after {\n")
+		end
 		patch("dist/node/", r"^serve-.+\.js$") do s
 			while (r = r"^\t*\K {2}"m) |> occursin(s)
 				s = replace(s, r => "\t")

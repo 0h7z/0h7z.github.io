@@ -71,7 +71,7 @@ const ROOT /* : DefaultTheme.Config */ = {
 	sidebar: undefined,
 	aside: true,
 	outline: { level: "deep" },
-	socialLinks: [{ icon: "github", link: "https://github.com/0h7z" }],
+	socialLinks: [{ icon: "github", link: "https://github.com/0h7z/0h7z.github.io" }],
 	footer: { copyright: `Copyright &COPY; ${2022}-${Math.max(2024, YEAR)} Heptazhou. All rights reserved.` },
 	editLink: { pattern: "https://github.com/0h7z/0h7z.github.io/blob/master/src/:path" },
 	lastUpdated: { formatOptions: { forceLocale: "sv", dateStyle: "short", timeStyle: "medium" } },
