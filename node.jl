@@ -69,6 +69,9 @@ try
 			while (r = r"^\t*\K {2}"m) |> occursin(s)
 				s = replace(s, r => "\t")
 			end
+			o = s"${config.assetsDir}" * "/~/"
+			p = s"[name].[hash].js"
+			q = s"[name].js"
 			s = replace(s, ".codeCopyButtonTitle || " => ".codeCopyButtonTitle ?? ")
 			s = replace(s, "(\"hex\")" => "(\"base64url\")")
 			s = replace(s, "(\"sha256\")" => "(\"shake128\")")
@@ -76,6 +79,7 @@ try
 			s = replace(s, ("/chunks/") => ("/~/"))
 			s = replace(s, r"\b(description|title): \K\"[^\"]+\""m => "\"\"")
 			s = replace(s, r"^\t*\K(path\$1\.join\(srcDir, \S+\))"m => s"slash(\1)")
+			s = replace(s, Regex("`\\Q$o\\E\\K\\Q$p\\E(?=`)") => """\${chunk.name.startsWith("@") ? "$q" : "$p"}""")
 		end
 		patch("types/default-theme.d.ts") do s
 			s = replace(s, "{ forceLocale?: boolean }" => "{ forceLocale?: string }")

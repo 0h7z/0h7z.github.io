@@ -43,7 +43,8 @@ try
 					str = replace(str, r"^\s+"m => "\t")
 					str = replace(str, r"^\t(?=</?(head|body)>$)"m => "")
 					str = replace(str, r"^\t<(meta|link) .*\K(?<! /)>$"m => " />")
-					str = replace(str, r"^\t<meta name=\"(description|generator)\".+\n"m => "")
+					str = replace(str, r"^\t<meta name=\"(?:description|generator)\".+\n"m => "")
+					str = replace(str, r"^\t<script id=\"check-dark-mode\">.*</script>\n"m => "")
 					str = replace(str, r"^<html .*\K\bdir=\"ltr\""m => "class=\"dark\"")
 					if basename(prefix) ≡ "404" && f ≡ "index.html" || f ≡ "404.html"
 						yml = "permalink: /404.html"

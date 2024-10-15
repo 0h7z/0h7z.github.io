@@ -8,9 +8,13 @@ hero:
 features:
   - title: "Blog"
     link: ./blog/
+  - title: "Documentation"
+    link: ./docs/
   - title: "Snowfox"
     link: ./snowfox/
 
+  - title: "About"
+    link: ./about/
   - title: "GitHub"
     link: https://github.com/0h7z
 ---

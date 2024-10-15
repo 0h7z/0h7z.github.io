@@ -16,11 +16,15 @@ const LANG: Language[] = ["en", "zh"]
 const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
 	en: [
 		{ activeMatch: "^/en/blog/", link: "/en/blog/", text: "Blog" },
+		{ activeMatch: "^/en/docs/", link: "/en/docs/", text: "Docs" },
 		{ activeMatch: "^/en/snowfox/", link: "/en/snowfox/", text: "Snowfox" },
+		{ activeMatch: "^/en/about/", link: "/en/about/", text: "About" },
 	],
 	zh: [
 		{ activeMatch: "^/zh/blog/", link: "/zh/blog/", text: "博客" },
+		{ activeMatch: "^/zh/docs/", link: "/zh/docs/", text: "文档" },
 		{ activeMatch: "^/zh/snowfox/", link: "/zh/snowfox/", text: "雪狐" },
+		{ activeMatch: "^/zh/about/", link: "/zh/about/", text: "关于" },
 	],
 }
 
@@ -134,7 +138,7 @@ export default defineConfig({
 		lastmodDateOnly: false,
 		xmlns: { news: false, xhtml: !true, image: false, video: false },
 		transformItems: (xs) => {
-			for (const x of xs) x.links = undefined
+			xs.forEach((x) => x.links && delete x.links)
 			return xs
 		},
 	},
@@ -153,9 +157,10 @@ export default defineConfig({
 		["link", { rel: "icon", href: "/favicon.ico", type: "image/x-icon" }],
 		["link", { rel: "icon", href: "/favicon.png", type: "image/png" }],
 		// Apple
-		["link", { rel: "apple-touch-icon", href: "/apple-touch-icon.png", type: "image/png" }],
+		["link", { rel: "apple-touch-icon", href: "/favicon.png", type: "image/png" }],
+		["link", { rel: "apple-touch-startup-image", href: "/favicon.png", type: "image/png" }],
 		["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
-		["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black-translucent" }],
+		["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black" }],
 		["meta", { name: "format-detection", content: "telephone=no" }],
 		// Style
 		["style", {}, "html { background: #1C1B22; background: light-dark(#FFFFFF, #1C1B22); }"],
