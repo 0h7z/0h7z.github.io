@@ -2,3 +2,5 @@ exclude:
   - "CNAME"
 include:
   - "~"
+plugins:
+  - jekyll-redirect-from

@@ -12,14 +12,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# [compat]
-# julia = "≥ 1.5"
-
 @info "Processing..."
 
+using Exts
 using JSON5
-using XML
-using XML: AbstractXMLNode
+using XML: XML, AbstractXMLNode, Node
+using YAML: yaml
 
 const Base.string(x::AbstractXMLNode) = XML.write(x, indentsize = 0)
 
@@ -46,9 +44,13 @@ try
 					str = replace(str, r"^\t<meta name=\"(?:description|generator)\".+\n"m => "")
 					str = replace(str, r"^\t<script id=\"check-dark-mode\">.*</script>\n"m => "")
 					str = replace(str, r"^<html .*\K\bdir=\"ltr\""m => "class=\"dark\"")
-					if basename(prefix) ≡ "404" && f ≡ "index.html" || f ≡ "404.html"
-						yml = "permalink: /404.html"
-						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml\n---\n")
+					if stdpath(prefix, f) ∈ dst .* ["/404.html", "/404/index.html"]
+						yml = yaml(Dict(:permalink => "/404.html"))
+						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
+					end
+					if stdpath(prefix, f) ∈ dst .* ["/en/snowfox/changelog/index.html"]
+						yml = yaml(Dict(:redirect_from => ["/snowfox/"]))
+						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
 					end
 					write(f, str)
 				end
