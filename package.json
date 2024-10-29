@@ -11,9 +11,10 @@
 		"serve": "vite preview",
 		"preview": "pnpm build && pnpm serve",
 		"postbuild": "julia docs.jl /",
-		"postinstall": "julia node.jl /"
+		"postinstall": "julia node.jl / && julia icon.jl /"
 	},
 	"devDependencies": {
+		"@primer/octicons": "^19.12.0",
 		"@types/markdown-it-footnote": "^3.0.4",
 		"@types/node": "^22.8.4",
 		"@vitejs/plugin-basic-ssl": "^1.1.0",
@@ -24,7 +25,7 @@
 		"markdown-it-mathjax3": "^4.3.2",
 		"rollup": "^4.24.3",
 		"vite": "^5.4.10",
-		"vitepress": "^1.4.1",
+		"vitepress": "^1.4.2",
 		"vue": "^3.5.12"
 	},
 	"engines": {
@@ -47,6 +48,7 @@
 		],
 		"overrides": {
 			"@docsearch/js": "-",
+			"@vue/devtools-api": "-",
 			"esbuild": "*"
 		},
 		"packageExtensions": {

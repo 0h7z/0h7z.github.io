@@ -4,7 +4,8 @@ import footnote from "markdown-it-footnote"
 import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
 import type { LocalSearchTranslations } from "vitepress/types/local-search"
 import type { Options } from "@vitejs/plugin-vue"
-type Language = keyof typeof language
+
+export type Language = keyof typeof language
 
 // https://vitepress.dev/zh/guide/data-loading#createcontentloader
 // createContentLoader

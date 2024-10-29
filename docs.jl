@@ -15,7 +15,7 @@
 @info "Processing..."
 
 using Exts
-using JSON5
+using JSON5: JSON5
 using XML: XML, AbstractXMLNode, Node
 using YAML: yaml
 

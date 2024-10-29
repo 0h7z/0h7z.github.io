@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import { greeting } from "../locale.json"
-	type Language = keyof typeof greeting
+	import type { Language } from "../config"
 
 	const LANG: Language[] = ["en", "zh"]
 

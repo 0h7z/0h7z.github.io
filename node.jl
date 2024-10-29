@@ -14,9 +14,11 @@
 
 @info "Processing..."
 
+using Exts
+
 const patch(f::Function, file::String) =
-	let s = t = read(file, String), s = f(s)::String
-		s ≠ t ? (@info write(file, s) => file) : (@info NaN => file)
+	let s = t = readstr(file), s = f(s)::String
+		s ≠ t ? (@info write(file, s) => file) : (@warn NaN => file)
 	end
 const patch(f::Function, path::String, file::Regex) =
 	let v = filter!(contains(file) ∘ basename, readdir(path, join = true))
@@ -28,6 +30,14 @@ try
 		@info d
 		patch("dist/client/app/components/Content.js") do s
 			s = replace(s, "'404 Page Not Found'" => "''")
+		end
+		patch("dist/client/app/devtools.js") do s
+			_ = "node_modules/vitepress/dist/client/app/devtools.js"
+			p = """export const setupDevtools = (_app, _router, _data) => {};"""
+			s = replace(s, r"^(.+;\n)$"s => SubstitutionString("$p\n/*\n\\1 */\n"))
+		end
+		patch("dist/client/app/index.js") do s
+			s = replace(s, "(import.meta.env.DEV || __VUE_PROD_DEVTOOLS__)" => "(false)")
 		end
 		patch("dist/client/app/router.js") do s
 			p = """await loadPage("/404/"); return;"""
