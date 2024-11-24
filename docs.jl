@@ -36,7 +36,7 @@ try
 		cd(prefix) do
 			for f in fs
 				if endswith(".html")(f)
-					str = read(f, String)
+					str = readstr(f)
 					str = replace(str, r"\n\s*\n|\n*$"s => "\n")
 					str = replace(str, r"^\s+"m => "\t")
 					str = replace(str, r"^\t(?=</?(head|body)>$)"m => "")
@@ -45,11 +45,11 @@ try
 					str = replace(str, r"^\t<script id=\"check-dark-mode\">.*</script>\n"m => "")
 					str = replace(str, r"^<html .*\K\bdir=\"ltr\""m => "class=\"dark\"")
 					if stdpath(prefix, f) ∈ dst .* ["/404.html", "/404/index.html"]
-						yml = yaml(Dict(:permalink => "/404.html"))
+						yml = yaml(LDict(:permalink => "/404.html"))
 						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
 					end
 					if stdpath(prefix, f) ∈ dst .* ["/en/snowfox/changelog/index.html"]
-						yml = yaml(Dict(:redirect_from => ["/snowfox/"]))
+						yml = yaml(LDict(:redirect_from => ["/snowfox/"]))
 						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
 					end
 					write(f, str)
@@ -61,7 +61,7 @@ try
 					write(f, str)
 				end
 				if endswith(".xml")(f) && f ≡ "sitemap.xml"
-					str = read(f, String)
+					str = readstr(f)
 					xml = parse(Node, str)
 					for url ∈ xml[end].children
 						sort!(url.children, by = x -> x.tag)

@@ -16,16 +16,18 @@
 
 using Exts
 using JSON5: json
-using OrderedCollections: OrderedDict as ODict
 
 try
 	cd(@__DIR__) do
-		cd("node_modules/@primer/octicons/build/svg/")
-		r = r"\Q-24.svg\E$"
-		v = map(filter!(contains(r), readdir())) do f
-			replace(f, r => "") => readstr(f)
+		d = "node_modules/@primer/octicons/build/svg/"
+		f = "node_modules/@primer/octicons/svg.json"
+		g = ".vitepress/octicon.json"
+		r = r"(-delete\Kd|-fill\Ked)?\Q-16.svg\E$"
+		v = map(filter!(contains(r), readdir(d))) do f
+			replace(f, r => "", "-" => "_") => readstr(d * f)
 		end
-		write("../../svg.json", json(ODict(v), 4))
+		@info write(f, json(LDict(v), 4)) => f
+		cp(f, g, force = true)
 	end
 catch e
 	@info e

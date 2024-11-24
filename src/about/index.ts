@@ -3,8 +3,8 @@ import icon from "@primer/octicons/svg.json"
 import type { Language } from "../../.vitepress/config"
 
 const title = {
-	bot: (lang) => "Bot",
-	dev: (lang) => "Developer",
+	bot: (_lang) => "Bot",
+	dev: (_lang) => "Developer",
 } satisfies Record<string, (_: Language) => string>
 
 export const core = (lang: Language): DefaultTheme.TeamMember[] => [
@@ -13,7 +13,7 @@ export const core = (lang: Language): DefaultTheme.TeamMember[] => [
 		name: "Heptazhou",
 		title: title.dev(lang),
 		links: [
-			{ icon: "github", link: "https://github.com/Heptazhou" },
+			{ icon: { svg: icon.mark_github }, link: "https://github.com/Heptazhou" },
 			{ icon: { svg: icon.mail }, link: "mailto:zhou@0h7z.com" },
 		],
 	},
@@ -22,10 +22,10 @@ export const core = (lang: Language): DefaultTheme.TeamMember[] => [
 		name: "Seele",
 		title: title.bot(lang),
 		links: [
-			{ icon: "github", link: "https://github.com/seelebot" },
+			{ icon: { svg: icon.mark_github }, link: "https://github.com/seelebot" },
 			// { icon: { svg: icon.mail }, link: "mailto:seele@0h7z.com" },
 		],
 	},
 ]
 
-export const extra = (lang: Language): DefaultTheme.TeamMember[] => []
+export const extra = (_lang: Language): DefaultTheme.TeamMember[] => []

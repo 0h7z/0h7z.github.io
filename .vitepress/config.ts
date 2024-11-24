@@ -1,6 +1,7 @@
 import { createContentLoader, defineConfig } from "vitepress"
 import { language } from "./locale.json"
 import footnote from "markdown-it-footnote"
+import icon from "./octicon.json"
 import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
 import type { LocalSearchTranslations } from "vitepress/types/local-search"
 import type { Options } from "@vitejs/plugin-vue"
@@ -76,7 +77,7 @@ const ROOT /* : DefaultTheme.Config */ = {
 	sidebar: undefined,
 	aside: true,
 	outline: { level: "deep" },
-	socialLinks: [{ icon: "github", link: "https://github.com/0h7z/0h7z.github.io" }],
+	socialLinks: [{ icon: { svg: icon.mark_github }, link: "https://github.com/0h7z/0h7z.github.io" }],
 	footer: { copyright: `Copyright &COPY; ${2022}-${Math.max(2024, YEAR)} Heptazhou. All rights reserved.` },
 	editLink: { pattern: "https://github.com/0h7z/0h7z.github.io/blob/master/src/:path" },
 	lastUpdated: { formatOptions: { forceLocale: "sv", dateStyle: "short", timeStyle: "medium" } },
@@ -149,7 +150,7 @@ export default defineConfig({
 	titleTemplate: undefined,
 	description: "0h7z",
 	head: [
-		["meta", { name: "color-scheme", content: "dark" }],
+		["meta", { name: "color-scheme", content: "dark light" }],
 		["meta", { name: "referrer", content: "no-referrer" }],
 		["meta", { name: "robots", content: "noindex, nofollow, noodp, noarchive, nosnippet, noimageindex, nocache" }],
 		["meta", { name: "theme-color", content: "#1C1B2200" }],
