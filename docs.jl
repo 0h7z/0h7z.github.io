@@ -35,12 +35,17 @@ try
 	for (prefix, ds, fs) in walkdir(dst, topdown = false)
 		cd(prefix) do
 			for f in fs
+				if f == "vp-icons.css"
+					rm(f)
+					continue
+				end
 				if endswith(".html")(f)
 					str = readstr(f)
 					str = replace(str, r"\n\s*\n|\n*$"s => "\n")
 					str = replace(str, r"^\s+"m => "\t")
 					str = replace(str, r"^\t(?=</?(head|body)>$)"m => "")
 					str = replace(str, r"^\t<(meta|link) .*\K(?<! /)>$"m => " />")
+					str = replace(str, r"^\t<link .+ href=\"/vp-icons.css\".+\n"m => "")
 					str = replace(str, r"^\t<meta name=\"(?:description|generator)\".+\n"m => "")
 					str = replace(str, r"^\t<script id=\"check-dark-mode\">.*</script>\n"m => "")
 					str = replace(str, r"^<html .*\K\bdir=\"ltr\""m => "class=\"dark\"")
