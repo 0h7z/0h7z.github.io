@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2024 Heptazhou <zhou@0h7z.com>
+# Copyright (C) 2022-2025 Heptazhou <zhou@0h7z.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -25,7 +25,7 @@ const patch(f::Function, path::String, file::Regex) =
 		@. patch(f, stdpath(path, x))
 	end
 
-try
+if abspath(PROGRAM_FILE) == @__FILE__
 	cd(@__DIR__) do
 	#! format: noindent
 	patch("node_modules/vitepress/dist/client/app/components/Content.js") do s
@@ -65,7 +65,7 @@ try
 		s = replace(s, r"^ *\.name,\n *\.text \{[^}]*?\n\K *max-width: \d+px;\n"m => "")
 	end
 	patch("node_modules/vitepress/dist/client/theme-default/styles/components/vp-doc.css") do s
-		o = ":not(.no-icon)::after"
+		o = match(":not(:is(.no-icon," * r".+?"m * "))::after", s).match
 		p = ".vp-external-link-icon"
 		q = "$p.no-icon > .box > .title"
 		s = replace(s, "$o {\n" => "$o,\n:is($q)::after {\n")
@@ -86,19 +86,25 @@ try
 		s = replace(s, ("/chunks/") => ("/~/"))
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
+		o = "@iconify-json/simple-icons/icons.json"
+		p = "\\S+\\Q(\"$o\")\\E;"
+		q = "if (usedIcons.size == 0) return;"
+		s = replace(s, Regex("^\\s*\\K.*(const icons = $p)", "m") => SubstitutionString("$q \\1"))
+	end
+	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		o = s"${config.assetsDir}" * "/~/"
 		p = s"[name].[hash].js"
 		q = s"[name].js"
 		s = replace(s, Regex("`\\Q$o\\E\\K\\Q$p\\E(?=`)") => """\${chunk.name.startsWith("@") ? "$q" : "$p"}""")
 	end
+	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
+		p = "concurrency: siteConfig.buildConcurrency"
+		q = "concurrency: 1"
+		s = replace(s, r"^\s*\K"m * p * r"$"m => q)
+	end
 	patch("node_modules/vitepress/types/default-theme.d.ts") do s
 		s = replace(s, "{ forceLocale?: boolean }" => "{ forceLocale?: string }")
 	end
 	end
-catch e
-	@info e
 end
-
-isempty(ARGS) || exit()
-pause(up = 1)
 

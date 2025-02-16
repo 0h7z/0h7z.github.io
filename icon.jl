@@ -1,4 +1,4 @@
-# Copyright (C) 2024 Heptazhou <zhou@0h7z.com>
+# Copyright (C) 2024-2025 Heptazhou <zhou@0h7z.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -17,7 +17,7 @@
 using Exts
 using JSON5: json
 
-try
+if abspath(PROGRAM_FILE) == @__FILE__
 	cd(@__DIR__) do
 		d = "node_modules/@primer/octicons/build/svg/"
 		f = "node_modules/@primer/octicons/svg.json"
@@ -29,10 +29,5 @@ try
 		@info write(f, json(LDict(v), 4)) => f
 		cp(f, g, force = true)
 	end
-catch e
-	@info e
 end
-
-isempty(ARGS) || exit()
-pause(up = 1)
 

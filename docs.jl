@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2024 Heptazhou <zhou@0h7z.com>
+# Copyright (C) 2022-2025 Heptazhou <zhou@0h7z.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -31,7 +31,7 @@ const src = relpath(cfg["srcDir"])
 const dst = relpath(cfg["outDir"])
 const assetdir = cfg["assetsDir"]
 
-try
+if abspath(PROGRAM_FILE) == @__FILE__
 	for (prefix, ds, fs) in walkdir(dst, topdown = false)
 		cd(prefix) do
 			for f in fs
@@ -79,10 +79,5 @@ try
 			end
 		end
 	end
-catch e
-	@info e
 end
-
-isempty(ARGS) || exit()
-pause(up = 1)
 
