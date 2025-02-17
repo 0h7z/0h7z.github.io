@@ -5,7 +5,7 @@
 	"license": "AGPL-3.0-only",
 	"private": true,
 	"scripts": {
-		"upd": "pnpm up --latest && pnpm add -D vite@5 && pnpm i -s",
+		"upd": "pnpm up --latest && pnpm i -s",
 		"dev": "vitepress dev",
 		"build": "vitepress build",
 		"serve": "vite preview",
@@ -23,8 +23,8 @@
 		"less": "^4.2.2",
 		"markdown-it-footnote": "^4.0.0",
 		"markdown-it-mathjax3": "^4.3.2",
-		"rollup": "^4.34.7",
-		"vite": "^5.4.14",
+		"rollup": "^4.34.8",
+		"vite": "^6.1.1",
 		"vitepress": "^1.6.3",
 		"vue": "^3.5.13"
 	},
@@ -50,7 +50,8 @@
 			"@docsearch/js": "-",
 			"@iconify-json/simple-icons": "-",
 			"@vue/devtools-api": "-",
-			"esbuild": "*"
+			"esbuild": "*",
+			"vite": "*"
 		},
 		"packageExtensions": {
 			"vitepress": {

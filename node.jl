@@ -12,13 +12,12 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-@info "Processing..."
-
 using Exts
 
 const patch(f::Function, file::String) =
 	let s = t = readstr(file), s = f(s)::String
-		s ≠ t ? @info(write(file, s) => file) : @warn(NaN => file)
+		s ≠ t ? @info(write(file, s) => file) : @warn(NaN => file,
+			_module = nothing, _file = nothing, _line = nothing)
 	end
 const patch(f::Function, path::String, file::Regex) =
 	let x = filter!(contains(file), readdir(path))

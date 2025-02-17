@@ -12,10 +12,8 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-@info "Processing..."
-
 using Exts
-using JSON5: JSON5
+using JSON5: JSON
 using XML: XML, AbstractXMLNode, Node
 using YAML: yaml
 
@@ -25,7 +23,7 @@ const mjs = raw"""
 import { resolveConfig } from "vitepress"
 console.log(JSON.stringify(await resolveConfig()))
 """
-const cfg = JSON5.parse(readstr(`node --input-type=module -e $mjs`))
+const cfg = JSON.parse(readstr(`node --input-type=module -e $mjs`))
 
 const src = relpath(cfg["srcDir"])
 const dst = relpath(cfg["outDir"])
@@ -61,7 +59,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 				end
 				if endswith(".js")(f) &&
 				   startswith(joinpath(dst, assetdir, "~"))(prefix)
-					str = read(pipeline(f, `pnpm esbuild --minify-whitespace`), String)
+					str = readstr(pipeline(f, `pnpm esbuild --minify-whitespace`))
 					str = replace(str, r"/\*[*!]\n.*?@.*?\*/"s => "")
 					write(f, str)
 				end

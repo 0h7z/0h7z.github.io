@@ -1,8 +1,22 @@
+
 ::: details adobe-type-tools {open}
 +	[afdko](https://github.com/adobe-type-tools/afdko/issues?q=author%3AHeptazhou)
 	Adobe Font Development Kit for OpenType
 	-	[#1530](https://github.com/adobe-type-tools/afdko/pull/1530)
 		Ensure `poolCapacity` is at least 1
+:::
+
+::: details domluna {open}
++	[JuliaFormatter.jl](https://github.com/domluna/JuliaFormatter.jl/issues?q=author%3AHeptazhou)
+	An opinionated code formatter for Julia. Plot twist - the opinion is your own.
+	-	[#566](https://github.com/domluna/JuliaFormatter.jl/pull/566)
+		Update
+	-	[#567](https://github.com/domluna/JuliaFormatter.jl/pull/567)
+		Fix #499
+	-	[#823](https://github.com/domluna/JuliaFormatter.jl/pull/823)
+		Fix #822
+	-	[#826](https://github.com/domluna/JuliaFormatter.jl/pull/826)
+		Update ci.yml
 :::
 
 ::: details JuliaAstro {open}
@@ -14,6 +28,11 @@
 	Flexible Image Transport System (FITS) file support for Julia
 	-	[#193](https://github.com/JuliaAstro/FITSIO.jl/pull/193)
 		Add missing data type (UInt64/Culonglong)
+:::
+
+::: details JuliaCN {open hidden}
++	[JuliaZH.jl](https://github.com/JuliaCN/JuliaZH.jl/issues?q=author%3AHeptazhou)
+	Julia 语言中文文档
 :::
 
 ::: details JuliaCollections {open}
@@ -28,6 +47,13 @@
 	The Julia Programming Language
 	-	[#57423](https://github.com/JuliaLang/julia/pull/57423)
 		Fix dead links and wrong RFC number in UUIDs docstring/changelog
+:::
+
+::: details nfroidure <!-- {open} -->
++	[ttf2woff2](https://github.com/nfroidure/ttf2woff2/issues?q=author%3AHeptazhou)
+	Convert ttf files to woff2.
+	-	[#72](https://github.com/nfroidure/ttf2woff2/pull/72)
+		Add PowerShell use case
 :::
 
 ::: details v2fly <!-- {open} -->
@@ -54,5 +80,10 @@
 		Fix `vueRE` conflicting with `lineNoRE`
 	-	[#4268](https://github.com/vuejs/vitepress/pull/4268)
 		Fix broken rewrites since v1.4.0
+:::
+
+::: details Wikiplus {open hidden}
++	[Wikiplus](https://github.com/Wikiplus/Wikiplus/issues?q=author%3AHeptazhou)
+	A Mediawiki front-end add-on based on jQuery.
 :::
 
