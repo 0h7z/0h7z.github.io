@@ -42,11 +42,22 @@
 		Fix `rehash!(::OrderedDict)`
 :::
 
+::: details JuliaDocs {open}
++	[Documenter.jl](https://github.com/JuliaDocs/Documenter.jl/issues?q=author%3AHeptazhou)
+	 A documentation generator for Julia.
+	-	[#2649](https://github.com/JuliaDocs/Documenter.jl/pull/2649)
+		Fix `Error: HTMLWriter: prerendering failed` on Windows (`MODULE_NOT_FOUND`)
+:::
+
 ::: details JuliaLang {open}
 +	[julia](https://github.com/JuliaLang/julia/issues?q=author%3AHeptazhou)
 	The Julia Programming Language
 	-	[#57423](https://github.com/JuliaLang/julia/pull/57423)
 		Fix dead links and wrong RFC number in UUIDs docstring/changelog
++	[Pkg.jl](https://github.com/JuliaLang/Pkg.jl/issues?q=author%3AHeptazhou)
+	Pkg - Package manager for the Julia programming language
+	-	[#4177](https://github.com/JuliaLang/Pkg.jl/pull/4177)
+		Update docs for versioned manifest
 :::
 
 ::: details nfroidure <!-- {open} -->

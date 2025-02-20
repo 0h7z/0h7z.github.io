@@ -49,7 +49,7 @@ cd Snowfox/Windows
 docker build -t snowfox:win-arch -< win-arch.dockerfile
 docker build -t snowfox:win-base -< win-base.dockerfile
 docker build -t snowfox:win-make -< win-make.dockerfile
-id=`docker create snowfox:win-make` && docker cp $id:pkg . -q && docker rm $id
+id=`docker create snowfox:win-make -q` && docker cp $id:pkg . && docker rm $id
 
 # optionally
 docker images
