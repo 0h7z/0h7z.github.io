@@ -1,19 +1,19 @@
 import { createContentLoader, defineConfig } from "vitepress"
-import { language } from "./locale.json"
 import footnote from "markdown-it-footnote"
-import icon from "./octicon.json"
+import icon from "./octicon.json" with { type: "json" }
+import locale from "./locale.json" with { type: "json" }
 import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
 import type { LocalSearchTranslations } from "vitepress/types/local-search"
 import type { Options } from "@vitejs/plugin-vue"
 
-export type Language = keyof typeof language
+export type Language = keyof typeof locale.language
 
 // https://vitepress.dev/zh/guide/data-loading#createcontentloader
 // createContentLoader
 
 const YEAR = new Date().getUTCFullYear()
 
-const LANG: Language[] = ["en", "zh"]
+const LANG = ["en", "zh"] as const satisfies Language[]
 
 const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
 	en: [
@@ -103,10 +103,11 @@ const ROOT /* : DefaultTheme.Config */ = {
 const I18N: Partial<Record<Language, DefaultTheme.Config>> = {
 	en: {
 		outline: { level: ROOT.outline.level, label: "Contents" },
+		editLink: { pattern: ROOT.editLink.pattern, text: "View source" },
 	},
 	zh: {
 		outline: { level: ROOT.outline.level, label: "目录" },
-		editLink: { pattern: ROOT.editLink.pattern, text: "编辑此页" },
+		editLink: { pattern: ROOT.editLink.pattern, text: "查看源码" },
 		lastUpdated: { formatOptions: ROOT.lastUpdated.formatOptions, text: "最后更新" },
 		docFooter: { prev: "上一页", next: "下一页" },
 		darkModeSwitchLabel: "网站外观",
@@ -118,8 +119,8 @@ const I18N: Partial<Record<Language, DefaultTheme.Config>> = {
 	},
 }
 
-const locale = (lang: Language): LocaleConfig<DefaultTheme.Config> => {
-	const label = `${language[lang]} (${lang})`
+const localeconfig = (lang: Language): LocaleConfig<DefaultTheme.Config> => {
+	const label = `${locale.language[lang]} (${lang})`
 	const link = `/${lang}/`
 	const nav = NAVI[lang]
 	const sidebar: typeof SIDE = {}
@@ -132,7 +133,7 @@ const locale = (lang: Language): LocaleConfig<DefaultTheme.Config> => {
 
 export default defineConfig({
 	// https://vitepress.dev/zh/guide/i18n
-	locales: Object.assign({}, ...LANG.map(locale)),
+	locales: Object.assign({}, ...LANG.map(localeconfig)),
 
 	// https://vitepress.dev/zh/guide/sitemap-generation
 	sitemap: {
