@@ -5,7 +5,7 @@ import type { Language } from "../../.vitepress/config"
 const title = {
 	bot: (_lang) => "Bot",
 	dev: (_lang) => "Developer",
-} satisfies Record<string, (_: Language) => string>
+} as const satisfies Record<string, (_: Language) => string>
 
 export const core = (lang: Language): DefaultTheme.TeamMember[] => [
 	{

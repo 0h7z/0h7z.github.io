@@ -31,4 +31,4 @@ export default {
 		// https://cn.vuejs.org/guide/components/registration#global-registration
 		app.component("Hello", Hello)
 	},
-} satisfies Theme
+} as const satisfies Theme

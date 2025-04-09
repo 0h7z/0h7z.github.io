@@ -13,6 +13,8 @@ export type Language = keyof typeof locale.language
 
 const YEAR = new Date().getUTCFullYear()
 
+const REPO = "https://github.com/0h7z/0h7z.github.io"
+
 const LANG = ["en", "zh"] as const satisfies Language[]
 
 const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
@@ -28,7 +30,7 @@ const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
 		{ activeMatch: "^/zh/snowfox/", link: "/zh/snowfox/", text: "雪狐" },
 		{ activeMatch: "^/zh/about/", link: "/zh/about/", text: "关于" },
 	],
-}
+} as const
 
 const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
 	"/en/blog": [{ link: "/", text: "Blog" }],
@@ -44,9 +46,9 @@ const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
 		},
 	],
 	"/zh/snowfox": [{ link: "/", text: "雪狐" }],
-}
+} as const
 
-const SRCH: Partial<Record<Language, LocalSearchTranslations>> = {
+const SRCH /* : Partial<Record<Language, LocalSearchTranslations>> */ = {
 	en: {},
 	zh: {
 		button: { buttonText: "搜索", buttonAriaLabel: undefined },
@@ -66,7 +68,7 @@ const SRCH: Partial<Record<Language, LocalSearchTranslations>> = {
 			},
 		},
 	},
-}
+} as const satisfies Partial<Record<Language, LocalSearchTranslations>>
 
 const ROOT /* : DefaultTheme.Config */ = {
 	// https://vitepress.dev/zh/reference/default-theme-config
@@ -76,10 +78,10 @@ const ROOT /* : DefaultTheme.Config */ = {
 	nav: NAVI.und?.length ? NAVI.und : undefined,
 	sidebar: undefined,
 	aside: true,
-	outline: { level: "deep" },
-	socialLinks: [{ icon: { svg: icon.mark_github }, link: "https://github.com/0h7z/0h7z.github.io" }],
-	footer: { copyright: `Copyright &COPY; ${2022}-${Math.max(2025, YEAR)} Heptazhou. All rights reserved.` },
-	editLink: { pattern: "https://github.com/0h7z/0h7z.github.io/blob/master/src/:path" },
+	outline: { level: "deep", label: "Contents" },
+	socialLinks: [{ icon: { svg: icon.mark_github }, link: `${REPO}` }],
+	footer: { copyright: `Copyright &COPY; ${2022}-${Math.max(YEAR, 2025)} Heptazhou. All rights reserved.` },
+	editLink: { pattern: `${REPO}/blob/master/src/:path`, text: "View source" },
 	lastUpdated: { formatOptions: { forceLocale: "sv", dateStyle: "short", timeStyle: "medium" } },
 	docFooter: undefined,
 	darkModeSwitchLabel: undefined,
@@ -102,8 +104,8 @@ const ROOT /* : DefaultTheme.Config */ = {
 
 const I18N: Partial<Record<Language, DefaultTheme.Config>> = {
 	en: {
-		outline: { level: ROOT.outline.level, label: "Contents" },
-		editLink: { pattern: ROOT.editLink.pattern, text: "View source" },
+		outline: ROOT.outline,
+		editLink: ROOT.editLink,
 	},
 	zh: {
 		outline: { level: ROOT.outline.level, label: "目录" },
@@ -117,7 +119,7 @@ const I18N: Partial<Record<Language, DefaultTheme.Config>> = {
 		returnToTopLabel: "回到顶部",
 		langMenuLabel: "切换语言",
 	},
-}
+} as const
 
 const localeconfig = (lang: Language): LocaleConfig<DefaultTheme.Config> => {
 	const label = `${locale.language[lang]} (${lang})`
@@ -225,7 +227,7 @@ export default defineConfig({
 		math: true,
 		image: undefined,
 		gfmAlerts: true,
-	} satisfies MarkdownOptions,
+	} as const satisfies MarkdownOptions,
 	// https://cn.vitejs.dev/config/
 	vite: { configFile: "vite.config.js" },
 	// https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options
@@ -233,7 +235,7 @@ export default defineConfig({
 		// include: /\.(vue|md)$/,
 		// exclude: undefined,
 		template: { compilerOptions: { isCustomElement: (x) => x.startsWith("x-") } },
-	} satisfies Options,
+	} as const satisfies Options,
 
 	// https://vitepress.dev/zh/reference/site-config#build-hooks
 	buildEnd: undefined,

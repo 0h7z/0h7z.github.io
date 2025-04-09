@@ -1,5 +1,11 @@
 #	Snowfox Changelog
 
+<br />
+
+> [!NOTE]
+> Changelog of newer versions is temporarily backlogged.<br />
+> Please refer to [GitHub](https://github.com/0h7z/Snowfox/releases) for all releases.
+
 ##	v124.0.2	{#v124.0.2}
 *****
 +	[124.0.2 Firefox Release Notes]
