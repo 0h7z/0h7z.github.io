@@ -21,12 +21,14 @@ const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
 	en: [
 		{ activeMatch: "^/en/blog/", link: "/en/blog/", text: "Blog" },
 		{ activeMatch: "^/en/docs/", link: "/en/docs/", text: "Docs" },
+		{ activeMatch: "^/en/project/", link: "/en/project/", text: "Project" },
 		{ activeMatch: "^/en/snowfox/", link: "/en/snowfox/", text: "Snowfox" },
 		{ activeMatch: "^/en/about/", link: "/en/about/", text: "About" },
 	],
 	zh: [
 		{ activeMatch: "^/zh/blog/", link: "/zh/blog/", text: "博客" },
 		{ activeMatch: "^/zh/docs/", link: "/zh/docs/", text: "文档" },
+		{ activeMatch: "^/zh/project/", link: "/zh/project/", text: "项目" },
 		{ activeMatch: "^/zh/snowfox/", link: "/zh/snowfox/", text: "雪狐" },
 		{ activeMatch: "^/zh/about/", link: "/zh/about/", text: "关于" },
 	],
@@ -45,7 +47,16 @@ const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
 			],
 		},
 	],
-	"/zh/snowfox": [{ link: "/", text: "雪狐" }],
+	"/zh/snowfox": [
+		{
+			link: "/",
+			text: "雪狐",
+			items: [
+				{ link: "/changelog/", text: "更新日志" },
+				{ link: "/manual/", text: "构建指南" },
+			],
+		},
+	],
 } as const
 
 const SRCH /* : Partial<Record<Language, LocalSearchTranslations>> */ = {

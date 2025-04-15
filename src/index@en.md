@@ -10,6 +10,8 @@ features:
     link: ./blog/
   - title: "Documentation"
     link: ./docs/
+  - title: "Project"
+    link: ./project/
   - title: "Snowfox"
     link: ./snowfox/
 

@@ -1,3 +1,3 @@
 > [!NOTE]
-> Coming soon.
+> 敬请期待。
 

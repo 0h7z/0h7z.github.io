@@ -10,6 +10,8 @@ features:
     link: ./blog/
   - title: "文档"
     link: ./docs/
+  - title: "项目"
+    link: ./project/
   - title: "雪狐"
     link: ./snowfox/
 
