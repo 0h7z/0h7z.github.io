@@ -1,13 +1,20 @@
 
 ::: details adobe-type-tools {open}
-+	[afdko](https://github.com/adobe-type-tools/afdko/issues?q=author%3AHeptazhou)
++	[afdko](https://github.com/adobe-type-tools/afdko/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	Adobe Font Development Kit for OpenType
 	-	[#1530](https://github.com/adobe-type-tools/afdko/pull/1530)
 		Ensure `poolCapacity` is at least 1
 :::
 
+::: details bhftbootcamp {open}
++	[Serde.jl](https://github.com/bhftbootcamp/Serde.jl/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
+	(De)serialization library for Julia
+	-	[#86](https://github.com/bhftbootcamp/Serde.jl/pull/86)
+		Fix `SerToml.to_toml` for empty vector
+:::
+
 ::: details biuuu <!-- {open} -->
-+	[genshin-wish-export](https://github.com/biuuu/genshin-wish-export/issues?q=author%3AHeptazhou)
++	[genshin-wish-export](https://github.com/biuuu/genshin-wish-export/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	Easily export the Genshin Impact wish record.
 	-	[#180](https://github.com/biuuu/genshin-wish-export/pull/180)
 		Update UIGFJson.js
@@ -44,7 +51,7 @@
 :::
 
 ::: details domluna {open}
-+	[JuliaFormatter.jl](https://github.com/domluna/JuliaFormatter.jl/issues?q=author%3AHeptazhou)
++	[JuliaFormatter.jl](https://github.com/domluna/JuliaFormatter.jl/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	An opinionated code formatter for Julia. Plot twist - the opinion is your own.
 	-	[#566](https://github.com/domluna/JuliaFormatter.jl/pull/566)
 		Update
@@ -57,57 +64,75 @@
 :::
 
 ::: details JuliaAstro {open}
-+	[CFITSIO.jl](https://github.com/JuliaAstro/CFITSIO.jl/issues?q=author%3AHeptazhou)
++	[CFITSIO.jl](https://github.com/JuliaAstro/CFITSIO.jl/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	C-style interface to the libcfitsio library.
 	-	[#22](https://github.com/JuliaAstro/CFITSIO.jl/pull/22)
 		Add missing data type (UInt64/Culonglong)
-+	[FITSIO.jl](https://github.com/JuliaAstro/FITSIO.jl/issues?q=author%3AHeptazhou)
++	[FITSIO.jl](https://github.com/JuliaAstro/FITSIO.jl/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	Flexible Image Transport System (FITS) file support for Julia
 	-	[#193](https://github.com/JuliaAstro/FITSIO.jl/pull/193)
 		Add missing data type (UInt64/Culonglong)
 :::
 
 ::: details JuliaCN {open hidden}
-+	[JuliaZH.jl](https://github.com/JuliaCN/JuliaZH.jl/issues?q=author%3AHeptazhou)
++	[JuliaZH.jl](https://github.com/JuliaCN/JuliaZH.jl/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	Julia 语言中文文档
 :::
 
 ::: details JuliaCollections {open}
-+	[OrderedCollections.jl](https://github.com/JuliaCollections/OrderedCollections.jl/issues?q=author%3AHeptazhou)
++	[OrderedCollections.jl](https://github.com/JuliaCollections/OrderedCollections.jl/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	<!-- Julia implementation of associative containers that preserve insertion order -->
 	-	[#120](https://github.com/JuliaCollections/OrderedCollections.jl/pull/120)
 		Fix `rehash!(::OrderedDict)`
 :::
 
 ::: details JuliaDocs {open}
-+	[Documenter.jl](https://github.com/JuliaDocs/Documenter.jl/issues?q=author%3AHeptazhou)
++	[Documenter.jl](https://github.com/JuliaDocs/Documenter.jl/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	 A documentation generator for Julia.
 	-	[#2649](https://github.com/JuliaDocs/Documenter.jl/pull/2649)
 		Fix `Error: HTMLWriter: prerendering failed` on Windows (`MODULE_NOT_FOUND`)
 :::
 
 ::: details JuliaLang {open}
-+	[julia](https://github.com/JuliaLang/julia/issues?q=author%3AHeptazhou)
++	[julia](https://github.com/JuliaLang/julia/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	The Julia Programming Language
 	-	[#57423](https://github.com/JuliaLang/julia/pull/57423)
 		Fix dead links and wrong RFC number in UUIDs docstring/changelog
 	-	[#58004](https://github.com/JuliaLang/julia/pull/58004)
 		Backport #57423 to v1.12
-+	[Pkg.jl](https://github.com/JuliaLang/Pkg.jl/issues?q=author%3AHeptazhou)
++	[Pkg.jl](https://github.com/JuliaLang/Pkg.jl/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	Pkg - Package manager for the Julia programming language
 	-	[#4177](https://github.com/JuliaLang/Pkg.jl/pull/4177)
 		Update docs for versioned manifest
 :::
 
+::: details microsoft <!-- {open} -->
++	[WSL](https://github.com/microsoft/WSL/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
+	Issues found on WSL
+	-	[#10397](https://github.com/microsoft/WSL/issues/10397#issuecomment-1780132430)
+		Updating `systemd` in WSL1 Kali Linux fails with `Failed to take /etc/passwd lock: Invalid argument`
+:::
+
 ::: details nfroidure <!-- {open} -->
-+	[ttf2woff2](https://github.com/nfroidure/ttf2woff2/issues?q=author%3AHeptazhou)
++	[ttf2woff2](https://github.com/nfroidure/ttf2woff2/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	Convert ttf files to woff2.
 	-	[#72](https://github.com/nfroidure/ttf2woff2/pull/72)
 		Add PowerShell use case
 :::
 
+::: details ScoopInstaller <!-- {open} -->
++	[Main](https://github.com/ScoopInstaller/Main/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
+	The default bucket for Scoop.
+	-	[#6798](https://github.com/ScoopInstaller/Main/pull/6798)
+		mingw-winlibs: fix regex & update to v15.1.0-12.0.0-r1
++	[Versions](https://github.com/ScoopInstaller/Versions/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
+	A Scoop bucket for alternative versions of apps.
+	-	[#2291](https://github.com/ScoopInstaller/Versions/pull/2291)
+		mingw-winlibs-*: fix manifests
+:::
+
 ::: details v2fly <!-- {open} -->
-+	[domain-list-community](https://github.com/v2fly/domain-list-community/issues?q=author%3AHeptazhou)
++	[domain-list-community](https://github.com/v2fly/domain-list-community/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	<!-- Community managed domain list. Generate geosite.dat for V2Ray. -->
 	-	[ #691](https://github.com/v2fly/domain-list-community/pull/691)
 		Update gog
@@ -118,13 +143,13 @@
 :::
 
 ::: details VSCodium <!-- {open} -->
-+	[update-api](https://github.com/VSCodium/update-api/issues?q=author%3AHeptazhou)
++	[update-api](https://github.com/VSCodium/update-api/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	-	[#5](https://github.com/VSCodium/update-api/pull/5)
 		Fix for win32[-x64]-system case
 :::
 
 ::: details vuejs {open}
-+	[vitepress](https://github.com/vuejs/vitepress/issues?q=author%3AHeptazhou)
++	[vitepress](https://github.com/vuejs/vitepress/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	Vite & Vue powered static site generator.
 	-	[#4247](https://github.com/vuejs/vitepress/pull/4247)
 		Fix `vueRE` conflicting with `lineNoRE`
@@ -133,7 +158,7 @@
 :::
 
 ::: details Wikiplus {open hidden}
-+	[Wikiplus](https://github.com/Wikiplus/Wikiplus/issues?q=author%3AHeptazhou)
++	[Wikiplus](https://github.com/Wikiplus/Wikiplus/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	A Mediawiki front-end add-on based on jQuery.
 :::
 
