@@ -120,7 +120,7 @@
 		Add PowerShell use case
 :::
 
-::: details ScoopInstaller <!-- {open} -->
+::: details ScoopInstaller {open}
 +	[Main](https://github.com/ScoopInstaller/Main/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	The default bucket for Scoop.
 	-	[#6798](https://github.com/ScoopInstaller/Main/pull/6798)
@@ -129,6 +129,15 @@
 	A Scoop bucket for alternative versions of apps.
 	-	[#2291](https://github.com/ScoopInstaller/Versions/pull/2291)
 		mingw-winlibs-*: fix manifests
+:::
+
+::: details the1812 <!-- {open} -->
++	[Bilibili-Evolved](https://github.com/the1812/Bilibili-Evolved/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
+	强大的哔哩哔哩增强脚本
+	-	[#1370](https://github.com/the1812/Bilibili-Evolved/pull/1370)
+		Add exclude rule
+	-	[#1387](https://github.com/the1812/Bilibili-Evolved/pull/1387)
+		Update exclude rule
 :::
 
 ::: details v2fly <!-- {open} -->

@@ -30,12 +30,26 @@ const dst = relpath(cfg["outDir"])
 const assetdir = cfg["assetsDir"]
 
 if abspath(PROGRAM_FILE) == @__FILE__
+	isempty(ARGS) ?
+	for (prefix, ds, fs) in walkdir(src, topdown = false)
+		cd(prefix) do
+			for f in fs
+				if endswith("@en.md")(f)
+					g = replace(f, "@en.md" => "@zh.md")
+					isfile(g) || symlink(f, g)
+				end
+			end
+		end
+	end :
 	for (prefix, ds, fs) in walkdir(dst, topdown = false)
 		cd(prefix) do
 			for f in fs
 				if f == "vp-icons.css"
 					rm(f)
 					continue
+				end
+				if endswith(".html")(f) || endswith(".js")(f)
+					@assert !contains(readstr(f), r"mailto:.+@.+\.md") stdpath(prefix, f)
 				end
 				if endswith(".html")(f)
 					str = readstr(f)
