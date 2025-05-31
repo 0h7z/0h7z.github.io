@@ -57,6 +57,9 @@ if abspath(PROGRAM_FILE) == @__FILE__
 	patch("node_modules/vitepress/dist/client/theme-default/components/VPDocFooterLastUpdated.vue") do s
 		s = replace(s, ".forceLocale ? lang.value : undefined," => ".forceLocale || lang.value || undefined,")
 	end
+	patch("node_modules/vitepress/dist/client/theme-default/components/VPFeatures.vue") do s
+		s = replace(s, "'grid-6'" => "'grid-4'")
+	end
 	patch("node_modules/vitepress/dist/client/theme-default/components/VPFooter.vue") do s
 		s = replace(s, r"^\n\K(\.VPFooter\.has-sidebar\b)"m => s".Layout >\n\1")
 	end

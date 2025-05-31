@@ -19,17 +19,19 @@ const LANG = ["en", "zh"] as const satisfies Language[]
 
 const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
 	en: [
-		{ activeMatch: "^/en/blog/", link: "/en/blog/", text: "Blog" },
+		// { activeMatch: "^/en/blog/", link: "/en/blog/", text: "Blog" },
 		{ activeMatch: "^/en/docs/", link: "/en/docs/", text: "Docs" },
+		{ activeMatch: "^/en/link/", link: "/en/link/", text: "Link" },
 		{ activeMatch: "^/en/project/", link: "/en/project/", text: "Project" },
-		{ activeMatch: "^/en/snowfox/", link: "/en/snowfox/", text: "Snowfox" },
+		// { activeMatch: "^/en/snowfox/", link: "/en/snowfox/", text: "Snowfox" },
 		{ activeMatch: "^/en/about/", link: "/en/about/", text: "About" },
 	],
 	zh: [
-		{ activeMatch: "^/zh/blog/", link: "/zh/blog/", text: "博客" },
+		// { activeMatch: "^/zh/blog/", link: "/zh/blog/", text: "博客" },
 		{ activeMatch: "^/zh/docs/", link: "/zh/docs/", text: "文档" },
+		{ activeMatch: "^/zh/link/", link: "/zh/link/", text: "链接" },
 		{ activeMatch: "^/zh/project/", link: "/zh/project/", text: "项目" },
-		{ activeMatch: "^/zh/snowfox/", link: "/zh/snowfox/", text: "雪狐" },
+		// { activeMatch: "^/zh/snowfox/", link: "/zh/snowfox/", text: "雪狐" },
 		{ activeMatch: "^/zh/about/", link: "/zh/about/", text: "关于" },
 	],
 } as const
@@ -55,6 +57,20 @@ const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
 				{ link: "/changelog/", text: "更新日志" },
 				{ link: "/manual/", text: "构建指南" },
 			],
+		},
+	],
+	"/en/about": [
+		{
+			link: "/",
+			text: "About",
+			items: [{ link: "/oss/", text: "OSS" }],
+		},
+	],
+	"/zh/about": [
+		{
+			link: "/",
+			text: "关于",
+			items: [{ link: "/oss/", text: "OSS" }],
 		},
 	],
 } as const
@@ -92,7 +108,7 @@ const ROOT /* : DefaultTheme.Config */ = {
 	outline: { level: "deep", label: "Contents" },
 	socialLinks: [{ icon: { svg: icon.mark_github }, link: `${REPO}` }],
 	footer: { copyright: `Copyright &COPY; ${2022}-${Math.max(YEAR, 2025)} Heptazhou. All rights reserved.` },
-	editLink: { pattern: `${REPO}/blob/master/src/:path`, text: "View source" },
+	editLink: { pattern: `${REPO}/blob/master/src/:path?plain=1`, text: "View source" },
 	lastUpdated: { formatOptions: { forceLocale: "sv", dateStyle: "short", timeStyle: "medium" } },
 	docFooter: undefined,
 	darkModeSwitchLabel: undefined,

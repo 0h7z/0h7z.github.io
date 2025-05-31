@@ -49,7 +49,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 					continue
 				end
 				if endswith(".html")(f) || endswith(".js")(f)
-					@assert !contains(readstr(f), r"mailto:.+@.+\.md") stdpath(prefix, f)
+					@assert !contains(readstr(f), r"mailto:\w+@\w+\.md") stdpath(prefix, f)
 				end
 				if endswith(".html")(f)
 					str = readstr(f)

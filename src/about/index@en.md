@@ -1,10 +1,3 @@
----
-# https://vitepress.dev/zh/reference/default-theme-home-page
-layout: home
-
-hero:
-  name: About
----
 
 <script setup lang="ts">
 	import { core, extra } from "./index"

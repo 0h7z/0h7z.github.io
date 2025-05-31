@@ -1,3 +1,7 @@
+#	Open Source Contributions
+
+##	GitHub
+*****
 
 ::: details adobe-type-tools {open}
 +	[afdko](https://github.com/adobe-type-tools/afdko/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
@@ -18,36 +22,6 @@
 	Easily export the Genshin Impact wish record.
 	-	[#180](https://github.com/biuuu/genshin-wish-export/pull/180)
 		Update UIGFJson.js
-:::
-
-::: details [bugzilla.mozilla.org](https://bugzilla.mozilla.org/user_profile?user_id=659098) (BMO) <!-- {open} -->
-+	Bugs filed
-	-	[Bug 1831804](https://bugzilla.mozilla.org/show_bug.cgi?id=1831804)
-		AttributeError: module 'glean_parser.lint' has no attribute 'lint_yaml_files'
-	-	[Bug 1919205](https://bugzilla.mozilla.org/show_bug.cgi?id=1919205)
-		<!-- Internal CSS (UTF-8) does not work on UTF-16 page -->
-		Internal stylesheet `plaintext.css` (UTF-8) isn't honored in rendering of plaintext document that uses UTF-16 page
-+	Commented on
-	-	[Bug 1709814](https://bugzilla.mozilla.org/show_bug.cgi?id=1709814)
-		Support color profiles for JPEG XL
-	<!-- -	[Bug 1831804](https://bugzilla.mozilla.org/show_bug.cgi?id=1831804) -->
-	<!-- -	[Bug 1848717](https://bugzilla.mozilla.org/show_bug.cgi?id=1848717) -->
-	<!-- -	[Bug 1919205](https://bugzilla.mozilla.org/show_bug.cgi?id=1919205) -->
-+	CC'd on
-	-	[Bug 0764076](https://bugzilla.mozilla.org/show_bug.cgi?id=0764076)
-		intrinsic width of "overflow:auto" element doesn't grow to accomodate its scrollbar
-	-	[Bug 1395025](https://bugzilla.mozilla.org/show_bug.cgi?id=1395025)
-		Extension popup windows with vertically-scrolling content are too narrow
-	-	[Bug 1504858](https://bugzilla.mozilla.org/show_bug.cgi?id=1504858) (rustup)
-		[Meta] Tracking bug for rustc updates
-	-	[Bug 1539075](https://bugzilla.mozilla.org/show_bug.cgi?id=1539075) (JPEG-XL)
-		Implement support for JPEG XL (image/jxl)
-	-	[Bug 1547612](https://bugzilla.mozilla.org/show_bug.cgi?id=1547612)
-		Use Lanczos method for upscaling images for different zoom levels
-	-	[Bug 1556156](https://bugzilla.mozilla.org/show_bug.cgi?id=1556156)
-		White background during image loading
-	-	[Bug 1696090](https://bugzilla.mozilla.org/show_bug.cgi?id=1696090)
-		AVIF grid-based images are not supported
 :::
 
 ::: details domluna {open}
@@ -108,7 +82,7 @@
 
 ::: details microsoft <!-- {open} -->
 +	[WSL](https://github.com/microsoft/WSL/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
-	Issues found on WSL
+	Windows Subsystem for Linux
 	-	[#10397](https://github.com/microsoft/WSL/issues/10397#issuecomment-1780132430)
 		Updating `systemd` in WSL1 Kali Linux fails with `Failed to take /etc/passwd lock: Invalid argument`
 :::
@@ -169,5 +143,38 @@
 ::: details Wikiplus {open hidden}
 +	[Wikiplus](https://github.com/Wikiplus/Wikiplus/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	A Mediawiki front-end add-on based on jQuery.
+:::
+
+##	Mozilla
+*****
+
+::: details [bugzilla.mozilla.org](https://bugzilla.mozilla.org/user_profile?user_id=659098) (BMO) {open}
++	Bugs filed
+	-	[Bug 1831804](https://bugzilla.mozilla.org/show_bug.cgi?id=1831804)
+		AttributeError: module 'glean_parser.lint' has no attribute 'lint_yaml_files'
+	-	[Bug 1919205](https://bugzilla.mozilla.org/show_bug.cgi?id=1919205)
+		<!-- Internal CSS (UTF-8) does not work on UTF-16 page -->
+		Internal stylesheet `plaintext.css` (UTF-8) isn't honored in rendering of plaintext document that uses UTF-16 page
++	Commented on
+	-	[Bug 1709814](https://bugzilla.mozilla.org/show_bug.cgi?id=1709814)
+		Support color profiles for JPEG XL
+	<!-- -	[Bug 1831804](https://bugzilla.mozilla.org/show_bug.cgi?id=1831804) -->
+	<!-- -	[Bug 1848717](https://bugzilla.mozilla.org/show_bug.cgi?id=1848717) -->
+	<!-- -	[Bug 1919205](https://bugzilla.mozilla.org/show_bug.cgi?id=1919205) -->
++	CC'd on
+	-	[Bug 0764076](https://bugzilla.mozilla.org/show_bug.cgi?id=0764076)
+		intrinsic width of "overflow:auto" element doesn't grow to accomodate its scrollbar
+	-	[Bug 1395025](https://bugzilla.mozilla.org/show_bug.cgi?id=1395025)
+		Extension popup windows with vertically-scrolling content are too narrow
+	-	[Bug 1504858](https://bugzilla.mozilla.org/show_bug.cgi?id=1504858) (rustup)
+		[Meta] Tracking bug for rustc updates
+	-	[Bug 1539075](https://bugzilla.mozilla.org/show_bug.cgi?id=1539075) (JPEG-XL)
+		Implement support for JPEG XL (image/jxl)
+	-	[Bug 1547612](https://bugzilla.mozilla.org/show_bug.cgi?id=1547612)
+		Use Lanczos method for upscaling images for different zoom levels
+	-	[Bug 1556156](https://bugzilla.mozilla.org/show_bug.cgi?id=1556156)
+		White background during image loading
+	-	[Bug 1696090](https://bugzilla.mozilla.org/show_bug.cgi?id=1696090)
+		AVIF grid-based images are not supported
 :::
 

@@ -15,7 +15,6 @@ export const core = (lang: Language): DefaultTheme.TeamMember[] => [
 		links: [
 			{ icon: { svg: icon.mark_github }, link: "https://github.com/Heptazhou" },
 			{ icon: { svg: icon.mail }, link: "mailto:zhou@0h7z.com" },
-			{ icon: { svg: icon.git_pull_request }, link: "/zhou/pr/" },
 		],
 	},
 	{

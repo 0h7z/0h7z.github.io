@@ -6,14 +6,16 @@ hero:
   name: Hello!
 
 features:
-  - title: "Blog"
-    link: ./blog/
+#   - title: "Blog"
+#     link: ./blog/
   - title: "Documentation"
     link: ./docs/
+  - title: "Link"
+    link: ./link/
   - title: "Project"
     link: ./project/
-  - title: "Snowfox"
-    link: ./snowfox/
+#   - title: "Snowfox"
+#     link: ./snowfox/
 
   - title: "About"
     link: ./about/
