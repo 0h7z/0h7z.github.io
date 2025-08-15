@@ -36,6 +36,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 			for f in fs
 				if endswith("@en.md")(f)
 					g = replace(f, "@en.md" => "@zh.md")
+					islink(g) && rm(g)
 					isfile(g) || symlink(f, g)
 				end
 			end

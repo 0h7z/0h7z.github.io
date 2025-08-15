@@ -28,6 +28,8 @@ features:
     link: https://docs.github.com/zh/actions
   - title: "Julia"
     link: https://docs.julialang.org/en/v1/
+  - title: "libuv"
+    link: https://docs.libuv.org/en/v1.x/
 #   - title: "Node.js"
 #     link: https://nodejs.org/docs/latest/api/
   - title: "Pkg.jl"

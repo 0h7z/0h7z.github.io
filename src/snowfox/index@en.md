@@ -6,6 +6,8 @@ Snowfox is an independent fork of Firefox, with the primary goals of privacy, se
 	-	[0h7z/Snowfox][a1] > [Releases][a2] > [Latest release][a3]
 +	Dev repository
 	-	[Heptazhou/Snowfox][b1] > [Issues][b2] > [New issue][b3]
++	Src repository
+	-	[Heptazhou/Firefox][c1]
 
 <br />
 
@@ -15,4 +17,7 @@ Snowfox is an independent fork of Firefox, with the primary goals of privacy, se
 [b1]: https://github.com/Heptazhou/Snowfox
 [b2]: https://github.com/Heptazhou/Snowfox/issues
 [b3]: https://github.com/Heptazhou/Snowfox/issues/new
+[c1]: https://github.com/Heptazhou/Firefox
+<!-- [c2]: https://github.com/Heptazhou/firefox-central -->
+<!-- [c3]: https://github.com/Heptazhou/firefox-unified -->
 

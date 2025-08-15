@@ -5,6 +5,6 @@ XML = "72c71f33-b9b6-44de-8c94-c961784809e2"
 YAML = "ddb6d928-2868-570f-bddf-ab3f9cf99eb6"
 
 [compat]
-Exts = "≥ 0.2.15"
+Exts = "≥ 0.2.20"
 JSON5 = "≥ 0.22"
 julia = "≥ 1.9"
