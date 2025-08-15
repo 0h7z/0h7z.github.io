@@ -10,23 +10,23 @@
 		"build": "vitepress build",
 		"serve": "vite preview",
 		"preview": "pnpm build && pnpm serve",
-		"postbuild": "julia docs.jl build",
-		"postinstall": "julia docs.jl && julia node.jl && julia icon.jl"
+		"postbuild": "julia --project docs.jl build",
+		"postinstall": "julia --project docs.jl && julia --project node.jl && julia --project icon.jl"
 	},
 	"devDependencies": {
-		"@primer/octicons": "^19.15.5",
+		"@primer/octicons": "^19.19.0",
 		"@types/markdown-it-footnote": "^3.0.4",
-		"@types/node": "^24.3.0",
+		"@types/node": "^24.9.1",
 		"@vitejs/plugin-basic-ssl": "^2.1.0",
 		"@vitejs/plugin-vue": "^6.0.1",
-		"esbuild": "^0.25.9",
-		"less": "^4.4.0",
+		"esbuild": "^0.25.11",
+		"less": "^4.4.2",
 		"markdown-it-footnote": "^4.0.0",
-		"markdown-it-mathjax3": "^4.3.2",
-		"rollup": "^4.46.2",
-		"vite": "^7.1.2",
+		"markdown-it-mathjax3": "^5.2.0",
+		"rollup": "^4.52.5",
+		"vite": "^7.1.12",
 		"vitepress": "^1.6.4",
-		"vue": "^3.5.18"
+		"vue": "^3.5.22"
 	},
 	"engines": {
 		"node": ">=22.0.0",
@@ -51,6 +51,7 @@
 			"@iconify-json/simple-icons": "-",
 			"@vue/devtools-api": "-",
 			"esbuild": "*",
+			"markdown-it-mathjax3": "*",
 			"vite": "*"
 		},
 		"packageExtensions": {

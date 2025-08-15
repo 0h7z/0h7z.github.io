@@ -29,7 +29,7 @@ features:
   - title: "Julia"
     link: https://docs.julialang.org/en/v1/
   - title: "libuv"
-    link: https://docs.libuv.org/en/v1.x/
+    link: https://docs.libuv.org/en/stable/
 #   - title: "Node.js"
 #     link: https://nodejs.org/docs/latest/api/
   - title: "Pkg.jl"

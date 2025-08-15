@@ -62,7 +62,7 @@
 
 ::: details JuliaDocs {open}
 +	[Documenter.jl](https://github.com/JuliaDocs/Documenter.jl/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
-	 A documentation generator for Julia.
+	A documentation generator for Julia.
 	-	[#2649](https://github.com/JuliaDocs/Documenter.jl/pull/2649)
 		Fix `Error: HTMLWriter: prerendering failed` on Windows (`MODULE_NOT_FOUND`)
 :::
@@ -78,6 +78,13 @@
 	Pkg - Package manager for the Julia programming language
 	-	[#4177](https://github.com/JuliaLang/Pkg.jl/pull/4177)
 		Update docs for versioned manifest
+:::
+
+::: details JuliaPhysics <!-- {open} -->
++	[Unitful.jl](https://github.com/JuliaPhysics/Unitful.jl/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
+	Physical quantities with arbitrary units
+	-	[#815](https://github.com/JuliaPhysics/Unitful.jl/issues/815)
+		ParseError on Julia v1.13
 :::
 
 ::: details microsoft <!-- {open} -->
@@ -99,6 +106,8 @@
 	The default bucket for Scoop.
 	-	[#6798](https://github.com/ScoopInstaller/Main/pull/6798)
 		mingw-winlibs: fix regex & update to v15.1.0-12.0.0-r1
+	-	[#7300](https://github.com/ScoopInstaller/Main/pull/7300)
+		imagemagick-lean: fix url & update to v7.1.2-8
 +	[Versions](https://github.com/ScoopInstaller/Versions/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	A Scoop bucket for alternative versions of apps.
 	-	[#2291](https://github.com/ScoopInstaller/Versions/pull/2291)
