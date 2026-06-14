@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2025 Heptazhou <zhou@0h7z.com>
+# Copyright (C) 2022-2026 Heptazhou <zhou@0h7z.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -37,7 +37,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 				if endswith("@en.md")(f)
 					g = replace(f, "@en.md" => "@zh.md")
 					islink(g) && rm(g)
-					isfile(g) || symlink(f, g)
+					isfile(g) || write(g, "<!-- @include: ./$f -->\n\n")
 				end
 			end
 		end
@@ -50,7 +50,9 @@ if abspath(PROGRAM_FILE) == @__FILE__
 					continue
 				end
 				if endswith(".html")(f) || endswith(".js")(f)
-					@assert !contains(readstr(f), r"mailto:\w+@\w+\.md") stdpath(prefix, f)
+					str = readchomp(f) * "\n"
+					write(f, str)
+					@assert !contains(str, r"mailto:\w+@\w+\.md") stdpath(prefix, f)
 				end
 				if endswith(".html")(f)
 					str = readstr(f)
@@ -70,12 +72,6 @@ if abspath(PROGRAM_FILE) == @__FILE__
 						yml = yaml(LDict(:redirect_from => ["/snowfox/"]))
 						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
 					end
-					write(f, str)
-				end
-				if endswith(".js")(f) &&
-				   startswith(joinpath(dst, assetdir, "~"))(prefix)
-					str = readstr(pipeline(f, `pnpm esbuild --minify-whitespace`))
-					str = replace(str, r"/\*[*!]\n.*?@.*?\*/"s => "")
 					write(f, str)
 				end
 				if endswith(".xml")(f) && f ≡ "sitemap.xml"

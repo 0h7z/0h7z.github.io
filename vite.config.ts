@@ -6,14 +6,14 @@ import type { DefaultTheme, SiteConfig } from "vitepress"
 
 const config: SiteConfig<DefaultTheme.Config> = await resolveConfig()
 
-console.log(config.dynamicRoutes.routes)
+console.log(config.dynamicRoutes)
 console.log(config.rewrites.map)
 
 // https://cn.vitejs.dev/config/
 export default defineConfig({
 	plugins: [ssl()],
 	publicDir: resolve(__dirname, "static"),
-	resolve: { preserveSymlinks: true },
+	resolve: { preserveSymlinks: false }, // incompatible w/ pnpm global virtual store
 	clearScreen: false,
 	server: {
 		host: false,
@@ -26,5 +26,9 @@ export default defineConfig({
 	build: {
 		outDir: config.outDir,
 		assetsDir: config.assetsDir,
+		rolldownOptions: {
+			// https://rolldown.rs/reference/InputOptions.checks
+			checks: { invalidAnnotation: false },
+		},
 	},
 })

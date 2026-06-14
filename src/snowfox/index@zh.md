@@ -1,1 +1,2 @@
-index@en.md
+<!-- @include: ./index@en.md -->
+

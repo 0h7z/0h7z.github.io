@@ -1,1 +1,2 @@
-changelog@en.md
+<!-- @include: ./changelog@en.md -->
+

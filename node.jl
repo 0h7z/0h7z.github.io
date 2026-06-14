@@ -1,4 +1,4 @@
-# Copyright (C) 2022-2025 Heptazhou <zhou@0h7z.com>
+# Copyright (C) 2022-2026 Heptazhou <zhou@0h7z.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -55,7 +55,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		s = replace(s, r"^\.prev-next \{[^}]*?\K\bpadding-top: 24px;"m => "padding: 24px 0;")
 	end
 	patch("node_modules/vitepress/dist/client/theme-default/components/VPDocFooterLastUpdated.vue") do s
-		s = replace(s, ".forceLocale ? lang.value : undefined," => ".forceLocale || lang.value || undefined,")
+		s = replace(s, r" = \K(\S+\?\.forceLocale)$"m => s"'string' == typeof \1 ? \1 : \1")
 	end
 	patch("node_modules/vitepress/dist/client/theme-default/components/VPFeatures.vue") do s
 		s = replace(s, "'grid-6'" => "'grid-4'")
@@ -99,13 +99,8 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		q = s"[name].js"
 		s = replace(s, Regex("`\\Q$o\\E\\K\\Q$p\\E(?=`)") => """\${chunk.name.startsWith("@") ? "$q" : "$p"}""")
 	end
-	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
-		p = "concurrency: siteConfig.buildConcurrency"
-		q = "concurrency: 1"
-		s = replace(s, r"^\s*\K"m * p * r"$"m => q)
-	end
 	patch("node_modules/vitepress/types/default-theme.d.ts") do s
-		s = replace(s, "{ forceLocale?: boolean }" => "{ forceLocale?: string }")
+		s = replace(s, "{ forceLocale?: boolean }" => "{ forceLocale?: boolean | string }")
 	end
 	end
 end

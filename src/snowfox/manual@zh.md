@@ -1,1 +1,2 @@
-manual@en.md
+<!-- @include: ./manual@en.md -->
+

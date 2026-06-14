@@ -107,7 +107,7 @@ const ROOT /* : DefaultTheme.Config */ = {
 	aside: true,
 	outline: { level: "deep", label: "Contents" },
 	socialLinks: [{ icon: { svg: icon.mark_github }, link: `${REPO}` }],
-	footer: { copyright: `Copyright &COPY; ${2022}-${Math.max(YEAR, 2025)} Heptazhou. All rights reserved.` },
+	footer: { copyright: `Copyright &COPY; ${2022}-${Math.max(YEAR, 2026)} Heptazhou. All rights reserved.` },
 	editLink: { pattern: `${REPO}/blob/master/src/:path?plain=1`, text: "View source" },
 	lastUpdated: { formatOptions: { forceLocale: "sv", dateStyle: "short", timeStyle: "medium" } },
 	docFooter: undefined,
@@ -231,7 +231,7 @@ export default defineConfig({
 	// https://github.com/vuejs/vitepress/blob/main/src/node/markdown/markdown.ts
 	markdown: {
 		preConfig: undefined,
-		config: (md) => md.use(footnote),
+		config: (md) => void md.use(footnote),
 		cache: true,
 		externalLinks: undefined,
 		theme: undefined,
