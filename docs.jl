@@ -56,6 +56,10 @@ if abspath(PROGRAM_FILE) == @__FILE__
 				end
 				if endswith(".html")(f)
 					str = readstr(f)
+					str = replace(str, r" (crossorigin|hidden|open)\K=\"\"(?=[ >])" => "")
+					str = replace(str, r" (style)=\"\"(?=[ >])" => "")
+					str = replace(str, r"[^-]>\K(?=<pre[ >])|</pre>\K(?=<[^!])" => "\n\t")
+					str = replace(str, r"[^-]>\K(?=<svg xml)|</svg>\K(?=<[^!])" => "\n\t")
 					str = replace(str, r"\n\s*\n|\n*$"s => "\n")
 					str = replace(str, r"^\s+"m => "\t")
 					str = replace(str, r"^\t(?=</?(head|body)>$)"m => "")
@@ -64,6 +68,11 @@ if abspath(PROGRAM_FILE) == @__FILE__
 					str = replace(str, r"^\t<meta name=\"(?:description|generator)\".+\n"m => "")
 					str = replace(str, r"^\t<script id=\"check-dark-mode\">.*</script>\n"m => "")
 					str = replace(str, r"^<html .*\K\bdir=\"ltr\""m => "class=\"dark\"")
+					str = replace(str, r"<[hb]r\K>" => " />")
+					str = replace(str, r"<button (?!type=)" => "<button type=\"button\" ")
+					str = replace(str, r"<button type=\"button\" ([^>]+ type=)" => s"<button \1")
+					str = replace(str, r"<div [^>]*\K\b(data-v-\w+) \1" => s"\1")
+					str = replace(str, r"<img [^>]+[^ />]\K>" => " />")
 					if stdpath(prefix, f) ∈ dst .* ["/404.html", "/404/index.html"]
 						yml = yaml(LDict(:permalink => "/404.html"))
 						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")

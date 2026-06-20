@@ -10,6 +10,8 @@ overrides:
   markdown-it-mathjax3: '*'
   vite: 8.1.0-beta.0
 
+pnpmfileChecksum: sha256-Gk/q1D3HITkx3VGRseNJKWzWsV/rXaPXa1wrJj/lsrE=
+
 importers:
 
   .:
@@ -73,8 +75,8 @@ packages:
   '@docsearch/sidepanel-js@4.6.3':
     resolution: {integrity: sha512-grGSmvXzG0if+mrzdIKykvpIAuEQ9u0sEJ2eLRRCaQfJvsWqh2C2/aY04bIzWvDh7myi5rvl8D+tUNsVrjYQ3A==}
 
-  '@iconify-json/simple-icons@1.2.86':
-    resolution: {integrity: sha512-t3jck5qPQuK1qy+bRn9eCoDQhIB7XSazKz1Fjp8hcan3XOAsTI5Mq/s3F0ekOKSvMQqkVORYK6ns6o6T9f5EMA==}
+  '@iconify-json/simple-icons@1.2.87':
+    resolution: {integrity: sha512-8YciStObhSji3OZFmWAWK6kBujyqO5bLCxeDwLxf3CR3F4PVelq7keC2LBvgTqviWzSTysj5/g4PCFLiAMVGsw==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -82,10 +84,10 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
-  '@oxc-minify/binding-darwin-x64@0.137.0':
-    resolution: {integrity: sha512-MVRaUH325fJ87dQQK2kumQM3RKpNdLUv9KnDzKXQILF7mufmtxqwtsCm0zDz0HQegbNcTmruJEVzGzjchx5wTQ==}
+  '@oxc-minify/binding-darwin-arm64@0.137.0':
+    resolution: {integrity: sha512-gvSLNiAq78CO4cVpPPkQaolnVJY4wMbFD+6hSNjkolbAe2JPZgSVoTcULq8BR9nxyuRQ59aB+gwlbyt6N3IF/Q==}
     engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [x64]
+    cpu: [arm64]
     os: [darwin]
 
   '@oxc-minify/binding-linux-x64-gnu@0.137.0':
@@ -107,10 +109,10 @@ packages:
   '@primer/octicons@19.28.1':
     resolution: {integrity: sha512-pwSilXmgNrbVF2bChkh4zZtUyb4Vr4niYhA9PhUdtjVz86A2iwA/YjjopHS0suT+I7niUZJEepEpmSC7kARKNQ==}
 
-  '@rolldown/binding-darwin-x64@1.1.1':
-    resolution: {integrity: sha512-/MtefPxhKPyWWFM8L45OWiEqRf+eSU2Qv9ZAyTaoZOoGcoPKxbbhjTJO2/U2IThv0uDZ4NWHc3/oTsR6IEOtww==}
+  '@rolldown/binding-darwin-arm64@1.1.1':
+    resolution: {integrity: sha512-rRZRPy/Ynb+Mxu0O6tfPldHeDgAn0sRij+IOUy6sFdUlv3hArGW/DloE3GfAxtqpOJuRNgF74Nr5gM4xBeU2jQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [x64]
+    cpu: [arm64]
     os: [darwin]
 
   '@rolldown/binding-linux-x64-gnu@1.1.1':
@@ -129,10 +131,10 @@ packages:
   '@rolldown/pluginutils@1.0.1':
     resolution: {integrity: sha512-2j9bGt5Jh8hj+vPtgzPtl72j0yRxHAyumoo6TNfAjsLB04UtpSvPbPcDcBMxz7n+9CYB0c1GxQFxYRg2jimqGw==}
 
-  '@se-oss/deasync-darwin-x64@1.0.1':
-    resolution: {integrity: sha512-r3FRTLIXqGqOb1DjTLW3YhO/Dd1vA2qRLP0Ym3Wmk3yMv6c/nm15zg6UVoXbgBu8cjbvcsI/OfbHPdErmjMWsw==}
+  '@se-oss/deasync-darwin-arm64@1.0.1':
+    resolution: {integrity: sha512-0YWmIDEGQfW3GGopmZHhfA6mamsG0HFKZhmBzHVyFiMKkJts8kpQwGbGrWlK8eOAoPCihOsG6tCotYR3p7HZaQ==}
     engines: {node: '>= 10'}
-    cpu: [x64]
+    cpu: [arm64]
     os: [darwin]
 
   '@se-oss/deasync-linux-x64-gnu@1.0.1':
@@ -365,8 +367,8 @@ packages:
       picomatch:
         optional: true
 
-  focus-trap@8.2.1:
-    resolution: {integrity: sha512-6CxwrrFRquH7pDXb1mWxudkU9LSfYBMRZutpgddb2o6iwCk7cIRrBhyY3c8SGKcmIKdeMTrGSNg4Bedh2RSF/w==}
+  focus-trap@8.2.2:
+    resolution: {integrity: sha512-qV0g8hRYBqgACcFOH3f9wXc4zPKhr/0z9RI2a6ZijZ72EeBi4g8oBy8zAWuUR1TsMpOzwpUMFvjdasrC41Joug==}
 
   fsevents@2.3.3:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
@@ -406,10 +408,10 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  lightningcss-darwin-x64@1.32.0:
-    resolution: {integrity: sha512-U+QsBp2m/s2wqpUYT/6wnlagdZbtZdndSmut/NJqlCcMLTWp5muCrID+K5UJ6jqD2BFshejCYXniPDbNh73V8w==}
+  lightningcss-darwin-arm64@1.32.0:
+    resolution: {integrity: sha512-RzeG9Ju5bag2Bv1/lwlVJvBE3q6TtXskdZLLCyfg5pt+HLz9BqlICO7LZM7VHNTTn/5PRhHFBSjk5lc4cmscPQ==}
     engines: {node: '>= 12.0.0'}
-    cpu: [x64]
+    cpu: [arm64]
     os: [darwin]
 
   lightningcss-linux-x64-gnu@1.32.0:
@@ -474,8 +476,8 @@ packages:
   minisearch@7.2.0:
     resolution: {integrity: sha512-dqT2XBYUOZOiC5t2HRnwADjhNS2cecp9u+TJRiJ1Qp/f5qjkeT5APcGPjHw+bz89Ms8Jp+cG4AlE+QZ/QnDglg==}
 
-  nanoid@3.3.14:
-    resolution: {integrity: sha512-U9kYi5bpVMEI31yC8iw4bJJp0avcHXA0W8/wNfLfnvJYzihQo2ZRPYPvpAAd570HAcCBjCTN7vnr+v4StKl1IQ==}
+  nanoid@3.3.15:
+    resolution: {integrity: sha512-y7Wygv/7mEOvxTuEQDB8StXdMRBWf1kR/tlhAzBRUFkB2jfcLOAxO/SHmOO2zgz1pVgK29/kyupn059/bCHdjA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -667,18 +669,6 @@ packages:
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
-ignoredOptionalDependencies:
-  - '*-arm*'
-  - '*-freebsd*'
-  - '*-ia32*'
-  - '*-loong64*'
-  - '*-musl*'
-  - '*-openbsd*'
-  - '*-ppc64*'
-  - '*-riscv64*'
-  - '*-s390x*'
-  - '*-wasm32*'
-
 snapshots:
 
   '@babel/helper-string-parser@7.29.7': {}
@@ -698,7 +688,7 @@ snapshots:
 
   '@docsearch/sidepanel-js@4.6.3': {}
 
-  '@iconify-json/simple-icons@1.2.86':
+  '@iconify-json/simple-icons@1.2.87':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -706,7 +696,7 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
-  '@oxc-minify/binding-darwin-x64@0.137.0':
+  '@oxc-minify/binding-darwin-arm64@0.137.0':
     optional: true
 
   '@oxc-minify/binding-linux-x64-gnu@0.137.0':
@@ -721,7 +711,7 @@ snapshots:
     dependencies:
       object-assign: 4.1.1
 
-  '@rolldown/binding-darwin-x64@1.1.1':
+  '@rolldown/binding-darwin-arm64@1.1.1':
     optional: true
 
   '@rolldown/binding-linux-x64-gnu@1.1.1':
@@ -732,7 +722,7 @@ snapshots:
 
   '@rolldown/pluginutils@1.0.1': {}
 
-  '@se-oss/deasync-darwin-x64@1.0.1':
+  '@se-oss/deasync-darwin-arm64@1.0.1':
     optional: true
 
   '@se-oss/deasync-linux-x64-gnu@1.0.1':
@@ -745,7 +735,7 @@ snapshots:
     dependencies:
       type-fest: 4.41.0
     optionalDependencies:
-      '@se-oss/deasync-darwin-x64': 1.0.1
+      '@se-oss/deasync-darwin-arm64': 1.0.1
       '@se-oss/deasync-linux-x64-gnu': 1.0.1
       '@se-oss/deasync-win32-x64-msvc': 1.0.1
 
@@ -902,13 +892,13 @@ snapshots:
       '@vueuse/shared': 14.3.0(vue@3.5.38)
       vue: 3.5.38
 
-  '@vueuse/integrations@14.3.0(focus-trap@8.2.1)(vue@3.5.38)':
+  '@vueuse/integrations@14.3.0(focus-trap@8.2.2)(vue@3.5.38)':
     dependencies:
       '@vueuse/core': 14.3.0(vue@3.5.38)
       '@vueuse/shared': 14.3.0(vue@3.5.38)
       vue: 3.5.38
     optionalDependencies:
-      focus-trap: 8.2.1
+      focus-trap: 8.2.2
 
   '@vueuse/metadata@14.3.0': {}
 
@@ -953,7 +943,7 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.4
 
-  focus-trap@8.2.1:
+  focus-trap@8.2.2:
     dependencies:
       tabbable: 6.5.0
 
@@ -1008,7 +998,7 @@ snapshots:
       needle: 3.5.0
       source-map: 0.6.1
 
-  lightningcss-darwin-x64@1.32.0:
+  lightningcss-darwin-arm64@1.32.0:
     optional: true
 
   lightningcss-linux-x64-gnu@1.32.0:
@@ -1021,7 +1011,7 @@ snapshots:
     dependencies:
       detect-libc: 2.1.2
     optionalDependencies:
-      lightningcss-darwin-x64: 1.32.0
+      lightningcss-darwin-arm64: 1.32.0
       lightningcss-linux-x64-gnu: 1.32.0
       lightningcss-win32-x64-msvc: 1.32.0
 
@@ -1077,7 +1067,7 @@ snapshots:
 
   minisearch@7.2.0: {}
 
-  nanoid@3.3.14: {}
+  nanoid@3.3.15: {}
 
   needle@3.5.0:
     dependencies:
@@ -1097,7 +1087,7 @@ snapshots:
 
   oxc-minify@0.137.0:
     optionalDependencies:
-      '@oxc-minify/binding-darwin-x64': 0.137.0
+      '@oxc-minify/binding-darwin-arm64': 0.137.0
       '@oxc-minify/binding-linux-x64-gnu': 0.137.0
       '@oxc-minify/binding-win32-x64-msvc': 0.137.0
     optional: true
@@ -1112,7 +1102,7 @@ snapshots:
 
   postcss@8.5.15:
     dependencies:
-      nanoid: 3.3.14
+      nanoid: 3.3.15
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
@@ -1136,7 +1126,7 @@ snapshots:
       '@oxc-project/types': 0.135.0
       '@rolldown/pluginutils': 1.0.1
     optionalDependencies:
-      '@rolldown/binding-darwin-x64': 1.1.1
+      '@rolldown/binding-darwin-arm64': 1.1.1
       '@rolldown/binding-linux-x64-gnu': 1.1.1
       '@rolldown/binding-win32-x64-msvc': 1.1.1
 
@@ -1231,7 +1221,7 @@ snapshots:
     dependencies:
       '@docsearch/css': 4.6.3
       '@docsearch/sidepanel-js': 4.6.3
-      '@iconify-json/simple-icons': 1.2.86
+      '@iconify-json/simple-icons': 1.2.87
       '@shikijs/core': 3.23.0
       '@shikijs/transformers': 3.23.0
       '@shikijs/types': 3.23.0
@@ -1240,8 +1230,8 @@ snapshots:
       '@vue/devtools-api': 8.1.3
       '@vue/shared': 3.5.38
       '@vueuse/core': 14.3.0(vue@3.5.38)
-      '@vueuse/integrations': 14.3.0(focus-trap@8.2.1)(vue@3.5.38)
-      focus-trap: 8.2.1
+      '@vueuse/integrations': 14.3.0(focus-trap@8.2.2)(vue@3.5.38)
+      focus-trap: 8.2.2
       mark.js: 8.11.1
       minisearch: 7.2.0
       shiki: 3.23.0

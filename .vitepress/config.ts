@@ -1,7 +1,7 @@
 import { createContentLoader, defineConfig } from "vitepress"
 import footnote from "markdown-it-footnote"
-import icon from "./octicon.json" with { type: "json" }
-import locale from "./locale.json" with { type: "json" }
+import icon from "./octicon.json"
+import locale from "./locale.json"
 import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
 import type { LocalSearchTranslations } from "vitepress/types/local-search"
 import type { Options } from "@vitejs/plugin-vue"

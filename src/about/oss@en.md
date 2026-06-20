@@ -37,6 +37,15 @@
 		Update ci.yml
 :::
 
+::: details EDCD <!-- {open} -->
++	[coriolis-data](https://github.com/EDCD/coriolis-data/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
+	Data used by the Coriolis front-end and back-end apps
+	-	[#129](https://github.com/EDCD/coriolis-data/pull/129)
+		Fix FSD Interdictor Expanded Capture Arc G5
+	-	[#229](https://github.com/Brighter-Applications/coriolis-data/pull/229)
+		Fix 7D SCO FSD integrity & Passenger Cabin price
+:::
+
 ::: details JuliaAstro {open}
 +	[CFITSIO.jl](https://github.com/JuliaAstro/CFITSIO.jl/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	C-style interface to the libcfitsio library.
@@ -108,10 +117,14 @@
 		mingw-winlibs: fix regex & update to v15.1.0-12.0.0-r1
 	-	[#7300](https://github.com/ScoopInstaller/Main/pull/7300)
 		imagemagick-lean: fix url & update to v7.1.2-8
+	-	[#8139](https://github.com/ScoopInstaller/Main/pull/8139)
+		julia: fix checkver & update to v1.12.6
 +	[Versions](https://github.com/ScoopInstaller/Versions/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	A Scoop bucket for alternative versions of apps.
 	-	[#2291](https://github.com/ScoopInstaller/Versions/pull/2291)
 		mingw-winlibs-*: fix manifests
+	-	[#2922](https://github.com/ScoopInstaller/Versions/pull/2922)
+		julia-*: fix checkver & update to latest
 :::
 
 ::: details the1812 <!-- {open} -->
@@ -152,6 +165,33 @@
 ::: details Wikiplus {open hidden}
 +	[Wikiplus](https://github.com/Wikiplus/Wikiplus/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	A Mediawiki front-end add-on based on jQuery.
+:::
+
+##	Arch
+*****
+
+::: details [aur.archlinux.org](https://aur.archlinux.org/packages?K=Heptazhou&SeB=M&SB=v&SO=d) (AUR) {open}
++	Present
+	-	[apt-zsh-completion](https://aur.archlinux.org/pkgbase/apt-zsh-completion)
+		Zsh completion for apt and dpkg
+	-	[conda-zsh-completion](https://aur.archlinux.org/pkgbase/conda-zsh-completion)
+		Zsh completion for conda, mamba, and micromamba
+	-	[iraf-bin](https://aur.archlinux.org/pkgbase/iraf-bin)
+		IRAF - Image Reduction and Analysis Facility
+	-	[libcurl-julia-bin](https://aur.archlinux.org/pkgbase/libcurl-julia-bin)
+		command line tool and library for transferring data with URLs - Julia fork
+	-	[locale-mul_zz](https://aur.archlinux.org/pkgbase/locale-mul_zz)
+		Multiple locales following UTC, UTF-8, and ISO 8601
+	-	[python310](https://aur.archlinux.org/pkgbase/python310)
+		The Python programming language (version 3.10)
+	-	[python311](https://aur.archlinux.org/pkgbase/python311)
+		The Python programming language (version 3.11)
+	-	[xgterm-bin](https://aur.archlinux.org/pkgbase/xgterm-bin)
+		Terminal emulator to work with IRAF
++	Past
+	-	[glibc-linux4](https://github.com/archlinux/aur/tree/glibc-linux4)
+		GNU C Library (linux 4.x compat)
+		[[PRQ#75686]](https://lists.archlinux.org/archives/list/aur-requests@lists.archlinux.org/thread/PZGC6QWQGSD4INVF7X4H2B5Y7XMESV3E/)
 :::
 
 ##	Mozilla

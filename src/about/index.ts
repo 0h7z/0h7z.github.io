@@ -1,5 +1,7 @@
-import { DefaultTheme } from "vitepress/theme"
-import icon from "@primer/octicons/svg.json"
+import ico_seele from "./@seele.png"
+import ico_zhou from "./@zhou.png"
+import icon from "../../.vitepress/octicon.json"
+import type { DefaultTheme } from "vitepress/theme"
 import type { Language } from "../../.vitepress/config"
 
 const title = {
@@ -9,7 +11,7 @@ const title = {
 
 export const core = (lang: Language): DefaultTheme.TeamMember[] => [
 	{
-		avatar: "https://github.com/Heptazhou.png",
+		avatar: ico_zhou,
 		name: "Heptazhou",
 		title: title.dev(lang),
 		links: [
@@ -18,7 +20,7 @@ export const core = (lang: Language): DefaultTheme.TeamMember[] => [
 		],
 	},
 	{
-		avatar: "https://github.com/seelebot.png",
+		avatar: ico_seele,
 		name: "Seele",
 		title: title.bot(lang),
 		links: [

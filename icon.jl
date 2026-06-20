@@ -1,4 +1,4 @@
-# Copyright (C) 2024-2025 Heptazhou <zhou@0h7z.com>
+# Copyright (C) 2024-2026 Heptazhou <zhou@0h7z.com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -12,6 +12,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+using Downloads: download
 using Exts
 using JSON5: json
 
@@ -26,6 +27,8 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		end
 		@info write(f, json(LDict(v), 4)) => f
 		cp(f, g, force = true)
+		download("https://github.com/Heptazhou.png", "src/about/@zhou.png")
+		download("https://github.com/seelebot.png", "src/about/@seele.png")
 	end
 end
 

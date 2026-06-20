@@ -66,6 +66,9 @@ if abspath(PROGRAM_FILE) == @__FILE__
 	patch("node_modules/vitepress/dist/client/theme-default/components/VPHero.vue") do s
 		s = replace(s, r"^ *\.name,\n *\.text \{[^}]*?\n\K *max-width: \d+px;\n"m => "")
 	end
+	patch("node_modules/vitepress/dist/client/theme-default/components/VPSidebarItem.vue") do s
+		s = replace(s, r"^ *class=\"link\"\n"m => "")
+	end
 	patch("node_modules/vitepress/dist/client/theme-default/styles/components/vp-doc.css") do s
 		o = match(":not(:is(.no-icon," * r".+?"m * "))::after", s).match
 		p = ".vp-external-link-icon"
@@ -98,6 +101,12 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		p = s"[name].[hash].js"
 		q = s"[name].js"
 		s = replace(s, Regex("`\\Q$o\\E\\K\\Q$p\\E(?=`)") => """\${chunk.name.startsWith("@") ? "$q" : "$p"}""")
+	end
+	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
+		# https://github.com/vuejs/vitepress/commit/a8a1800ae578be88027aa4ec7561ada4d055b888
+		s = replace(s, r"(&#8203;)"i => "") # \u200b
+		s = replace(s, r"\\u2018|\\u2019"i => "\\\'") # ‘’
+		s = replace(s, r"\\u201c|\\u201d"i => "\\\"") # “”
 	end
 	patch("node_modules/vitepress/types/default-theme.d.ts") do s
 		s = replace(s, "{ forceLocale?: boolean }" => "{ forceLocale?: boolean | string }")
