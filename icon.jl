@@ -22,13 +22,16 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		f = "node_modules/@primer/octicons/svg.json"
 		g = ".vitepress/octicon.json"
 		r = r"(-delete\Kd|-fill\Ked)?\Q-16.svg\E$"
-		v = map(filter!(contains(r), readdir(d))) do f
+		u = map(filter!(contains(r), readdir(d))) do f
 			replace(f, r => "", "-" => "_") => readstr(d * f)
 		end
-		@info write(f, json(LDict(v), 4)) => f
+		@info write(f, json(LDict(u), 4)) => f
 		cp(f, g, force = true)
-		download("https://github.com/Heptazhou.png", "src/about/@zhou.png")
-		download("https://github.com/seelebot.png", "src/about/@seele.png")
+		((k, v)::Pair -> write("$d/$k.json", json(v, 0))).(u)
+		((u, o)::Pair -> isfile(o) || download(u, o)).([
+			"https://github.com/Heptazhou.png" => "src/about/@zhou.png",
+			"https://github.com/seelebot.png"  => "src/about/@seele.png",
+		])
 	end
 end
 

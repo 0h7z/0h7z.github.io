@@ -1,6 +1,7 @@
 import ico_seele from "./@seele.png"
 import ico_zhou from "./@zhou.png"
-import icon from "../../.vitepress/octicon.json"
+import icon_mail from "@primer/octicons/build/svg/mail.json"
+import icon_mark_github from "@primer/octicons/build/svg/mark_github.json"
 import type { DefaultTheme } from "vitepress/theme"
 import type { Language } from "../../.vitepress/config"
 
@@ -15,8 +16,8 @@ export const core = (lang: Language): DefaultTheme.TeamMember[] => [
 		name: "Heptazhou",
 		title: title.dev(lang),
 		links: [
-			{ icon: { svg: icon.mark_github }, link: "https://github.com/Heptazhou" },
-			{ icon: { svg: icon.mail }, link: "mailto:zhou@0h7z.com" },
+			{ icon: { svg: icon_mark_github }, link: "https://github.com/Heptazhou" },
+			{ icon: { svg: icon_mail }, link: "mailto:zhou@0h7z.com" },
 		],
 	},
 	{
@@ -24,8 +25,8 @@ export const core = (lang: Language): DefaultTheme.TeamMember[] => [
 		name: "Seele",
 		title: title.bot(lang),
 		links: [
-			{ icon: { svg: icon.mark_github }, link: "https://github.com/seelebot" },
-			// { icon: { svg: icon.mail }, link: "mailto:seele@0h7z.com" },
+			{ icon: { svg: icon_mark_github }, link: "https://github.com/seelebot" },
+			// { icon: { svg: icon_mail }, link: "mailto:seele@0h7z.com" },
 		],
 	},
 ]

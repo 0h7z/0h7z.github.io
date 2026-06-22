@@ -19,11 +19,9 @@ using YAML: yaml
 
 const Base.string(x::AbstractXMLNode) = XML.write(x, indentsize = 0)
 
-const mjs = raw"""
-import { resolveConfig } from "vitepress"
-console.log(JSON.stringify(await resolveConfig()))
-"""
-const cfg = JSON.parse(readstr(`node --input-type=module -e $mjs`))
+const esb = `esbuild --charset=utf8 --line-limit=65536 --minify`
+const mjs = readstr("docs.jl.ts")
+const cfg = readstr(`node -e $mjs`) |> JSON.parse
 
 const src = relpath(cfg["srcDir"])
 const dst = relpath(cfg["outDir"])
@@ -49,8 +47,9 @@ if abspath(PROGRAM_FILE) == @__FILE__
 					rm(f)
 					continue
 				end
-				if endswith(".html")(f) || endswith(".js")(f)
-					str = readchomp(f) * "\n"
+				if endswith(".html")(f) || endswith(".js")(f) || endswith(".css")(f)
+					str = startswith(joinpath(dst, assetdir, "~"))(prefix) ?
+						  readstr(pipeline(f, `pnpm $esb`)) : readstr(f) * "\n"
 					write(f, str)
 					@assert !contains(str, r"mailto:\w+@\w+\.md") stdpath(prefix, f)
 				end
@@ -81,6 +80,12 @@ if abspath(PROGRAM_FILE) == @__FILE__
 						yml = yaml(LDict(:redirect_from => ["/snowfox/"]))
 						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
 					end
+					write(f, str)
+				end
+				if endswith(".js")(f)
+					str = readstr(f)
+					str = replace(str, r";(?=((async )?function) |(ex|im)port\{)" => "\n")
+					str = replace(str, r";\n*$|\b(return)\K;" => "\n")
 					write(f, str)
 				end
 				if endswith(".xml")(f) && f ≡ "sitemap.xml"

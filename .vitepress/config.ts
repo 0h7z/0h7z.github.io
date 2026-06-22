@@ -1,6 +1,6 @@
 import { createContentLoader, defineConfig } from "vitepress"
 import footnote from "markdown-it-footnote"
-import icon from "./octicon.json"
+import icon_mark_github from "@primer/octicons/build/svg/mark_github.json"
 import locale from "./locale.json"
 import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
 import type { LocalSearchTranslations } from "vitepress/types/local-search"
@@ -106,7 +106,7 @@ const ROOT /* : DefaultTheme.Config */ = {
 	sidebar: undefined,
 	aside: true,
 	outline: { level: "deep", label: "Contents" },
-	socialLinks: [{ icon: { svg: icon.mark_github }, link: `${REPO}` }],
+	socialLinks: [{ icon: { svg: icon_mark_github }, link: `${REPO}` }],
 	footer: { copyright: `Copyright &COPY; ${2022}-${Math.max(YEAR, 2026)} Heptazhou. All rights reserved.` },
 	editLink: { pattern: `${REPO}/blob/master/src/:path?plain=1`, text: "View source" },
 	lastUpdated: { formatOptions: { forceLocale: "sv", dateStyle: "short", timeStyle: "medium" } },
@@ -256,7 +256,7 @@ export default defineConfig({
 		gfmAlerts: true,
 	} as const satisfies MarkdownOptions,
 	// https://cn.vitejs.dev/config/
-	vite: { configFile: "vite.config.js" },
+	vite: { configFile: "vite.config.ts" },
 	// https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options
 	vue: {
 		// include: /\.(vue|md)$/,

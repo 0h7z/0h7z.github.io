@@ -69,12 +69,18 @@ if abspath(PROGRAM_FILE) == @__FILE__
 	patch("node_modules/vitepress/dist/client/theme-default/components/VPSidebarItem.vue") do s
 		s = replace(s, r"^ *class=\"link\"\n"m => "")
 	end
+	patch("node_modules/vitepress/dist/client/theme-default/components/VPSocialLink.vue") do s
+		s = replace(s, r"^ *\K(await nextTick)"m => s"return; \1")
+	end
 	patch("node_modules/vitepress/dist/client/theme-default/styles/components/vp-doc.css") do s
 		o = match(":not(:is(.no-icon," * r".+?"m * "))::after", s).match
 		p = ".vp-external-link-icon"
 		q = "$p.no-icon > .box > .title"
 		s = replace(s, "$o {\n" => "$o,\n:is($q)::after {\n")
 		s = replace(s, "$p::after {\n" => "$p::after,\n$q::after {\n")
+	end
+	patch("node_modules/vitepress/dist/client/theme-default/styles/docsearch.css") do s
+		s = replace(s, r"^.*@docsearch/css\b.*\n"m => "")
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		r = r"^\t*\K {2}"m
@@ -91,9 +97,16 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		s = replace(s, ("/chunks/") => ("/~/"))
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
+		# https://github.com/vuejs/vitepress/commit/a8a1800ae578be88027aa4ec7561ada4d055b888
+		s = replace(s, r"(&#8203;)"i => "") # \u200b
+		s = replace(s, r"\\u2018|\\u2019"i => "\\\'") # ‘’
+		s = replace(s, r"\\u201c|\\u201d"i => "\\\"") # “”
+		s = replace(s, r"^.+@vue/devtools-api\b.+\n"m => "")
+	end
+	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		o = "@iconify-json/simple-icons/icons.json"
 		p = "\\S+\\Q(\"$o\")\\E;"
-		q = "if (usedIcons.size == 0) return;"
+		q = "return;"
 		s = replace(s, Regex("^\\s*\\K.*(const icons = $p)", "m") => SubstitutionString("$q \\1"))
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
@@ -101,12 +114,6 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		p = s"[name].[hash].js"
 		q = s"[name].js"
 		s = replace(s, Regex("`\\Q$o\\E\\K\\Q$p\\E(?=`)") => """\${chunk.name.startsWith("@") ? "$q" : "$p"}""")
-	end
-	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
-		# https://github.com/vuejs/vitepress/commit/a8a1800ae578be88027aa4ec7561ada4d055b888
-		s = replace(s, r"(&#8203;)"i => "") # \u200b
-		s = replace(s, r"\\u2018|\\u2019"i => "\\\'") # ‘’
-		s = replace(s, r"\\u201c|\\u201d"i => "\\\"") # “”
 	end
 	patch("node_modules/vitepress/types/default-theme.d.ts") do s
 		s = replace(s, "{ forceLocale?: boolean }" => "{ forceLocale?: boolean | string }")
