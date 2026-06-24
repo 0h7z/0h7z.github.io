@@ -1,12 +1,16 @@
-import { createContentLoader, defineConfig } from "vitepress"
+import { createContentLoader, createMarkdownRenderer, defineConfig } from "vitepress"
 import footnote from "markdown-it-footnote"
 import icon_mark_github from "@primer/octicons/build/svg/mark_github.json"
 import locale from "./locale.json"
 import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
+import type { Feature } from "vitepress/dist/client/theme-default/components/VPFeatures.vue"
 import type { LocalSearchTranslations } from "vitepress/types/local-search"
-import type { Options } from "@vitejs/plugin-vue"
+import type { Options as VueOptions } from "@vitejs/plugin-vue"
 
 export type Language = keyof typeof locale.language
+
+const MD = await createMarkdownRenderer("@")
+const md = (s: string) => MD.renderInline(s)
 
 // https://vitepress.dev/zh/guide/data-loading#createcontentloader
 // createContentLoader
@@ -22,6 +26,12 @@ const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
 		// { activeMatch: "^/en/blog/", link: "/en/blog/", text: "Blog" },
 		{ activeMatch: "^/en/docs/", link: "/en/docs/", text: "Docs" },
 		{ activeMatch: "^/en/link/", link: "/en/link/", text: "Link" },
+		{
+			items: [
+				{ link: "/en/link/", text: "Link" },
+				{ link: "/en/link/imag/", text: "Link > Fiction" },
+			],
+		},
 		{ activeMatch: "^/en/project/", link: "/en/project/", text: "Project" },
 		// { activeMatch: "^/en/snowfox/", link: "/en/snowfox/", text: "Snowfox" },
 		{ activeMatch: "^/en/about/", link: "/en/about/", text: "About" },
@@ -30,6 +40,12 @@ const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
 		// { activeMatch: "^/zh/blog/", link: "/zh/blog/", text: "博客" },
 		{ activeMatch: "^/zh/docs/", link: "/zh/docs/", text: "文档" },
 		{ activeMatch: "^/zh/link/", link: "/zh/link/", text: "链接" },
+		{
+			items: [
+				{ link: "/zh/link/", text: "链接" },
+				{ link: "/zh/link/imag/", text: "链接 > 虚构" },
+			],
+		},
 		{ activeMatch: "^/zh/project/", link: "/zh/project/", text: "项目" },
 		// { activeMatch: "^/zh/snowfox/", link: "/zh/snowfox/", text: "雪狐" },
 		{ activeMatch: "^/zh/about/", link: "/zh/about/", text: "关于" },
@@ -169,7 +185,7 @@ export default defineConfig({
 		hostname: "https://0h7z.com",
 		lastmodDateOnly: false,
 		xmlns: { news: false, xhtml: !true, image: false, video: false },
-		transformItems: (xs) => {
+		transformItems: async (xs) => {
 			xs.forEach((x) => x.links && delete x.links)
 			return xs
 		},
@@ -231,7 +247,7 @@ export default defineConfig({
 	// https://github.com/vuejs/vitepress/blob/main/src/node/markdown/markdown.ts
 	markdown: {
 		preConfig: undefined,
-		config: (md) => void md.use(footnote),
+		config: async (md) => void md.use(footnote),
 		cache: true,
 		externalLinks: undefined,
 		theme: undefined,
@@ -262,14 +278,23 @@ export default defineConfig({
 		// include: /\.(vue|md)$/,
 		// exclude: undefined,
 		template: { compilerOptions: { isCustomElement: (x) => x.startsWith("x-") } },
-	} as const satisfies Options,
+	} as const satisfies VueOptions,
 
 	// https://vitepress.dev/zh/reference/site-config#build-hooks
 	buildEnd: undefined,
 	postRender: undefined,
 	transformHead: undefined,
 	transformHtml: undefined,
-	transformPageData: undefined,
+	transformPageData: async ({ frontmatter }) => {
+		// https://vitepress.dev/zh/reference/frontmatter-config#default-theme-only
+		const h = frontmatter as {
+			layout?: "doc" | "home" | "page"
+			features?: Feature[]
+		}
+		if (h.layout == "home" && h.features)
+			for (const x of h.features) //
+				if (x.title) x.title = md(x.title)
+	},
 
 	// https://vitepress.dev/zh/reference/default-theme-config
 	themeConfig: ROOT,

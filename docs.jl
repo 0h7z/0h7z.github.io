@@ -84,8 +84,15 @@ if abspath(PROGRAM_FILE) == @__FILE__
 				end
 				if endswith(".js")(f)
 					str = readstr(f)
+					str = replace(str, r",\K(?=window\.__\w+__=JSON\.parse\()" => "\n")
 					str = replace(str, r";(?=((async )?function) |(ex|im)port\{)" => "\n")
-					str = replace(str, r";\n*$|\b(return)\K;" => "\n")
+					str = replace(str, r";\n*$|\b(from\"[^\"]+\"|return)\K;" => "\n")
+					write(f, str)
+				end
+				if endswith(".json")(f)
+					str = readstr(f)
+					str = replace(str, r""":"[\w-]+?",\K""" => "\n")
+					str = replace(str, r"""^\{\K|(?=\}$)""" => "\n")
 					write(f, str)
 				end
 				if endswith(".xml")(f) && f ≡ "sitemap.xml"

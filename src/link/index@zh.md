@@ -14,22 +14,16 @@ features:
     link: https://status.archlinux.org/
   - title: "Arch Linux 百科"
     link: https://wiki.archlinux.org/title/Main_page
-#   - title: "碧蓝航线百科"
-#     link: https://azurlane.koumakan.jp/wiki/Azur_Lane_Wiki
   - title: "C/C++ 参考"
     link: https://zh.cppreference.com/w/
   - title: "Cloudflare 状态"
     link: https://new.cloudflarestatus.com/
-#   - title: "CTAN"
-#     link: https://ctan.org/
+  - title: "CTAN TeX 资源库"
+    link: https://ctan.org/
   - title: "Debian 软件包"
     link: https://tracker.debian.org/
-#   - title: "精英：危险百科"
-#     link: https://elite-dangerous.fandom.com/wiki/Elite_Dangerous_Wiki
   - title: "Firefox 版本状态"
     link: https://whattrainisitnow.com/
-#   - title: "原神数据库"
-#     link: https://gi.lunaris.moe/
   - title: "GitHub 状态"
     link: https://www.githubstatus.com/
   - title: "IETF 文件"
@@ -58,7 +52,5 @@ features:
     link: https://caniuse.com/
   - title: "维基百科"
     link: https://www.wikipedia.org/
-#   - title: "战舰世界数据库"
-#     link: https://shiptool.st/nations
 ---
 

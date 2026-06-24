@@ -14,22 +14,16 @@ features:
     link: https://status.archlinux.org/
   - title: "Arch Linux Wiki"
     link: https://wiki.archlinux.org/title/Main_page
-#   - title: "Azur Lane Wiki"
-#     link: https://azurlane.koumakan.jp/wiki/Azur_Lane_Wiki
   - title: "C/C++ Reference"
     link: https://en.cppreference.com/w/
   - title: "Cloudflare Status"
     link: https://new.cloudflarestatus.com/
-#   - title: "CTAN"
-#     link: https://ctan.org/
+  - title: "CTAN TeX Archive"
+    link: https://ctan.org/
   - title: "Debian Package Tracker"
     link: https://tracker.debian.org/
-#   - title: "Elite: Dangerous Wiki"
-#     link: https://elite-dangerous.fandom.com/wiki/Elite_Dangerous_Wiki
   - title: "Firefox Trains"
     link: https://whattrainisitnow.com/
-#   - title: "Genshin Impact Database"
-#     link: https://gi.lunaris.moe/
   - title: "GitHub Status"
     link: https://www.githubstatus.com/
   - title: "IETF Datatracker"
@@ -58,7 +52,5 @@ features:
     link: https://caniuse.com/
   - title: "Wikipedia"
     link: https://www.wikipedia.org/
-#   - title: "World of Warships DB"
-#     link: https://shiptool.st/nations
 ---
 
