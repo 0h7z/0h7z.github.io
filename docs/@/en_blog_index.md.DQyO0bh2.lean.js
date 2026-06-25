@@ -1,3 +1,0 @@
-import{c as e,d as t,k as n,t as r}from"./~/plugin-vue_export-helper.CRh8gOqC.js";var i=JSON.parse(`{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"en/blog/index.md","filePath":"blog/index@en.md","lastUpdated":1728952999000}`),a={name:`en/blog/index.md`}
-function o(r,i,a,o,s,c){return n(),t(`div`,null,[...i[0]||=[e(`div`,{class:`note custom-block github-alert`},[e(`p`,{class:`custom-block-title`},`NOTE`),e(`p`,null,`Coming soon.`)],-1)]])}var s=r(a,[[`render`,o]])
-export{i as __pageData,s as default}

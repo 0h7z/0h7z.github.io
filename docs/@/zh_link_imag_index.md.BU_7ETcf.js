@@ -1,0 +1,4 @@
+import{d as e,k as t,t as n}from"./~/plugin-vue_export-helper.C5VThwVk.js"
+var r=JSON.parse(`{"title":"","description":"","frontmatter":{"layout":"home","hero":{"name":"链接 > 虚构作品"},"features":[{"title":"<em>碧蓝航线</em>百科","link":"https://azurlane.koumakan.jp/wiki/Azur_Lane_Wiki"},{"title":"<em>精英：危险</em>船厂","link":"https://coriolis.io/"},{"title":"<em>精英：危险</em>百科","link":"https://elite-dangerous.fandom.com/wiki/Elite_Dangerous_Wiki"},{"title":"<em>原神</em>数据库","link":"https://gi.lunaris.moe/"},{"title":"<em>战舰世界</em>数据库","link":"https://shiptool.st/nations"}]},"headers":[],"relativePath":"zh/link/imag/index.md","filePath":"link/imag/index@zh.md","lastUpdated":1782324834000}`),i={name:`zh/link/imag/index.md`}
+function a(n,r,i,a,o,s){return t(),e(`div`)}var o=n(i,[[`render`,a]])
+export{r as __pageData,o as default}

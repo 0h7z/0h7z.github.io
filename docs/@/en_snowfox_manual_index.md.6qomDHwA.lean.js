@@ -1,0 +1,4 @@
+import{d as e,k as t,m as n,t as r}from"./~/plugin-vue_export-helper.C5VThwVk.js"
+var i=JSON.parse(`{"title":"Snowfox Build Guide","description":"","frontmatter":{},"headers":[],"relativePath":"en/snowfox/manual/index.md","filePath":"snowfox/manual@en.md","lastUpdated":1740083953000}`),a={name:`en/snowfox/manual/index.md`}
+function o(r,i,a,o,s,c){return t(),e(`div`,null,[...i[0]||=[n("",17)]])}var s=r(a,[[`render`,o]])
+export{i as __pageData,s as default}
