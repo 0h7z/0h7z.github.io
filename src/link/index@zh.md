@@ -18,7 +18,7 @@ features:
     link: https://zh.cppreference.com/w/
   - title: "Cloudflare 状态"
     link: https://new.cloudflarestatus.com/
-  - title: "CTAN TeX 资源库"
+  - title: "CTAN $\\TeX$ 资源库"
     link: https://ctan.org/
   - title: "Debian 软件包"
     link: https://tracker.debian.org/
@@ -26,7 +26,7 @@ features:
     link: https://whattrainisitnow.com/
   - title: "GitHub 状态"
     link: https://www.githubstatus.com/
-  - title: "IETF 文件"
+  - title: "IETF 数据库"
     link: https://datatracker.ietf.org/
 #   - title: "Intel 产品规格"
 #     link: https://www.intel.com/content/www/us/en/ark.html
@@ -42,7 +42,7 @@ features:
     link: https://nodejs.org/zh-cn/about/previous-releases
 #   - title: "端口数据库"
 #     link: https://www.speedguide.net/ports.php
-  - title: "Pypi/Conda 映射"
+  - title: "PyPI/Conda 映射"
     link: https://github.com/regro/cf-graph-countyfair/blob/master/mappings/pypi/name_mapping.json
   - title: "Python 版本状态"
     link: https://devguide.python.org/versions/

@@ -9,8 +9,36 @@ import type { Options as VueOptions } from "@vitejs/plugin-vue"
 
 export type Language = keyof typeof locale.language
 
-const MD = await createMarkdownRenderer("@")
-const md = (s: string) => MD.renderInline(s)
+// https://github.com/vuejs/vitepress/blob/main/src/node/markdown/markdown.ts
+const MDSRCDIR = "src"
+const MDCONFIG = {
+	preConfig: undefined,
+	config: (MD) => void MD.use(footnote),
+	cache: true,
+	externalLinks: undefined,
+	theme: undefined,
+	languages: undefined,
+	languageAlias: undefined,
+	lineNumbers: true,
+	defaultHighlightLang: undefined,
+	codeTransformers: undefined,
+	shikiSetup: undefined,
+	codeCopyButtonTitle: "",
+	anchor: undefined,
+	attrs: undefined,
+	emoji: undefined,
+	frontmatter: undefined,
+	headers: undefined,
+	sfc: undefined,
+	toc: undefined,
+	component: undefined,
+	container: undefined,
+	math: true,
+	image: undefined,
+	gfmAlerts: true,
+} as const satisfies MarkdownOptions
+const MD = await createMarkdownRenderer(MDSRCDIR, MDCONFIG)
+const md = (str: string) => MD.renderInline(str)
 
 // https://vitepress.dev/zh/guide/data-loading#createcontentloader
 // createContentLoader
@@ -32,8 +60,8 @@ const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
 				{ link: "/en/link/imag/", text: "Link > Fiction" },
 			],
 		},
-		{ activeMatch: "^/en/project/", link: "/en/project/", text: "Project" },
-		// { activeMatch: "^/en/snowfox/", link: "/en/snowfox/", text: "Snowfox" },
+		{ activeMatch: "^/en/proj/", link: "/en/proj/", text: "Project" },
+		// { activeMatch: "^/en/proj/snowfox/", link: "/en/proj/snowfox/", text: "Snowfox" },
 		{ activeMatch: "^/en/about/", link: "/en/about/", text: "About" },
 	],
 	zh: [
@@ -46,8 +74,8 @@ const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
 				{ link: "/zh/link/imag/", text: "链接 > 虚构" },
 			],
 		},
-		{ activeMatch: "^/zh/project/", link: "/zh/project/", text: "项目" },
-		// { activeMatch: "^/zh/snowfox/", link: "/zh/snowfox/", text: "雪狐" },
+		{ activeMatch: "^/zh/proj/", link: "/zh/proj/", text: "项目" },
+		// { activeMatch: "^/zh/proj/snowfox/", link: "/zh/proj/snowfox/", text: "雪狐" },
 		{ activeMatch: "^/zh/about/", link: "/zh/about/", text: "关于" },
 	],
 } as const
@@ -55,7 +83,7 @@ const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
 const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
 	"/en/blog": [{ link: "/", text: "Blog" }],
 	"/zh/blog": [{ link: "/", text: "博客" }],
-	"/en/snowfox": [
+	"/en/proj/snowfox": [
 		{
 			link: "/",
 			text: "Snowfox",
@@ -65,7 +93,7 @@ const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
 			],
 		},
 	],
-	"/zh/snowfox": [
+	"/zh/proj/snowfox": [
 		{
 			link: "/",
 			text: "雪狐",
@@ -185,7 +213,7 @@ export default defineConfig({
 		hostname: "https://0h7z.com",
 		lastmodDateOnly: false,
 		xmlns: { news: false, xhtml: !true, image: false, video: false },
-		transformItems: async (xs) => {
+		transformItems: (xs) => {
 			xs.forEach((x) => x.links && delete x.links)
 			return xs
 		},
@@ -230,7 +258,7 @@ export default defineConfig({
 	},
 
 	// https://vitepress.dev/zh/reference/site-config#build
-	srcDir: "src",
+	srcDir: MDSRCDIR,
 	srcExclude: undefined,
 	outDir: "docs",
 	assetsDir: "@",
@@ -244,33 +272,7 @@ export default defineConfig({
 	lastUpdated: true,
 
 	// https://vitepress.dev/zh/reference/site-config#customization
-	// https://github.com/vuejs/vitepress/blob/main/src/node/markdown/markdown.ts
-	markdown: {
-		preConfig: undefined,
-		config: async (md) => void md.use(footnote),
-		cache: true,
-		externalLinks: undefined,
-		theme: undefined,
-		languages: undefined,
-		languageAlias: undefined,
-		lineNumbers: true,
-		defaultHighlightLang: undefined,
-		codeTransformers: undefined,
-		shikiSetup: undefined,
-		codeCopyButtonTitle: "",
-		anchor: undefined,
-		attrs: undefined,
-		emoji: undefined,
-		frontmatter: undefined,
-		headers: undefined,
-		sfc: undefined,
-		toc: undefined,
-		component: undefined,
-		container: undefined,
-		math: true,
-		image: undefined,
-		gfmAlerts: true,
-	} as const satisfies MarkdownOptions,
+	markdown: MDCONFIG,
 	// https://cn.vitejs.dev/config/
 	vite: { configFile: "vite.config.ts" },
 	// https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options
@@ -285,7 +287,7 @@ export default defineConfig({
 	postRender: undefined,
 	transformHead: undefined,
 	transformHtml: undefined,
-	transformPageData: async ({ frontmatter }) => {
+	transformPageData: ({ frontmatter }) => {
 		// https://vitepress.dev/zh/reference/frontmatter-config#default-theme-only
 		const h = frontmatter as {
 			layout?: "doc" | "home" | "page"

@@ -18,7 +18,7 @@ features:
     link: https://en.cppreference.com/w/
   - title: "Cloudflare Status"
     link: https://new.cloudflarestatus.com/
-  - title: "CTAN TeX Archive"
+  - title: "CTAN $\\TeX$ Archive Net."
     link: https://ctan.org/
   - title: "Debian Package Tracker"
     link: https://tracker.debian.org/
@@ -42,7 +42,7 @@ features:
     link: https://nodejs.org/en/about/previous-releases
 #   - title: "Ports Database"
 #     link: https://www.speedguide.net/ports.php
-  - title: "Pypi/Conda Mapping"
+  - title: "PyPI/Conda Mapping"
     link: https://github.com/regro/cf-graph-countyfair/blob/master/mappings/pypi/name_mapping.json
   - title: "Python Versions"
     link: https://devguide.python.org/versions/

@@ -57,6 +57,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 					str = readstr(f)
 					str = replace(str, r" (crossorigin|hidden|open)\K=\"\"(?=[ >])" => "")
 					str = replace(str, r" (style)=\"\"(?=[ >])" => "")
+					str = replace(str, r" *(?=<math>|<time datetime=)" => "\n\t")
 					str = replace(str, r"[^-]>\K(?=<pre[ >])|</pre>\K(?=<[^!])" => "\n\t")
 					str = replace(str, r"[^-]>\K(?=<svg xml)|</svg>\K(?=<[^!])" => "\n\t")
 					str = replace(str, r"\n\s*\n|\n*$"s => "\n")
@@ -76,7 +77,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 						yml = yaml(LDict(:permalink => "/404.html"))
 						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
 					end
-					if stdpath(prefix, f) ∈ dst .* ["/en/snowfox/changelog/index.html"]
+					if stdpath(prefix, f) ∈ dst .* ["/en/proj/snowfox/changelog/index.html"]
 						yml = yaml(LDict(:redirect_from => ["/snowfox/"]))
 						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
 					end

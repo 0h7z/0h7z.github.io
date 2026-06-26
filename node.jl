@@ -14,9 +14,11 @@
 
 using Exts
 
+const verbose = isinteractive() || ARGS ∋ "-v"
+
 const patch(f::Function, file::String) =
 	let s = t = readstr(file), s = f(s)::String
-		s ≠ t ? @info(write(file, s) => file) : @warn(NaN => file,
+		s ≠ t ? @info(write(file, s) => file) : verbose && @warn(NaN => file,
 			_module = nothing, _file = nothing, _line = nothing)
 	end
 const patch(f::Function, path::String, file::Regex) =
@@ -27,6 +29,10 @@ const patch(f::Function, path::String, file::Regex) =
 if abspath(PROGRAM_FILE) == @__FILE__
 	cd(@__DIR__) do
 	#! format: noindent
+	patch("node_modules/prettier/plugins/", r"^html\.m?js$") do s
+		p = """="<!DOCTYPE";"""
+		s = replace(s, Regex(p, "i") => uppercase(p))
+	end
 	patch("node_modules/vitepress/dist/client/app/components/Content.js") do s
 		s = replace(s, "'404 Page Not Found'" => "''")
 	end
@@ -102,6 +108,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		s = replace(s, r"\\u2018|\\u2019"i => "\\\'") # ‘’
 		s = replace(s, r"\\u201c|\\u201d"i => "\\\"") # “”
 		s = replace(s, r"^.+@vue/devtools-api\b.+\n"m => "")
+		s = replace(s, r"catch \(error\) \{(\n\t+)\K(throw new Error)" => s"throw error;\1\2")
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		o = "@iconify-json/simple-icons/icons.json"
@@ -117,6 +124,12 @@ if abspath(PROGRAM_FILE) == @__FILE__
 	end
 	patch("node_modules/vitepress/types/default-theme.d.ts") do s
 		s = replace(s, "{ forceLocale?: boolean }" => "{ forceLocale?: boolean | string }")
+	end
+	true || patch("pnpm-lock.yaml") do s
+		s = replace(s, r"\n {0}\S+:\K\n {2}(\S+: \S+)(?=\n {0}\S+:|\n\n)" => s" {\1}")
+		s = replace(s, r"\n {2}\S+:\K\n {4}(\S+: \S+)(?=\n {2}\S+:|\n\n)" => s" {\1}")
+		s = replace(s, r"\n {4}\S+:\K\n {6}(\S+: \S+)(?=\n {4}\S+:|\n\n)" => s" {\1}")
+		s = replace(s, r"\n {6}\S+:\K\n {8}(\S+: \S+)(?=\n {6}\S+:|\n\n)" => s" {\1}")
 	end
 	end
 end

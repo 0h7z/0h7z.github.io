@@ -15,7 +15,7 @@ features:
     link: https://github.com/Heptazhou/SDSS-SpecViewer
   - title: "Snowfox"
     details: "Fork of Mozilla Firefox"
-    link: ../snowfox/
+    link: ./snowfox/
   - title: "vscode-julia-format"
     details: "Julia Formatter for VS Code"
     link: https://github.com/0h7z/vscode-julia-format
