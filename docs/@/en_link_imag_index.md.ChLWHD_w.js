@@ -1,4 +1,0 @@
-import{d as e,k as t,t as n}from"./~/plugin-vue_export-helper.C5VThwVk.js"
-var r=JSON.parse(`{"title":"","description":"","frontmatter":{"layout":"home","hero":{"name":"Link > Fictional Universe"},"features":[{"title":"<em>Azur Lane</em> Wiki","link":"https://azurlane.koumakan.jp/wiki/Azur_Lane_Wiki"},{"title":"<em>Elite: Dangerous</em> Shipyard","link":"https://coriolis.io/"},{"title":"<em>Elite: Dangerous</em> Wiki","link":"https://elite-dangerous.fandom.com/wiki/Elite_Dangerous_Wiki"},{"title":"<em>Genshin Impact</em> Database","link":"https://gi.lunaris.moe/"},{"title":"<em>World of Warships</em> DB","link":"https://shiptool.st/nations"}]},"headers":[],"relativePath":"en/link/imag/index.md","filePath":"link/imag/index@en.md","lastUpdated":1782324834000}`),i={name:`en/link/imag/index.md`}
-function a(n,r,i,a,o,s){return t(),e(`div`)}var o=n(i,[[`render`,a]])
-export{r as __pageData,o as default}
