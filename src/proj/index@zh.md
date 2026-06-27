@@ -28,6 +28,9 @@ features:
   - title: "0h7z.github.io"
     details: "This website (0h7z.com)"
     link: https://github.com/0h7z/0h7z.github.io
+  - title: "markdown-it-mathjax3"
+    details: "Fork of markdown-it-mathjax3 v4"
+    link: https://github.com/Heptazhou/markdown-it-mathjax3
 # Stable projects
   - title: "0hjl"
     details: "0h7z Julia package registry"

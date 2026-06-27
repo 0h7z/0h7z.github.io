@@ -1,5 +1,7 @@
+import { entriesof } from "./main"
 import { resolve } from "path"
 import { writeFileSync } from "fs"
+import type { Merge3, Reduce } from "./main"
 
 const cat1 = {
 	// https://tools.ietf.org/html/rfc9110 - HTTP
@@ -11,7 +13,7 @@ const cat2 = {
 	306: "Switch Proxy",
 	506: "Redirection Failed",
 	// https://tools.ietf.org/html/rfc2295
-	// @ts-expect-error
+	// @ts-expect-error TS1117
 	506: "Variant Also Negotiates",
 	// https://tools.ietf.org/html/rfc2324 - HTCPCP
 	418: "I'm a teapot",
@@ -38,7 +40,7 @@ const cat2 = {
 	511: "Network Authentication Required",
 	// https://tools.ietf.org/html/rfc7168 - HTCPCP
 	300: "Multiple Options",
-	// @ts-expect-error
+	// @ts-expect-error TS1117
 	418: "I'm a Teapot",
 	// https://tools.ietf.org/html/rfc7231
 	413: "Payload Too Large",
@@ -101,20 +103,16 @@ const cat3 = {
 	505: "HTTP Version Not Supported",
 } as const
 
-type Reduce<T> = {} & { [K in keyof T]: T[K] }
-type Merge2<T1, T2> = Omit<T1, keyof T2> & T2
-type Merge3<T1, T2, T3> = Merge2<Merge2<T1, T2>, T3>
-
-type _status = Reduce<Merge3<typeof cat1, typeof cat2, typeof cat3>>
-const status: _status = Object.assign(cat1, cat2, cat3)
+type _status = Merge3<typeof cat1, typeof cat2, typeof cat3>
+const status = Object.assign(cat1, cat2, cat3) as Reduce<_status>
 const output = resolve(__dirname, "[status].json")
 
-writeFileSync(output, JSON.stringify(status, null, "\t") + "\n")
+writeFileSync(output, `${JSON.stringify(status, null, "\t")}\n`)
 
 export default {
 	paths: () =>
-		Object.entries(status).map(([code, desc]) => ({
-			params: { status: code },
+		entriesof(status).map(([code, desc]) => ({
+			params: { status: code satisfies number },
 			content: `${code} ${desc}`,
 		})),
 }

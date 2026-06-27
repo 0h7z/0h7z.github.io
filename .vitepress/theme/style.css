@@ -135,6 +135,11 @@
 	}
 }
 
+x-hello, noscript {
+	/* https://github.com/uBlockOrigin/uBlock-issues/issues/2642 */
+	display: block;
+}
+
 /**
  * Component: Custom Block
  * -------------------------------------------------------------------------- */

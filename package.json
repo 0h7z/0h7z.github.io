@@ -8,11 +8,12 @@
 		"rst": "pnpm up -f && pnpm postupd -v",
 		"upd": "pnpm up --latest \\!@pnpm/types && pnpm up -s",
 		"dev": "vitepress dev",
+		"test": "tsc",
 		"build": "vitepress build",
 		"serve": "vite preview",
 		"preview": "pnpm build && pnpm serve",
 		"postupd": "julia --project icon.jl && julia --project node.jl",
-		"prebuild": "julia --project docs.jl",
+		"prebuild": "julia --project docs.jl && tsc",
 		"postbuild": "julia --project docs.jl build"
 	},
 	"devDependencies": {
@@ -21,7 +22,7 @@
 		"@types/markdown-it-footnote": "^3.0.4",
 		"@vitejs/plugin-basic-ssl": "^2.3.0",
 		"markdown-it-footnote": "^4.0.0",
-		"prettier": "^3.8.5",
+		"prettier": "^3.9.1",
 		"vitepress": "2.0.0-alpha.17"
 	},
 	"optionalDependencies": {
@@ -30,10 +31,16 @@
 		"@vitejs/plugin-vue": "^6.0.7",
 		"@vue/compiler-core": "^3.5.39",
 		"@vue/compiler-sfc": "^3.5.39",
+		"@vue/reactivity": "^3.5.39",
+		"@vue/runtime-core": "^3.5.39",
+		"@vue/runtime-dom": "^3.5.39",
+		"csstype": "^3.2.3",
 		"esbuild": "^0.28.1",
 		"less": "^4.6.7",
-		"markdown-it-mathjax3": "github:Heptazhou/markdown-it-mathjax3#v4.4.1",
+		"markdown-it-mathjax3": "github:Heptazhou/markdown-it-mathjax3#v4.4.2",
 		"oxc-minify": "^0.137.0",
+		"rolldown": "^1.1.3",
+		"typescript": "^6.0.3",
 		"vite": "^8.1.0",
 		"vue": "^3.5.39"
 	},
@@ -53,7 +60,7 @@
 			"@vue/devtools-api": "-",
 			"encoding-sniffer": "^1",
 			"esbuild": "^0",
-			"markdown-it-mathjax3": "github:Heptazhou/markdown-it-mathjax3#v4.4.1",
+			"markdown-it-mathjax3": "github:Heptazhou/markdown-it-mathjax3#v4.4.2",
 			"vite": "^8"
 		},
 		"packageExtensions": {

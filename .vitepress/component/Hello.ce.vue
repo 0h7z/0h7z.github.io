@@ -1,30 +1,28 @@
 <script setup lang="ts">
 	import { greeting } from "../locale.json"
 	import type { Language } from "../config"
+	import type { PropertiesHyphen as CSS } from "csstype"
 
 	const LANG: Language[] = ["en", "zh"]
 
 	const animation_ctime = 5 // second
 	const animation_cycle = LANG.length
-	const animation_delay = (id: number) => id * animation_ctime + "s"
-	const animation_duration = animation_cycle * animation_ctime + "s"
+	const animation_delay = (id: number) => `${id * animation_ctime}s`
+	const animation_duration = `${animation_cycle * animation_ctime}s`
+	const animation_style = (id: number): CSS => ({
+		"animation-delay": animation_delay(id),
+		"animation-duration": animation_duration,
+	})
 </script>
 
 <template>
-	<span>
-		<span
-			v-for="(lang, id) in LANG"
-			:lang
-			:style="{
-				'animation-delay': animation_delay(id),
-				'animation-duration': animation_duration,
-			}">
-			{{ greeting[lang] }}
-		</span>
+	<span v-once v-for="(lang, id) in LANG" :lang :style="animation_style(id)">
+		{{ greeting[lang] }}
 	</span>
+	<br />
 </template>
 
-<style scoped lang="less">
+<style lang="less">
 	@n: 2; // animation_cycle
 	@0: (000% / @n), (100% / @n);
 	@1: (040% / @n), (060% / @n);

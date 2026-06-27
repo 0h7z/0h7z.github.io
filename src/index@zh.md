@@ -13,9 +13,7 @@ features:
   - title: "链接"
     link: ./link/
   - title: "项目"
-    link: ./project/
-#   - title: "雪狐"
-#     link: ./snowfox/
+    link: ./proj/
 
   - title: "关于"
     link: ./about/

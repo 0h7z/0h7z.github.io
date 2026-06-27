@@ -15,7 +15,7 @@
 		"module": "Preserve", // NodeNext | Preserve
 		"paths": { "vitepress/types/*": ["./node_modules/vitepress/types/*"] },
 		"resolveJsonModule": true,
-		// "rewriteRelativeImportExtensions": true, // Node.js //! TS2876: This relative import path is unsafe to rewrite because it looks like a file name
+		"rewriteRelativeImportExtensions": true, // Node.js //! TS2876
 		// "rootDir": "src",
 		"types": ["node"],
 		//* Emit

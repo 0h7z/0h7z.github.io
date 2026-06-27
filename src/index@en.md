@@ -13,9 +13,7 @@ features:
   - title: "Link"
     link: ./link/
   - title: "Project"
-    link: ./project/
-#   - title: "Snowfox"
-#     link: ./snowfox/
+    link: ./proj/
 
   - title: "About"
     link: ./about/

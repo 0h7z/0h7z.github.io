@@ -1,15 +1,22 @@
-import { createContentLoader, createMarkdownRenderer, defineConfig } from "vitepress"
+import { createMarkdownRenderer, defineConfig } from "vitepress"
+import { entriesof } from "../src/main"
 import footnote from "markdown-it-footnote"
 import icon_mark_github from "@primer/octicons/build/svg/mark_github.json"
 import locale from "./locale.json"
+import type { CompilerOptions } from "@vue/compiler-sfc"
 import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
-import type { Feature } from "vitepress/dist/client/theme-default/components/VPFeatures.vue"
 import type { LocalSearchTranslations } from "vitepress/types/local-search"
 import type { Options as VueOptions } from "@vitejs/plugin-vue"
+import type { ParserOptions } from "@vue/compiler-core"
+
+//! TS2307: Cannot find module "vitepress/dist/client/theme-default/components/VPFeatures.vue"
+//! or its corresponding type declarations.
+// @ts-ignore
+import type { Feature } from "vitepress/dist/client/theme-default/components/VPFeatures.vue"
 
 export type Language = keyof typeof locale.language
 
-// https://github.com/vuejs/vitepress/blob/main/src/node/markdown/markdown.ts
+// https://github.com/vuejs/vitepress/blob/master/src/node/markdown/markdown.ts
 const MDSRCDIR = "src"
 const MDCONFIG = {
 	preConfig: undefined,
@@ -49,7 +56,8 @@ const REPO = "https://github.com/0h7z/0h7z.github.io"
 
 const LANG = ["en", "zh"] as const satisfies Language[]
 
-const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
+type TNAVI = Partial<Record<Language | "und", DefaultTheme.NavItem[]>>
+const NAVI = {
 	en: [
 		// { activeMatch: "^/en/blog/", link: "/en/blog/", text: "Blog" },
 		{ activeMatch: "^/en/docs/", link: "/en/docs/", text: "Docs" },
@@ -78,9 +86,10 @@ const NAVI: Partial<Record<Language | "und", DefaultTheme.NavItem[]>> = {
 		// { activeMatch: "^/zh/proj/snowfox/", link: "/zh/proj/snowfox/", text: "雪狐" },
 		{ activeMatch: "^/zh/about/", link: "/zh/about/", text: "关于" },
 	],
-} as const
+} as const satisfies TNAVI
 
-const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
+type TSIDE = Record<string, DefaultTheme.SidebarItem[]>
+const SIDE = {
 	"/en/blog": [{ link: "/", text: "Blog" }],
 	"/zh/blog": [{ link: "/", text: "博客" }],
 	"/en/proj/snowfox": [
@@ -117,9 +126,10 @@ const SIDE: Record<string, DefaultTheme.SidebarItem[]> = {
 			items: [{ link: "/oss/", text: "OSS" }],
 		},
 	],
-} as const
+} as const satisfies TSIDE
 
-const SRCH /* : Partial<Record<Language, LocalSearchTranslations>> */ = {
+type TSRCH = Partial<Record<Language, LocalSearchTranslations>>
+const SRCH = {
 	en: {},
 	zh: {
 		button: { buttonText: "搜索", buttonAriaLabel: undefined },
@@ -139,14 +149,15 @@ const SRCH /* : Partial<Record<Language, LocalSearchTranslations>> */ = {
 			},
 		},
 	},
-} as const satisfies Partial<Record<Language, LocalSearchTranslations>>
+} as const satisfies TSRCH
 
-const ROOT /* : DefaultTheme.Config */ = {
+type TROOT = DefaultTheme.Config
+const ROOT = {
 	// https://vitepress.dev/zh/reference/default-theme-config
 	i18nRouting: true,
 	logo: "/apple-touch-icon.png",
 	siteTitle: undefined,
-	nav: NAVI.und?.length ? NAVI.und : undefined,
+	nav: (NAVI as TNAVI).und?.length ? (NAVI as TNAVI).und : undefined,
 	sidebar: undefined,
 	aside: true,
 	outline: { level: "deep", label: "Contents" },
@@ -171,9 +182,10 @@ const ROOT /* : DefaultTheme.Config */ = {
 			miniSearch: undefined,
 		},
 	},
-} as const satisfies DefaultTheme.Config
+} as const satisfies TROOT
 
-const I18N: Partial<Record<Language, DefaultTheme.Config>> = {
+type TI18N = Partial<Record<Language, TROOT>>
+const I18N = {
 	en: {
 		outline: ROOT.outline,
 		editLink: ROOT.editLink,
@@ -190,33 +202,30 @@ const I18N: Partial<Record<Language, DefaultTheme.Config>> = {
 		returnToTopLabel: "回到顶部",
 		langMenuLabel: "切换语言",
 	},
-} as const
+} as const satisfies TI18N
 
-const localeconfig = (lang: Language): LocaleConfig<DefaultTheme.Config> => {
+const localeconfig = (lang: Language) => {
 	const label = `${locale.language[lang]} (${lang})`
 	const link = `/${lang}/`
-	const nav = NAVI[lang]
-	const sidebar: typeof SIDE = {}
-	for (const [k, v] of Object.entries(SIDE).filter(([k]) => k.startsWith(link))) {
-		for (const x of v) x.base = k
-		sidebar[k] = v
+	const loc = (I18N as TI18N)[lang]!
+	const nav = (NAVI as TNAVI)[lang]!
+	const sidebar = { ...SIDE } as TSIDE
+	for (const [k, v] of entriesof(sidebar).filter(([k]) => k.startsWith(link))) {
+		for (const x of v) x.base ||= k
 	}
-	return { [lang]: { label, lang, link, themeConfig: { ...I18N[lang], nav, sidebar } } }
+	return { [lang]: { label, lang, link, themeConfig: { ...loc, nav, sidebar } } }
 }
 
 export default defineConfig({
 	// https://vitepress.dev/zh/guide/i18n
-	locales: Object.assign({}, ...LANG.map(localeconfig)),
+	locales: Object.assign({}, ...LANG.map(localeconfig)) satisfies LocaleConfig<TROOT>,
 
 	// https://vitepress.dev/zh/guide/sitemap-generation
 	sitemap: {
 		hostname: "https://0h7z.com",
 		lastmodDateOnly: false,
-		xmlns: { news: false, xhtml: !true, image: false, video: false },
-		transformItems: (xs) => {
-			xs.forEach((x) => x.links && delete x.links)
-			return xs
-		},
+		xmlns: { news: false, xhtml: true, image: false, video: false },
+		transformItems: (xs) => xs.map((x) => (x.links &&= undefined) || x),
 	},
 
 	// https://vitepress.dev/zh/reference/site-config#site-metadata
@@ -275,11 +284,16 @@ export default defineConfig({
 	markdown: MDCONFIG,
 	// https://cn.vitejs.dev/config/
 	vite: { configFile: "vite.config.ts" },
-	// https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue#options
+	// https://github.com/vitejs/vite-plugin-vue/tree/master/packages/plugin-vue#options
 	vue: {
 		// include: /\.(vue|md)$/,
 		// exclude: undefined,
-		template: { compilerOptions: { isCustomElement: (x) => x.startsWith("x-") } },
+		template: {
+			compilerOptions: {
+				comments: false,
+				isCustomElement: (x) => x.startsWith("x-"),
+			} satisfies ParserOptions satisfies CompilerOptions,
+		},
 	} as const satisfies VueOptions,
 
 	// https://vitepress.dev/zh/reference/site-config#build-hooks
@@ -293,9 +307,10 @@ export default defineConfig({
 			layout?: "doc" | "home" | "page"
 			features?: Feature[]
 		}
-		if (h.layout == "home" && h.features)
-			for (const x of h.features) //
+		if (h.layout == "home" && h.features?.length)
+			for (const x of h.features) {
 				if (x.title) x.title = md(x.title)
+			}
 	},
 
 	// https://vitepress.dev/zh/reference/default-theme-config

@@ -19,7 +19,7 @@ using YAML: yaml
 
 const Base.string(x::AbstractXMLNode) = XML.write(x, indentsize = 0)
 
-const esb = `esbuild --charset=utf8 --line-limit=65536 --minify`
+const esb = `esbuild --charset=utf8 --line-limit=$(2^16) --minify`
 const mjs = readstr("docs.jl.ts")
 const cfg = readstr(`node -e $mjs`) |> JSON.parse
 
@@ -57,8 +57,9 @@ if abspath(PROGRAM_FILE) == @__FILE__
 					str = readstr(f)
 					str = replace(str, r" (crossorigin|hidden|open)\K=\"\"(?=[ >])" => "")
 					str = replace(str, r" (style)=\"\"(?=[ >])" => "")
-					str = replace(str, r" *(?=<math>|<time datetime=)" => "\n\t")
+					str = replace(str, r" *(?=<math>|<mjx-\w+|<time datetime=)" => "\n\t")
 					str = replace(str, r"[^-]>\K(?=<pre[ >])|</pre>\K(?=<[^!])" => "\n\t")
+					str = replace(str, r"[^-]>\K(?=<svg style=\"[^\"]*?\" xml)" => "\n\t")
 					str = replace(str, r"[^-]>\K(?=<svg xml)|</svg>\K(?=<[^!])" => "\n\t")
 					str = replace(str, r"\n\s*\n|\n*$"s => "\n")
 					str = replace(str, r"^\s+"m => "\t")

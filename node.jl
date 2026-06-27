@@ -96,6 +96,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		s = replace(s, r"\b(description|title): \K\"[^\"]+\""m => "\"\"")
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
+		s = replace(s, ".[hash]." => ".[hash:10].")
 		s = replace(s, ".codeCopyButtonTitle ||" => ".codeCopyButtonTitle ??")
 		s = replace(s, "(\"hex\")" => "(\"base64url\")")
 		s = replace(s, "(\"sha256\")" => "(\"shake256\")")
@@ -118,7 +119,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		o = s"${config.assetsDir}" * "/~/"
-		p = s"[name].[hash].js"
+		p = s"[name].[hash:10].js"
 		q = s"[name].js"
 		s = replace(s, Regex("`\\Q$o\\E\\K\\Q$p\\E(?=`)") => """\${chunk.name.startsWith("@") ? "$q" : "$p"}""")
 	end

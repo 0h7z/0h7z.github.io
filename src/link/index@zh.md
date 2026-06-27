@@ -26,6 +26,8 @@ features:
     link: https://whattrainisitnow.com/
   - title: "GitHub 状态"
     link: https://www.githubstatus.com/
+  - title: "Google 翻译"
+    link: https://translate.google.com/?sl=auto&tl=zh-CN&op=translate
   - title: "IETF 数据库"
     link: https://datatracker.ietf.org/
 #   - title: "Intel 产品规格"

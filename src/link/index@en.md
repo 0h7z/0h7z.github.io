@@ -18,7 +18,7 @@ features:
     link: https://en.cppreference.com/w/
   - title: "Cloudflare Status"
     link: https://new.cloudflarestatus.com/
-  - title: "CTAN $\\TeX$ Archive Net."
+  - title: "CTAN TeX Archive Network"
     link: https://ctan.org/
   - title: "Debian Package Tracker"
     link: https://tracker.debian.org/
@@ -26,6 +26,8 @@ features:
     link: https://whattrainisitnow.com/
   - title: "GitHub Status"
     link: https://www.githubstatus.com/
+  - title: "Google Translate"
+    link: https://translate.google.com/?sl=auto&tl=en&op=translate
   - title: "IETF Datatracker"
     link: https://datatracker.ietf.org/
 #   - title: "Intel Product Specifications"

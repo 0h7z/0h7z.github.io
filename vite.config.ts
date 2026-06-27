@@ -3,6 +3,7 @@ import { resolve } from "path"
 import { resolveConfig } from "vitepress"
 import ssl from "@vitejs/plugin-basic-ssl"
 import type { DefaultTheme, SiteConfig } from "vitepress"
+import type { RolldownOptions } from "rolldown"
 
 const config: SiteConfig<DefaultTheme.Config> = await resolveConfig()
 
@@ -26,9 +27,15 @@ export default defineConfig({
 	build: {
 		outDir: config.outDir,
 		assetsDir: config.assetsDir,
+		// https://rolldown.rs/reference/
 		rolldownOptions: {
-			// https://rolldown.rs/reference/InputOptions.checks
+			// https://github.com/vuejs/vitepress/issues/5226
 			checks: { invalidAnnotation: false },
-		},
+			output: {
+				comments: false,
+				externalLiveBindings: false,
+				hashCharacters: "base36",
+			},
+		} as const satisfies RolldownOptions,
 	},
 })

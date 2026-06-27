@@ -12,7 +12,7 @@ overrides:
   '@vue/devtools-api': '-'
   encoding-sniffer: ^1
   esbuild: ^0
-  markdown-it-mathjax3: github:Heptazhou/markdown-it-mathjax3#v4.4.1
+  markdown-it-mathjax3: github:Heptazhou/markdown-it-mathjax3#v4.4.2
   vite: ^8
 
 packageExtensionsChecksum: sha256-Vpo7fk97f9nYXJpAkZPv6wSefZ1wq4FkjT3vu53N7ro=
@@ -39,11 +39,11 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       prettier:
-        specifier: ^3.8.5
-        version: 3.8.5
+        specifier: ^3.9.1
+        version: 3.9.1
       vitepress:
         specifier: 2.0.0-alpha.17
-        version: 2.0.0-alpha.17(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)(markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/8d3828263cf5f5a37dd5e2e306f1f1b01db373d8)(oxc-minify@0.137.0)(postcss@8.5.15)
+        version: 2.0.0-alpha.17(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)(markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec)(oxc-minify@0.137.0)(postcss@8.5.16)(typescript@6.0.3)
     optionalDependencies:
       '@types/markdown-it':
         specifier: ^14.1.2
@@ -53,13 +53,25 @@ importers:
         version: 26.0.1
       '@vitejs/plugin-vue':
         specifier: ^6.0.7
-        version: 6.0.7(vite@8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7))(vue@3.5.39)
+        version: 6.0.7(vite@8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7))(vue@3.5.39(typescript@6.0.3))
       '@vue/compiler-core':
         specifier: ^3.5.39
         version: 3.5.39
       '@vue/compiler-sfc':
         specifier: ^3.5.39
         version: 3.5.39
+      '@vue/reactivity':
+        specifier: ^3.5.39
+        version: 3.5.39
+      '@vue/runtime-core':
+        specifier: ^3.5.39
+        version: 3.5.39
+      '@vue/runtime-dom':
+        specifier: ^3.5.39
+        version: 3.5.39
+      csstype:
+        specifier: ^3.2.3
+        version: 3.2.3
       esbuild:
         specifier: ^0.28.1
         version: 0.28.1
@@ -67,17 +79,23 @@ importers:
         specifier: ^4.6.7
         version: 4.6.7
       markdown-it-mathjax3:
-        specifier: github:Heptazhou/markdown-it-mathjax3#v4.4.1
-        version: https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/8d3828263cf5f5a37dd5e2e306f1f1b01db373d8
+        specifier: github:Heptazhou/markdown-it-mathjax3#v4.4.2
+        version: https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec
       oxc-minify:
         specifier: ^0.137.0
         version: 0.137.0
+      rolldown:
+        specifier: ^1.1.3
+        version: 1.1.3
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
       vite:
         specifier: ^8.1.0
         version: 8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)
       vue:
         specifier: ^3.5.39
-        version: 3.5.39
+        version: 3.5.39(typescript@6.0.3)
 
 packages:
 
@@ -365,8 +383,8 @@ packages:
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
 
-  brace-expansion@5.0.6:
-    resolution: {integrity: sha512-kLpxurY4Z4r9sgMsyG0Z9uzsBlgiU/EFKhj/h91/8yHu0edo7XuixOIH3VcJ8kkxs6/jPzoI6U9Vj3WqbMQ94g==}
+  brace-expansion@5.0.7:
+    resolution: {integrity: sha512-7oFy703dxfY3/NLxC1fh2SUCQ0H9rmAY+5EpDVfXjUTTs+HEwR2nYaqLv+GWcTsumwxPfiz6CzCNkwXwBUwqCA==}
     engines: {node: 18 || 20 || >=22}
 
   ccount@2.0.1:
@@ -573,10 +591,10 @@ packages:
   markdown-it-footnote@4.0.0:
     resolution: {integrity: sha512-WYJ7urf+khJYl3DqofQpYfEYkZKbmXmwxQV8c8mO/hGIhgZ1wOe7R4HLFNwqx7TjILbnC98fuyeSsin19JdFcQ==}
 
-  markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/8d3828263cf5f5a37dd5e2e306f1f1b01db373d8:
-    resolution: {gitHosted: true, tarball: https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/8d3828263cf5f5a37dd5e2e306f1f1b01db373d8}
-    version: 4.4.1
-    engines: {node: '>=24.0.0', pnpm: '>=10.0.0 <11'}
+  markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec:
+    resolution: {gitHosted: true, tarball: https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec}
+    version: 4.4.2
+    engines: {node: '>=24.0.0', pnpm: '>=10.0.0'}
 
   mdast-util-to-hast@13.2.1:
     resolution: {integrity: sha512-cctsq2wp5vTsLIcaymblUriiTcZd0CwWtCbLvrOzYCDZoWyMNV8sZ7krj09FSnsiJi3WVsHLM4k6Dq/yaPyCXA==}
@@ -693,12 +711,12 @@ packages:
     resolution: {integrity: sha512-HeP7D2wyhkR+XaK6v4W8oRF62Dsz4flyuczALJp61GckGm42u1saSSJ/0auvcBqxs3jMRFEcPK34At/0JBKdOg==}
     engines: {node: '>=4'}
 
-  postcss@8.5.15:
-    resolution: {integrity: sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A==}
+  postcss@8.5.16:
+    resolution: {integrity: sha512-vuwillviilfKZsg0VGj5R/YwwcHx4SLsIOI/7K6mQkWx+l5cUHTjj5g0AasTBcyXsbfTgrwsUNmVUb5xVwyPwg==}
     engines: {node: ^10 || ^12 || >=14}
 
-  prettier@3.8.5:
-    resolution: {integrity: sha512-zxcTTCedNGJM4R8sj/Cq/F0W/c4iE0afWBcBwMTRtw4WHYP9TWkYjdiH3npPRUYsXQCPR0hTU9yjovOu+E6EQA==}
+  prettier@3.9.1:
+    resolution: {integrity: sha512-ppiDo2CSwexck1eyZUwJHg/N3nf1+6IRCv7W/VJ5vaLnVCmB7+3CdRfMwoCHBBX6xTrREDTksZ4OZl5SSf4zXA==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -764,6 +782,11 @@ packages:
 
   trim-lines@3.0.1:
     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
+
+  typescript@6.0.3:
+    resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
 
   undici-types@8.3.0:
     resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
@@ -1035,11 +1058,11 @@ snapshots:
     dependencies:
       vite: 8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)
 
-  '@vitejs/plugin-vue@6.0.7(vite@8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7))(vue@3.5.39)':
+  '@vitejs/plugin-vue@6.0.7(vite@8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7))(vue@3.5.39(typescript@6.0.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
       vite: 8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)
-      vue: 3.5.39
+      vue: 3.5.39(typescript@6.0.3)
 
   '@vue/compiler-core@3.5.39':
     dependencies:
@@ -1063,7 +1086,7 @@ snapshots:
       '@vue/shared': 3.5.39
       estree-walker: 2.0.2
       magic-string: 0.30.21
-      postcss: 8.5.15
+      postcss: 8.5.16
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.39':
@@ -1087,34 +1110,34 @@ snapshots:
       '@vue/shared': 3.5.39
       csstype: 3.2.3
 
-  '@vue/server-renderer@3.5.39(vue@3.5.39)':
+  '@vue/server-renderer@3.5.39(vue@3.5.39(typescript@6.0.3))':
     dependencies:
       '@vue/compiler-ssr': 3.5.39
       '@vue/shared': 3.5.39
-      vue: 3.5.39
+      vue: 3.5.39(typescript@6.0.3)
 
   '@vue/shared@3.5.39': {}
 
-  '@vueuse/core@14.3.0(vue@3.5.39)':
+  '@vueuse/core@14.3.0(vue@3.5.39(typescript@6.0.3))':
     dependencies:
       '@types/web-bluetooth': 0.0.21
       '@vueuse/metadata': 14.3.0
-      '@vueuse/shared': 14.3.0(vue@3.5.39)
-      vue: 3.5.39
+      '@vueuse/shared': 14.3.0(vue@3.5.39(typescript@6.0.3))
+      vue: 3.5.39(typescript@6.0.3)
 
-  '@vueuse/integrations@14.3.0(focus-trap@8.2.2)(vue@3.5.39)':
+  '@vueuse/integrations@14.3.0(focus-trap@8.2.2)(vue@3.5.39(typescript@6.0.3))':
     dependencies:
-      '@vueuse/core': 14.3.0(vue@3.5.39)
-      '@vueuse/shared': 14.3.0(vue@3.5.39)
-      vue: 3.5.39
+      '@vueuse/core': 14.3.0(vue@3.5.39(typescript@6.0.3))
+      '@vueuse/shared': 14.3.0(vue@3.5.39(typescript@6.0.3))
+      vue: 3.5.39(typescript@6.0.3)
     optionalDependencies:
       focus-trap: 8.2.2
 
   '@vueuse/metadata@14.3.0': {}
 
-  '@vueuse/shared@14.3.0(vue@3.5.39)':
+  '@vueuse/shared@14.3.0(vue@3.5.39(typescript@6.0.3))':
     dependencies:
-      vue: 3.5.39
+      vue: 3.5.39(typescript@6.0.3)
 
   '@xmldom/xmldom@0.9.10':
     optional: true
@@ -1128,7 +1151,7 @@ snapshots:
   boolbase@1.0.0:
     optional: true
 
-  brace-expansion@5.0.6:
+  brace-expansion@5.0.7:
     dependencies:
       balanced-match: 4.0.4
     optional: true
@@ -1331,9 +1354,9 @@ snapshots:
       cheerio: 1.2.0
       commander: 14.0.3
       entities: 8.0.0
-      postcss: 8.5.15
-      postcss-nesting: 14.0.0(postcss@8.5.15)
-      postcss-safe-parser: 7.0.1(postcss@8.5.15)
+      postcss: 8.5.16
+      postcss-nesting: 14.0.0(postcss@8.5.16)
+      postcss-safe-parser: 7.0.1(postcss@8.5.16)
       postcss-selector-parser: 7.1.4
       web-resource-inliner: 8.0.0
     transitivePeerDependencies:
@@ -1385,7 +1408,7 @@ snapshots:
 
   markdown-it-footnote@4.0.0: {}
 
-  markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/8d3828263cf5f5a37dd5e2e306f1f1b01db373d8:
+  markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec:
     dependencies:
       '@mathjax/src': 4.1.2
       juice: 12.1.1
@@ -1433,7 +1456,7 @@ snapshots:
 
   minimatch@10.2.5:
     dependencies:
-      brace-expansion: 5.0.6
+      brace-expansion: 5.0.7
     optional: true
 
   minipass@7.1.3:
@@ -1508,17 +1531,17 @@ snapshots:
 
   picomatch@4.0.4: {}
 
-  postcss-nesting@14.0.0(postcss@8.5.15):
+  postcss-nesting@14.0.0(postcss@8.5.16):
     dependencies:
       '@csstools/selector-resolve-nested': 4.0.0(postcss-selector-parser@7.1.4)
       '@csstools/selector-specificity': 6.0.0(postcss-selector-parser@7.1.4)
-      postcss: 8.5.15
+      postcss: 8.5.16
       postcss-selector-parser: 7.1.4
     optional: true
 
-  postcss-safe-parser@7.0.1(postcss@8.5.15):
+  postcss-safe-parser@7.0.1(postcss@8.5.16):
     dependencies:
-      postcss: 8.5.15
+      postcss: 8.5.16
     optional: true
 
   postcss-selector-parser@7.1.4:
@@ -1527,13 +1550,13 @@ snapshots:
       util-deprecate: 1.0.2
     optional: true
 
-  postcss@8.5.15:
+  postcss@8.5.16:
     dependencies:
       nanoid: 3.3.15
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  prettier@3.8.5: {}
+  prettier@3.9.1: {}
 
   property-information@7.2.0: {}
 
@@ -1610,6 +1633,9 @@ snapshots:
 
   trim-lines@3.0.1: {}
 
+  typescript@6.0.3:
+    optional: true
+
   undici-types@8.3.0:
     optional: true
 
@@ -1659,7 +1685,7 @@ snapshots:
     dependencies:
       lightningcss: 1.32.0
       picomatch: 4.0.4
-      postcss: 8.5.15
+      postcss: 8.5.16
       rolldown: 1.1.3
       tinyglobby: 0.2.17
     optionalDependencies:
@@ -1668,26 +1694,26 @@ snapshots:
       fsevents: 2.3.3
       less: 4.6.7
 
-  vitepress@2.0.0-alpha.17(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)(markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/8d3828263cf5f5a37dd5e2e306f1f1b01db373d8)(oxc-minify@0.137.0)(postcss@8.5.15):
+  vitepress@2.0.0-alpha.17(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)(markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec)(oxc-minify@0.137.0)(postcss@8.5.16)(typescript@6.0.3):
     dependencies:
       '@shikijs/core': 3.23.0
       '@shikijs/transformers': 3.23.0
       '@shikijs/types': 3.23.0
       '@types/markdown-it': 14.1.2
-      '@vitejs/plugin-vue': 6.0.7(vite@8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7))(vue@3.5.39)
+      '@vitejs/plugin-vue': 6.0.7(vite@8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7))(vue@3.5.39(typescript@6.0.3))
       '@vue/shared': 3.5.39
-      '@vueuse/core': 14.3.0(vue@3.5.39)
-      '@vueuse/integrations': 14.3.0(focus-trap@8.2.2)(vue@3.5.39)
+      '@vueuse/core': 14.3.0(vue@3.5.39(typescript@6.0.3))
+      '@vueuse/integrations': 14.3.0(focus-trap@8.2.2)(vue@3.5.39(typescript@6.0.3))
       focus-trap: 8.2.2
       mark.js: 8.11.1
       minisearch: 7.2.0
       shiki: 3.23.0
       vite: 8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)
-      vue: 3.5.39
+      vue: 3.5.39(typescript@6.0.3)
     optionalDependencies:
-      markdown-it-mathjax3: https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/8d3828263cf5f5a37dd5e2e306f1f1b01db373d8
+      markdown-it-mathjax3: https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec
       oxc-minify: 0.137.0
-      postcss: 8.5.15
+      postcss: 8.5.16
     transitivePeerDependencies:
       - '@types/node'
       - '@vitejs/devtools'
@@ -1714,13 +1740,15 @@ snapshots:
       - universal-cookie
       - yaml
 
-  vue@3.5.39:
+  vue@3.5.39(typescript@6.0.3):
     dependencies:
       '@vue/compiler-dom': 3.5.39
       '@vue/compiler-sfc': 3.5.39
       '@vue/runtime-dom': 3.5.39
-      '@vue/server-renderer': 3.5.39(vue@3.5.39)
+      '@vue/server-renderer': 3.5.39(vue@3.5.39(typescript@6.0.3))
       '@vue/shared': 3.5.39
+    optionalDependencies:
+      typescript: 6.0.3
 
   web-resource-inliner@8.0.0:
     dependencies:
