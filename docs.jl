@@ -51,6 +51,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 					str = startswith(joinpath(dst, assetdir, "~"))(prefix) ?
 						  readstr(pipeline(f, `pnpm $esb`)) : readstr(f) * "\n"
 					write(f, str)
+					@assert !contains((f), r"[\S\s]*\.lean\.js$") stdpath(prefix, f)
 					@assert !contains(str, r"mailto:\w+@\w+\.md") stdpath(prefix, f)
 				end
 				if endswith(".html")(f)

@@ -20,6 +20,9 @@ export default defineConfig({
 		host: false,
 		port: 3030,
 		strictPort: true,
+		proxy: {
+			"^/cdn-cgi/trace$": { target: "https://cloudflare.com", changeOrigin: true },
+		},
 	},
 	preview: {
 		port: 3030,

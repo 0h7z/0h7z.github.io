@@ -10,6 +10,8 @@ import type { Router, SiteData, Theme } from "vitepress"
 //! but actually resolves to "../component/Hello.ce.vue".
 // @ts-ignore
 import Hello from "../component/Hello.ce.vue"
+// @ts-ignore
+import Trace from "../component/Trace.ce.vue"
 
 // https://cn.vuejs.org/guide/extras/web-components#sfc-as-custom-element
 const addCustomElement = (name: string, component: DefineComponent, opt?: CustomElementOptions) => {
@@ -21,9 +23,10 @@ import "./main.pcss"
 import "./style.css"
 export default {
 	extends: theme,
-	enhanceApp(_ctx: { app: App<Element>; router: Router; siteData: Ref<SiteData> }) {
+	enhanceApp(_ctx: { app: App<HTMLElement>; router: Router; siteData: Ref<SiteData> }) {
 		if (inBrowser) {
 			addCustomElement("x-hello", Hello)
+			addCustomElement("x-trace", Trace)
 		}
 	},
 } as const satisfies Theme

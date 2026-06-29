@@ -42,6 +42,9 @@ if abspath(PROGRAM_FILE) == @__FILE__
 	end
 	patch("node_modules/vitepress/dist/client/app/index.js") do s
 		s = replace(s, "(import.meta.env.DEV || __VUE_PROD_DEVTOOLS__)" => "(false)")
+		s = replace(s, "if (isInitialPageLoad)" => "if (false)")
+		s = replace(s, r"^.+isInitialPageLoad =[^;]+;\n"m => "")
+		s = replace(s, r"^\s+if \([^()]+\) \{[ \n]+\}\n"m => "")
 	end
 	patch("node_modules/vitepress/dist/client/app/router.js") do s
 		p = """await loadPage("/404/"); return;"""
@@ -98,6 +101,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		s = replace(s, ".[hash]." => ".[hash:10].")
 		s = replace(s, ".codeCopyButtonTitle ||" => ".codeCopyButtonTitle ??")
+		s = replace(s, ".lean.js`" => ".js`")
 		s = replace(s, "(\"hex\")" => "(\"base64url\")")
 		s = replace(s, "(\"sha256\")" => "(\"shake256\")")
 		s = replace(s, "\"chunks\"" => "\"~\"")
@@ -108,6 +112,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		s = replace(s, r"(&#8203;)"i => "") # \u200b
 		s = replace(s, r"\\u2018|\\u2019"i => "\\\'") # ‘’
 		s = replace(s, r"\\u201c|\\u201d"i => "\\\"") # “”
+		s = replace(s, r"\t+\K(\Qthis.emitFile({\E)"m => s"if (false) \1")
 		s = replace(s, r"^.+@vue/devtools-api\b.+\n"m => "")
 		s = replace(s, r"catch \(error\) \{(\n\t+)\K(throw new Error)" => s"throw error;\1\2")
 	end

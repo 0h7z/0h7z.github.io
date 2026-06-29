@@ -135,7 +135,9 @@
 	}
 }
 
-x-hello, noscript {
+x-hello,
+x-trace,
+noscript {
 	/* https://github.com/uBlockOrigin/uBlock-issues/issues/2642 */
 	display: block;
 }

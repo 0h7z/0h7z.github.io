@@ -7,3 +7,5 @@ hero:
 # https://vitepress.dev/zh/guide/routing#rendering-raw-content
 ---
 
+<x-trace></x-trace>
+

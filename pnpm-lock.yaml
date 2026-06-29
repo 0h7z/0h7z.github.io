@@ -27,33 +27,33 @@ importers:
         specifier: ^1001.3.1
         version: 1001.3.1
       '@primer/octicons':
-        specifier: ^19.28.1
-        version: 19.28.1
+        specifier: ^19.29.1
+        version: 19.29.1
       '@types/markdown-it-footnote':
         specifier: ^3.0.4
         version: 3.0.4
       '@vitejs/plugin-basic-ssl':
         specifier: ^2.3.0
-        version: 2.3.0(vite@8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7))
+        version: 2.3.0(vite@8.1.3(@types/node@26.1.0)(esbuild@0.28.1)(less@4.6.7))
       markdown-it-footnote:
         specifier: ^4.0.0
         version: 4.0.0
       prettier:
-        specifier: ^3.9.1
-        version: 3.9.1
+        specifier: ^3.9.4
+        version: 3.9.4
       vitepress:
         specifier: 2.0.0-alpha.17
-        version: 2.0.0-alpha.17(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)(markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec)(oxc-minify@0.137.0)(postcss@8.5.16)(typescript@6.0.3)
+        version: 2.0.0-alpha.17(@types/node@26.1.0)(esbuild@0.28.1)(less@4.6.7)(markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec)(oxc-minify@0.139.0)(postcss@8.5.16)(typescript@6.0.3)
     optionalDependencies:
       '@types/markdown-it':
         specifier: ^14.1.2
         version: 14.1.2
       '@types/node':
-        specifier: ^26.0.1
-        version: 26.0.1
+        specifier: ^26.1.0
+        version: 26.1.0
       '@vitejs/plugin-vue':
         specifier: ^6.0.7
-        version: 6.0.7(vite@8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7))(vue@3.5.39(typescript@6.0.3))
+        version: 6.0.7(vite@8.1.3(@types/node@26.1.0)(esbuild@0.28.1)(less@4.6.7))(vue@3.5.39(typescript@6.0.3))
       '@vue/compiler-core':
         specifier: ^3.5.39
         version: 3.5.39
@@ -82,17 +82,17 @@ importers:
         specifier: github:Heptazhou/markdown-it-mathjax3#v4.4.2
         version: https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec
       oxc-minify:
-        specifier: ^0.137.0
-        version: 0.137.0
+        specifier: ^0.139.0
+        version: 0.139.0
       rolldown:
-        specifier: ^1.1.3
-        version: 1.1.3
+        specifier: ^1.1.4
+        version: 1.1.4
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
       vite:
-        specifier: ^8.1.0
-        version: 8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)
+        specifier: ^8.1.3
+        version: 8.1.3(@types/node@26.1.0)(esbuild@0.28.1)(less@4.6.7)
       vue:
         specifier: ^3.5.39
         version: 3.5.39(typescript@6.0.3)
@@ -158,58 +158,58 @@ packages:
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
 
-  '@mathjax/mathjax-newcm-font@4.1.2':
-    resolution: {integrity: sha512-lZHMjNP2XbABHA3kVn40rbse5ERUeMEmrGH03qLkCwxq4/5Z/eNLr0akw1MmQcqTwCbvkx1BFcmJ7RCfbRlw3Q==}
+  '@mathjax/mathjax-newcm-font@4.1.3':
+    resolution: {integrity: sha512-gzAB3dFHilHX1l5x2xUqRL+1jDQt3Fyza1DkEMVXWC4E8SvsGdlgEza47HYi2WhVcgfkvf4zgUGzuhbq3Pjlew==}
     peerDependencies:
       '@mathjax/src': '*'
 
-  '@mathjax/src@4.1.2':
-    resolution: {integrity: sha512-7z3mQCQu4YqC1XyO4hMRkNTO49+5ZN8VtvBYKx+aGIXuGrlUvEAQZzeN/gf3tqZuVU4AI2yf1nYrrL1+BrSxIQ==}
+  '@mathjax/src@4.1.3':
+    resolution: {integrity: sha512-rIrWquuBSoJuoMBdC/1qD+AUHTorlccPicoVy6P2xbUgnuDBpCcpbHtOAsB8L3hdCHtNBg92lF8e3Fz+pkcQbw==}
 
-  '@oxc-minify/binding-darwin-arm64@0.137.0':
-    resolution: {integrity: sha512-gvSLNiAq78CO4cVpPPkQaolnVJY4wMbFD+6hSNjkolbAe2JPZgSVoTcULq8BR9nxyuRQ59aB+gwlbyt6N3IF/Q==}
+  '@oxc-minify/binding-darwin-arm64@0.139.0':
+    resolution: {integrity: sha512-5AWuNuJaZxZLcyX7eptAac2nBycrjRIIPaPjiXEq9ozBemp8cXXjr2jkAUIaVcoohiKEYg3EegoaqPFeDPvOGw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [darwin]
 
-  '@oxc-minify/binding-linux-x64-gnu@0.137.0':
-    resolution: {integrity: sha512-LV6kLxEv1ybaz+p9otVIttA22GGCEnLwCY//FFaAToqznO9OfA8RCaPVJiY3UpXjCyKyPQnShRyTEgM9rXR/8A==}
+  '@oxc-minify/binding-linux-x64-gnu@0.139.0':
+    resolution: {integrity: sha512-tIuF2sFUUQWTS0UIcSHXhYHGNb8Jug2T77wAX/Tf7C5hdEoUwUAy61H1U1wYtKkn/9nEEVzrsxPVRaJ3CSHGWA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@oxc-minify/binding-win32-x64-msvc@0.137.0':
-    resolution: {integrity: sha512-wPoXpXofwwB0P8ndU7CEKZa/JhmfU7ixaBKcfDkoBT7TFeNrZj7yWxaV4SDAMRYymFW8eCJgzbWESpTXjH1YVQ==}
+  '@oxc-minify/binding-win32-x64-msvc@0.139.0':
+    resolution: {integrity: sha512-y0G8o/M+1vIkSYl/1tY5wTK2U3XpyNseK8ca29hM287Gx46AfWFc7MRnMY1Dq8n/80clBL+3O6GNPVOxXRO7XA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [win32]
 
-  '@oxc-project/types@0.137.0':
-    resolution: {integrity: sha512-WT+Gb24i8hmvo85AIv2oEYouEXkRlKAlT9WaCa3TfLgNCN+GhrJOGZuIlMouAh38Qe4QOx26eUOVsq70qXrywA==}
+  '@oxc-project/types@0.138.0':
+    resolution: {integrity: sha512-1a7ZKmrRTCoN1XMZ4L0PyyqrMnrNlLyPuOkdSX2MZg7IiIGRUyurNhAm73ptDOraoBcIordsIGKNPKUzy3ZmfA==}
 
   '@pnpm/types@1001.3.1':
     resolution: {integrity: sha512-8dvQ/12/Zko+R2+f7guZPXDMMRVgsJlCDx3HtRGd+sRaFKqn52Er7tUDCqCvdcrBbSsW+75bDt6RCmEOJ9Ewwg==}
     engines: {node: '>=18.12'}
 
-  '@primer/octicons@19.28.1':
-    resolution: {integrity: sha512-pwSilXmgNrbVF2bChkh4zZtUyb4Vr4niYhA9PhUdtjVz86A2iwA/YjjopHS0suT+I7niUZJEepEpmSC7kARKNQ==}
+  '@primer/octicons@19.29.1':
+    resolution: {integrity: sha512-XVRArUP8bN+IEjfNQSquXAJinVqAWRx36sVvhN5VzC+gOLfbx16EfFFvcFhSVaqQJ+57PjBrbj75oqm8VlOoYQ==}
 
-  '@rolldown/binding-darwin-arm64@1.1.3':
-    resolution: {integrity: sha512-0NwgwsjM7LrsuVnXMK3koTpagBNOhloc/BNjKqZjv4V5zI5r13qx69uVhRx+o5Z0yy4Hzq+lpy7TAgUG/ocvrw==}
+  '@rolldown/binding-darwin-arm64@1.1.4':
+    resolution: {integrity: sha512-aUi+HBvmYb7j8krl1+qJgkG8C17fO79gk3c+jPw4S8glRFc1DTija9S3EyaTSQUm5GJXYKDAsugBEhFHH2vYiQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [darwin]
 
-  '@rolldown/binding-linux-x64-gnu@1.1.3':
-    resolution: {integrity: sha512-JJpqs8bRGITDOdbkNKnlojzBabbOHrqjSvDr0IVsZObE1lBcPjxItUEY9eWIDbxaJ3cGrXPWGfGkIxFijg/URg==}
+  '@rolldown/binding-linux-x64-gnu@1.1.4':
+    resolution: {integrity: sha512-JWtGshGfX+oENAKonoNkqEJX+7hC8yfhi9GUyPX1VX4mdh1y5r+ZiJLR5XzAB0aoP6s/PcILsGjKq8O0mm24bw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@rolldown/binding-win32-x64-msvc@1.1.3':
-    resolution: {integrity: sha512-OL4OMk7UPXOeVGGd3qo5zJyPIljf4AFgk5QAkPPS+OoLuOOozhuaQGC18MxVTnw/06q93gShAJzlwnSCY9YtqA==}
+  '@rolldown/binding-win32-x64-msvc@1.1.4':
+    resolution: {integrity: sha512-M1lpniBePobTfsa7Ks9a199e1akxsXn+GYBUKsEzv3YFzOm1HJAMNwKI3qr0Zq+mxwx9gOZoTdP1yXRYsZUocQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [win32]
@@ -259,8 +259,8 @@ packages:
   '@types/mdurl@2.0.0':
     resolution: {integrity: sha512-RGdgjQUZba5p6QEFAVx2OGb8rQDL/cPRG7GiedRzMcJ1tYnUANBncjbSB1NRGwbvjcPeikRABz2nshyPk1bhWg==}
 
-  '@types/node@26.0.1':
-    resolution: {integrity: sha512-fc3KiUoBt6kie0N9bIW3E47vZsuaMf0PM2AaUpLCLT0s/LvX1nxAim6Fc049cNxODPpGm6qRAuUOB86SkRuPQw==}
+  '@types/node@26.1.0':
+    resolution: {integrity: sha512-O0A1G3xPGy4w7AgQdAQYUlQ+BKk2Oovw8eRpofyp5KdBZULnbe+WqaOVNrm705SHphCiG4XHsACrSmPu1f+Kgw==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -574,8 +574,8 @@ packages:
     resolution: {integrity: sha512-NXYBzinNrblfraPGyrbPoD19C1h9lfI/1mzgWYvXUTe414Gz/X1FD2XBZSZM7rRTrMA8JL3OtAaGifrIKhQ5yQ==}
     engines: {node: '>= 12.0.0'}
 
-  lru-cache@11.5.1:
-    resolution: {integrity: sha512-RPimw/7aMdv2oqRrxKwvZXcPfwBrn/JZ2xYcY9Hus/6LaS3VOAKVWKWgNLCFSiOm1ESXinjsDlidVU7JlnCN2A==}
+  lru-cache@11.5.2:
+    resolution: {integrity: sha512-4pfM1Ff0x50o0tQwb5ucw/RzNyD0/YJME6IVcStalZuMWxdt3sR3huStTtxz4PUmvZfRguvDejasvQ2kifR11g==}
     engines: {node: 20 || >=22}
 
   magic-string@0.30.21:
@@ -664,8 +664,8 @@ packages:
   oniguruma-to-es@4.3.6:
     resolution: {integrity: sha512-csuQ9x3Yr0cEIs/Zgx/OEt9iBw9vqIunAPQkx19R/fiMq2oGVTgcMqO/V3Ybqefr1TBvosI6jU539ksaBULJyA==}
 
-  oxc-minify@0.137.0:
-    resolution: {integrity: sha512-uu8j2YjPoRUqk4CMkb1+BszzeAZTiVWyPBZczSxL9POc+q6OECDa6eRscKXoNOqOxceTFoIJHnDlBsgxK3fYng==}
+  oxc-minify@0.139.0:
+    resolution: {integrity: sha512-RC814aVzfb73cj/I5IVmN3MpGO/SKPvubT3nRYWtMD5WVeg87PWn/VX6/P3sWr0WI8a39WN9Cwckmp5nuZvY5w==}
     engines: {node: ^20.19.0 || >=22.12.0}
 
   package-json-from-dist@1.0.1:
@@ -691,8 +691,8 @@ packages:
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
-  picomatch@4.0.4:
-    resolution: {integrity: sha512-QP88BAKvMam/3NxH6vj2o21R6MjxZUAd6nlwAS/pnGvN9IVLocLHxGYIzFhg6fUQ+5th6P4dv4eW9jX3DSIj7A==}
+  picomatch@4.0.5:
+    resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
     engines: {node: '>=12'}
 
   postcss-nesting@14.0.0:
@@ -715,8 +715,8 @@ packages:
     resolution: {integrity: sha512-vuwillviilfKZsg0VGj5R/YwwcHx4SLsIOI/7K6mQkWx+l5cUHTjj5g0AasTBcyXsbfTgrwsUNmVUb5xVwyPwg==}
     engines: {node: ^10 || ^12 || >=14}
 
-  prettier@3.9.1:
-    resolution: {integrity: sha512-ppiDo2CSwexck1eyZUwJHg/N3nf1+6IRCv7W/VJ5vaLnVCmB7+3CdRfMwoCHBBX6xTrREDTksZ4OZl5SSf4zXA==}
+  prettier@3.9.4:
+    resolution: {integrity: sha512-yWG/o/4oJfo036EKAfK6ACAoDOfHeRHx4tuxkfBZiauURiaSmYwlpOr5LQqKtIkRD2z1PLteme2WoxEnj4tHTg==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -740,8 +740,8 @@ packages:
     engines: {node: 20 || >=22}
     hasBin: true
 
-  rolldown@1.1.3:
-    resolution: {integrity: sha512-1F1eEtUBtFvcGm1HQ9TiUIUHPQG7mSAODrhIzjxoUEFuo8OcbrGLiVLkevNgj84TE4lnHvnumwFjhJO5Eu135g==}
+  rolldown@1.1.4:
+    resolution: {integrity: sha512-IjZYiLxZwpnhwhdBH2ugdTGVSdhCQUmLxLoqyjiL0JxYjyRst+5a0P3xfrTxJ5F638j4Mvvw5FAX5XE6eHpXbA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
@@ -766,8 +766,8 @@ packages:
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
 
-  speech-rule-engine@5.0.0-rc.1:
-    resolution: {integrity: sha512-WgxL1K0MXNXW7+4fn11B6rtJ+jZTnCQMkJ44yV3XmFDcpGBqFJrDEHouGuFryqB5hoG1ksE2zlss/m6KOWnbPA==}
+  speech-rule-engine@5.0.0-rc.4:
+    resolution: {integrity: sha512-3dFcH2QtQNhtvUUc09TxoaEK4WG03B9Z57krFG9jocrKykKGu35BhIkWr0vgEAxZZomEWkeluff69y/EbYzP4Q==}
     hasBin: true
 
   stringify-entities@4.0.4:
@@ -823,8 +823,8 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  vite@8.1.0:
-    resolution: {integrity: sha512-BuJcQK/56NQTWDGn4ABea3q4SSBdNPWwNZKTkkUpcMPnLoquSYH8llRtSUIgoL1KSCpHt5eghLShn50mH36y7Q==}
+  vite@8.1.3:
+    resolution: {integrity: sha512-Ds+gBRbj0lwRO2Y5hwnUBdxSwlAve9LeRyU4sNnAr0ewW0gWF0n5bgXgUzbgZ49MV9BVUAQUFYVcDUcilUExMA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -943,43 +943,43 @@ snapshots:
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
 
-  '@mathjax/mathjax-newcm-font@4.1.2(@mathjax/src@4.1.2)':
+  '@mathjax/mathjax-newcm-font@4.1.3(@mathjax/src@4.1.3)':
     dependencies:
-      '@mathjax/src': 4.1.2
+      '@mathjax/src': 4.1.3
     optional: true
 
-  '@mathjax/src@4.1.2':
+  '@mathjax/src@4.1.3':
     dependencies:
-      '@mathjax/mathjax-newcm-font': 4.1.2(@mathjax/src@4.1.2)
+      '@mathjax/mathjax-newcm-font': 4.1.3(@mathjax/src@4.1.3)
       mhchemparser: 4.2.1
       mj-context-menu: 1.0.0
-      speech-rule-engine: 5.0.0-rc.1
+      speech-rule-engine: 5.0.0-rc.4
     optional: true
 
-  '@oxc-minify/binding-darwin-arm64@0.137.0':
+  '@oxc-minify/binding-darwin-arm64@0.139.0':
     optional: true
 
-  '@oxc-minify/binding-linux-x64-gnu@0.137.0':
+  '@oxc-minify/binding-linux-x64-gnu@0.139.0':
     optional: true
 
-  '@oxc-minify/binding-win32-x64-msvc@0.137.0':
+  '@oxc-minify/binding-win32-x64-msvc@0.139.0':
     optional: true
 
-  '@oxc-project/types@0.137.0': {}
+  '@oxc-project/types@0.138.0': {}
 
   '@pnpm/types@1001.3.1': {}
 
-  '@primer/octicons@19.28.1':
+  '@primer/octicons@19.29.1':
     dependencies:
       object-assign: 4.1.1
 
-  '@rolldown/binding-darwin-arm64@1.1.3':
+  '@rolldown/binding-darwin-arm64@1.1.4':
     optional: true
 
-  '@rolldown/binding-linux-x64-gnu@1.1.3':
+  '@rolldown/binding-linux-x64-gnu@1.1.4':
     optional: true
 
-  '@rolldown/binding-win32-x64-msvc@1.1.3':
+  '@rolldown/binding-win32-x64-msvc@1.1.4':
     optional: true
 
   '@rolldown/pluginutils@1.0.1': {}
@@ -1043,7 +1043,7 @@ snapshots:
 
   '@types/mdurl@2.0.0': {}
 
-  '@types/node@26.0.1':
+  '@types/node@26.1.0':
     dependencies:
       undici-types: 8.3.0
     optional: true
@@ -1054,14 +1054,14 @@ snapshots:
 
   '@ungap/structured-clone@1.3.2': {}
 
-  '@vitejs/plugin-basic-ssl@2.3.0(vite@8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7))':
+  '@vitejs/plugin-basic-ssl@2.3.0(vite@8.1.3(@types/node@26.1.0)(esbuild@0.28.1)(less@4.6.7))':
     dependencies:
-      vite: 8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)
+      vite: 8.1.3(@types/node@26.1.0)(esbuild@0.28.1)(less@4.6.7)
 
-  '@vitejs/plugin-vue@6.0.7(vite@8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7))(vue@3.5.39(typescript@6.0.3))':
+  '@vitejs/plugin-vue@6.0.7(vite@8.1.3(@types/node@26.1.0)(esbuild@0.28.1)(less@4.6.7))(vue@3.5.39(typescript@6.0.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
-      vite: 8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)
+      vite: 8.1.3(@types/node@26.1.0)(esbuild@0.28.1)(less@4.6.7)
       vue: 3.5.39(typescript@6.0.3)
 
   '@vue/compiler-core@3.5.39':
@@ -1281,9 +1281,9 @@ snapshots:
 
   estree-walker@2.0.2: {}
 
-  fdir@6.5.0(picomatch@4.0.4):
+  fdir@6.5.0(picomatch@4.0.5):
     optionalDependencies:
-      picomatch: 4.0.4
+      picomatch: 4.0.5
 
   focus-trap@8.2.2:
     dependencies:
@@ -1394,7 +1394,7 @@ snapshots:
       lightningcss-linux-x64-gnu: 1.32.0
       lightningcss-win32-x64-msvc: 1.32.0
 
-  lru-cache@11.5.1:
+  lru-cache@11.5.2:
     optional: true
 
   magic-string@0.30.21:
@@ -1410,7 +1410,7 @@ snapshots:
 
   markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec:
     dependencies:
-      '@mathjax/src': 4.1.2
+      '@mathjax/src': 4.1.3
       juice: 12.1.1
     transitivePeerDependencies:
       - '@noble/hashes'
@@ -1492,11 +1492,11 @@ snapshots:
       regex: 6.1.0
       regex-recursion: 6.0.2
 
-  oxc-minify@0.137.0:
+  oxc-minify@0.139.0:
     optionalDependencies:
-      '@oxc-minify/binding-darwin-arm64': 0.137.0
-      '@oxc-minify/binding-linux-x64-gnu': 0.137.0
-      '@oxc-minify/binding-win32-x64-msvc': 0.137.0
+      '@oxc-minify/binding-darwin-arm64': 0.139.0
+      '@oxc-minify/binding-linux-x64-gnu': 0.139.0
+      '@oxc-minify/binding-win32-x64-msvc': 0.139.0
     optional: true
 
   package-json-from-dist@1.0.1:
@@ -1523,13 +1523,13 @@ snapshots:
 
   path-scurry@2.0.2:
     dependencies:
-      lru-cache: 11.5.1
+      lru-cache: 11.5.2
       minipass: 7.1.3
     optional: true
 
   picocolors@1.1.1: {}
 
-  picomatch@4.0.4: {}
+  picomatch@4.0.5: {}
 
   postcss-nesting@14.0.0(postcss@8.5.16):
     dependencies:
@@ -1556,7 +1556,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  prettier@3.9.1: {}
+  prettier@3.9.4: {}
 
   property-information@7.2.0: {}
 
@@ -1579,14 +1579,14 @@ snapshots:
       package-json-from-dist: 1.0.1
     optional: true
 
-  rolldown@1.1.3:
+  rolldown@1.1.4:
     dependencies:
-      '@oxc-project/types': 0.137.0
+      '@oxc-project/types': 0.138.0
       '@rolldown/pluginutils': 1.0.1
     optionalDependencies:
-      '@rolldown/binding-darwin-arm64': 1.1.3
-      '@rolldown/binding-linux-x64-gnu': 1.1.3
-      '@rolldown/binding-win32-x64-msvc': 1.1.3
+      '@rolldown/binding-darwin-arm64': 1.1.4
+      '@rolldown/binding-linux-x64-gnu': 1.1.4
+      '@rolldown/binding-win32-x64-msvc': 1.1.4
 
   safer-buffer@2.1.2:
     optional: true
@@ -1612,7 +1612,7 @@ snapshots:
 
   space-separated-tokens@2.0.2: {}
 
-  speech-rule-engine@5.0.0-rc.1:
+  speech-rule-engine@5.0.0-rc.4:
     dependencies:
       '@xmldom/xmldom': 0.9.10
       commander: 14.0.3
@@ -1628,8 +1628,8 @@ snapshots:
 
   tinyglobby@0.2.17:
     dependencies:
-      fdir: 6.5.0(picomatch@4.0.4)
-      picomatch: 4.0.4
+      fdir: 6.5.0(picomatch@4.0.5)
+      picomatch: 4.0.5
 
   trim-lines@3.0.1: {}
 
@@ -1681,26 +1681,26 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7):
+  vite@8.1.3(@types/node@26.1.0)(esbuild@0.28.1)(less@4.6.7):
     dependencies:
       lightningcss: 1.32.0
-      picomatch: 4.0.4
+      picomatch: 4.0.5
       postcss: 8.5.16
-      rolldown: 1.1.3
+      rolldown: 1.1.4
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 26.0.1
+      '@types/node': 26.1.0
       esbuild: 0.28.1
       fsevents: 2.3.3
       less: 4.6.7
 
-  vitepress@2.0.0-alpha.17(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)(markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec)(oxc-minify@0.137.0)(postcss@8.5.16)(typescript@6.0.3):
+  vitepress@2.0.0-alpha.17(@types/node@26.1.0)(esbuild@0.28.1)(less@4.6.7)(markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec)(oxc-minify@0.139.0)(postcss@8.5.16)(typescript@6.0.3):
     dependencies:
       '@shikijs/core': 3.23.0
       '@shikijs/transformers': 3.23.0
       '@shikijs/types': 3.23.0
       '@types/markdown-it': 14.1.2
-      '@vitejs/plugin-vue': 6.0.7(vite@8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7))(vue@3.5.39(typescript@6.0.3))
+      '@vitejs/plugin-vue': 6.0.7(vite@8.1.3(@types/node@26.1.0)(esbuild@0.28.1)(less@4.6.7))(vue@3.5.39(typescript@6.0.3))
       '@vue/shared': 3.5.39
       '@vueuse/core': 14.3.0(vue@3.5.39(typescript@6.0.3))
       '@vueuse/integrations': 14.3.0(focus-trap@8.2.2)(vue@3.5.39(typescript@6.0.3))
@@ -1708,11 +1708,11 @@ snapshots:
       mark.js: 8.11.1
       minisearch: 7.2.0
       shiki: 3.23.0
-      vite: 8.1.0(@types/node@26.0.1)(esbuild@0.28.1)(less@4.6.7)
+      vite: 8.1.3(@types/node@26.1.0)(esbuild@0.28.1)(less@4.6.7)
       vue: 3.5.39(typescript@6.0.3)
     optionalDependencies:
       markdown-it-mathjax3: https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/c392ca798d979a0aad6af0caac2cde51d633d9ec
-      oxc-minify: 0.137.0
+      oxc-minify: 0.139.0
       postcss: 8.5.16
     transitivePeerDependencies:
       - '@types/node'

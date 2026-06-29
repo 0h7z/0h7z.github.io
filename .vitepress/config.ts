@@ -301,16 +301,15 @@ export default defineConfig({
 	postRender: undefined,
 	transformHead: undefined,
 	transformHtml: undefined,
-	transformPageData: ({ frontmatter }) => {
+	transformPageData: (pagedata) => {
 		// https://vitepress.dev/zh/reference/frontmatter-config#default-theme-only
-		const h = frontmatter as {
+		const h = pagedata.frontmatter as {
 			layout?: "doc" | "home" | "page"
 			features?: Feature[]
 		}
-		if (h.layout == "home" && h.features?.length)
-			for (const x of h.features) {
-				if (x.title) x.title = md(x.title)
-			}
+		if (h.features?.length && h.layout == "home") {
+			h.features.map((x) => (x.title &&= md(x.title)))
+		}
 	},
 
 	// https://vitepress.dev/zh/reference/default-theme-config

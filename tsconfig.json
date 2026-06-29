@@ -17,10 +17,10 @@
 		"resolveJsonModule": true,
 		"rewriteRelativeImportExtensions": true, // Node.js //! TS2876
 		// "rootDir": "src",
-		"types": ["node"],
+		// "types": ["node"],
 		//* Emit
 		"noEmit": true,
-		// "outDir": "dist",
+		"outDir": "dist",
 		"removeComments": true,
 		//* JavaScript Support
 		"checkJs": true,
