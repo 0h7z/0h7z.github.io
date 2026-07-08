@@ -1,15 +1,28 @@
-import { entriesof } from "./main"
+import { entriesof, json } from "./main"
 import { resolve } from "path"
-import { writeFileSync } from "fs"
+import { writeFileSync as write } from "fs"
 import type { Merge3, Reduce } from "./main"
 
 const cat1 = {
+	// https://developers.cloudflare.com/support/troubleshooting/http-status-codes/
+	499: "Client Closed Request", // nginx
+	503: "Service Temporarily Unavailable",
+	520: "Web Server Returned an Unknown Error",
+	521: "Web Server Down",
+	522: "Connection Timeout",
+	523: "Origin Unreachable",
+	524: "A Timeout Occurred",
+	525: "SSL Handshake Failed",
+	526: "Invalid SSL Certificate",
+	530: "Origin Unavailable", // 1xxx
 	// https://tools.ietf.org/html/rfc9110 - HTTP
 	306: "(Unused)", // reserved
 	418: "(Unused)", // reserved
 } as const
 const cat2 = {
-	// https://tools.ietf.org/html/draft-cohen-http-305-306-responses-00
+	// https://tools.ietf.org/html/draft-ietf-httpbis-resumable-upload
+	104: "Upload Resumption Supported",
+	// https://tools.ietf.org/html/draft-cohen-http-305-306-responses
 	306: "Switch Proxy",
 	506: "Redirection Failed",
 	// https://tools.ietf.org/html/rfc2295
@@ -22,7 +35,7 @@ const cat2 = {
 	// https://tools.ietf.org/html/rfc2774
 	510: "Not Extended",
 	// https://tools.ietf.org/html/rfc3229
-	226: "IM Used",
+	226: "IM (instance manipulation) Used",
 	// https://tools.ietf.org/html/rfc4918 - WebDAV
 	207: "Multi-Status",
 	414: "Request-URI Too Long",
@@ -106,13 +119,12 @@ const cat3 = {
 type _status = Merge3<typeof cat1, typeof cat2, typeof cat3>
 const status = Object.assign(cat1, cat2, cat3) as Reduce<_status>
 const output = resolve(__dirname, "[status].json")
-
-writeFileSync(output, `${JSON.stringify(status, null, "\t")}\n`)
+write(output, json(status))
 
 export default {
 	paths: () =>
 		entriesof(status).map(([code, desc]) => ({
 			params: { status: code satisfies number },
-			content: `${code} ${desc}`,
+			content: `${code} ${desc.replace(/\b([A-Z]+) \((.+?)\)/, `<u title="$2">$1</u>`)}`,
 		})),
 }

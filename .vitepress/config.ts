@@ -11,7 +11,7 @@ import type { ParserOptions } from "@vue/compiler-core"
 
 //! TS2307: Cannot find module "vitepress/dist/client/theme-default/components/VPFeatures.vue"
 //! or its corresponding type declarations.
-// @ts-ignore
+// @ts-ignore TS2307
 import type { Feature } from "vitepress/dist/client/theme-default/components/VPFeatures.vue"
 
 export type Language = keyof typeof locale.language

@@ -20,3 +20,4 @@ export type Merge3<T1, T2, T3> = Merge2<Merge2<T1, T2>, T3>
 export type Reduce<T> = {} & { -readonly [K in keyof T]: T[K] }
 
 export const entriesof = <T extends {}>(x: T) => Object.entries(x) as Entries<T>
+export const json = (x: object) => `${JSON.stringify(x, undefined, `\t`)}\n`

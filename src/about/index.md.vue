@@ -1,3 +1,4 @@
+<!--  -->
 <script setup lang="ts">
 	import { core, extra } from "./index"
 	import { VPTeamMembers } from "vitepress/theme"

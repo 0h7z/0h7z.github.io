@@ -8,9 +8,9 @@ import type { Router, SiteData, Theme } from "vitepress"
 
 //! TS2876: This relative import path is unsafe to rewrite because it looks like a file name,
 //! but actually resolves to "../component/Hello.ce.vue".
-// @ts-ignore
+// @ts-ignore TS2876
 import Hello from "../component/Hello.ce.vue"
-// @ts-ignore
+// @ts-ignore TS2876
 import Trace from "../component/Trace.ce.vue"
 
 // https://cn.vuejs.org/guide/extras/web-components#sfc-as-custom-element
