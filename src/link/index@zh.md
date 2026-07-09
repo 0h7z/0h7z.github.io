@@ -16,6 +16,8 @@ features:
     link: https://wiki.archlinux.org/title/Main_page
   - title: "C/C++ 参考"
     link: https://zh.cppreference.com/w/
+  - title: "CDS 天文数据库"
+    link: https://cds.unistra.fr/
   - title: "Cloudflare 状态"
     link: https://new.cloudflarestatus.com/
   - title: "CTAN $\\TeX$ 资源库"
@@ -28,6 +30,8 @@ features:
     link: https://www.githubstatus.com/
   - title: "Google 翻译"
     link: https://translate.google.com/?sl=auto&tl=zh-CN&op=translate
+  - title: "HTTP 响应状态码"
+    link: ./http/
   - title: "IETF 数据库"
     link: https://datatracker.ietf.org/
 #   - title: "Intel 产品规格"
@@ -50,6 +54,14 @@ features:
     link: https://devguide.python.org/versions/
   - title: "Rust 版本状态"
     link: https://releases.rs/
+  - title: "SauceNAO 搜图"
+    link: https://saucenao.com/
+  - title: "SDSS 巡天"
+    link: https://skyserver.sdss.org/
+  - title: "Steam 商城"
+    link: https://store.steampowered.com/?l=schinese
+  - title: "SteamDB 数据库"
+    link: https://steamdb.info/
   - title: "Web 特性支持表"
     link: https://caniuse.com/
   - title: "维基百科"

@@ -16,9 +16,11 @@ features:
     link: https://wiki.archlinux.org/title/Main_page
   - title: "C/C++ Reference"
     link: https://en.cppreference.com/w/
+  - title: "CDS Astro Data Center"
+    link: https://cds.unistra.fr/
   - title: "Cloudflare Status"
     link: https://new.cloudflarestatus.com/
-  - title: "CTAN TeX Archive Network"
+  - title: "CTAN $\\TeX$ Archive Network"
     link: https://ctan.org/
   - title: "Debian Package Tracker"
     link: https://tracker.debian.org/
@@ -28,6 +30,8 @@ features:
     link: https://www.githubstatus.com/
   - title: "Google Translate"
     link: https://translate.google.com/?sl=auto&tl=en&op=translate
+  - title: "HTTP Response Status Codes"
+    link: ./http/
   - title: "IETF Datatracker"
     link: https://datatracker.ietf.org/
 #   - title: "Intel Product Specifications"
@@ -50,6 +54,14 @@ features:
     link: https://devguide.python.org/versions/
   - title: "Rust Versions"
     link: https://releases.rs/
+  - title: "SauceNAO Image Search"
+    link: https://saucenao.com/
+  - title: "SDSS SkyServer"
+    link: https://skyserver.sdss.org/
+  - title: "Steam Store"
+    link: https://store.steampowered.com/?l=english
+  - title: "SteamDB Database"
+    link: https://steamdb.info/
   - title: "Web Feature Support Table"
     link: https://caniuse.com/
   - title: "Wikipedia"

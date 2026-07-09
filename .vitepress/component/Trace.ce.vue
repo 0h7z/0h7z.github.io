@@ -45,7 +45,7 @@
 				<span>{{ dict.uag }}</span>
 			</div>
 			<div>
-				<span>{{ dict.http }} (Encoding: {{ dict.encoding }})</span>
+				<span>{{ dict.http }} ({{ dict.encoding }})</span>
 				·
 				<span>{{ dict.tls }} {{ dict.kex }} (SNI: {{ dict.sni }})</span>
 				·
@@ -69,6 +69,6 @@
 		margin: var(--vp-nav-height) 0;
 	}
 	#text {
-		padding: 16px 24px;
+		padding: 12px 20px;
 	}
 </style>

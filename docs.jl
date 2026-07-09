@@ -90,7 +90,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 					str = replace(str, r",\K(?=window\.__\w+__=JSON\.parse\()" => "\n")
 					str = replace(str, r";(?=((async )?function) |(ex|im)port\{)" => "\n")
 					str = replace(str, r";\n*$|\b(from\"[^\"]+\"|return)\K;" => "\n")
-					str = replace(str, r":\d+\}`\)\K,(?=\w=\{\w+:)" => "\nvar ")
+					str = replace(str, r":\d+\}`\)\K,(?=\w=)" => "\nvar ")
 					write(f, str)
 				end
 				if endswith(".json")(f)

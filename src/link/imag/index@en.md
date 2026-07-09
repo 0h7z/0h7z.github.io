@@ -15,6 +15,9 @@ features:
   - title: "*Elite: Dangerous* Database"
     details: "[en] Inara"
     link: https://inara.cz/elite/news/
+  - title: "*Elite: Dangerous* NS Router"
+    details: "[en] Spansh"
+    link: https://www.spansh.co.uk/plotter
   - title: "*Elite: Dangerous* Shipyard"
     details: "[en] Coriolis"
     link: https://coriolis.io/
@@ -39,8 +42,11 @@ features:
   - title: "*World of Warships* Devblog"
     details: "[en] Development Blog"
     link: https://blog.worldofwarships.com/
-  - title: "*World of Warships* DB"
+  - title: "*World of Warships* Database"
     details: "[en] Tech Tree"
     link: https://shiptool.st/nations
+  - title: "*World of Warships* Modpack"
+    details: "[en] Aslain"
+    link: https://aslain.com/topic/2020--/
 ---
 

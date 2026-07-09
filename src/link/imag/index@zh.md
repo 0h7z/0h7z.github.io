@@ -15,6 +15,9 @@ features:
   - title: "*精英：危险*数据库"
     details: "[zh] Inara"
     link: https://inara.cz/elite/news/
+  - title: "*精英：危险*路线规划器"
+    details: "[zh] Spansh"
+    link: https://www.spansh.co.uk/plotter
   - title: "*精英：危险*船厂"
     details: "[en] Coriolis"
     link: https://coriolis.io/
@@ -42,5 +45,8 @@ features:
   - title: "*战舰世界*数据库"
     details: "[en] 科技树"
     link: https://shiptool.st/nations
+  - title: "*战舰世界*模组包"
+    details: "[en] Aslain"
+    link: https://aslain.com/topic/2020--/
 ---
 

@@ -1,4 +1,4 @@
-#	Snowfox Build Guide {# }
+#	Snowfox Build Guide
 
 ##	Requirement
 *****

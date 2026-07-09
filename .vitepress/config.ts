@@ -31,7 +31,12 @@ const MDCONFIG = {
 	codeTransformers: undefined,
 	shikiSetup: undefined,
 	codeCopyButtonTitle: "",
-	anchor: undefined,
+	anchor: {
+		slugify: (s) => {
+			const t = s.replace(/[:].*/, "").trim()
+			return t.replaceAll(/\s+/g, "-").toLowerCase()
+		},
+	},
 	attrs: undefined,
 	emoji: undefined,
 	frontmatter: undefined,

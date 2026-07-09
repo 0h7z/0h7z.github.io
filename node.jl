@@ -66,6 +66,10 @@ if abspath(PROGRAM_FILE) == @__FILE__
 	patch("node_modules/vitepress/dist/client/theme-default/components/VPDocFooterLastUpdated.vue") do s
 		s = replace(s, r" = \K(\S+\?\.forceLocale)$"m => s"'string' == typeof \1 ? \1 : \1")
 	end
+	patch("node_modules/vitepress/dist/client/theme-default/components/VPFeature.vue") do s
+		_ = ".vitepress/component/Trace.ce.vue" # p: 12px 20px
+		s = replace(s, "padding: 24px;" => "padding: 24px 20px;")
+	end
 	patch("node_modules/vitepress/dist/client/theme-default/components/VPFeatures.vue") do s
 		s = replace(s, "'grid-6'" => "'grid-4'")
 	end
@@ -117,10 +121,16 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		s = replace(s, r"catch \(error\) \{(\n\t+)\K(throw new Error)" => s"throw error;\1\2")
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
-		o = "@iconify-json/simple-icons/icons.json"
-		p = "\\S+\\Q(\"$o\")\\E;"
-		q = "return;"
+		o = """@iconify-json/simple-icons/icons.json"""
+		p = """\\S+\\Q("$o")\\E;"""
+		q = """return;"""
 		s = replace(s, Regex("^\\s*\\K.*(const icons = $p)", "m") => SubstitutionString("$q \\1"))
+	end
+	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
+		o = """permalink: (slug, _, state, idx) => {"""
+		p = """if (!idx) slug &&= "";"""
+		q = """const title = """
+		s = replace(s, Regex("\\b\\Q$o\\E([\\n\\s]*)\\K$q") => SubstitutionString("$p\\1$q"))
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		o = s"${config.assetsDir}" * "/~/"
