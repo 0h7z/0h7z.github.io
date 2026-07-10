@@ -1,4 +1,5 @@
 
+.vitepress/theme/octicon.ts linguist-vendored
 /docs/**/*.css linguist-generated
 /docs/**/*.js* linguist-generated
 /docs/**/index.html linguist-generated

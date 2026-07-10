@@ -96,6 +96,13 @@
 		ParseError on Julia v1.13
 :::
 
+::: details mdn <!-- {open} -->
++	[browser-compat-data](https://github.com/mdn/browser-compat-data/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
+	Browser compatibility data for Web technologies as displayed on MDN
+	-	[#30028](https://github.com/mdn/browser-compat-data/pull/30028)
+		Firefox v145+ Compression Dictionary (dcb & dcz)
+:::
+
 ::: details microsoft <!-- {open} -->
 +	[WSL](https://github.com/microsoft/WSL/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	Windows Subsystem for Linux
@@ -160,6 +167,8 @@
 		Fix `vueRE` conflicting with `lineNoRE`
 	-	[#4268](https://github.com/vuejs/vitepress/pull/4268)
 		Fix broken rewrites since v1.4.0
+	-	[#5303](https://github.com/vuejs/vitepress/pull/5303)
+		Fix `Error: MiniSearch: duplicate ID` upon server restart
 :::
 
 ::: details Wikiplus {open hidden}

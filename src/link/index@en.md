@@ -20,7 +20,8 @@ features:
     link: https://cds.unistra.fr/
   - title: "Cloudflare Status"
     link: https://new.cloudflarestatus.com/
-  - title: "CTAN $\\TeX$ Archive Network"
+#   - title: "CTAN $\\TeX$ Archive Network"
+  - title: "CTAN TeX Archive Network"
     link: https://ctan.org/
   - title: "Debian Package Tracker"
     link: https://tracker.debian.org/

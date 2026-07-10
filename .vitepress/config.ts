@@ -1,10 +1,11 @@
 import { createMarkdownRenderer, defineConfig } from "vitepress"
-import { entriesof } from "../src/main"
+import { entries, max } from "./main"
+import { mark_github } from "@primer/octicons/svg"
 import footnote from "markdown-it-footnote"
-import icon_mark_github from "@primer/octicons/build/svg/mark_github.json"
 import locale from "./locale.json"
 import type { CompilerOptions } from "@vue/compiler-sfc"
 import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
+import type { Language } from "./main"
 import type { LocalSearchTranslations } from "vitepress/types/local-search"
 import type { Options as VueOptions } from "@vitejs/plugin-vue"
 import type { ParserOptions } from "@vue/compiler-core"
@@ -13,8 +14,6 @@ import type { ParserOptions } from "@vue/compiler-core"
 //! or its corresponding type declarations.
 // @ts-ignore TS2307
 import type { Feature } from "vitepress/dist/client/theme-default/components/VPFeatures.vue"
-
-export type Language = keyof typeof locale.language
 
 // https://github.com/vuejs/vitepress/blob/master/src/node/markdown/markdown.ts
 const MDSRCDIR = "src"
@@ -166,8 +165,8 @@ const ROOT = {
 	sidebar: undefined,
 	aside: true,
 	outline: { level: "deep", label: "Contents" },
-	socialLinks: [{ icon: { svg: icon_mark_github }, link: `${REPO}` }],
-	footer: { copyright: `Copyright &COPY; ${2022}-${Math.max(YEAR, 2026)} Heptazhou. All rights reserved.` },
+	socialLinks: [{ icon: { svg: mark_github }, link: `${REPO}` }],
+	footer: { copyright: `Copyright &COPY; ${2022}-${max(YEAR, 2026)} Heptazhou. All rights reserved.` },
 	editLink: { pattern: `${REPO}/blob/master/src/:path?plain=1`, text: "View source" },
 	lastUpdated: { formatOptions: { forceLocale: "sv", dateStyle: "short", timeStyle: "medium" } },
 	docFooter: undefined,
@@ -215,7 +214,7 @@ const localeconfig = (lang: Language) => {
 	const loc = (I18N as TI18N)[lang]!
 	const nav = (NAVI as TNAVI)[lang]!
 	const sidebar = { ...SIDE } as TSIDE
-	for (const [k, v] of entriesof(sidebar).filter(([k]) => k.startsWith(link))) {
+	for (const [k, v] of entries(sidebar).filter(([k]) => k.startsWith(link))) {
 		for (const x of v) x.base ||= k
 	}
 	return { [lang]: { label, lang, link, themeConfig: { ...loc, nav, sidebar } } }
@@ -297,6 +296,7 @@ export default defineConfig({
 			compilerOptions: {
 				comments: false,
 				isCustomElement: (x) => x.startsWith("x-"),
+				whitespace: "preserve",
 			} satisfies ParserOptions satisfies CompilerOptions,
 		},
 	} as const satisfies VueOptions,

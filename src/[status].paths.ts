@@ -1,4 +1,4 @@
-import { entriesof, json } from "./main"
+import { entries, json } from "./main"
 import { resolve } from "path"
 import { writeFileSync as write } from "fs"
 import type { Merge3, Reduce } from "./main"
@@ -123,7 +123,7 @@ write(output, json(status))
 
 export default {
 	paths: () =>
-		entriesof(status).map(([code, desc]) => ({
+		entries(status).map(([code, desc]) => ({
 			params: { status: code satisfies number },
 			content: `${code} ${desc.replace(/\b([A-Z]+) \((.+?)\)/, `<u title="$2">$1</u>`)}`,
 		})),

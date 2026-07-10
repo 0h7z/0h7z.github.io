@@ -127,10 +127,16 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		s = replace(s, Regex("^\\s*\\K.*(const icons = $p)", "m") => SubstitutionString("$q \\1"))
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
+		o = """const id = """
+		p = """index.has(id) && index.discard(id)"""
+		q = """index.add({"""
+		s = replace(s, Regex("\\b\\Q$o\\E.+([\\n\\s]*)\\K\\Q$q\\E") => SubstitutionString("$p\\1$q"))
+	end
+	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		o = """permalink: (slug, _, state, idx) => {"""
 		p = """if (!idx) slug &&= "";"""
 		q = """const title = """
-		s = replace(s, Regex("\\b\\Q$o\\E([\\n\\s]*)\\K$q") => SubstitutionString("$p\\1$q"))
+		s = replace(s, Regex("\\b\\Q$o\\E([\\n\\s]*)\\K\\Q$q\\E") => SubstitutionString("$p\\1$q"))
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		o = s"${config.assetsDir}" * "/~/"

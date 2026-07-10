@@ -113,11 +113,7 @@
 @media (update: fast) {
 	.VPContent.is-home {
 		/* https://caniuse.com/css-motion-paths */
-		background-clip: border-box;
 		background-image: url("ripple-line2x.svg");
-		background-position: bottom;
-		background-repeat: no-repeat;
-		background-size: 100% auto;
 
 		/* https://caniuse.com/?compare=safari+15.6,safari+16.0&compareCats=CSS */
 		/* https://caniuse.com/css-subgrid */
@@ -129,6 +125,10 @@
 }
 
 @media (update: none) {
+	.VPContent.is-home {
+		background-image: url("ripple-line2x.png");
+	}
+
 	[class*="language-"] pre.vp-code>code {
 		white-space: pre-wrap;
 		white-space: break-spaces;
@@ -148,6 +148,13 @@ noscript {
 	text-decoration-style: dotted;
 	text-decoration-thickness: 0;
 	text-underline-position: auto;
+}
+
+.VPContent.is-home {
+	background-clip: border-box;
+	background-position: bottom;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
 }
 
 /**

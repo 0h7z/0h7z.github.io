@@ -60,6 +60,8 @@ html {
 	overflow-wrap: break-word;
 	text-rendering: optimizeLegibility;
 	text-underline-position: under;
+	text-wrap-mode: wrap;
+	text-wrap-style: avoid-orphans;
 	touch-action: manipulation;
 	word-break: break-all;
 	word-wrap: break-word;
@@ -99,6 +101,10 @@ html {
 	-webkit-font-smoothing: antialiased;
 	font-smooth: always;
 	 */
+}
+
+[nobr] {
+	text-wrap-mode: nowrap;
 }
 
 /*

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 	import { greeting } from "../locale.json"
-	import type { Language } from "../config"
-	import type { PropertiesHyphen as CSS } from "csstype"
+	import type { CSS, Language } from "../main"
 
 	const LANG: Language[] = ["en", "zh"]
 
@@ -28,13 +27,13 @@
 	@1: (040% / @n), (060% / @n);
 
 	span[lang] {
-		animation: fade ease-in-out infinite normal none;
+		animation: fade ease-in-out infinite normal both;
 		opacity: 0;
 		position: absolute;
 
 		@media (update: none) {
 			animation-name: none;
-			&:first-child {
+			&:first-of-type {
 				opacity: 1;
 			}
 		}

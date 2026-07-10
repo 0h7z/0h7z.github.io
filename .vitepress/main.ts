@@ -14,14 +14,13 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export type Entries<T> = [keyof T, T[keyof T]][]
-export type Merge2<T1, T2> = Omit<T1, keyof T2> & T2
-export type Merge3<T1, T2, T3> = Merge2<Merge2<T1, T2>, T3>
-export type Pairs<K = any, V = any> = Iterable<readonly [K, V]>
-export type Properties<V = any> = Pairs<PropertyKey, V>
-export type Reduce<T> = {} & { -readonly [K in keyof T]: T[K] }
+export * from "../src/main"
+export type { PropertiesHyphen as CSS } from "csstype"
+import { useTemplateRef } from "vue"
+import locale from "./locale.json"
+import type { ShallowRef } from "vue"
 
-export const { min, max } = Math
-export const entries = <T extends {}>(x: T) => Object.entries(x) as Entries<T>
-export const json = (x: object) => `${JSON.stringify(x, undefined, `\t`)}\n`
-export const sdict = <V>(x: Properties<V>) => Object.fromEntries(x) as { [k: string]: V }
+export type Language = keyof typeof locale.language
+export type TemplateRef = Readonly<ShallowRef<HTMLElement>>
+
+export const refTemplate = (ref: string) => useTemplateRef(ref) as TemplateRef

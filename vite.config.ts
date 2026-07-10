@@ -7,8 +7,8 @@ import type { RolldownOptions } from "rolldown"
 
 const config: SiteConfig<DefaultTheme.Config> = await resolveConfig()
 
-console.log(config.dynamicRoutes)
-console.log(config.rewrites.map)
+// console.log(config.dynamicRoutes)
+// console.log(config.rewrites.map)
 
 // https://cn.vitejs.dev/config/
 export default defineConfig({
@@ -21,7 +21,7 @@ export default defineConfig({
 		port: 3030,
 		strictPort: true,
 		proxy: {
-			"^/cdn-cgi/trace$": { target: "https://cloudflare.com", changeOrigin: true },
+			"/cdn-cgi/": { changeOrigin: true, target: "https://cloudflare.com" },
 		},
 	},
 	preview: {
