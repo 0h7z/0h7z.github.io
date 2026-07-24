@@ -30,86 +30,88 @@ const assetdir = cfg["assetsDir"]
 if abspath(PROGRAM_FILE) == @__FILE__
 	isempty(ARGS) ?
 	for (prefix, ds, fs) in walkdir(src, topdown = false)
-		cd(prefix) do
-			for f in fs
-				if endswith("@en.md")(f)
-					g = replace(f, "@en.md" => "@zh.md")
-					islink(g) && rm(g)
-					isfile(g) || write(g, "<!-- @include: ./$f -->\n\n")
-				end
+		for f in fs
+			p = stdpath(prefix, f)
+			if p == src * "/link/http/index@en.md"
+				q = src * "/000.md"
+				write(q, replace(readstr(p), "/en-US/" => "/"))
+			end
+			if endswith("@en.md")(f)
+				q = replace(p, "@en.md" => "@zh.md")
+				islink(q) && rm(q)
+				isfile(q) || write(q, "<!-- @include: ./$f -->\n\n")
 			end
 		end
 	end :
 	for (prefix, ds, fs) in walkdir(dst, topdown = false)
-		cd(prefix) do
-			for f in fs
-				if f == "vp-icons.css"
-					rm(f)
-					continue
+		for f in fs
+			p = stdpath(prefix, f)
+			if f == "vp-icons.css"
+				rm(p)
+				continue
+			end
+			if endswith(".html")(f) || endswith(".js")(f) || endswith(".css")(f)
+				str = startswith(joinpath(dst, assetdir, "~"))(prefix) ?
+					  readstr(pipeline(p, `pnpm $esb`)) : readstr(p) * "\n"
+				write(p, str)
+				@assert !contains((f), r"[\S\s]*\.lean\.js$") p
+				@assert !contains(str, r"mailto:\w+@\w+\.md") p
+			end
+			if endswith(".html")(f)
+				str = readstr(p)
+				str = replace(str, r" (crossorigin|hidden|open)\K=\"\"(?=[ >])" => "")
+				str = replace(str, r" (style)=\"\"(?=[ >])" => "")
+				str = replace(str, r" *(?=<math>|<mjx-\w+|<time datetime=)" => "\n\t")
+				str = replace(str, r"[^-]>\K(?=<pre[ >])|</pre>\K(?=<[^!])" => "\n\t")
+				str = replace(str, r"[^-]>\K(?=<svg style=\"[^\"]*?\" xml)" => "\n\t")
+				str = replace(str, r"[^-]>\K(?=<svg xml)|</svg>\K(?=<[^!])" => "\n\t")
+				str = replace(str, r"\n\s*\n|\n*$"s => "\n")
+				str = replace(str, r"^\s+"m => "\t")
+				str = replace(str, r"^\t(?=</?(head|body)>$)"m => "")
+				str = replace(str, r"^\t<(meta|link) .*\K(?<! /)>$"m => " />")
+				str = replace(str, r"^\t<link .+ href=\"/vp-icons.css\".+\n"m => "")
+				str = replace(str, r"^\t<meta name=\"(?:description|generator)\".+\n"m => "")
+				str = replace(str, r"^\t<script id=\"check-dark-mode\">.*</script>\n"m => "")
+				str = replace(str, r"^<html .*\K\bdir=\"ltr\""m => "class=\"dark\"")
+				str = replace(str, r"<[hb]r\K>" => " />")
+				str = replace(str, r"<button (?!type=)" => "<button type=\"button\" ")
+				str = replace(str, r"<button type=\"button\" ([^>]+ type=)" => s"<button \1")
+				str = replace(str, r"<div [^>]*\K\b(data-v-\w+) \1" => s"\1")
+				str = replace(str, r"<img [^>]+[^ />]\K>" => " />")
+				if p ∈ dst .* ["/404.html", "/404/index.html"]
+					yml = yaml(LDict(:permalink => "/404.html"))
+					str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
 				end
-				if endswith(".html")(f) || endswith(".js")(f) || endswith(".css")(f)
-					str = startswith(joinpath(dst, assetdir, "~"))(prefix) ?
-						  readstr(pipeline(f, `pnpm $esb`)) : readstr(f) * "\n"
-					write(f, str)
-					@assert !contains((f), r"[\S\s]*\.lean\.js$") stdpath(prefix, f)
-					@assert !contains(str, r"mailto:\w+@\w+\.md") stdpath(prefix, f)
+				if p ∈ dst .* ["/en/proj/snowfox/changelog/index.html"]
+					yml = yaml(LDict(:redirect_from => ["/snowfox/"]))
+					str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
 				end
-				if endswith(".html")(f)
-					str = readstr(f)
-					str = replace(str, r" (crossorigin|hidden|open)\K=\"\"(?=[ >])" => "")
-					str = replace(str, r" (style)=\"\"(?=[ >])" => "")
-					str = replace(str, r" *(?=<math>|<mjx-\w+|<time datetime=)" => "\n\t")
-					str = replace(str, r"[^-]>\K(?=<pre[ >])|</pre>\K(?=<[^!])" => "\n\t")
-					str = replace(str, r"[^-]>\K(?=<svg style=\"[^\"]*?\" xml)" => "\n\t")
-					str = replace(str, r"[^-]>\K(?=<svg xml)|</svg>\K(?=<[^!])" => "\n\t")
-					str = replace(str, r"\n\s*\n|\n*$"s => "\n")
-					str = replace(str, r"^\s+"m => "\t")
-					str = replace(str, r"^\t(?=</?(head|body)>$)"m => "")
-					str = replace(str, r"^\t<(meta|link) .*\K(?<! /)>$"m => " />")
-					str = replace(str, r"^\t<link .+ href=\"/vp-icons.css\".+\n"m => "")
-					str = replace(str, r"^\t<meta name=\"(?:description|generator)\".+\n"m => "")
-					str = replace(str, r"^\t<script id=\"check-dark-mode\">.*</script>\n"m => "")
-					str = replace(str, r"^<html .*\K\bdir=\"ltr\""m => "class=\"dark\"")
-					str = replace(str, r"<[hb]r\K>" => " />")
-					str = replace(str, r"<button (?!type=)" => "<button type=\"button\" ")
-					str = replace(str, r"<button type=\"button\" ([^>]+ type=)" => s"<button \1")
-					str = replace(str, r"<div [^>]*\K\b(data-v-\w+) \1" => s"\1")
-					str = replace(str, r"<img [^>]+[^ />]\K>" => " />")
-					if stdpath(prefix, f) ∈ dst .* ["/404.html", "/404/index.html"]
-						yml = yaml(LDict(:permalink => "/404.html"))
-						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
-					end
-					if stdpath(prefix, f) ∈ dst .* ["/en/proj/snowfox/changelog/index.html"]
-						yml = yaml(LDict(:redirect_from => ["/snowfox/"]))
-						str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
-					end
-					write(f, str)
+				write(p, str)
+			end
+			if endswith(".js")(f)
+				str = readstr(p)
+				str = replace(str, r",\K(?=window\.__\w+__=JSON\.parse\()" => "\n")
+				str = replace(str, r";(?=((async )?function) |(ex|im)port\{)" => "\n")
+				str = replace(str, r";\n*$|\b(from\"[^\"]+\"|return)\K;" => "\n")
+				str = replace(str, r":\d+\}`\)\K,(?=\w=)" => "\nvar ")
+				write(p, str)
+			end
+			if endswith(".json")(f)
+				str = readstr(p)
+				str = replace(str, r""":"[\w-]+?",\K""" => "\n")
+				str = replace(str, r"""^\{\K|(?=\}$)""" => "\n")
+				write(p, str)
+			end
+			if endswith(".xml")(f) && f == "sitemap.xml"
+				str = readstr(p)
+				xml = parse(Node, str)
+				for url ∈ xml[end].children
+					sort!(url.children, by = x -> x.tag)
 				end
-				if endswith(".js")(f)
-					str = readstr(f)
-					str = replace(str, r",\K(?=window\.__\w+__=JSON\.parse\()" => "\n")
-					str = replace(str, r";(?=((async )?function) |(ex|im)port\{)" => "\n")
-					str = replace(str, r";\n*$|\b(from\"[^\"]+\"|return)\K;" => "\n")
-					str = replace(str, r":\d+\}`\)\K,(?=\w=)" => "\nvar ")
-					write(f, str)
-				end
-				if endswith(".json")(f)
-					str = readstr(f)
-					str = replace(str, r""":"[\w-]+?",\K""" => "\n")
-					str = replace(str, r"""^\{\K|(?=\}$)""" => "\n")
-					write(f, str)
-				end
-				if endswith(".xml")(f) && f ≡ "sitemap.xml"
-					str = readstr(f)
-					xml = parse(Node, str)
-					for url ∈ xml[end].children
-						sort!(url.children, by = x -> x.tag)
-					end
-					sort!(xml[end].children, by = string)
-					str = string(xml)
-					str = replace(str, r"\n(?=<(lastmod|loc)>)|</(lastmod|loc)>\K\n" => "")
-					write(f, str)
-				end
+				sort!(xml[end].children, by = string)
+				str = string(xml)
+				str = replace(str, r"\n(?=<(lastmod|loc)>)|</(lastmod|loc)>\K\n" => "")
+				write(p, str)
 			end
 		end
 	end

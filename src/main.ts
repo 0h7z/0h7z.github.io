@@ -19,6 +19,7 @@ export type Merge2<T1, T2> = Omit<T1, keyof T2> & T2
 export type Merge3<T1, T2, T3> = Merge2<Merge2<T1, T2>, T3>
 export type Pairs<K = any, V = any> = Iterable<readonly [K, V]>
 export type Properties<V = any> = Pairs<PropertyKey, V>
+export type Property<V = any> = readonly [string, V]
 export type Reduce<T> = {} & { -readonly [K in keyof T]: T[K] }
 
 export const { min, max } = Math

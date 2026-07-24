@@ -17,12 +17,12 @@
 		"postbuild": "julia --project docs.jl build"
 	},
 	"devDependencies": {
-		"@pnpm/types": "^1001.3.1",
-		"@primer/octicons": "^19.29.2",
+		"@pnpm/types": "latest-10",
+		"@primer/octicons": "^19.31.0",
 		"@types/markdown-it-footnote": "^3.0.4",
 		"@vitejs/plugin-basic-ssl": "^2.3.0",
 		"markdown-it-footnote": "^4.0.0",
-		"prettier": "^3.9.5",
+		"prettier": "^3.9.6",
 		"vitepress": "2.0.0-alpha.17"
 	},
 	"optionalDependencies": {
@@ -36,9 +36,9 @@
 		"@vue/runtime-dom": "^3.5.40",
 		"csstype": "^3.2.3",
 		"esbuild": "^0.28.1",
-		"less": "^4.7.0",
+		"less": "^4.8.0",
 		"markdown-it-mathjax3": "github:Heptazhou/markdown-it-mathjax3#v4.4.3",
-		"oxc-minify": "^0.140.0",
+		"oxc-minify": "^0.141.0",
 		"rolldown": "^1.2.0",
 		"typescript": "^7.0.2",
 		"vite": "^8.1.5",
@@ -60,9 +60,8 @@
 			"@vue/devtools-api": "-",
 			"encoding-sniffer": "^1",
 			"esbuild": "^0",
-			"markdown-it-mathjax3": "github:Heptazhou/markdown-it-mathjax3#v4.4.3",
-			"needle": "*",
-			"rolldown": "*",
+			"needle": "^3",
+			"rolldown": "^1",
 			"vite": "^8"
 		},
 		"packageExtensions": {

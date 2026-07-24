@@ -12,9 +12,8 @@ overrides:
   '@vue/devtools-api': '-'
   encoding-sniffer: ^1
   esbuild: ^0
-  markdown-it-mathjax3: github:Heptazhou/markdown-it-mathjax3#v4.4.3
-  needle: '*'
-  rolldown: '*'
+  needle: ^3
+  rolldown: ^1
   vite: ^8
 
 packageExtensionsChecksum: sha256-Vpo7fk97f9nYXJpAkZPv6wSefZ1wq4FkjT3vu53N7ro=
@@ -26,26 +25,26 @@ importers:
   .:
     devDependencies:
       '@pnpm/types':
-        specifier: ^1001.3.1
+        specifier: latest-10
         version: 1001.3.1
       '@primer/octicons':
-        specifier: ^19.29.2
-        version: 19.29.2
+        specifier: ^19.31.0
+        version: 19.31.0
       '@types/markdown-it-footnote':
         specifier: ^3.0.4
         version: 3.0.4
       '@vitejs/plugin-basic-ssl':
         specifier: ^2.3.0
-        version: 2.3.0(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.7.0))
+        version: 2.3.0(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.8.0))
       markdown-it-footnote:
         specifier: ^4.0.0
         version: 4.0.0
       prettier:
-        specifier: ^3.9.5
-        version: 3.9.5
+        specifier: ^3.9.6
+        version: 3.9.6
       vitepress:
         specifier: 2.0.0-alpha.17
-        version: 2.0.0-alpha.17(@types/node@26.1.1)(esbuild@0.28.1)(less@4.7.0)(markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/d201fbf0b6fd75e52a09345d2283c6e054812df1)(oxc-minify@0.140.0)(postcss@8.5.20)(typescript@7.0.2)
+        version: 2.0.0-alpha.17(@types/node@26.1.1)(esbuild@0.28.1)(less@4.8.0)(markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/d201fbf0b6fd75e52a09345d2283c6e054812df1)(oxc-minify@0.141.0)(postcss@8.5.23)(typescript@7.0.2)
     optionalDependencies:
       '@types/markdown-it':
         specifier: ^14.1.2
@@ -55,7 +54,7 @@ importers:
         version: 26.1.1
       '@vitejs/plugin-vue':
         specifier: ^6.0.8
-        version: 6.0.8(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.7.0))(vue@3.5.40(typescript@7.0.2))
+        version: 6.0.8(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.8.0))(vue@3.5.40(typescript@7.0.2))
       '@vue/compiler-core':
         specifier: ^3.5.40
         version: 3.5.40
@@ -78,14 +77,14 @@ importers:
         specifier: ^0.28.1
         version: 0.28.1
       less:
-        specifier: ^4.7.0
-        version: 4.7.0
+        specifier: ^4.8.0
+        version: 4.8.0
       markdown-it-mathjax3:
         specifier: github:Heptazhou/markdown-it-mathjax3#v4.4.3
         version: https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/d201fbf0b6fd75e52a09345d2283c6e054812df1
       oxc-minify:
-        specifier: ^0.140.0
-        version: 0.140.0
+        specifier: ^0.141.0
+        version: 0.141.0
       rolldown:
         specifier: ^1.2.0
         version: 1.2.0
@@ -94,7 +93,7 @@ importers:
         version: 7.0.2
       vite:
         specifier: ^8.1.5
-        version: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.7.0)
+        version: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.8.0)
       vue:
         specifier: ^3.5.40
         version: 3.5.40(typescript@7.0.2)
@@ -118,8 +117,8 @@ packages:
     resolution: {integrity: sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA==}
     engines: {node: '>=6.9.0'}
 
-  '@csstools/selector-resolve-nested@4.0.0':
-    resolution: {integrity: sha512-9vAPxmp+Dx3wQBIUwc1v7Mdisw1kbbaGqXUM8QLTgWg7SoPGYtXBsMXvsFs/0Bn5yoFhcktzxNZGNaUt0VjgjA==}
+  '@csstools/selector-resolve-nested@4.0.1':
+    resolution: {integrity: sha512-j3vdQu0XwLME5qOTWxm8cnmvsf423R2YL6DbKklCHZwkDm7UdKNu6RPlw4REIJhSlKBICY3B70/7QZdicLqZgg==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       postcss-selector-parser: ^7.1.1
@@ -168,21 +167,21 @@ packages:
   '@mathjax/src@4.1.3':
     resolution: {integrity: sha512-rIrWquuBSoJuoMBdC/1qD+AUHTorlccPicoVy6P2xbUgnuDBpCcpbHtOAsB8L3hdCHtNBg92lF8e3Fz+pkcQbw==}
 
-  '@oxc-minify/binding-darwin-arm64@0.140.0':
-    resolution: {integrity: sha512-R9QvHsauZGCCn6gN38XD/9361re4K4Hf9H8ajWAN4sVJB3w/rjtmF+aRD5HJF7EoK1OkocW4ENJtV3yVHMnWmw==}
+  '@oxc-minify/binding-darwin-arm64@0.141.0':
+    resolution: {integrity: sha512-YOp5tcQRkLUbvII+EVwDss+Ww16b/V8XfrqNRDOTaLb/azGTb87iyS5drXfRosONv7Jp8/t8qRFC9K0aj1yYZA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [arm64]
     os: [darwin]
 
-  '@oxc-minify/binding-linux-x64-gnu@0.140.0':
-    resolution: {integrity: sha512-2dThpMwGQohXph9yzAQNVsSwMarzAD8LkDyKhCbkoRJ/O2knpQNM3d6mMjqNJquFJxuniHNHQsCvV2N1R9/VoQ==}
+  '@oxc-minify/binding-linux-x64-gnu@0.141.0':
+    resolution: {integrity: sha512-mP69bh2L/VVq10UEQ3wb0EsO0472TzOIZUfS/ADmxnr4gSxAzhRbO8w5QryL3BNyyyjSaXIlrAnAKO6G3srGwg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@oxc-minify/binding-win32-x64-msvc@0.140.0':
-    resolution: {integrity: sha512-A+disxuZHYCe1ttJnD+ljiGKDNJfeu9EZKuGIL3aU5pbNVDuwMWShpiyX3+OSQDYrbXF1xtNqrKadgw87Q5Neg==}
+  '@oxc-minify/binding-win32-x64-msvc@0.141.0':
+    resolution: {integrity: sha512-9B0SzKsstTUETz2SblLd2gZJ2H36GyBmZmwcZVwEaFOYW+luVm78yCSjZwja/xyl+PV6JsLhxQv+rgH46rpxQw==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [win32]
@@ -194,8 +193,8 @@ packages:
     resolution: {integrity: sha512-8dvQ/12/Zko+R2+f7guZPXDMMRVgsJlCDx3HtRGd+sRaFKqn52Er7tUDCqCvdcrBbSsW+75bDt6RCmEOJ9Ewwg==}
     engines: {node: '>=18.12'}
 
-  '@primer/octicons@19.29.2':
-    resolution: {integrity: sha512-n7zuEgzTz70m5dmBqpYuE8zpeLKxgf73OeDudQWByNzIwWLb0I/UlxqdCLkk6Qb338O7em0aNuhVfExNBVCfTQ==}
+  '@primer/octicons@19.31.0':
+    resolution: {integrity: sha512-Tkrm4jp2IbQsBU4OMMbqrVVz1NVR+uK2ZmYQ34kdUHiN6QjN/O9/sD3pnxbZYWkicIR0JM2JhGH8oowMQfRM+g==}
 
   '@rolldown/binding-darwin-arm64@1.2.0':
     resolution: {integrity: sha512-pexNaW9ACLUOaBITOpU6qVu4VrsOFIjTv6bzgu0YUATo4eUJx0V605PxwZfndpPOn0ilqGqvGQ0M8UW0IE24jg==}
@@ -401,9 +400,9 @@ packages:
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
 
-  brace-expansion@5.0.7:
-    resolution: {integrity: sha512-7oFy703dxfY3/NLxC1fh2SUCQ0H9rmAY+5EpDVfXjUTTs+HEwR2nYaqLv+GWcTsumwxPfiz6CzCNkwXwBUwqCA==}
-    engines: {node: 18 || 20 || >=22}
+  brace-expansion@5.0.8:
+    resolution: {integrity: sha512-JZyDyq3D4AUifKTPOB7DELf6XsB3WdPuNxCtob1vFXPsSXhdAiHBWJ/tJ8HAc9aH84BK+5JFZLNkJKx3G9kzQg==}
+    engines: {node: 20 || >=22}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -567,8 +566,8 @@ packages:
     engines: {node: '>=22.12.0'}
     hasBin: true
 
-  less@4.7.0:
-    resolution: {integrity: sha512-i7dAlT3+boO0mMh1G4cex0vz1lLAScmBbikm1VEDNv+cy0ore1CUo2UtX8m3N9QLE5WYDr4ISbiCRzHNGyFkrA==}
+  less@4.8.0:
+    resolution: {integrity: sha512-7Y7DJBMbsW29UGjOG6NGvxQEx71AaDcrryBwYCMaFwn0kj8FkSueKN9r9WexVOetKEhXh38kL++WJncfkEpS+g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -691,8 +690,8 @@ packages:
   oniguruma-to-es@4.3.6:
     resolution: {integrity: sha512-csuQ9x3Yr0cEIs/Zgx/OEt9iBw9vqIunAPQkx19R/fiMq2oGVTgcMqO/V3Ybqefr1TBvosI6jU539ksaBULJyA==}
 
-  oxc-minify@0.140.0:
-    resolution: {integrity: sha512-WWZgfS0FoojXPCAQLimENEv9EJ4AmSnY+wU8PepebcYg+4SY8cjrB3nDUuQwWSVfLIcZ6F++ZecFudJZdLR71Q==}
+  oxc-minify@0.141.0:
+    resolution: {integrity: sha512-+T/r+nBaKTT7UL5WDZHH8+l0bz+IZ495jHXiY2J6DWYkJXKrBCQRBS+u+hmlnhRfC5b0Uq1poZs0FLVMiDAmbw==}
     engines: {node: ^20.19.0 || >=22.12.0}
 
   package-json-from-dist@1.0.1:
@@ -722,8 +721,8 @@ packages:
     resolution: {integrity: sha512-RvwwcruNjI1ncT5xRakeyS9Lf8lcItv34KD+aif+VH9kduAyfYBipGh12274xtenIPZ119/R9BdTBa8gAwSh0A==}
     engines: {node: '>=12'}
 
-  postcss-nesting@14.0.0:
-    resolution: {integrity: sha512-YGFOfVrjxYfeGTS5XctP1WCI5hu8Lr9SmntjfRC+iX5hCihEO+QZl9Ra+pkjqkgoVdDKvb2JccpElcowhZtzpw==}
+  postcss-nesting@14.0.1:
+    resolution: {integrity: sha512-80MH7KcmMtb7ffSBX82uZwnogltubaXF0sagu+OGD8M9jViR3ngRgCdoTzKCvKEtllB0MW2U7Rgfcub5fR1Bug==}
     engines: {node: '>=20.19.0'}
     peerDependencies:
       postcss: ^8.4
@@ -738,12 +737,12 @@ packages:
     resolution: {integrity: sha512-HeP7D2wyhkR+XaK6v4W8oRF62Dsz4flyuczALJp61GckGm42u1saSSJ/0auvcBqxs3jMRFEcPK34At/0JBKdOg==}
     engines: {node: '>=4'}
 
-  postcss@8.5.20:
-    resolution: {integrity: sha512-lW616l85ucIQL+FocMmL7pQFPqBmwejrCMg+iPxyImlrANNJG9NHq/RkyCZopDhd8C3LA03PHRJDjkbGu8vvug==}
+  postcss@8.5.23:
+    resolution: {integrity: sha512-g50586zr4bZmwFiTlflMu8E0bDTb5I5gertgwAKmsdUlTQIhZtunzUlD1WSzwcVWPoAVpsrA6vlfCD7oXvRwgg==}
     engines: {node: ^10 || ^12 || >=14}
 
-  prettier@3.9.5:
-    resolution: {integrity: sha512-/FVl766LpUfB5vXgCYOYa0MeV/441Ia99AeICQIQFTY/Nw0roZwULcXpku5i1/m5kt/baz+s4Zogspd839HSMg==}
+  prettier@3.9.6:
+    resolution: {integrity: sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -778,8 +777,8 @@ packages:
   safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  sax@1.6.0:
-    resolution: {integrity: sha512-6R3J5M4AcbtLUdZmRv2SygeVaM7IhrLXu9BmnOGmmACak8fiUtOsYNWUS4uK7upbmHIBbLBeFeI//477BKLBzA==}
+  sax@1.6.1:
+    resolution: {integrity: sha512-42tBVwLWnaQvW5zc4HbZrTuWccECCZfBi92FDuwtqxasH+JbPB3/FOKb1m222K42R4WxuxzzMsTswfzgtSu64Q==}
     engines: {node: '>=11.0.0'}
 
   shiki@3.23.0:
@@ -824,8 +823,8 @@ packages:
   undici-types@8.3.0:
     resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
 
-  undici@7.28.0:
-    resolution: {integrity: sha512-cRZYrTDwWznlnRiPjggAGxZXanty6M8RV1ff8Wm4LWXBp7/IG8v5DnOm74DtUBp9OONpK75YlPnIjQqX0dBDtA==}
+  undici@7.29.0:
+    resolution: {integrity: sha512-IDxfleLmmbSskfWSUATiN1nfn2rDuvnMOqb5CWR92iIfojA0Ud+ulOAAEQ57LPr9rWmsreUyf5lwyao+7GNNVw==}
     engines: {node: '>=20.18.1'}
 
   unist-util-is@6.0.1:
@@ -952,7 +951,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@csstools/selector-resolve-nested@4.0.0(postcss-selector-parser@7.1.4)':
+  '@csstools/selector-resolve-nested@4.0.1(postcss-selector-parser@7.1.4)':
     dependencies:
       postcss-selector-parser: 7.1.4
     optional: true
@@ -989,20 +988,20 @@ snapshots:
       speech-rule-engine: 5.0.0-rc.4
     optional: true
 
-  '@oxc-minify/binding-darwin-arm64@0.140.0':
+  '@oxc-minify/binding-darwin-arm64@0.141.0':
     optional: true
 
-  '@oxc-minify/binding-linux-x64-gnu@0.140.0':
+  '@oxc-minify/binding-linux-x64-gnu@0.141.0':
     optional: true
 
-  '@oxc-minify/binding-win32-x64-msvc@0.140.0':
+  '@oxc-minify/binding-win32-x64-msvc@0.141.0':
     optional: true
 
   '@oxc-project/types@0.140.0': {}
 
   '@pnpm/types@1001.3.1': {}
 
-  '@primer/octicons@19.29.2':
+  '@primer/octicons@19.31.0':
     dependencies:
       object-assign: 4.1.1
 
@@ -1096,14 +1095,14 @@ snapshots:
 
   '@ungap/structured-clone@1.3.3': {}
 
-  '@vitejs/plugin-basic-ssl@2.3.0(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.7.0))':
+  '@vitejs/plugin-basic-ssl@2.3.0(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.8.0))':
     dependencies:
-      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.7.0)
+      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.8.0)
 
-  '@vitejs/plugin-vue@6.0.8(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.7.0))(vue@3.5.40(typescript@7.0.2))':
+  '@vitejs/plugin-vue@6.0.8(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.8.0))(vue@3.5.40(typescript@7.0.2))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
-      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.7.0)
+      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.8.0)
       vue: 3.5.40(typescript@7.0.2)
 
   '@vue/compiler-core@3.5.40':
@@ -1128,7 +1127,7 @@ snapshots:
       '@vue/shared': 3.5.40
       estree-walker: 2.0.2
       magic-string: 0.30.21
-      postcss: 8.5.20
+      postcss: 8.5.23
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.40':
@@ -1193,7 +1192,7 @@ snapshots:
   boolbase@1.0.0:
     optional: true
 
-  brace-expansion@5.0.7:
+  brace-expansion@5.0.8:
     dependencies:
       balanced-match: 4.0.4
     optional: true
@@ -1225,7 +1224,7 @@ snapshots:
       parse5: 7.3.0
       parse5-htmlparser2-tree-adapter: 7.1.0
       parse5-parser-stream: 7.1.2
-      undici: 7.28.0
+      undici: 7.29.0
       whatwg-mimetype: 4.0.0
     transitivePeerDependencies:
       - '@noble/hashes'
@@ -1398,16 +1397,16 @@ snapshots:
       cheerio: 1.2.0
       commander: 14.0.3
       entities: 8.0.0
-      postcss: 8.5.20
-      postcss-nesting: 14.0.0(postcss@8.5.20)
-      postcss-safe-parser: 7.0.1(postcss@8.5.20)
+      postcss: 8.5.23
+      postcss-nesting: 14.0.1(postcss@8.5.23)
+      postcss-safe-parser: 7.0.1(postcss@8.5.23)
       postcss-selector-parser: 7.1.4
       web-resource-inliner: 8.0.0
     transitivePeerDependencies:
       - '@noble/hashes'
     optional: true
 
-  less@4.7.0:
+  less@4.8.0:
     dependencies:
       copy-anything: 3.0.5
       parse-node-version: 1.0.1
@@ -1505,7 +1504,7 @@ snapshots:
 
   minimatch@10.2.5:
     dependencies:
-      brace-expansion: 5.0.7
+      brace-expansion: 5.0.8
     optional: true
 
   minipass@7.1.3:
@@ -1526,7 +1525,7 @@ snapshots:
   needle@3.5.0:
     dependencies:
       iconv-lite: 0.6.3
-      sax: 1.6.0
+      sax: 1.6.1
     optional: true
 
   nth-check@2.1.1:
@@ -1544,11 +1543,11 @@ snapshots:
       regex: 6.1.0
       regex-recursion: 6.0.2
 
-  oxc-minify@0.140.0:
+  oxc-minify@0.141.0:
     optionalDependencies:
-      '@oxc-minify/binding-darwin-arm64': 0.140.0
-      '@oxc-minify/binding-linux-x64-gnu': 0.140.0
-      '@oxc-minify/binding-win32-x64-msvc': 0.140.0
+      '@oxc-minify/binding-darwin-arm64': 0.141.0
+      '@oxc-minify/binding-linux-x64-gnu': 0.141.0
+      '@oxc-minify/binding-win32-x64-msvc': 0.141.0
     optional: true
 
   package-json-from-dist@1.0.1:
@@ -1583,17 +1582,17 @@ snapshots:
 
   picomatch@4.0.5: {}
 
-  postcss-nesting@14.0.0(postcss@8.5.20):
+  postcss-nesting@14.0.1(postcss@8.5.23):
     dependencies:
-      '@csstools/selector-resolve-nested': 4.0.0(postcss-selector-parser@7.1.4)
+      '@csstools/selector-resolve-nested': 4.0.1(postcss-selector-parser@7.1.4)
       '@csstools/selector-specificity': 6.0.0(postcss-selector-parser@7.1.4)
-      postcss: 8.5.20
+      postcss: 8.5.23
       postcss-selector-parser: 7.1.4
     optional: true
 
-  postcss-safe-parser@7.0.1(postcss@8.5.20):
+  postcss-safe-parser@7.0.1(postcss@8.5.23):
     dependencies:
-      postcss: 8.5.20
+      postcss: 8.5.23
     optional: true
 
   postcss-selector-parser@7.1.4:
@@ -1602,13 +1601,13 @@ snapshots:
       util-deprecate: 1.0.2
     optional: true
 
-  postcss@8.5.20:
+  postcss@8.5.23:
     dependencies:
       nanoid: 3.3.16
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  prettier@3.9.5: {}
+  prettier@3.9.6: {}
 
   probe-image-size@7.3.0:
     dependencies:
@@ -1652,7 +1651,7 @@ snapshots:
   safer-buffer@2.1.2:
     optional: true
 
-  sax@1.6.0:
+  sax@1.6.1:
     optional: true
 
   shiki@3.23.0:
@@ -1711,7 +1710,7 @@ snapshots:
   undici-types@8.3.0:
     optional: true
 
-  undici@7.28.0:
+  undici@7.29.0:
     optional: true
 
   unist-util-is@6.0.1:
@@ -1753,26 +1752,26 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.7.0):
+  vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.8.0):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.5
-      postcss: 8.5.20
+      postcss: 8.5.23
       rolldown: 1.2.0
       tinyglobby: 0.2.17
     optionalDependencies:
       '@types/node': 26.1.1
       esbuild: 0.28.1
       fsevents: 2.3.3
-      less: 4.7.0
+      less: 4.8.0
 
-  vitepress@2.0.0-alpha.17(@types/node@26.1.1)(esbuild@0.28.1)(less@4.7.0)(markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/d201fbf0b6fd75e52a09345d2283c6e054812df1)(oxc-minify@0.140.0)(postcss@8.5.20)(typescript@7.0.2):
+  vitepress@2.0.0-alpha.17(@types/node@26.1.1)(esbuild@0.28.1)(less@4.8.0)(markdown-it-mathjax3@https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/d201fbf0b6fd75e52a09345d2283c6e054812df1)(oxc-minify@0.141.0)(postcss@8.5.23)(typescript@7.0.2):
     dependencies:
       '@shikijs/core': 3.23.0
       '@shikijs/transformers': 3.23.0
       '@shikijs/types': 3.23.0
       '@types/markdown-it': 14.1.2
-      '@vitejs/plugin-vue': 6.0.8(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.7.0))(vue@3.5.40(typescript@7.0.2))
+      '@vitejs/plugin-vue': 6.0.8(vite@8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.8.0))(vue@3.5.40(typescript@7.0.2))
       '@vue/shared': 3.5.40
       '@vueuse/core': 14.3.0(vue@3.5.40(typescript@7.0.2))
       '@vueuse/integrations': 14.3.0(focus-trap@8.2.2)(vue@3.5.40(typescript@7.0.2))
@@ -1780,12 +1779,12 @@ snapshots:
       mark.js: 8.11.1
       minisearch: 7.2.0
       shiki: 3.23.0
-      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.7.0)
+      vite: 8.1.5(@types/node@26.1.1)(esbuild@0.28.1)(less@4.8.0)
       vue: 3.5.40(typescript@7.0.2)
     optionalDependencies:
       markdown-it-mathjax3: https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/d201fbf0b6fd75e52a09345d2283c6e054812df1
-      oxc-minify: 0.140.0
-      postcss: 8.5.20
+      oxc-minify: 0.141.0
+      postcss: 8.5.23
     transitivePeerDependencies:
       - '@types/node'
       - '@vitejs/devtools'
