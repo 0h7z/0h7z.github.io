@@ -14,15 +14,16 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-export type Entries<T> = [keyof T, T[keyof T]][]
+export type Entries<T> = Array<[keyof T, T[keyof T]]>
 export type Merge2<T1, T2> = Omit<T1, keyof T2> & T2
 export type Merge3<T1, T2, T3> = Merge2<Merge2<T1, T2>, T3>
-export type Pairs<K = any, V = any> = Iterable<readonly [K, V]>
-export type Properties<V = any> = Pairs<PropertyKey, V>
-export type Property<V = any> = readonly [string, V]
+export type Pair<K = any, V = any> = readonly [K, V]
+export type Pairs<K = any, V = any> = Iterable<Pair<K, V>>
+export type Properties<K extends PropertyKey = string, V = K> = Pairs<K, V>
+export type Property<K extends PropertyKey = string, V = K> = Pair<K, V>
 export type Reduce<T> = {} & { -readonly [K in keyof T]: T[K] }
 
 export const { min, max } = Math
-export const entries = <T extends {}>(x: T) => Object.entries(x) as Entries<T>
 export const json = (x: object) => `${JSON.stringify(x, undefined, `\t`)}\n`
-export const sdict = <V>(x: Properties<V>) => Object.fromEntries(x) as { [k: string]: V }
+export const obj2vec = <T extends {}>(x: T) => Object.entries(x) as Entries<T>
+export const vec2obj = <K extends PropertyKey, V>(x: Properties<K, V>) => Object.fromEntries(x)

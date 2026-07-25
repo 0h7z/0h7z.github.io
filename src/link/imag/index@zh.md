@@ -14,7 +14,7 @@ features:
     link: https://azurlane.koumakan.jp/wiki/Azur_Lane_Wiki
   - title: "*精英：危险*数据库"
     details: "[zh] Inara"
-    link: https://inara.cz/elite/news/
+    link: https://inara.cz/elite/?setlanguage=11
   - title: "*精英：危险*路线规划器"
     details: "[zh] Spansh"
     link: https://www.spansh.co.uk/plotter

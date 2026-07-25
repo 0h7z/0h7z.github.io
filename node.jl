@@ -91,6 +91,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		q = "$p.no-icon > .box > .title"
 		s = replace(s, "$o {\n" => "$o,\n:is($q)::after {\n")
 		s = replace(s, "$p::after {\n" => "$p::after,\n$q::after {\n")
+		# s = replace(s, r"\Q:not(:is(\E\K\.no-icon,\s*" => "")
 	end
 	patch("node_modules/vitepress/dist/client/theme-default/styles/docsearch.css") do s
 		s = replace(s, r"^.*@docsearch/css\b.*\n"m => "")
@@ -118,6 +119,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		s = replace(s, r"\\u201c|\\u201d"i => "\\\"") # “”
 		s = replace(s, r"\t+\K(\Qthis.emitFile({\E)"m => s"if (false) \1")
 		s = replace(s, r"^.+@vue/devtools-api\b.+\n"m => "")
+		s = replace(s, r"^.+\b(vp-icons\.css)\b.+\n"m => "")
 		s = replace(s, r"catch \(error\) \{(\n\t+)\K(throw new Error)" => s"throw error;\1\2")
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
@@ -127,10 +129,10 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		s = replace(s, Regex("^\\s*\\K.*(const icons = $p)", "m") => SubstitutionString("$q \\1"))
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
-		o = """const id = """
-		p = """index.has(id) && index.discard(id)"""
+		o = """const id = .+\n"""
+		p = """index.has(id) && index.discard(id)\n"""
 		q = """index.add({"""
-		s = replace(s, Regex("\\b\\Q$o\\E.+([\\n\\s]*)\\K\\Q$q\\E") => SubstitutionString("$p\\1$q"))
+		s = replace(s, Regex("$o(\\t+)\\K(\\Q$q\\E)") => SubstitutionString("$p\\1\\2"))
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		o = """permalink: (slug, _, state, idx) => {"""
@@ -143,6 +145,9 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		p = s"[name].[hash:10].js"
 		q = s"[name].js"
 		s = replace(s, Regex("`\\Q$o\\E\\K\\Q$p\\E(?=`)") => """\${chunk.name.startsWith("@") ? "$q" : "$p"}""")
+	end
+	patch("node_modules/vitepress/dist/node/index.d.ts") do s
+		s = replace(s, "{ forceLocale?: boolean }" => "{ forceLocale?: boolean | string }")
 	end
 	patch("node_modules/vitepress/types/default-theme.d.ts") do s
 		s = replace(s, "{ forceLocale?: boolean }" => "{ forceLocale?: boolean | string }")

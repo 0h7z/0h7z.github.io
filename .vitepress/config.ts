@@ -1,14 +1,11 @@
 import { createMarkdownRenderer, defineConfig } from "vitepress"
-import { entries, max } from "./main"
+import { fixHtml, max, obj2vec } from "./main"
 import { mark_github } from "@primer/octicons/svg"
 import footnote from "markdown-it-footnote"
 import locale from "./locale.json"
-import type { CompilerOptions } from "@vue/compiler-sfc"
 import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
-import type { Language } from "./main"
+import type { Language, VueCompilerOptions, VueOptions } from "./main"
 import type { LocalSearchTranslations } from "vitepress/types/local-search"
-import type { Options as VueOptions } from "@vitejs/plugin-vue"
-import type { ParserOptions } from "@vue/compiler-core"
 
 //! TS2307: Cannot find module "vitepress/dist/client/theme-default/components/VPFeatures.vue"
 //! or its corresponding type declarations.
@@ -47,6 +44,9 @@ const MDCONFIG = {
 	math: true,
 	image: undefined,
 	gfmAlerts: true,
+
+	// https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/markdown-it/lib/index.d.mts
+	xhtmlOut: true,
 } as const satisfies MarkdownOptions
 const MD = await createMarkdownRenderer(MDSRCDIR, MDCONFIG)
 const md = (str: string) => MD.renderInline(str)
@@ -214,7 +214,7 @@ const localeconfig = (lang: Language) => {
 	const loc = (I18N as TI18N)[lang]!
 	const nav = (NAVI as TNAVI)[lang]!
 	const sidebar = { ...SIDE } as TSIDE
-	for (const [k, v] of entries(sidebar).filter(([k]) => k.startsWith(link))) {
+	for (const [k, v] of obj2vec(sidebar).filter(([k]) => k.startsWith(link))) {
 		for (const x of v) x.base ||= k
 	}
 	return { [lang]: { label, lang, link, themeConfig: { ...loc, nav, sidebar } } }
@@ -297,15 +297,15 @@ export default defineConfig({
 				comments: false,
 				isCustomElement: (x) => x.startsWith("x-"),
 				whitespace: "preserve",
-			} satisfies ParserOptions satisfies CompilerOptions,
+			} satisfies VueCompilerOptions,
 		},
 	} as const satisfies VueOptions,
 
 	// https://vitepress.dev/zh/reference/site-config#build-hooks
 	buildEnd: undefined,
-	postRender: undefined,
+	postRender: (ssg) => void (ssg.content = fixHtml(ssg.content)),
 	transformHead: undefined,
-	transformHtml: undefined,
+	transformHtml: (html: string) => fixHtml(html),
 	transformPageData: (pagedata) => {
 		// https://vitepress.dev/zh/reference/frontmatter-config#default-theme-only
 		const h = pagedata.frontmatter as {

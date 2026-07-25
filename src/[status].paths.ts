@@ -1,6 +1,6 @@
-import { entries, json } from "./main"
-import { resolve } from "path"
-import { writeFileSync as write } from "fs"
+import { json, obj2vec } from "./main"
+import { resolve } from "node:path"
+import { writeFileSync as write } from "node:fs"
 import type { Merge3, Reduce } from "./main"
 
 const cat1 = {
@@ -123,7 +123,7 @@ write(output, json(status))
 
 export default {
 	paths: () =>
-		entries(status).map(([code, desc]) => ({
+		obj2vec(status).map(([code, desc]) => ({
 			params: { status: code satisfies number },
 			content: `${code} ${desc.replace(/\b([A-Z]+) \((.+?)\)/, `<u title="$2">$1</u>`)}`,
 		})),

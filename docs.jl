@@ -46,38 +46,12 @@ if abspath(PROGRAM_FILE) == @__FILE__
 	for (prefix, ds, fs) in walkdir(dst, topdown = false)
 		for f in fs
 			p = stdpath(prefix, f)
-			if f == "vp-icons.css"
-				rm(p)
-				continue
-			end
-			if endswith(".html")(f) || endswith(".js")(f) || endswith(".css")(f)
-				str = startswith(joinpath(dst, assetdir, "~"))(prefix) ?
-					  readstr(pipeline(p, `pnpm $esb`)) : readstr(p) * "\n"
+			if endswith(".css")(f)
+				str = readchomp(p) * "\n"
 				write(p, str)
-				@assert !contains((f), r"[\S\s]*\.lean\.js$") p
-				@assert !contains(str, r"mailto:\w+@\w+\.md") p
 			end
 			if endswith(".html")(f)
 				str = readstr(p)
-				str = replace(str, r" (crossorigin|hidden|open)\K=\"\"(?=[ >])" => "")
-				str = replace(str, r" (style)=\"\"(?=[ >])" => "")
-				str = replace(str, r" *(?=<math>|<mjx-\w+|<time datetime=)" => "\n\t")
-				str = replace(str, r"[^-]>\K(?=<pre[ >])|</pre>\K(?=<[^!])" => "\n\t")
-				str = replace(str, r"[^-]>\K(?=<svg style=\"[^\"]*?\" xml)" => "\n\t")
-				str = replace(str, r"[^-]>\K(?=<svg xml)|</svg>\K(?=<[^!])" => "\n\t")
-				str = replace(str, r"\n\s*\n|\n*$"s => "\n")
-				str = replace(str, r"^\s+"m => "\t")
-				str = replace(str, r"^\t(?=</?(head|body)>$)"m => "")
-				str = replace(str, r"^\t<(meta|link) .*\K(?<! /)>$"m => " />")
-				str = replace(str, r"^\t<link .+ href=\"/vp-icons.css\".+\n"m => "")
-				str = replace(str, r"^\t<meta name=\"(?:description|generator)\".+\n"m => "")
-				str = replace(str, r"^\t<script id=\"check-dark-mode\">.*</script>\n"m => "")
-				str = replace(str, r"^<html .*\K\bdir=\"ltr\""m => "class=\"dark\"")
-				str = replace(str, r"<[hb]r\K>" => " />")
-				str = replace(str, r"<button (?!type=)" => "<button type=\"button\" ")
-				str = replace(str, r"<button type=\"button\" ([^>]+ type=)" => s"<button \1")
-				str = replace(str, r"<div [^>]*\K\b(data-v-\w+) \1" => s"\1")
-				str = replace(str, r"<img [^>]+[^ />]\K>" => " />")
 				if p ∈ dst .* ["/404.html", "/404/index.html"]
 					yml = yaml(LDict(:permalink => "/404.html"))
 					str = replace(str, r"^(?=<!DOCTYPE html>)"s => "---\n$yml---\n")
@@ -88,12 +62,11 @@ if abspath(PROGRAM_FILE) == @__FILE__
 				end
 				write(p, str)
 			end
-			if endswith(".js")(f)
-				str = readstr(p)
-				str = replace(str, r",\K(?=window\.__\w+__=JSON\.parse\()" => "\n")
-				str = replace(str, r";(?=((async )?function) |(ex|im)port\{)" => "\n")
-				str = replace(str, r";\n*$|\b(from\"[^\"]+\"|return)\K;" => "\n")
-				str = replace(str, r":\d+\}`\)\K,(?=\w=)" => "\nvar ")
+			if endswith(".js")(f) && startswith("metadata.")(f) &&
+			   startswith(joinpath(dst, assetdir, "~"))(prefix)
+				str = readstr(pipeline(p, `pnpm $esb`))
+				str = replace(str, r",\K(?=window\.__\w+__=JSON\.parse\()"m => "\n")
+				str = replace(str, r"^window\.__\w+__=\K(?=JSON\.parse\()"m => "\n")
 				write(p, str)
 			end
 			if endswith(".json")(f)

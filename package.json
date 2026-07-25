@@ -6,7 +6,7 @@
 	"private": true,
 	"scripts": {
 		"rst": "pnpm up -f && pnpm postupd -v",
-		"upd": "pnpm up --latest \\!@pnpm/types && pnpm up -s",
+		"upd": "pnpm up --latest && pnpm up -s",
 		"dev": "vitepress dev",
 		"test": "tsc",
 		"build": "vitepress build",
@@ -27,7 +27,7 @@
 	},
 	"optionalDependencies": {
 		"@types/markdown-it": "^14.1.2",
-		"@types/node": "^26.1.1",
+		"@types/node": "^26.1.2",
 		"@vitejs/plugin-vue": "^6.0.8",
 		"@vue/compiler-core": "^3.5.40",
 		"@vue/compiler-sfc": "^3.5.40",
@@ -36,9 +36,9 @@
 		"@vue/runtime-dom": "^3.5.40",
 		"csstype": "^3.2.3",
 		"esbuild": "^0.28.1",
-		"less": "^4.8.0",
-		"markdown-it-mathjax3": "github:Heptazhou/markdown-it-mathjax3#v4.4.3",
-		"oxc-minify": "^0.141.0",
+		"less": "^4.8.1",
+		"markdown-it-mathjax3": "https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/v4.4.3",
+		"oxc-minify": "^0.142.0",
 		"rolldown": "^1.2.0",
 		"typescript": "^7.0.2",
 		"vite": "^8.1.5",
@@ -70,6 +70,12 @@
 					"@mathjax/src": "*"
 				}
 			}
+		},
+		"updateConfig": {
+			"ignoreDependencies": [
+				"@pnpm/types",
+				"markdown-it-mathjax3"
+			]
 		}
 	}
 }

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-	import { onMounted, ref } from "vue"
-	import { sdict } from "../main"
-	import type { Pairs } from "../main"
+	import { getPerformance, onMounted, ref, vec2obj } from "../main"
+	import type { Properties } from "../main"
 
 	const dict = ref()
 	const main = (self: HTMLElement) =>
@@ -20,8 +19,8 @@
 		try {
 			const resp = await fetch("/cdn-cgi/trace", { referrer: "" })
 			const text = await resp.text()
-			const head = sdict(resp.headers) as { "content-encoding": string }
-			const data = sdict(text.matchAll(/^.+(?==(.+)$)/gm) as Pairs) as {
+			const head = vec2obj(resp.headers) as { "content-encoding": string }
+			const data = vec2obj(text.matchAll(/^.+(?==(.+)$)/gm) as Properties) as {
 				colo: string // IATA
 				date: string // MJD
 				http: string
@@ -44,10 +43,15 @@
 			data.kex = esc(data.kex).replace(/^(X25519)(\w)/i, "$1<wbr />$2")
 			data.uag = esc(data.uag).replaceAll(/(\w\/)(\d)/g, "$1<wbr />$2")
 
+			// https://developer.mozilla.org/docs/Web/API/PerformanceResourceTiming/nextHopProtocol
+			const [performanceNav] = getPerformance("navigation")
+			const nextHopProtocol = performanceNav?.nextHopProtocol
+			const perf = [head["content-encoding"], nextHopProtocol].filter(Boolean).join("; ")
+
 			//       MJD 40587 == 1970-01-01
 			data.date = (40587 + t.getTime() / 86400e3).toFixed(5)
 			data.http = data.http.toUpperCase()
-			dict.value = { ...data, encode: head["content-encoding"] }
+			dict.value = { ...data, perf }
 		} catch (_e) {
 			const e = _e as Error
 			console.warn(`${e.name}: ${e.message}`)
@@ -62,7 +66,7 @@
 		<div id="main" :ref="(_) => _ && main(_)">
 			<div><span v-html="dict.uag"></span></div>
 			<div>
-				<span>{{ dict.http }} ({{ dict.encode }})</span>
+				<span>{{ dict.http }} ({{ dict.perf }})</span>
 				<span>
 					{{ dict.tls }}
 					<span v-html="dict.kex"></span>

@@ -1,8 +1,7 @@
 
 <script setup lang="ts">
-	import { core, extra } from "./index"
-	import { VPTeamMembers } from "vitepress/theme"
+	import About from "./index.md.vue"
 </script>
 
-<VPTeamMembers size="medium" :members="core('en')" />
-<VPTeamMembers size="small" :members="extra('en')" />
+<About lang="en" />
+

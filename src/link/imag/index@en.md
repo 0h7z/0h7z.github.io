@@ -14,7 +14,7 @@ features:
     link: https://azurlane.koumakan.jp/wiki/Azur_Lane_Wiki
   - title: "*Elite: Dangerous* Database"
     details: "[en] Inara"
-    link: https://inara.cz/elite/news/
+    link: https://inara.cz/elite/?setlanguage=1
   - title: "*Elite: Dangerous* NS Router"
     details: "[en] Spansh"
     link: https://www.spansh.co.uk/plotter

@@ -1,9 +1,7 @@
-import { defineCustomElement } from "@vue/runtime-dom"
+import { addCustomElement } from "../main"
 import { inBrowser } from "vitepress"
 import theme from "vitepress/theme"
-import type { App, DefineComponent } from "@vue/runtime-core"
-import type { CustomElementOptions } from "@vue/runtime-dom"
-import type { Ref } from "@vue/reactivity"
+import type { App, Ref } from "../main"
 import type { Router, SiteData, Theme } from "vitepress"
 
 //! TS2876: This relative import path is unsafe to rewrite because it looks like a file name,
@@ -12,11 +10,6 @@ import type { Router, SiteData, Theme } from "vitepress"
 import Hello from "../component/Hello.ce.vue"
 // @ts-ignore TS2876
 import Trace from "../component/Trace.ce.vue"
-
-// https://cn.vuejs.org/guide/extras/web-components#sfc-as-custom-element
-const addCustomElement = (name: string, component: DefineComponent, opt?: CustomElementOptions) => {
-	void customElements.define(name, defineCustomElement(component, opt))
-}
 
 // https://vitepress.dev/zh/guide/custom-theme
 import "./main.pcss"
