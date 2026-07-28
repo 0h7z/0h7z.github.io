@@ -1,4 +1,5 @@
 
+.vitepress/.temp/
 /temp/
 Manifest-v*.toml
 node_modules/

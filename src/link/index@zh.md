@@ -18,6 +18,8 @@ features:
     link: https://zh.cppreference.com/w/
   - title: "CDS 天文数据库"
     link: https://cds.unistra.fr/
+  - title: "Cloudflare 面板"
+    link: https://dash.cloudflare.com/
   - title: "Cloudflare 状态"
     link: https://new.cloudflarestatus.com/
   - title: "CTAN $\\TeX$ 资源库"
@@ -30,6 +32,8 @@ features:
     link: https://www.githubstatus.com/
   - title: "Google 翻译"
     link: https://translate.google.com/?sl=auto&tl=zh-CN&op=translate
+  - title: "Homebrew 软件包"
+    link: https://brew.sh/
   - title: "HTTP 响应状态码"
     link: ./http/
   - title: "IETF 数据库"
@@ -40,6 +44,8 @@ features:
     link: https://crypto.cloudflare.com/cdn-cgi/trace
   - title: "Julia 版本状态"
     link: https://julialang.org/downloads/manual-downloads/
+  - title: "Linux 版本状态"
+    link: https://kernel.org/
   - title: "MDN Web 参考"
     link: https://developer.mozilla.org/zh-CN/docs/Web
 #   - title: "Mozilla Bugzilla"
@@ -56,12 +62,16 @@ features:
     link: https://releases.rs/
   - title: "SauceNAO 搜图"
     link: https://saucenao.com/
+  - title: "Scoop 软件包"
+    link: https://scoop.sh/
   - title: "SDSS 巡天"
     link: https://skyserver.sdss.org/
-  - title: "Steam 商城"
-    link: https://store.steampowered.com/?l=schinese
+  - title: "Steam 硬件调查"
+    link: https://store.steampowered.com/hwsurvey/?l=schinese
   - title: "SteamDB 数据库"
     link: https://steamdb.info/
+  - title: "Tailscale 控制台"
+    link: https://console.tailscale.com/
   - title: "Web 特性支持表"
     link: https://caniuse.com/
   - title: "维基百科"

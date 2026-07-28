@@ -25,6 +25,7 @@ const patch(f::Function, path::String, file::Regex) =
 	let x = filter!(contains(file), readdir(path))
 		@. patch(f, stdpath(path, x))
 	end
+const substitution(xs...) = SubstitutionString(string(xs...))
 
 if abspath(PROGRAM_FILE) == @__FILE__
 	cd(@__DIR__) do
@@ -33,12 +34,16 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		p = """="<!DOCTYPE";"""
 		s = replace(s, Regex(p, "i") => uppercase(p))
 	end
+	patch("node_modules/vite/dist/node/chunks/node.js") do s
+		p = """process.env.VITE_CONFIG_NATIVE_IGNORE_WARNING"""
+		s = replace(s, r"\b" * p * r"\b" => true)
+	end
 	patch("node_modules/vitepress/dist/client/app/components/Content.js") do s
 		s = replace(s, "'404 Page Not Found'" => "''")
 	end
 	patch("node_modules/vitepress/dist/client/app/devtools.js") do s
 		p = """export const setupDevtools = (_app, _router, _data) => {};"""
-		s = replace(s, r"^(.+;\n)$"s => SubstitutionString("$p\n/*\n\\1 */\n"))
+		s = replace(s, r"^(.+;\n)$"s => substitution(p, s"\n/*\n\1 */\n"))
 	end
 	patch("node_modules/vitepress/dist/client/app/index.js") do s
 		s = replace(s, "(import.meta.env.DEV || __VUE_PROD_DEVTOOLS__)" => "(false)")
@@ -86,15 +91,17 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		s = replace(s, r"^ *\K(await nextTick)"m => s"return; \1")
 	end
 	patch("node_modules/vitepress/dist/client/theme-default/styles/components/vp-doc.css") do s
-		o = match(":not(:is(.no-icon," * r".+?"m * "))::after", s).match
+		o = match(":not(:is(.no-icon," * r".+?"m * "))", s).match
 		p = ".vp-external-link-icon"
 		q = "$p.no-icon > .box > .title"
-		s = replace(s, "$o {\n" => "$o,\n:is($q)::after {\n")
-		s = replace(s, "$p::after {\n" => "$p::after,\n$q::after {\n")
-		# s = replace(s, r"\Q:not(:is(\E\K\.no-icon,\s*" => "")
+		s = replace(s, "$o::after {\n" => "$o::after,\n:is($q)::after {\n")
+		s = replace(s, "$p::after {\n" => "$p:not(.no-icon)::after {\n")
 	end
 	patch("node_modules/vitepress/dist/client/theme-default/styles/docsearch.css") do s
 		s = replace(s, r"^.*@docsearch/css\b.*\n"m => "")
+	end
+	patch("node_modules/vitepress/dist/client/theme-default/support/utils.js") do s
+		s = replace(s, "(external !== undefined)" => "(external)")
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		r = r"^\t*\K {2}"m
@@ -126,25 +133,34 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		o = """@iconify-json/simple-icons/icons.json"""
 		p = """\\S+\\Q("$o")\\E;"""
 		q = """return;"""
-		s = replace(s, Regex("^\\s*\\K.*(const icons = $p)", "m") => SubstitutionString("$q \\1"))
+		s = replace(s, Regex("^\\s*\\K.*(const icons = $p)", "m") => substitution(q, s" \1"))
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
-		o = """const id = .+\n"""
-		p = """index.has(id) && index.discard(id)\n"""
+		o = """const id = .+;"""
+		p = """index.has(id) && index.discard(id);"""
 		q = """index.add({"""
-		s = replace(s, Regex("$o(\\t+)\\K(\\Q$q\\E)") => SubstitutionString("$p\\1\\2"))
+		s = replace(s, r"\b" * Regex(o) * r"(\n\t+)\K" * q => substitution(p, s"\1", q))
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		o = """permalink: (slug, _, state, idx) => {"""
 		p = """if (!idx) slug &&= "";"""
 		q = """const title = """
-		s = replace(s, Regex("\\b\\Q$o\\E([\\n\\s]*)\\K\\Q$q\\E") => SubstitutionString("$p\\1$q"))
+		s = replace(s, r"\b" * o * r"(\n\t+)\K" * q => substitution(p, s"\1", q))
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		o = s"${config.assetsDir}" * "/~/"
 		p = s"[name].[hash:10].js"
 		q = s"[name].js"
-		s = replace(s, Regex("`\\Q$o\\E\\K\\Q$p\\E(?=`)") => """\${chunk.name.startsWith("@") ? "$q" : "$p"}""")
+		s = replace(s, "`$o$p`" => """`$o\${chunk.name.startsWith("@") ? "$q" : "$p"}`""")
+	end
+	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
+		l = s"""const f = `${req.originalUrl}`.replace(/^\\/@fs\\//, ``);"""
+		m = s"""res.statusCode = 200;"""
+		n = s"""res.setHeader("Content-Type", "text/html");"""
+		o = s"""res.setHeader("Content-Type", lookup(f) || "text/html");"""
+		p = s"""if (f.startsWith(`${slash(DEFAULT_THEME_PATH)}/fonts/`) && fs.existsSync(f))"""
+		q = s"""	return send(req, res, f, fs.statSync(f), {});"""
+		s = replace(s, m * r"(\n\t+)" * n => substitution(join([l, m, o, p, q], s"\1")))
 	end
 	patch("node_modules/vitepress/dist/node/index.d.ts") do s
 		s = replace(s, "{ forceLocale?: boolean }" => "{ forceLocale?: boolean | string }")

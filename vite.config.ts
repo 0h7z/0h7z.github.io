@@ -29,6 +29,8 @@ const rpo = (): Plugin[] => [
 					v.code = v.code.replaceAll(/(?<=^(var )\w=JSON\.parse\(`[^`]+`\)),(?=\w=)/gm, `\n$1`)
 					v.code = v.code.replaceAll(/[\t ]+(?=\n)|(?<=\n)[\t ]+/gm, `\t`)
 					v.code = v.code.replaceAll(/\?\?\(\w\.value\?`noreferrer`:void 0\)/gm, ``)
+					v.code = v.code.replaceAll(/\t+ (?=`\),\w\(`a`,\{class:`header-anchor`,href:`#)/gm, ``)
+					v.code = v.code.replaceAll(/\t+ (?=<a class="header-anchor" href="#)/gm, ``)
 				}
 			}
 		},

@@ -8,7 +8,7 @@ hero:
 features:
 #   - title: "Arch Bugtracker"
 #     link: https://bugs.archlinux.org/
-  - title: "Arch Manual Pages"
+  - title: "Arch Manual Page"
     link: https://man.archlinux.org/
   - title: "Arch Server Status"
     link: https://status.archlinux.org/
@@ -18,6 +18,8 @@ features:
     link: https://en.cppreference.com/w/
   - title: "CDS Astro Data Center"
     link: https://cds.unistra.fr/
+  - title: "Cloudflare Dashboard"
+    link: https://dash.cloudflare.com/
   - title: "Cloudflare Status"
     link: https://new.cloudflarestatus.com/
 #   - title: "CTAN $\\TeX$ Archive Network"
@@ -25,44 +27,52 @@ features:
     link: https://ctan.org/
   - title: "Debian Package Tracker"
     link: https://tracker.debian.org/
-  - title: "Firefox Trains"
+  - title: "Firefox Train"
     link: https://whattrainisitnow.com/
   - title: "GitHub Status"
     link: https://www.githubstatus.com/
   - title: "Google Translate"
     link: https://translate.google.com/?sl=auto&tl=en&op=translate
-  - title: "HTTP Response Status Codes"
+  - title: "Homebrew Package"
+    link: https://brew.sh/
+  - title: "HTTP response status code"
     link: ./http/
   - title: "IETF Datatracker"
     link: https://datatracker.ietf.org/
-#   - title: "Intel Product Specifications"
+#   - title: "Intel Product Specification"
 #     link: https://www.intel.com/content/www/us/en/ark.html
   - title: "IP/HTTP Trace Info"
     link: https://crypto.cloudflare.com/cdn-cgi/trace
-  - title: "Julia Releases"
+  - title: "Julia Release"
     link: https://julialang.org/downloads/manual-downloads/
-  - title: "MDN Web References"
+  - title: "Linux Kernel Release"
+    link: https://kernel.org/
+  - title: "MDN Web Reference"
     link: https://developer.mozilla.org/en-US/docs/Web
 #   - title: "Mozilla Bugzilla"
 #     link: https://bugzilla.mozilla.org/home
-  - title: "Node.js Releases"
+  - title: "Node.js Release"
     link: https://nodejs.org/en/about/previous-releases
 #   - title: "Ports Database"
 #     link: https://www.speedguide.net/ports.php
   - title: "PyPI/Conda Mapping"
     link: https://github.com/regro/cf-graph-countyfair/blob/master/mappings/pypi/name_mapping.json
-  - title: "Python Versions"
+  - title: "Python Version"
     link: https://devguide.python.org/versions/
-  - title: "Rust Versions"
+  - title: "Rust Version"
     link: https://releases.rs/
   - title: "SauceNAO Image Search"
     link: https://saucenao.com/
+  - title: "Scoop Package"
+    link: https://scoop.sh/
   - title: "SDSS SkyServer"
     link: https://skyserver.sdss.org/
-  - title: "Steam Store"
-    link: https://store.steampowered.com/?l=english
+  - title: "Steam Hardware Survey"
+    link: https://store.steampowered.com/hwsurvey/?l=english
   - title: "SteamDB Database"
     link: https://steamdb.info/
+  - title: "Tailscale Console"
+    link: https://console.tailscale.com/
   - title: "Web Feature Support Table"
     link: https://caniuse.com/
   - title: "Wikipedia"

@@ -1,4 +1,4 @@
-#	HTTP response status codes
+#	HTTP response status code
 <script setup lang="ts">
 	import HTTP from "/000.md.vue"
 </script>

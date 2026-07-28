@@ -69,6 +69,7 @@ const NAVI = {
 		{
 			items: [
 				{ link: "/en/link/", text: "Link" },
+				{ link: "/en/link/soft/", text: "Link > Software" },
 				{ link: "/en/link/imag/", text: "Link > Fiction" },
 			],
 		},
@@ -83,6 +84,7 @@ const NAVI = {
 		{
 			items: [
 				{ link: "/zh/link/", text: "链接" },
+				{ link: "/zh/link/soft/", text: "链接 > 软件" },
 				{ link: "/zh/link/imag/", text: "链接 > 虚构" },
 			],
 		},

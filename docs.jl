@@ -14,10 +14,13 @@
 
 using Exts
 using JSON5: JSON
-using XML: XML, AbstractXMLNode, Node
+using XML: XML, Element, Node, nodetype
 using YAML: yaml
 
-const Base.string(x::AbstractXMLNode) = XML.write(x, indentsize = 0)
+const Base.sort!(x::Node)  = (sort!(elements(x), by = string); x)
+const Base.string(x::Node) = XML.write(x, indentsize = 0)
+const bipush!(v, x)        = push!(pushfirst!(v, x), x)
+const elements(x::Node)    = @view x.children[@. Element ≡ nodetype(x.children)]
 
 const esb = `esbuild --charset=utf8 --line-limit=$(2^16) --minify`
 const mjs = readstr("docs.jl.ts")
@@ -30,7 +33,7 @@ const assetdir = cfg["assetsDir"]
 if abspath(PROGRAM_FILE) == @__FILE__
 	isempty(ARGS) ?
 	for (prefix, ds, fs) in walkdir(src, topdown = false)
-		for f in fs
+		@threads for f in fs
 			p = stdpath(prefix, f)
 			if p == src * "/link/http/index@en.md"
 				q = src * "/000.md"
@@ -44,7 +47,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		end
 	end :
 	for (prefix, ds, fs) in walkdir(dst, topdown = false)
-		for f in fs
+		@threads for f in fs
 			p = stdpath(prefix, f)
 			if endswith(".css")(f)
 				str = readchomp(p) * "\n"
@@ -71,19 +74,17 @@ if abspath(PROGRAM_FILE) == @__FILE__
 			end
 			if endswith(".json")(f)
 				str = readstr(p)
-				str = replace(str, r""":"[\w-]+?",\K""" => "\n")
-				str = replace(str, r"""^\{\K|(?=\}$)""" => "\n")
+				str = JSON.json(JSON.parse(str), 4)
 				write(p, str)
 			end
-			if endswith(".xml")(f) && f == "sitemap.xml"
+			if endswith(".xml")(f)
 				str = readstr(p)
 				xml = parse(Node, str)
-				for url ∈ xml[end].children
-					sort!(url.children, by = x -> x.tag)
-				end
-				sort!(xml[end].children, by = string)
+				elm = only(elements(xml))
+				sort!.(elements(bipush!(elm, "\n")))
+				sort!(elm)["xml:space"] = "preserve"
 				str = string(xml)
-				str = replace(str, r"\n(?=<(lastmod|loc)>)|</(lastmod|loc)>\K\n" => "")
+				str = replace(str, r"(</\w+>){2,}\K(?!\n)|\n{2,}|$"s => "\n")
 				write(p, str)
 			end
 		end

@@ -6,7 +6,7 @@
 	"private": true,
 	"scripts": {
 		"rst": "pnpm up -f && pnpm postupd -v",
-		"upd": "pnpm up --latest && pnpm up -s",
+		"upd": "pnpm up --latest && pnpm dedupe && pnpm up -s",
 		"dev": "vitepress dev",
 		"test": "tsc",
 		"build": "vitepress build",
@@ -18,12 +18,12 @@
 	},
 	"devDependencies": {
 		"@pnpm/types": "latest-10",
-		"@primer/octicons": "^19.31.0",
+		"@primer/octicons": "^19.32.0",
 		"@types/markdown-it-footnote": "^3.0.4",
 		"@vitejs/plugin-basic-ssl": "^2.3.0",
 		"markdown-it-footnote": "^4.0.0",
 		"prettier": "^3.9.6",
-		"vitepress": "2.0.0-alpha.17"
+		"vitepress": "next"
 	},
 	"optionalDependencies": {
 		"@types/markdown-it": "^14.1.2",
@@ -38,10 +38,9 @@
 		"esbuild": "^0.28.1",
 		"less": "^4.8.1",
 		"markdown-it-mathjax3": "https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/v4.4.3",
-		"oxc-minify": "^0.142.0",
-		"rolldown": "^1.2.0",
+		"rolldown": "^1.2.1",
 		"typescript": "^7.0.2",
-		"vite": "^8.1.5",
+		"vite": "^8.2.0",
 		"vue": "^3.5.40"
 	},
 	"engines": {
@@ -58,11 +57,10 @@
 			"@docsearch/sidepanel-js": "-",
 			"@iconify-json/simple-icons": "-",
 			"@vue/devtools-api": "-",
-			"encoding-sniffer": "^1",
-			"esbuild": "^0",
-			"needle": "^3",
-			"rolldown": "^1",
-			"vite": "^8"
+			"encoding-sniffer": ">=1",
+			"htmlparser2": ">=10 <11",
+			"needle": ">=3",
+			"rolldown": ">=1"
 		},
 		"packageExtensions": {
 			"@mathjax/mathjax-newcm-font": {
@@ -73,7 +71,6 @@
 		},
 		"updateConfig": {
 			"ignoreDependencies": [
-				"@pnpm/types",
 				"markdown-it-mathjax3"
 			]
 		}
