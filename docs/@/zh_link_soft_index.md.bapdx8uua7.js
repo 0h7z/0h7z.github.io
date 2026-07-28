@@ -1,0 +1,6 @@
+import{ht as e,s as t,tt as n}from"./~/framework.i0ki3s1vzv.js"
+var r=JSON.parse(`{"title":"","description":"","frontmatter":{"layout":"home","hero":{"name":"链接 > 软件"},"features":[{"title":"7z-zstd","details":"7-Zip Zstandard Edition","link":"https://github.com/mcmilk/7-Zip-zstd/releases/latest"},{"title":"CrystalDiskInfo","details":"CDI Aoi/Shizuku Edition","link":"https://crystalmark.info/en/software/crystaldiskinfo/"},{"title":"Dism++","details":"chuyu.me","link":"https://github.com/Chuyu-Team/Dism-Multi-language/releases/latest"},{"title":"FFmpeg","details":"gyan.dev","link":"https://github.com/GyanD/codexffmpeg/releases/latest"},{"title":"HashCheck","details":"HashCheck Shell Extension","link":"https://github.com/gurnec/HashCheck/releases/latest"},{"title":"MPC-HC","details":"Media Player Classic","link":"https://github.com/clsid2/mpc-hc/releases/latest"},{"title":"Pwsh","details":"PowerShell v7","link":"https://github.com/PowerShell/PowerShell/releases/latest"}]},"headers":[],"relativePath":"zh/link/soft/index.md","filePath":"link/soft/index@zh.md","lastUpdated":1785211457000}`)
+var i={name:`zh/link/soft/index.md`}
+function a(t,r,i,a,o,s){return e(),n(`div`)}
+var o=t(i,[[`render`,a]])
+export{r as __pageData,o as default}
