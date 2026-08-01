@@ -17,10 +17,10 @@ using JSON5: JSON
 using XML: XML, Element, Node, nodetype
 using YAML: yaml
 
-const Base.sort!(x::Node)  = (sort!(elements(x), by = string); x)
-const Base.string(x::Node) = XML.write(x, indentsize = 0)
-const bipush!(v, x)        = push!(pushfirst!(v, x), x)
-const elements(x::Node)    = @view x.children[@. Element ≡ nodetype(x.children)]
+const Base.sort!(x::Node; kw...) = (sort!(elements(x); by = string, kw...); x)
+const Base.string(x::Node)       = XML.write(x, indentsize = 0)
+const bipush!(v, x)              = push!(pushfirst!(v, x), x)
+const elements(x::Node)          = @view x.children[@. Element ≡ nodetype(x.children)]
 
 const esb = `esbuild --charset=utf8 --line-limit=$(2^16) --minify`
 const mjs = readstr("docs.jl.ts")
@@ -81,8 +81,8 @@ if abspath(PROGRAM_FILE) == @__FILE__
 				str = readstr(p)
 				xml = parse(Node, str)
 				elm = only(elements(xml))
-				sort!.(elements(bipush!(elm, "\n")))
 				sort!(elm)["xml:space"] = "preserve"
+				sort!.(elements(bipush!(elm, "\n")))
 				str = string(xml)
 				str = replace(str, r"(</\w+>){2,}\K(?!\n)|\n{2,}|$"s => "\n")
 				write(p, str)

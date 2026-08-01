@@ -5,8 +5,12 @@ JSON5 = "275fdaeb-5887-4102-8704-6b08b28f797b"
 XML = "72c71f33-b9b6-44de-8c94-c961784809e2"
 YAML = "ddb6d928-2868-570f-bddf-ab3f9cf99eb6"
 
+[weakdeps]
+MozillaCACerts_jll = "14a3606d-f60d-562e-9121-12d972cd8159"
+
 [compat]
 Exts = "≥ 0.2.20"
 JSON5 = "≥ 0.22"
+MozillaCACerts_jll = "≥ 2026.10"
 XML = "≥ 0.4"
 julia = "≥ 1.9"

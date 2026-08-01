@@ -29,7 +29,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		u = map(filter!(contains(r), readdir(d))) do f
 			reserved(replace(f, r => "", "-" => "_")) => readchomp(d * f)
 		end
-		@info write(f, conststr.(u)...) => f
+		@info write(f, conststr.(unique!(u))...) => f
 		cp(f, g, force = true)
 		let d = dirname(f), f = basename(f), g = replace(f, ".js" => ".ts")
 			cd(() -> (rm(g, force = true); symlink(f, g)), d) # stupid Node.js :(

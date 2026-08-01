@@ -39,16 +39,25 @@ export interface PerformanceEntries {
 	resource: PerformanceResourceTiming[]
 }
 
+export const escHtml = (str: string) => str.replaceAll("<", "&lt;").replaceAll(">", "&gt;")
 export const refTemplate = (ref: string) => useTemplateRef(ref) as TemplateRef
 
-export const addCustomElement = (name: string, component: DefineComponent, opt?: CustomElementOptions) => {
+export const addCustomElement = (name: string, component: DefineComponent, opt?: CustomElementOptions) =>
 	// https://cn.vuejs.org/guide/extras/web-components#sfc-as-custom-element
-	void customElements.define(name, defineCustomElement(component, opt))
-}
+	customElements?.define(name, defineCustomElement(component, opt))
 
-export const getPerformance = <T extends keyof PerformanceEntries>(type: T) => {
-	const ret = performance?.getEntriesByType(type) ?? []
-	return ret as PerformanceEntries[T]
+export const alpn = (proto: string) =>
+	// https://www.iana.org/assignments/tls-extensiontype-values/#alpn-protocol-ids
+	/^(HTTP)\/[23]$/i.test(proto) ? `h${proto[-1]}` : proto.toLowerCase()
+
+export const getPerformance = <T extends keyof PerformanceEntries>(type: T) =>
+	// https://developer.mozilla.org/docs/Web/API/Performance/getEntriesByType
+	(performance?.getEntriesByType(type) ?? []) as PerformanceEntries[T]
+
+export const getProtocolNot = (proto: string) => {
+	// https://developer.mozilla.org/docs/Web/API/PerformanceResourceTiming/nextHopProtocol
+	const [id] = getPerformance("navigation").map((nav) => nav.nextHopProtocol).filter(Boolean)
+	return id == alpn(proto) ? void id : id
 }
 
 export const fixHtml = (html: string) => {
@@ -56,6 +65,7 @@ export const fixHtml = (html: string) => {
 	html = html.replaceAll(/( *)(?<=<\/(pre|svg)>)(?=<[^!])/gm, `\n\t`)
 	html = html.replaceAll(/( *)(?=<math>|<mjx-\w+|<time datetime=)/gm, `\n\t`)
 	html = html.replaceAll(/( +)(style|title)=""(?=[ >])/gm, ``)
+	html = html.replaceAll(/( style="--vp-vh:0px;")/gm, ``)
 	html = html.replaceAll(/( target="_blank" rel="[^"]+")/gm, ``)
 	html = html.replaceAll(/(?<!"_blank")(?= href="([a-z]+:)?\/\/)/gm, ` target="_blank"`)
 	html = html.replaceAll(/(?<=\,\{)(?=href:`([a-z]+:)?\/\/)/gm, `target:\`_blank\`,`)

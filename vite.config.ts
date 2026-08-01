@@ -26,6 +26,8 @@ const rpo = (): Plugin[] => [
 					v.code = v.code.replaceAll(/(?<=\,\{)(?=href:`([a-z]+:)?\/\/)/gs, `target:\`_blank\`,`)
 					v.code = v.code.replaceAll(/(?<=\)\})(?=var \w=\w\()/gs, `\n`)
 					v.code = v.code.replaceAll(/(?<=\b(from\x22[^\x22]+\x22|return));|;\n*$/gs, `\n`)
+					v.code = v.code.replaceAll(/(?<=\s[a-z]+)(="")/gm, ``)
+					v.code = v.code.replaceAll(/(?<=`)(?=<(math|svg)\b)|(?<=<\/(math|svg)>)(?=`)/gm, `\n\t`)
 					v.code = v.code.replaceAll(/(?<=^(var )\w=JSON\.parse\(`[^`]+`\)),(?=\w=)/gm, `\n$1`)
 					v.code = v.code.replaceAll(/[\t ]+(?=\n)|(?<=\n)[\t ]+/gm, `\t`)
 					v.code = v.code.replaceAll(/\?\?\(\w\.value\?`noreferrer`:void 0\)/gm, ``)
@@ -48,7 +50,7 @@ export default defineConfig({
 		port,
 		strictPort: true,
 		proxy: {
-			"/cdn-cgi/": { changeOrigin: true, target: "https://cloudflare.com" },
+			"/cdn-cgi/": { changeOrigin: true, target: "https://cloudflare.com/" },
 		},
 	},
 	build: {

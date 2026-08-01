@@ -18,30 +18,28 @@
 	},
 	"devDependencies": {
 		"@pnpm/types": "latest-10",
-		"@primer/octicons": "^19.32.0",
-		"@types/markdown-it-footnote": "^3.0.4",
+		"@primer/octicons": "^19.42.0",
 		"@vitejs/plugin-basic-ssl": "^2.3.0",
-		"markdown-it-footnote": "^4.0.0",
-		"prettier": "^3.9.6",
+		"prettier": "^3.9.10",
 		"vitepress": "next"
 	},
 	"optionalDependencies": {
-		"@types/markdown-it": "^14.1.2",
-		"@types/node": "^26.1.2",
-		"@vitejs/plugin-vue": "^6.0.8",
-		"@vue/compiler-core": "^3.5.40",
-		"@vue/compiler-sfc": "^3.5.40",
-		"@vue/reactivity": "^3.5.40",
-		"@vue/runtime-core": "^3.5.40",
-		"@vue/runtime-dom": "^3.5.40",
+		"@types/markdown-it": "^14.2.0",
+		"@types/node": "^26.6.5",
+		"@vitejs/plugin-vue": "^6.0.10",
+		"@vue/compiler-core": "^3.5.44",
+		"@vue/compiler-sfc": "^3.5.44",
+		"@vue/reactivity": "^3.5.44",
+		"@vue/runtime-core": "^3.5.44",
+		"@vue/runtime-dom": "^3.5.44",
 		"csstype": "^3.2.3",
-		"esbuild": "^0.28.1",
-		"less": "^4.8.1",
-		"markdown-it-mathjax3": "https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/v4.4.3",
-		"rolldown": "^1.2.1",
+		"esbuild": "^0.28.2",
+		"less": "^4.9.1",
+		"markdown-it-mathjax3": "https://codeload.github.com/Heptazhou/markdown-it-mathjax3/tar.gz/v4.4.4",
+		"rolldown": "^1.2.15",
 		"typescript": "^7.0.2",
-		"vite": "^8.2.0",
-		"vue": "^3.5.40"
+		"vite": "^8.3.5",
+		"vue": "^3.5.44"
 	},
 	"engines": {
 		"node": ">=24.0.0",
@@ -64,8 +62,13 @@
 		},
 		"packageExtensions": {
 			"@mathjax/mathjax-newcm-font": {
-				"peerDependencies": {
+				"dependencies": {
 					"@mathjax/src": "*"
+				}
+			},
+			"vitepress": {
+				"dependencies": {
+					"@primer/octicons": "*"
 				}
 			}
 		},

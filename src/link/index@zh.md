@@ -41,7 +41,8 @@ features:
 #   - title: "Intel 产品规格"
 #     link: https://www.intel.com/content/www/us/en/ark.html
   - title: "IP/HTTP 连接信息"
-    link: https://crypto.cloudflare.com/cdn-cgi/trace
+    # link: https://crypto.cloudflare.com/cdn-cgi/trace
+    link: https://cloudflare-esni.com/cdn-cgi/trace
   - title: "Julia 版本状态"
     link: https://julialang.org/downloads/manual-downloads/
   - title: "Linux 版本状态"

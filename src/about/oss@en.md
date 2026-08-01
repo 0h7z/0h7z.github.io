@@ -96,7 +96,7 @@
 		ParseError on Julia v1.13
 :::
 
-::: details mdn <!-- {open} -->
+::: details mdn {open}
 +	[browser-compat-data](https://github.com/mdn/browser-compat-data/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	Browser compatibility data for Web technologies as displayed on MDN
 	-	[#30028](https://github.com/mdn/browser-compat-data/pull/30028)
@@ -156,6 +156,7 @@
 
 ::: details VSCodium <!-- {open} -->
 +	[update-api](https://github.com/VSCodium/update-api/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
+	<!-- A small server that VSCodium calls to check for the latest release on GitHub -->
 	-	[#5](https://github.com/VSCodium/update-api/pull/5)
 		Fix for win32[-x64]-system case
 :::
@@ -214,6 +215,7 @@
 		<!-- Internal CSS (UTF-8) does not work on UTF-16 page -->
 		Internal stylesheet `plaintext.css` (UTF-8) isn't honored in rendering of plaintext document that uses UTF-16 page
 +	[Voting for](https://bugzilla.mozilla.org/page.cgi?id=voting/user.html)
+	<!-- Core -->
 	-	[Bug 0764076](https://bugzilla.mozilla.org/show_bug.cgi?id=0764076)
 		intrinsic width of "overflow:auto" element doesn't grow to accomodate its scrollbar
 	-	[Bug 1539075](https://bugzilla.mozilla.org/show_bug.cgi?id=1539075) (JPEG-XL)
@@ -224,11 +226,22 @@
 		White background during image loading
 	-	[Bug 1696090](https://bugzilla.mozilla.org/show_bug.cgi?id=1696090)
 		AVIF grid-based images are not supported
-+	CC'd on
+	<!-- WebExtensions -->
+	-	[Bug 1372288](https://bugzilla.mozilla.org/show_bug.cgi?id=1372288)
+		[meta] WebExtensions can be used as user fingerprint
 	-	[Bug 1395025](https://bugzilla.mozilla.org/show_bug.cgi?id=1395025)
 		Extension popup windows with vertically-scrolling content are too narrow
+	-	[Bug 1405971](https://bugzilla.mozilla.org/show_bug.cgi?id=1405971)
+		Webextension UUID leak to servers via Fetch request headers
++	CC'd on
+	-	[Bug 0572650](https://bugzilla.mozilla.org/show_bug.cgi?id=0572650) (http-fingerprint)
+		[meta] Reduce the amount of data and entropy sent out in HTTP requests
 	-	[Bug 1504858](https://bugzilla.mozilla.org/show_bug.cgi?id=1504858) (rustup)
 		[Meta] Tracking bug for rustc updates
+	-	[Bug 1507517](https://bugzilla.mozilla.org/show_bug.cgi?id=1507517) (rfp-breakage)
+		[META] Breakage from Fingerprinting Resistance
+	-	[Bug 1543241](https://bugzilla.mozilla.org/show_bug.cgi?id=1543241) (mach-busted)
+		[meta] Tracking bug for known breakage in Firefox developer tooling
 	-	[Bug 1725938](https://bugzilla.mozilla.org/show_bug.cgi?id=1725938) (ech)
 		[meta] TLS Encrypted Client Hello (ECH)
 	-	[Bug 1882979](https://bugzilla.mozilla.org/show_bug.cgi?id=1882979)

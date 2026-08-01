@@ -1,7 +1,6 @@
 import { createMarkdownRenderer, defineConfig } from "vitepress"
 import { fixHtml, max, obj2vec } from "./main"
 import { mark_github } from "@primer/octicons/svg"
-import footnote from "markdown-it-footnote"
 import locale from "./locale.json"
 import type { DefaultTheme, LocaleConfig, MarkdownOptions } from "vitepress"
 import type { Language, VueCompilerOptions, VueOptions } from "./main"
@@ -16,7 +15,7 @@ import type { Feature } from "vitepress/dist/client/theme-default/components/VPF
 const MDSRCDIR = "src"
 const MDCONFIG = {
 	preConfig: undefined,
-	config: (MD) => void MD.use(footnote),
+	config: undefined,
 	cache: true,
 	externalLinks: undefined,
 	theme: undefined,
@@ -26,7 +25,7 @@ const MDCONFIG = {
 	defaultHighlightLang: undefined,
 	codeTransformers: undefined,
 	shikiSetup: undefined,
-	codeCopyButtonTitle: "",
+	codeCopyButton: undefined,
 	anchor: {
 		slugify: (s) => {
 			const t = s.replace(/[:].*/, "").trim()
@@ -279,7 +278,7 @@ export default defineConfig({
 	assetsDir: "@",
 	cacheDir: "temp",
 	ignoreDeadLinks: true,
-	metaChunk: true,
+	// metaChunk: true, // https://github.com/vuejs/vitepress/pull/5325
 	mpa: false,
 
 	// https://vitepress.dev/zh/reference/site-config#theming

@@ -42,7 +42,8 @@ features:
 #   - title: "Intel Product Specification"
 #     link: https://www.intel.com/content/www/us/en/ark.html
   - title: "IP/HTTP Trace Info"
-    link: https://crypto.cloudflare.com/cdn-cgi/trace
+    # link: https://crypto.cloudflare.com/cdn-cgi/trace
+    link: https://cloudflare-esni.com/cdn-cgi/trace
   - title: "Julia Release"
     link: https://julialang.org/downloads/manual-downloads/
   - title: "Linux Kernel Release"
