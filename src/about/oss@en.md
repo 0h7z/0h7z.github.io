@@ -96,6 +96,13 @@
 		ParseError on Julia v1.13
 :::
 
+::: details LaTeX-Package-Repositories {open hidden}
++	[pdfcomment](https://github.com/LaTeX-Package-Repositories/pdfcomment/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
+	Maintaining the pdfcomment package, originally by Josef Kleber
+	-	[#1](https://github.com/LaTeX-Package-Repositories/pdfcomment/pull/1)
+		Package dependency
+:::
+
 ::: details mdn {open}
 +	[browser-compat-data](https://github.com/mdn/browser-compat-data/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	Browser compatibility data for Web technologies as displayed on MDN
@@ -118,6 +125,12 @@
 :::
 
 ::: details ScoopInstaller {open}
++	[Games](https://github.com/ScoopInstaller/Games/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
+	Scoop bucket for open source/freeware games and game-related tools
+	-	[#1828](https://github.com/ScoopInstaller/Games/pull/1828)
+		xxmi: add config file to persist
+	<!-- -	[#1846](https://github.com/ScoopInstaller/Games/pull/1846) -->
+	<!-- 	xxmi: update persist & post_install -->
 +	[Main](https://github.com/ScoopInstaller/Main/issues?q=author:Heptazhou%20OR%20commenter:Heptazhou)
 	The default bucket for Scoop.
 	-	[#6798](https://github.com/ScoopInstaller/Main/pull/6798)
@@ -196,6 +209,8 @@
 		The Python programming language (version 3.10)
 	-	[python311](https://aur.archlinux.org/pkgbase/python311)
 		The Python programming language (version 3.11)
+	-	[python316](https://aur.archlinux.org/pkgbase/python316)
+		The Python programming language (version 3.16)
 	-	[xgterm-bin](https://aur.archlinux.org/pkgbase/xgterm-bin)
 		Terminal emulator to work with IRAF
 +	Past
@@ -212,8 +227,8 @@
 	-	[Bug 1831804](https://bugzilla.mozilla.org/show_bug.cgi?id=1831804)
 		AttributeError: module 'glean_parser.lint' has no attribute 'lint_yaml_files'
 	-	[Bug 1919205](https://bugzilla.mozilla.org/show_bug.cgi?id=1919205)
-		<!-- Internal CSS (UTF-8) does not work on UTF-16 page -->
-		Internal stylesheet `plaintext.css` (UTF-8) isn't honored in rendering of plaintext document that uses UTF-16 page
+		Internal CSS (UTF-8) does not work on UTF-16 page
+		<!-- Internal stylesheet `plaintext.css` (UTF-8) isn't honored in rendering of plaintext document that uses UTF-16 page -->
 +	[Voting for](https://bugzilla.mozilla.org/page.cgi?id=voting/user.html)
 	<!-- Core -->
 	-	[Bug 0764076](https://bugzilla.mozilla.org/show_bug.cgi?id=0764076)
@@ -226,6 +241,8 @@
 		White background during image loading
 	-	[Bug 1696090](https://bugzilla.mozilla.org/show_bug.cgi?id=1696090)
 		AVIF grid-based images are not supported
+	-	[Bug 1823580](https://bugzilla.mozilla.org/show_bug.cgi?id=1823580)
+		Act as though intl.regional_prefs.use_os_locales is false when RFP is enabled
 	<!-- WebExtensions -->
 	-	[Bug 1372288](https://bugzilla.mozilla.org/show_bug.cgi?id=1372288)
 		[meta] WebExtensions can be used as user fingerprint
@@ -250,7 +267,7 @@
 	<!-- -	[Bug 1709814](https://bugzilla.mozilla.org/show_bug.cgi?id=1709814) FF150 RESOLVED FIXED -->
 	<!-- -	[Bug 1831804](https://bugzilla.mozilla.org/show_bug.cgi?id=1831804) FF115 RESOLVED FIXED -->
 	<!-- -	[Bug 1848717](https://bugzilla.mozilla.org/show_bug.cgi?id=1848717) FF120 VERIFIED FIXED -->
-	-	[Bug 1917979](https://bugzilla.mozilla.org/show_bug.cgi?id=1917979) FF145
+	-	[Bug 1917979](https://bugzilla.mozilla.org/show_bug.cgi?id=1917979) FF145 RESOLVED FIXED
 	<!-- -	[Bug 1919205](https://bugzilla.mozilla.org/show_bug.cgi?id=1919205) FF132 RESOLVED FIXED -->
 :::
 
