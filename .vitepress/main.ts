@@ -20,15 +20,17 @@ export * from "../src/main"
 export type { App } from "@vue/runtime-core"
 export type { CompilerOptions as VueCompilerOptions } from "@vue/compiler-core"
 export type { Options as VueOptions } from "@vitejs/plugin-vue"
-export type { PropertiesHyphen as CSS } from "csstype"
 export type { Ref } from "@vue/reactivity"
 import { defineCustomElement } from "@vue/runtime-dom"
 import { useTemplateRef } from "@vue/runtime-core"
 import locale from "./locale.json"
 import type { CustomElementOptions } from "@vue/runtime-dom"
 import type { DefineComponent } from "@vue/runtime-core"
+import type { PropertiesHyphen as CSSProperties } from "csstype"
+import type { Reduce } from "../src/main"
 import type { ShallowRef } from "@vue/reactivity"
 
+export type CSS = Reduce<CSSProperties>
 export type Language = keyof typeof locale.language
 export type TemplateRef = Readonly<ShallowRef<HTMLElement>>
 
@@ -48,7 +50,7 @@ export const addCustomElement = (name: string, component: DefineComponent, opt?:
 
 export const alpn = (proto: string) =>
 	// https://www.iana.org/assignments/tls-extensiontype-values/#alpn-protocol-ids
-	/^(HTTP)\/[23]$/i.test(proto) ? `h${proto[-1]}` : proto.toLowerCase()
+	/^(HTTP)\/[23]$/i.test(proto) ? `h${proto.slice(-1)}` : proto.toLowerCase()
 
 export const getPerformance = <T extends keyof PerformanceEntries>(type: T) =>
 	// https://developer.mozilla.org/docs/Web/API/Performance/getEntriesByType
@@ -56,8 +58,8 @@ export const getPerformance = <T extends keyof PerformanceEntries>(type: T) =>
 
 export const getProtocolNot = (proto: string) => {
 	// https://developer.mozilla.org/docs/Web/API/PerformanceResourceTiming/nextHopProtocol
-	const [id] = getPerformance("navigation").map((nav) => nav.nextHopProtocol).filter(Boolean)
-	return id == alpn(proto) ? void id : id
+	const id = getPerformance("navigation").find(Boolean)?.nextHopProtocol
+	return alpn(proto) == id ? void id : id
 }
 
 export const fixHtml = (html: string) => {

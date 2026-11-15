@@ -97,6 +97,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		s = replace(s, r"^\s*\.name,\n\s*\.text \{[^}]*?\n\K\s*max-width: [\d.]+rem;\n"m => "")
 	end
 	patch("node_modules/vitepress/dist/client/theme-default/components/VPLink.vue", tab = 2) do s
+		# https://github.com/vuejs/vitepress/commit/bead1384b2aca9101f3da76d504d7642a42befa0
 		s = replace(s, r"^\s*color:\s*var\(--vp-.+\);\n"m => "")
 	end
 	patch("node_modules/vitepress/dist/client/theme-default/components/VPSidebarItem.vue", tab = 2) do s
@@ -151,7 +152,7 @@ if abspath(PROGRAM_FILE) == @__FILE__
 		# https://nodejs.org/api/deprecations.html#DEP0198
 		s = replace(s, "(\"sha256\")" => "(\"shake256\", { outputLength: 8 })")
 		# https://github.com/vuejs/vitepress/commit/a8a1800ae578be88027aa4ec7561ada4d055b888
-		s = replace(s, r"(&#8203;)"i => "") # \u200b
+		s = replace(s, r"&(#8203|#x200b|ZeroWidthSpace);"i => "") # \u200b
 	end
 	patch("node_modules/vitepress/dist/node/", r"^(chunk|serve)-.+\.js$") do s
 		o = """function getIconData(data, name) {"""

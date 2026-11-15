@@ -213,6 +213,8 @@
 		The Python programming language (version 3.16)
 	-	[xgterm-bin](https://aur.archlinux.org/pkgbase/xgterm-bin)
 		Terminal emulator to work with IRAF
+	-	[zramswap](https://aur.archlinux.org/pkgbase/zramswap)
+		Set up swap in zram to compress memory (zram-tools)
 +	Past
 	-	[glibc-linux4](https://github.com/archlinux/aur/tree/glibc-linux4)
 		GNU C Library (linux 4.x compat)
